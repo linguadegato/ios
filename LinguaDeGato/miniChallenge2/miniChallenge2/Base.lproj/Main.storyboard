@@ -29,7 +29,7 @@
         <!--Create Crossword View Controller-->
         <scene sceneID="wcL-T2-f38">
             <objects>
-                <viewController id="poN-pE-e0p" customClass="CreateCrosswordViewController" customModule="miniChallenge2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="poN-pE-e0p" customClass="CreateCrosswordViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n3w-s1-vqG"/>
                         <viewControllerLayoutGuide type="bottom" id="kIP-fa-tc1"/>
@@ -195,7 +195,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="5RJ-GH-ISS" customClass="NewWordCollectionViewCell" customModule="miniChallenge2" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="5RJ-GH-ISS" customClass="NewWordCollectionViewCell" customModule="LinguaDeGato" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="135" height="130"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -341,7 +341,7 @@
         <!--Game Play View Controller-->
         <scene sceneID="Fxu-H6-vaK">
             <objects>
-                <viewController id="epj-fT-bue" customClass="GamePlayViewController" customModule="miniChallenge2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="epj-fT-bue" customClass="GamePlayViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b4d-cD-jcb"/>
                         <viewControllerLayoutGuide type="bottom" id="B9L-XC-Vs3"/>
@@ -350,7 +350,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="miniChallenge2" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-3h-t5z">
@@ -397,7 +397,7 @@
         <!--Initial View Controller-->
         <scene sceneID="0g3-yJ-IvD">
             <objects>
-                <viewController id="Yba-oo-O4l" customClass="InitialViewController" customModule="miniChallenge2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Yba-oo-O4l" customClass="InitialViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iTP-WE-60i"/>
                         <viewControllerLayoutGuide type="bottom" id="93C-Ug-VIN"/>
