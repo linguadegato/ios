@@ -692,7 +692,52 @@
                     <view key="view" contentMode="scaleToFill" id="Zjg-ed-b8Q">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="268"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmO-dL-qQv" userLabel="Title View">
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconGalleryOrange" translatesAutoresizingMaskIntoConstraints="NO" id="Fk0-mV-eqz" userLabel="Icon Image">
+                                        <rect key="frame" x="5" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Fk0-mV-eqz" secondAttribute="height" multiplier="1:1" id="fRQ-Mn-uHs"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2z8-9H-7LU" userLabel="Play Button">
+                                        <rect key="frame" x="195" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="2z8-9H-7LU" secondAttribute="height" multiplier="1:1" id="Qhj-eY-ucm"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="iconPlayOrange"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GALERIA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKm-qH-KN2" userLabel="Title Label">
+                                        <rect key="frame" x="55" y="14" width="140" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="0.95294117647058818" green="0.59999999999999998" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="LKm-qH-KN2" firstAttribute="centerY" secondItem="lmO-dL-qQv" secondAttribute="centerY" id="8JR-py-hfb"/>
+                                    <constraint firstItem="2z8-9H-7LU" firstAttribute="leading" secondItem="LKm-qH-KN2" secondAttribute="trailing" id="L4B-sQ-4wB"/>
+                                    <constraint firstAttribute="trailing" secondItem="2z8-9H-7LU" secondAttribute="trailing" constant="5" id="Mjo-fD-6AZ"/>
+                                    <constraint firstItem="Fk0-mV-eqz" firstAttribute="leading" secondItem="lmO-dL-qQv" secondAttribute="leading" constant="5" id="OEw-JT-LCx"/>
+                                    <constraint firstItem="2z8-9H-7LU" firstAttribute="centerY" secondItem="lmO-dL-qQv" secondAttribute="centerY" id="Rgj-oc-jM8"/>
+                                    <constraint firstItem="Fk0-mV-eqz" firstAttribute="centerY" secondItem="lmO-dL-qQv" secondAttribute="centerY" id="Xaq-D0-aeS"/>
+                                    <constraint firstItem="Fk0-mV-eqz" firstAttribute="height" secondItem="lmO-dL-qQv" secondAttribute="height" id="Y9L-mO-msg"/>
+                                    <constraint firstItem="2z8-9H-7LU" firstAttribute="height" secondItem="lmO-dL-qQv" secondAttribute="height" id="YOG-qp-m56"/>
+                                    <constraint firstAttribute="height" constant="50" id="lxE-cH-9SL"/>
+                                    <constraint firstItem="LKm-qH-KN2" firstAttribute="centerX" secondItem="lmO-dL-qQv" secondAttribute="centerX" id="wzA-ki-P2y"/>
+                                    <constraint firstItem="LKm-qH-KN2" firstAttribute="leading" secondItem="Fk0-mV-eqz" secondAttribute="trailing" id="yDi-Tm-mF3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lmO-dL-qQv" firstAttribute="centerX" secondItem="Zjg-ed-b8Q" secondAttribute="centerX" id="QLg-8a-A46"/>
+                            <constraint firstItem="lmO-dL-qQv" firstAttribute="top" secondItem="Zjg-ed-b8Q" secondAttribute="topMargin" id="pqJ-an-twh"/>
+                            <constraint firstItem="lmO-dL-qQv" firstAttribute="width" secondItem="Zjg-ed-b8Q" secondAttribute="width" id="ziG-xu-T12"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Um-In-avN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -708,6 +753,7 @@
         <image name="btnGalleryGreen" width="267" height="257"/>
         <image name="btnPlayBlue" width="130" height="130"/>
         <image name="iconCatTransparent" width="699" height="669"/>
+        <image name="iconGalleryOrange" width="134" height="134"/>
         <image name="iconGameBlue" width="135" height="135"/>
         <image name="iconGamePink" width="128" height="128"/>
         <image name="iconPlayAudioBlackTransparent" width="134" height="134"/>
