@@ -124,7 +124,7 @@
                                                 </constraints>
                                             </view>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconTrashOrangeTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="XiI-TA-MYn" userLabel="Trash Img">
-                                                <rect key="frame" x="0.0" y="6" width="26.5" height="26.5"/>
+                                                <rect key="frame" x="0.0" y="6" width="27" height="27"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="XiI-TA-MYn" secondAttribute="height" multiplier="1:1" id="WjZ-Gp-RGJ"/>
@@ -444,52 +444,120 @@
                                                 <rect key="frame" x="0.0" y="187" width="600" height="188"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9N-wt-Bmc" userLabel="ButtonBox">
-                                                        <rect key="frame" x="201" y="89" width="198" height="99"/>
+                                                        <rect key="frame" x="125" y="89" width="350" height="99"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="i1h-AD-wNb" userLabel="Novo Jogo">
-                                                                <rect key="frame" x="132" y="0.0" width="66" height="99"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40l-l1-zj0" userLabel="Play">
+                                                                <rect key="frame" x="0.0" y="0.0" width="117" height="99"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMZ-68-6Ji">
+                                                                        <rect key="frame" x="29" y="0.0" width="59" height="59"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" secondItem="zMZ-68-6Ji" secondAttribute="width" id="bpU-dp-zGC"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                                        <inset key="titleEdgeInsets" minX="-125" minY="66" maxX="0.0" maxY="0.0"/>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="33"/>
+                                                                        <state key="normal" backgroundImage="iconPlayOrange">
+                                                                            <color key="titleColor" red="0.95294117647058818" green="0.59999999999999998" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        </state>
+                                                                    </button>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga0-yN-LU7" userLabel="Play Label">
+                                                                        <rect key="frame" x="0.0" y="79" width="117" height="28"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                                                        <color key="textColor" red="0.95294117647058818" green="0.59999999999999998" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="i1h-AD-wNb" secondAttribute="height" multiplier="2:3" id="kOm-07-trk"/>
+                                                                    <constraint firstItem="zMZ-68-6Ji" firstAttribute="top" secondItem="40l-l1-zj0" secondAttribute="top" id="0eU-7w-gNf"/>
+                                                                    <constraint firstItem="ga0-yN-LU7" firstAttribute="width" secondItem="40l-l1-zj0" secondAttribute="width" id="3gk-cU-7I2"/>
+                                                                    <constraint firstItem="ga0-yN-LU7" firstAttribute="leading" secondItem="40l-l1-zj0" secondAttribute="leading" id="DfL-mP-Kka"/>
+                                                                    <constraint firstItem="zMZ-68-6Ji" firstAttribute="centerX" secondItem="40l-l1-zj0" secondAttribute="centerX" id="Fhb-tC-izM"/>
+                                                                    <constraint firstItem="zMZ-68-6Ji" firstAttribute="width" secondItem="40l-l1-zj0" secondAttribute="width" multiplier="1:2" id="cNq-fQ-hzg"/>
+                                                                    <constraint firstItem="ga0-yN-LU7" firstAttribute="top" secondItem="zMZ-68-6Ji" secondAttribute="bottom" constant="20" id="taI-LK-Wsc"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                                                <inset key="titleEdgeInsets" minX="-125" minY="75" maxX="0.0" maxY="0.0"/>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="33"/>
-                                                                <state key="normal" title="Novo jogo" image="iconGameBlue">
-                                                                    <color key="titleColor" red="0.1803921568627451" green="0.68627450980392157" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <segue destination="poN-pE-e0p" kind="show" id="neo-dr-ILo"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMZ-68-6Ji">
-                                                                <rect key="frame" x="0.0" y="0.0" width="66" height="99"/>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NrP-aN-FwO" userLabel="Criar Jogo">
+                                                                <rect key="frame" x="117" y="0.0" width="117" height="99"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="i1h-AD-wNb" userLabel="Criar Jogo Button">
+                                                                        <rect key="frame" x="29" y="0.0" width="59" height="59"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="i1h-AD-wNb" secondAttribute="height" multiplier="1:1" id="kOm-07-trk"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                                        <inset key="titleEdgeInsets" minX="-125" minY="75" maxX="0.0" maxY="0.0"/>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="33"/>
+                                                                        <state key="normal" backgroundImage="iconGamePink">
+                                                                            <color key="titleColor" red="0.88627450980392153" green="0.20784313725490197" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <segue destination="poN-pE-e0p" kind="show" id="neo-dr-ILo"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Criar jogo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5f-RW-Unw" userLabel="Criar Jogo Label">
+                                                                        <rect key="frame" x="0.0" y="79" width="117" height="28"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                                                        <color key="textColor" red="0.88627450980392153" green="0.20784313725490197" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="zMZ-68-6Ji" secondAttribute="height" multiplier="2:3" id="xHp-aN-Ot8"/>
+                                                                    <constraint firstItem="i1h-AD-wNb" firstAttribute="width" secondItem="NrP-aN-FwO" secondAttribute="width" multiplier="1:2" id="B3l-pC-mw9"/>
+                                                                    <constraint firstItem="i1h-AD-wNb" firstAttribute="centerX" secondItem="NrP-aN-FwO" secondAttribute="centerX" id="HgA-82-8pY"/>
+                                                                    <constraint firstItem="i1h-AD-wNb" firstAttribute="top" secondItem="NrP-aN-FwO" secondAttribute="top" id="UE4-Qp-91q"/>
+                                                                    <constraint firstItem="t5f-RW-Unw" firstAttribute="top" secondItem="i1h-AD-wNb" secondAttribute="bottom" constant="20" id="fBp-im-txU"/>
+                                                                    <constraint firstItem="t5f-RW-Unw" firstAttribute="centerX" secondItem="NrP-aN-FwO" secondAttribute="centerX" id="haX-qb-3zk"/>
+                                                                    <constraint firstItem="t5f-RW-Unw" firstAttribute="width" secondItem="NrP-aN-FwO" secondAttribute="width" id="nqz-LR-s4g"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                                                <inset key="titleEdgeInsets" minX="-125" minY="66" maxX="0.0" maxY="0.0"/>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="33"/>
-                                                                <state key="normal" title="Jogar" image="iconPlayBlue">
-                                                                    <color key="titleColor" red="0.1803921568627451" green="0.68627450980392157" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
-                                                                </state>
-                                                            </button>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nte-J2-LbW" userLabel="Jogos Salvos">
+                                                                <rect key="frame" x="233" y="0.0" width="117" height="99"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="wYF-ZM-4ZP" userLabel="Jogos Salvos Button">
+                                                                        <rect key="frame" x="29" y="0.0" width="59" height="59"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="wYF-ZM-4ZP" secondAttribute="height" multiplier="1:1" id="b4d-Lg-Rat"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                                        <inset key="titleEdgeInsets" minX="-125" minY="75" maxX="0.0" maxY="0.0"/>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="33"/>
+                                                                        <state key="normal" backgroundImage="iconGameBlue">
+                                                                            <color key="titleColor" red="0.60392156862745094" green="0.75294117647058822" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        </state>
+                                                                    </button>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogos Salvos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXe-f9-4lT" userLabel="Jogos Salvos Label">
+                                                                        <rect key="frame" x="0.0" y="79" width="117" height="28"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                                                        <color key="textColor" red="0.60392156862745094" green="0.75294117647058822" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="oXe-f9-4lT" firstAttribute="top" secondItem="wYF-ZM-4ZP" secondAttribute="bottom" constant="20" id="EwH-ZG-fQu"/>
+                                                                    <constraint firstItem="oXe-f9-4lT" firstAttribute="width" secondItem="Nte-J2-LbW" secondAttribute="width" id="bpj-HO-SOa"/>
+                                                                    <constraint firstItem="wYF-ZM-4ZP" firstAttribute="centerX" secondItem="Nte-J2-LbW" secondAttribute="centerX" id="jfi-mN-h3u"/>
+                                                                    <constraint firstItem="wYF-ZM-4ZP" firstAttribute="width" secondItem="Nte-J2-LbW" secondAttribute="width" multiplier="1:2" id="nW0-Ye-4hC"/>
+                                                                    <constraint firstItem="wYF-ZM-4ZP" firstAttribute="top" secondItem="Nte-J2-LbW" secondAttribute="top" id="o7b-LQ-VXO"/>
+                                                                    <constraint firstItem="oXe-f9-4lT" firstAttribute="centerX" secondItem="Nte-J2-LbW" secondAttribute="centerX" id="yI3-k7-MfR"/>
+                                                                </constraints>
+                                                            </view>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="i1h-AD-wNb" firstAttribute="width" secondItem="i1h-AD-wNb" secondAttribute="height" multiplier="2:3" id="3m5-pB-Clu"/>
-                                                            <constraint firstAttribute="trailing" secondItem="i1h-AD-wNb" secondAttribute="trailing" id="4cI-PW-hy8"/>
+                                                            <constraint firstItem="NrP-aN-FwO" firstAttribute="centerX" secondItem="o9N-wt-Bmc" secondAttribute="centerX" id="48V-RL-huh"/>
                                                             <constraint firstAttribute="height" constant="99" id="5vG-RR-YFT"/>
-                                                            <constraint firstAttribute="bottom" secondItem="i1h-AD-wNb" secondAttribute="bottom" id="J7P-PH-KPp"/>
-                                                            <constraint firstItem="zMZ-68-6Ji" firstAttribute="leading" secondItem="o9N-wt-Bmc" secondAttribute="leading" id="SRe-GC-0GM"/>
-                                                            <constraint firstItem="i1h-AD-wNb" firstAttribute="top" secondItem="o9N-wt-Bmc" secondAttribute="top" id="TBQ-N2-pFA"/>
-                                                            <constraint firstAttribute="bottom" secondItem="zMZ-68-6Ji" secondAttribute="bottom" id="UP7-Vn-ibb"/>
-                                                            <constraint firstItem="zMZ-68-6Ji" firstAttribute="top" secondItem="o9N-wt-Bmc" secondAttribute="top" id="mo4-kN-7aQ"/>
-                                                            <constraint firstAttribute="width" secondItem="o9N-wt-Bmc" secondAttribute="height" multiplier="2" id="sGQ-KG-Dkk"/>
+                                                            <constraint firstItem="Nte-J2-LbW" firstAttribute="width" secondItem="o9N-wt-Bmc" secondAttribute="width" multiplier="1:3" id="68W-nD-MKd"/>
+                                                            <constraint firstItem="40l-l1-zj0" firstAttribute="leading" secondItem="o9N-wt-Bmc" secondAttribute="leading" id="BbI-ib-1Qd"/>
+                                                            <constraint firstItem="NrP-aN-FwO" firstAttribute="height" secondItem="o9N-wt-Bmc" secondAttribute="height" id="IcW-rc-iIG"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Nte-J2-LbW" secondAttribute="trailing" id="Iy9-px-G6l"/>
+                                                            <constraint firstItem="Nte-J2-LbW" firstAttribute="top" secondItem="o9N-wt-Bmc" secondAttribute="top" id="NMO-gE-zpf"/>
+                                                            <constraint firstItem="NrP-aN-FwO" firstAttribute="width" secondItem="o9N-wt-Bmc" secondAttribute="width" multiplier="1:3" id="Qoj-tt-vjn"/>
+                                                            <constraint firstItem="40l-l1-zj0" firstAttribute="height" secondItem="o9N-wt-Bmc" secondAttribute="height" id="boE-TE-cPe"/>
+                                                            <constraint firstAttribute="bottom" secondItem="NrP-aN-FwO" secondAttribute="bottom" id="if2-2O-aJv"/>
+                                                            <constraint firstItem="Nte-J2-LbW" firstAttribute="height" secondItem="o9N-wt-Bmc" secondAttribute="height" id="j3A-q0-ibx"/>
+                                                            <constraint firstItem="40l-l1-zj0" firstAttribute="top" secondItem="o9N-wt-Bmc" secondAttribute="top" id="swM-QK-oQn"/>
+                                                            <constraint firstItem="40l-l1-zj0" firstAttribute="width" secondItem="o9N-wt-Bmc" secondAttribute="width" multiplier="1:3" id="tcR-aQ-ebi"/>
                                                         </constraints>
-                                                        <variation key="default">
-                                                            <mask key="constraints">
-                                                                <exclude reference="3m5-pB-Clu"/>
-                                                            </mask>
-                                                        </variation>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
@@ -499,6 +567,7 @@
                                             </view>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="o9N-wt-Bmc" firstAttribute="width" secondItem="RYs-l5-fdx" secondAttribute="width" id="0Ye-gR-hOS"/>
                                             <constraint firstAttribute="bottom" secondItem="RnB-ZL-gxM" secondAttribute="bottom" id="7ku-kU-BpB"/>
                                             <constraint firstItem="RnB-ZL-gxM" firstAttribute="height" secondItem="1jD-Ie-TNP" secondAttribute="height" multiplier="0.5" id="CuE-gj-Sps"/>
                                             <constraint firstItem="lOi-ih-0pr" firstAttribute="top" secondItem="1jD-Ie-TNP" secondAttribute="top" id="KLA-An-sk4"/>
@@ -556,9 +625,10 @@
         <image name="btnPlayBlue" width="130" height="130"/>
         <image name="iconCatTransparent" width="699" height="669"/>
         <image name="iconGameBlue" width="135" height="135"/>
+        <image name="iconGamePink" width="128" height="128"/>
         <image name="iconPlayAudioBlackTransparent" width="134" height="134"/>
         <image name="iconPlayAudioOranteTransparent" width="134" height="134"/>
-        <image name="iconPlayBlue" width="135" height="135"/>
+        <image name="iconPlayOrange" width="128" height="128"/>
         <image name="iconTrashOrangeTransparent" width="256" height="256"/>
         <image name="imageDefault" width="683" height="499"/>
         <image name="slideOrange" width="78" height="78"/>
