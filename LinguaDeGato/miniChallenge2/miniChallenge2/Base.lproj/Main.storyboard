@@ -525,6 +525,9 @@
                                                                         <state key="normal" backgroundImage="iconGameBlue">
                                                                             <color key="titleColor" red="0.60392156862745094" green="0.75294117647058822" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <segue destination="Ztr-Cm-8Zd" kind="show" id="66m-oR-NPA"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogos Salvos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXe-f9-4lT" userLabel="Jogos Salvos Label">
                                                                         <rect key="frame" x="0.0" y="79" width="117" height="28"/>
@@ -589,7 +592,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="J7r-m5-fLP" firstAttribute="centerY" secondItem="5ch-Ae-AVm" secondAttribute="centerY" id="2Dt-TF-qFU"/>
                             <constraint firstAttribute="trailing" secondItem="xRa-ZF-3Ot" secondAttribute="trailing" id="Hrn-Yv-lsY"/>
                             <constraint firstItem="J7r-m5-fLP" firstAttribute="centerX" secondItem="5ch-Ae-AVm" secondAttribute="centerX" id="IFz-Cd-1GI"/>
                             <constraint firstItem="93C-Ug-VIN" firstAttribute="top" secondItem="xRa-ZF-3Ot" secondAttribute="bottom" id="VFe-eD-pEh"/>
@@ -599,11 +601,6 @@
                             <constraint firstItem="xRa-ZF-3Ot" firstAttribute="leading" secondItem="5ch-Ae-AVm" secondAttribute="leading" id="v9Z-IV-D0M"/>
                             <constraint firstItem="xRa-ZF-3Ot" firstAttribute="top" secondItem="iTP-WE-60i" secondAttribute="bottom" id="zfa-2b-3BL"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="2Dt-TF-qFU"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="WDg-E8-mOP"/>
                     <connections>
@@ -614,6 +611,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgn-Gy-cpt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1202" y="351"/>
+        </scene>
+        <!--Saved Games View Controller-->
+        <scene sceneID="gi8-ES-11H">
+            <objects>
+                <viewController id="Ztr-Cm-8Zd" userLabel="Saved Games View Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TOv-UR-yNL"/>
+                        <viewControllerLayoutGuide type="bottom" id="ass-fY-UUH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jNh-nI-rDI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="cgk-bY-eR1" userLabel="Background">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cgk-bY-eR1" firstAttribute="top" secondItem="TOv-UR-yNL" secondAttribute="bottom" id="c78-tv-ucG"/>
+                            <constraint firstAttribute="trailing" secondItem="cgk-bY-eR1" secondAttribute="trailing" id="e7e-tF-VuB"/>
+                            <constraint firstItem="ass-fY-UUH" firstAttribute="top" secondItem="cgk-bY-eR1" secondAttribute="bottom" id="tg9-qa-tIS"/>
+                            <constraint firstItem="cgk-bY-eR1" firstAttribute="leading" secondItem="jNh-nI-rDI" secondAttribute="leading" id="vOc-97-nhe"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aiy-x2-KpD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1208" y="1124"/>
         </scene>
     </scenes>
     <resources>
