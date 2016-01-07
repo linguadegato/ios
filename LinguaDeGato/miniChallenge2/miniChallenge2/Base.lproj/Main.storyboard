@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -29,7 +29,7 @@
         <!--Create Crossword View Controller-->
         <scene sceneID="wcL-T2-f38">
             <objects>
-                <viewController id="poN-pE-e0p" customClass="CreateCrosswordViewController" customModule="miniChallenge2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="poN-pE-e0p" customClass="CreateCrosswordViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n3w-s1-vqG"/>
                         <viewControllerLayoutGuide type="bottom" id="kIP-fa-tc1"/>
@@ -124,7 +124,7 @@
                                                 </constraints>
                                             </view>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconTrashOrangeTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="XiI-TA-MYn" userLabel="Trash Img">
-                                                <rect key="frame" x="0.0" y="6" width="26.5" height="26.5"/>
+                                                <rect key="frame" x="0.0" y="6" width="27" height="27"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="XiI-TA-MYn" secondAttribute="height" multiplier="1:1" id="WjZ-Gp-RGJ"/>
@@ -195,7 +195,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="5RJ-GH-ISS" customClass="NewWordCollectionViewCell" customModule="miniChallenge2" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="5RJ-GH-ISS" customClass="NewWordCollectionViewCell" customModule="LinguaDeGato" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="135" height="130"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -228,7 +228,7 @@
                                                                 <action selector="delete" destination="5RJ-GH-ISS" eventType="touchUpInside" id="lNp-gW-YKX"/>
                                                             </connections>
                                                         </button>
-                                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPlayAudioBlackTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="h9p-Q2-hHh" userLabel="Audio Image">
+                                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPlayAudioBlackTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="h9p-Q2-hHh" userLabel="Audio Icon">
                                                             <rect key="frame" x="107" y="110" width="20" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="h9p-Q2-hHh" secondAttribute="height" multiplier="1:1" id="Fj3-Ji-2GT"/>
@@ -254,7 +254,7 @@
                                                     <constraint firstAttribute="trailingMargin" secondItem="aNw-FW-VCJ" secondAttribute="trailing" id="t11-9a-zNu"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="audioImage" destination="h9p-Q2-hHh" id="iQh-ik-qPN"/>
+                                                    <outlet property="audioIcon" destination="h9p-Q2-hHh" id="lf7-7i-Y2l"/>
                                                     <outlet property="deleteButton" destination="AuO-ct-wA3" id="gOT-Bt-6Ms"/>
                                                     <outlet property="imageCell" destination="989-se-9mI" id="dKQ-Y0-8cr"/>
                                                     <outlet property="labelCell" destination="aNw-FW-VCJ" id="a0t-CL-gqo"/>
@@ -341,7 +341,7 @@
         <!--Game Play View Controller-->
         <scene sceneID="Fxu-H6-vaK">
             <objects>
-                <viewController id="epj-fT-bue" customClass="GamePlayViewController" customModule="miniChallenge2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="epj-fT-bue" customClass="GamePlayViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b4d-cD-jcb"/>
                         <viewControllerLayoutGuide type="bottom" id="B9L-XC-Vs3"/>
@@ -350,7 +350,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="miniChallenge2" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-3h-t5z">
@@ -397,7 +397,7 @@
         <!--Initial View Controller-->
         <scene sceneID="0g3-yJ-IvD">
             <objects>
-                <viewController id="Yba-oo-O4l" customClass="InitialViewController" customModule="miniChallenge2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Yba-oo-O4l" customClass="InitialViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iTP-WE-60i"/>
                         <viewControllerLayoutGuide type="bottom" id="93C-Ug-VIN"/>
@@ -461,7 +461,7 @@
                                                                     <segue destination="poN-pE-e0p" kind="show" id="neo-dr-ILo"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMZ-68-6Ji">
+                                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMZ-68-6Ji">
                                                                 <rect key="frame" x="0.0" y="0.0" width="66" height="99"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="zMZ-68-6Ji" secondAttribute="height" multiplier="2:3" id="xHp-aN-Ot8"/>

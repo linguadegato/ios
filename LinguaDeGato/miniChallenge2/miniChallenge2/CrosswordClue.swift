@@ -15,9 +15,11 @@ import AVFoundation
 //MARK: Is UIImage the best type to use?
 class CrosswordClue: CrosswordElement {
     
+    static let defaultImage = UIImage(named: "imageDefaultAudio")
+    
     //it should really be optinal, since other types of clue will be implemented
     //and not all clue will have all kinds of media as clue.
-    let image: UIImage?
+    var image: UIImage?
     var audio: AVAudioPlayer?
     
     //data to generate a 3x3 "squares" ClueView at right position
@@ -31,7 +33,14 @@ class CrosswordClue: CrosswordElement {
     
     init(imagePath: String?, audioPath: String?) {
         
-        self.image = UIImage(contentsOfFile: imagePath!)
+        if imagePath != nil {
+            if let aData = NSData(contentsOfURL: NSURL(fileURLWithPath: imagePath!)) {
+                self.image = UIImage(data: aData)
+            }
+        }
+        else {
+            self.image = CrosswordClue.defaultImage
+        }
         
         if audioPath != nil {
             do{
