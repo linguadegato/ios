@@ -664,7 +664,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ass-fY-UUH" firstAttribute="top" secondItem="nT4-mE-MoB" secondAttribute="bottom" id="0R3-iY-Dn4"/>
                             <constraint firstItem="a6W-qE-AcA" firstAttribute="trailing" secondItem="jNh-nI-rDI" secondAttribute="trailing" id="BoK-ya-WH7"/>
@@ -689,6 +689,10 @@
         <scene sceneID="zj3-V4-Wvx">
             <objects>
                 <viewController id="bos-pH-HnA" userLabel="Show Words View Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="akN-SG-j9h"/>
+                        <viewControllerLayoutGuide type="bottom" id="6v4-Af-wdH"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zjg-ed-b8Q">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="268"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
