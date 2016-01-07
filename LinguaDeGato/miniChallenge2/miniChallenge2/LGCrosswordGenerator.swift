@@ -15,7 +15,6 @@ import UIKit
 class LGCrosswordGenerator {
     //MARK: Properties
     
-    
     //size properties
     let rows: Int
     let cols: Int
@@ -37,7 +36,6 @@ class LGCrosswordGenerator {
         self.maxloops = maxloops
         self.avaiableWords = avaiableWords
         self.clearGrid()
-    
     }
     
     
@@ -482,7 +480,6 @@ class LGCrosswordGenerator {
     //that word.cordinate != nil. You're an adult dev, I don't have
     //to take care of your fucking shit!
     private func setWord(word: WordAndClue){
-        //print("set word")
         
         var row = word.coordinate!.row
         var col = word.coordinate!.col

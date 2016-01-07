@@ -288,7 +288,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             // Appending new word + clue to newwords array:
             let aClue = Clue(aImagePath: imagePath, anAudioPath: audioPath)
             newWords.append(WordAndClue(aWord: trimmedNewWordTxtField, aClue: aClue))
-            
+            print("add:\(aClue.audioPath)")
             
             // Clear audioPath variable
             self.audioPath = nil
@@ -875,10 +875,18 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         if (segue.identifier == "GenerateCrossword" && newWords.count > 0) {
             
             for word in newWords {
-                word.clue.audioPath = "paths+/audio\(word.word).m4a"
+                //faltou gravar no path novo, neh bestao?
+                if word.clue.audioPath != nil {
+                    
+                    let audioData = NSData(contentsOfURL: NSURL(fileURLWithPath: word.clue.audioPath!))
+                    let newPath = "\(paths)/audio\(word.word).m4a"
+                    
+                    audioData!.writeToURL(NSURL(fileURLWithPath: newPath), atomically: true)
+                    word.clue.audioPath = newPath
+                }
             }
             
-            let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: newWords)
+                        let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: newWords)
             aGenerator.computeCrossword(2, spins: 4)
             
             //atribute it to GamePlayViewController
