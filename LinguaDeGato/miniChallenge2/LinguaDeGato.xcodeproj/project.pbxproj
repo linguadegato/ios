@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		77D725911C0F56CF00A687E8 /* StatusBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */; };
+		77D94C9B1C3ECE5900E28B84 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */; };
+		77D94CA11C3ED8DB00E28B84 /* elevator_bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CA01C3ED8DB00E28B84 /* elevator_bell.mp3 */; };
+		77D94CA31C3EDD3600E28B84 /* poing.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CA21C3EDD3600E28B84 /* poing.wav */; };
+		77D94CA91C3EE58D00E28B84 /* wink.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CA81C3EE58D00E28B84 /* wink.wav */; };
 		EF35E9111B88F6CE00540031 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35E9101B88F6CE00540031 /* BoardView.swift */; };
 		EF41DCB81BDAA50A008D72CE /* WordAndClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41DCB71BDAA50A008D72CE /* WordAndClue.swift */; };
 		EF41DCBA1BDAA584008D72CE /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41DCB91BDAA584008D72CE /* Clue.swift */; };
@@ -50,6 +54,10 @@
 
 /* Begin PBXFileReference section */
 		77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarViewController.swift; sourceTree = "<group>"; };
+		77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		77D94CA01C3ED8DB00E28B84 /* elevator_bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = elevator_bell.mp3; sourceTree = "<group>"; };
+		77D94CA21C3EDD3600E28B84 /* poing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = poing.wav; sourceTree = "<group>"; };
+		77D94CA81C3EE58D00E28B84 /* wink.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wink.wav; sourceTree = "<group>"; };
 		EF35E9101B88F6CE00540031 /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		EF41DCB71BDAA50A008D72CE /* WordAndClue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordAndClue.swift; sourceTree = "<group>"; };
 		EF41DCB91BDAA584008D72CE /* Clue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
@@ -88,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77D94C9B1C3ECE5900E28B84 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +191,8 @@
 		FA96DE8A1B29C0CE00149113 = {
 			isa = PBXGroup;
 			children = (
-				FA96DE951B29C0CE00149113 /* LingaDeGato */,
+				77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */,
+				FA96DE951B29C0CE00149113 /* LinguaDeGato */,
 				FA96DEAF1B29C0CE00149113 /* miniChallenge2Tests */,
 				FA96DE941B29C0CE00149113 /* Products */,
 			);
@@ -197,7 +207,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FA96DE951B29C0CE00149113 /* LingaDeGato */ = {
+		FA96DE951B29C0CE00149113 /* LinguaDeGato */ = {
 			isa = PBXGroup;
 			children = (
 				FA96DE981B29C0CE00149113 /* AppDelegate.swift */,
@@ -206,13 +216,16 @@
 				EFE6D07A1B85F45100CCC802 /* CrosswordGameplay */,
 				FA96DE961B29C0CE00149113 /* Supporting Files */,
 			);
-			name = LingaDeGato;
+			name = LinguaDeGato;
 			path = miniChallenge2;
 			sourceTree = "<group>";
 		};
 		FA96DE961B29C0CE00149113 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				77D94CA81C3EE58D00E28B84 /* wink.wav */,
+				77D94CA21C3EDD3600E28B84 /* poing.wav */,
+				77D94CA01C3ED8DB00E28B84 /* elevator_bell.mp3 */,
 				FA0D80041BFA1EE10021EFB3 /* ButtonTap.wav */,
 				FA96DE971B29C0CE00149113 /* Info.plist */,
 			);
@@ -286,7 +299,7 @@
 				TargetAttributes = {
 					FA96DE921B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = X4P55MVJ74;
+						DevelopmentTeam = ZR6H5N286L;
 					};
 					FA96DEAB1B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -320,8 +333,11 @@
 			files = (
 				FA96DEA71B29C0CE00149113 /* LaunchScreen.xib in Resources */,
 				FA96DEA41B29C0CE00149113 /* Images.xcassets in Resources */,
+				77D94CA31C3EDD3600E28B84 /* poing.wav in Resources */,
 				FA0D80051BFA1EE10021EFB3 /* ButtonTap.wav in Resources */,
+				77D94CA91C3EE58D00E28B84 /* wink.wav in Resources */,
 				FA96DEA21B29C0CE00149113 /* Main.storyboard in Resources */,
+				77D94CA11C3ED8DB00E28B84 /* elevator_bell.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,7 +513,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = miniChallenge2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.linguadegatoapp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.kobayashi;
 				PRODUCT_NAME = LinguaDeGato;
 				PROVISIONING_PROFILE = "";
 			};
@@ -511,7 +527,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = miniChallenge2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.linguadegatoapp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.kobayashi;
 				PRODUCT_NAME = LinguaDeGato;
 				PROVISIONING_PROFILE = "";
 			};
