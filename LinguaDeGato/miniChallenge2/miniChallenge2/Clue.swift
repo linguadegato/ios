@@ -15,6 +15,8 @@ class Clue {
     var imagePath: String?
     var audioPath: String?
     
+    var imageURL:NSURL?
+    
     init(aImagePath: String?, anAudioPath: String?){
         imagePath = aImagePath
         audioPath = anAudioPath

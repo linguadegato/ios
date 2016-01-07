@@ -9,6 +9,7 @@
 import UIKit
 import MobileCoreServices
 import AVFoundation
+import Photos
 
 class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegate,
     UINavigationControllerDelegate, UICollectionViewDataSource,
@@ -288,7 +289,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             // Appending new word + clue to newwords array:
             let aClue = Clue(aImagePath: imagePath, anAudioPath: audioPath)
             newWords.append(WordAndClue(aWord: trimmedNewWordTxtField, aClue: aClue))
-            print("add:\(aClue.audioPath)")
             
             // Clear audioPath variable
             self.audioPath = nil
@@ -631,8 +631,13 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 //MARK: HARRY-TODO: Capture saved image url
                 UIImageWriteToSavedPhotosAlbum(image, self,"image:didFinishSavingWithError:contextInfo:", nil)
                 
-            } else if mediaType.isEqual(kUTTypeMovie as String) {
-                // Code to support video here
+            }
+            else {
+                
+                let results = PHAsset.fetchAssetsWithALAssetURLs([info[UIImagePickerControllerReferenceURL] as! NSURL], options: nil)
+                let asset = results.firstObject as! PHAsset
+                
+                imagePath = asset.localIdentifier
             }
         }
     }
@@ -742,9 +747,20 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             }
             
             if aWord.clue.imagePath != nil {
-                if let aData = NSData(contentsOfURL: NSURL(fileURLWithPath: imagePath!)) {
-                    cell.imageCell.image = UIImage(data: aData)
-                }
+                
+                /*
+                let options = PHFetchOptions()
+                options.includeHiddenAssets = true
+                */
+                
+                let results = PHAsset.fetchAssetsWithLocalIdentifiers([aWord.clue.imagePath!], options: nil)
+                
+                PHImageManager.defaultManager().requestImageForAsset(results.firstObject as! PHAsset, targetSize: CGSize(width: 1024,height: 1024), contentMode: .AspectFit, options: nil, resultHandler:
+                    { (image, _) -> Void in
+                    
+                        cell.imageCell.image = image
+                    }
+                )
             }
             else {
                 if audioPath != nil {
@@ -874,8 +890,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 
         if (segue.identifier == "GenerateCrossword" && newWords.count > 0) {
             
+            //moves audio files to a word related URL
             for word in newWords {
-                //faltou gravar no path novo, neh bestao?
                 if word.clue.audioPath != nil {
                     
                     let audioData = NSData(contentsOfURL: NSURL(fileURLWithPath: word.clue.audioPath!))
@@ -886,7 +902,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 }
             }
             
-                        let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: newWords)
+            let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: newWords)
             aGenerator.computeCrossword(2, spins: 4)
             
             //atribute it to GamePlayViewController

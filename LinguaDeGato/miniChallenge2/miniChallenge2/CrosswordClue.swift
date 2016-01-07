@@ -11,6 +11,7 @@
 
 import UIKit
 import AVFoundation
+import Photos
 
 //MARK: Is UIImage the best type to use?
 class CrosswordClue: CrosswordElement {
@@ -32,8 +33,21 @@ class CrosswordClue: CrosswordElement {
     }
     
     init(imagePath: String?, audioPath: String?) {
+        super.init()
         
         if imagePath != nil {
+            
+            let results = PHAsset.fetchAssetsWithLocalIdentifiers([imagePath!], options: nil)
+            
+            PHImageManager.defaultManager().requestImageForAsset(results.firstObject as! PHAsset, targetSize: CGSize(width: 1024,height: 1024), contentMode: .AspectFit, options: nil, resultHandler:
+                { (aImage, _) -> Void in
+                    
+                    self.image = aImage
+                }
+            )
+            
+            
+            
             if let aData = NSData(contentsOfURL: NSURL(fileURLWithPath: imagePath!)) {
                 self.image = UIImage(data: aData)
             }
