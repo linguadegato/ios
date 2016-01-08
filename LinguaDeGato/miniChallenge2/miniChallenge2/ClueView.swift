@@ -13,6 +13,7 @@
 
 import UIKit
 import AVFoundation
+import Photos
 
 class ClueView: BoardCellView, UIGestureRecognizerDelegate {
     
@@ -34,21 +35,44 @@ class ClueView: BoardCellView, UIGestureRecognizerDelegate {
     let imageViewBorderColor = UIColor.orangePalete()
     let imageViewBorderSize: CGFloat = 1.0
     
-    let downArrowImage = UIImage(named:"arrowDownOrange")
-    let rightArrowImage = UIImage(named:"arrowRightOrange")
-    let audioIconImage = UIImage(named: "iconPlayAudioBlackTransparent")
+    static let downArrowImage = UIImage(named:"arrowDownOrange")
+    static let rightArrowImage = UIImage(named:"arrowRightOrange")
+    static let audioIconImage = UIImage(named: "iconPlayAudioBlackTransparent")
+    
+    static let defaultImage = UIImage(named: "imageDefaultAudio")
     
     
     //MARK: - INITIALIZERS
     
-    init(frame: CGRect, vertical: Bool, aDelegate: BoardView, aImage: UIImage?, anAudio: AVAudioPlayer?) {
+    init(frame: CGRect, vertical: Bool, aDelegate: BoardView, anImageID: String?, anAudioPath: String?) {
        
         self.isVertical = vertical
         
         super.init(frame: frame)
         
-        self.image = aImage
-        self.audio = anAudio
+        //set image
+        if anImageID != nil {
+            
+            let results = PHAsset.fetchAssetsWithLocalIdentifiers([anImageID!], options: nil)
+            
+            PHImageManager.defaultManager().requestImageForAsset(results.firstObject as! PHAsset, targetSize: CGSize(width: 1024,height: 1024), contentMode: .AspectFit, options: nil, resultHandler:
+                { (aImage, _) -> Void in
+                    self.image = aImage
+                })
+        }
+        else {
+            self.image = ClueView.defaultImage
+        }
+        
+        //set audio
+        if anAudioPath != nil {
+            do{
+                try self.audio = AVAudioPlayer(contentsOfURL: NSURL.fileURLWithPath(anAudioPath!))
+            } catch{
+                print("Doent have a sound")
+            }
+        }
+        
         self.delegate = aDelegate
         
         self.backgroundColor = nil
@@ -92,7 +116,7 @@ class ClueView: BoardCellView, UIGestureRecognizerDelegate {
             let originX = (self.frame.width - width) / 2
             
             arrowViewRect = CGRect(x: originX, y: originY, width: width, height: height)
-            arrowImage = downArrowImage!
+            arrowImage = ClueView.downArrowImage!
         }
         else {
             let originX = imageViewRect.width
@@ -101,7 +125,7 @@ class ClueView: BoardCellView, UIGestureRecognizerDelegate {
             let originY = (self.frame.height - height) / 2
 
             arrowViewRect = CGRect(x: originX, y: originY, width: width, height: height)
-            arrowImage = rightArrowImage!
+            arrowImage = ClueView.rightArrowImage!
         }
         
         let arrowView = UIImageView(frame: arrowViewRect)
@@ -110,7 +134,7 @@ class ClueView: BoardCellView, UIGestureRecognizerDelegate {
         
         //add audio icon (if there's sound)
         if audio != nil {
-            let audioIconView = UIImageView(image: audioIconImage)
+            let audioIconView = UIImageView(image: ClueView.audioIconImage)
             audioIconView.frame.size = arrowView.frame.size
             
             if vertical {

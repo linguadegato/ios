@@ -12,13 +12,13 @@ import UIKit
 
 class Clue {
     
-    var imagePath: String?
+    var imageID: String?
     var audioPath: String?
     
     var imageURL:NSURL?
     
-    init(aImagePath: String?, anAudioPath: String?){
-        imagePath = aImagePath
+    init(aImageID: String?, anAudioPath: String?){
+        imageID = aImageID
         audioPath = anAudioPath
     }
 }

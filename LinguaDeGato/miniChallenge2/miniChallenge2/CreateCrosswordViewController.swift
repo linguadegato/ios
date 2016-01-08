@@ -100,7 +100,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     
     //path of the image in newImageImgView
-    private var imagePath: String?
+    private var imageID: String?
     
     // Audio session to manage recording and an audio recorder to handle the actual reading and saving of data
     private var recordingSession: AVAudioSession!
@@ -287,7 +287,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         if !(trimmedNewWordTxtField.characters.count > BoardView.maxSquaresInCol) {
             
             // Appending new word + clue to newwords array:
-            let aClue = Clue(aImagePath: imagePath, anAudioPath: audioPath)
+            let aClue = Clue(aImageID: imageID, anAudioPath: audioPath)
             newWords.append(WordAndClue(aWord: trimmedNewWordTxtField, aClue: aClue))
             
             // Clear audioPath variable
@@ -629,15 +629,22 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             if (newMedia == true) {
                 
                 //MARK: HARRY-TODO: Capture saved image url
-                UIImageWriteToSavedPhotosAlbum(image, self,"image:didFinishSavingWithError:contextInfo:", nil)
                 
+                UIImageWriteToSavedPhotosAlbum(info[UIImagePickerControllerOriginalImage] as! UIImage, self,"image:didFinishSavingWithError:contextInfo:", nil)
+                
+                let results = PHAsset.fetchAssetsWithALAssetURLs([info[UIImagePickerControllerReferenceURL] as! NSURL], options: nil)
+                if let asset = results.firstObject as? PHAsset {
+                    imageID = asset.localIdentifier
+                }
+                else {
+                    imageID = nil
+                }
             }
             else {
-                
                 let results = PHAsset.fetchAssetsWithALAssetURLs([info[UIImagePickerControllerReferenceURL] as! NSURL], options: nil)
                 let asset = results.firstObject as! PHAsset
                 
-                imagePath = asset.localIdentifier
+                imageID = asset.localIdentifier
             }
         }
     }
@@ -746,14 +753,10 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 cell.audioIcon.hidden = true
             }
             
-            if aWord.clue.imagePath != nil {
+            if aWord.clue.imageID != nil {
+
                 
-                /*
-                let options = PHFetchOptions()
-                options.includeHiddenAssets = true
-                */
-                
-                let results = PHAsset.fetchAssetsWithLocalIdentifiers([aWord.clue.imagePath!], options: nil)
+                let results = PHAsset.fetchAssetsWithLocalIdentifiers([aWord.clue.imageID!], options: nil)
                 
                 PHImageManager.defaultManager().requestImageForAsset(results.firstObject as! PHAsset, targetSize: CGSize(width: 1024,height: 1024), contentMode: .AspectFit, options: nil, resultHandler:
                     { (image, _) -> Void in

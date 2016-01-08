@@ -485,7 +485,7 @@ class LGCrosswordGenerator {
         var col = word.coordinate!.col
         
         //set clue
-        let clue = CrosswordClue(imagePath: word.clue.imagePath, audioPath: word.clue.audioPath)
+        let clue = CrosswordClue(anImageID: word.clue.imageID, anAudioPath: word.clue.audioPath)
         
         //coordinate data must be passed to CrosswordClue, so it can generate a ClueView properly
         
