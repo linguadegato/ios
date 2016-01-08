@@ -21,6 +21,7 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     // MARK: - GAME PROPERTIES (words array, positions matrix, etc)
     var crosswordMatrix: [[CrosswordElement?]]?
     var words = [WordAndClue]()
+    var finishGamePlay = AVAudioPlayer()
     
     // MARK: - LIFECYCLE METHODS
     
@@ -28,6 +29,16 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
         super.viewDidLoad()
         boardView.dataSource = self
         boardView.delegate = self
+        
+        let finishGame = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("finishGame", ofType: "wav")!)
+        
+        do {
+            try finishGamePlay = AVAudioPlayer(contentsOfURL: finishGame)
+        }
+        catch _ {
+            // Error handling
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,17 +60,6 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     //MARK: - BOARDGAME DELEGATE METHODS
     
     func gameEnded() {
-        
-        
-        let finishGame = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("finishGame", ofType: "wav")!)
-        var finishGamePlay = AVAudioPlayer()
-        
-        do {
-            try finishGamePlay = AVAudioPlayer(contentsOfURL: finishGame)
-        }
-        catch _ {
-            // Error handling
-        }
         
         finishGamePlay.play()
         
