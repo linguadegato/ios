@@ -12,6 +12,7 @@
 //  crossword game
 
 import UIKit
+import AVFoundation
 
 //@IBDesignable
 class TileView: UIView, UIGestureRecognizerDelegate {
@@ -29,6 +30,12 @@ class TileView: UIView, UIGestureRecognizerDelegate {
     var gestureRecognizer: UIPanGestureRecognizer! = nil
     var isCorrect: Bool?
     var inCorrectWordsCounter: Int = 0
+    
+    var correctFeedbackAudioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("correctSound", ofType: "wav")!)
+    // plays an audio when tile is put in wrong square
+    var wrongFeedbackAudioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("wrongSound", ofType: "wav")!)
+    var wrongFeedbackPlay = AVAudioPlayer()
+    var correctFeedbackPlay = AVAudioPlayer()
     
     //MARK: - COLORS AND VISUAL ATTRIBUTES
     
@@ -181,17 +188,36 @@ class TileView: UIView, UIGestureRecognizerDelegate {
         setNeedsDisplay()
     }
     
-    //MARK: -  VISUAL FEEDBACK
-    func visualFeedbackIfIsCorrect() {
+    //MARK: -  FEEDBACKS
+    func FeedbackIfIsCorrect() {
         isCorrect = true
+        
+        do {
+            try correctFeedbackPlay = AVAudioPlayer(contentsOfURL: correctFeedbackAudioURL)
+        }
+        catch _ {
+            // Error handling
+        }
+        
+        correctFeedbackPlay.play()
+        
         //setNeedsDisplay is needed since tile can change from
-        //visualFeedbackIfWordIsCorrect to visualFeedbackIfIsCorrect
+        //FeedbackIfWordIsCorrect to visualFeedbackIfIsCorrect
         setNeedsDisplay()
     }
-    
-    func visualFeedbackIfIsWrong() {
+
+    func FeedbackIfIsWrong() {
         isCorrect = false
         inCorrectWordsCounter = 0
+
+        do {
+            try wrongFeedbackPlay = AVAudioPlayer(contentsOfURL: wrongFeedbackAudioURL)
+        }
+        catch _ {
+            // Error handling
+        }
+        
+        wrongFeedbackPlay.play()
         prepareToRedraw()
     }
     

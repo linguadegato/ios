@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		77D725911C0F56CF00A687E8 /* StatusBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */; };
+		77D94C9B1C3ECE5900E28B84 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */; };
+		77D94CB41C401B7100E28B84 /* correctSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CB21C401B7100E28B84 /* correctSound.wav */; };
+		77D94CB91C401F5A00E28B84 /* wrongSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CB81C401F5A00E28B84 /* wrongSound.wav */; };
 		EF35E9111B88F6CE00540031 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35E9101B88F6CE00540031 /* BoardView.swift */; };
 		EF41DCB81BDAA50A008D72CE /* WordAndClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41DCB71BDAA50A008D72CE /* WordAndClue.swift */; };
 		EF41DCBA1BDAA584008D72CE /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41DCB91BDAA584008D72CE /* Clue.swift */; };
@@ -26,13 +29,14 @@
 		EFE6D0841B860B4500CCC802 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6D0831B860B4500CCC802 /* TileView.swift */; };
 		EFE73AF21BFE2C6C007A8C13 /* CrosswordCluePlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE73AF11BFE2C6C007A8C13 /* CrosswordCluePlaceholder.swift */; };
 		FA0681901B2B1491008A5C9F /* CreateCrosswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06818F1B2B1491008A5C9F /* CreateCrosswordViewController.swift */; };
-		FA0D80051BFA1EE10021EFB3 /* ButtonTap.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA0D80041BFA1EE10021EFB3 /* ButtonTap.wav */; };
-		FA0D80061BFA1EE10021EFB3 /* ButtonTap.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA0D80041BFA1EE10021EFB3 /* ButtonTap.wav */; };
+		FA8D2D931C3F2F2B004F0375 /* ClueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D2D921C3F2F2B004F0375 /* ClueCollectionViewCell.swift */; };
 		FA96DE991B29C0CE00149113 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96DE981B29C0CE00149113 /* AppDelegate.swift */; };
 		FA96DEA21B29C0CE00149113 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA96DEA01B29C0CE00149113 /* Main.storyboard */; };
 		FA96DEA41B29C0CE00149113 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA96DEA31B29C0CE00149113 /* Images.xcassets */; };
 		FA96DEA71B29C0CE00149113 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA96DEA51B29C0CE00149113 /* LaunchScreen.xib */; };
 		FA96DEB31B29C0CE00149113 /* miniChallenge2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96DEB21B29C0CE00149113 /* miniChallenge2Tests.swift */; };
+		FAAB7EF71C3F19A9004561EF /* SavedGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAB7EF61C3F19A9004561EF /* SavedGameViewController.swift */; };
+		FAAB7EFB1C3F1EC9004561EF /* AllWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAB7EFA1C3F1EC9004561EF /* AllWordsViewController.swift */; };
 		FAD621531B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */; };
 		FAE1C8B21B385E1F00FFE77C /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE1C8B11B385E1F00FFE77C /* InitialViewController.swift */; };
 		FAFAB86C1C161DA100CBC16B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAB86B1C161DA100CBC16B /* UIColorExtension.swift */; };
@@ -50,6 +54,9 @@
 
 /* Begin PBXFileReference section */
 		77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarViewController.swift; sourceTree = "<group>"; };
+		77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		77D94CB21C401B7100E28B84 /* correctSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correctSound.wav; sourceTree = "<group>"; };
+		77D94CB81C401F5A00E28B84 /* wrongSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrongSound.wav; sourceTree = "<group>"; };
 		EF35E9101B88F6CE00540031 /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		EF41DCB71BDAA50A008D72CE /* WordAndClue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordAndClue.swift; sourceTree = "<group>"; };
 		EF41DCB91BDAA584008D72CE /* Clue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
@@ -68,7 +75,7 @@
 		EFE6D0831B860B4500CCC802 /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		EFE73AF11BFE2C6C007A8C13 /* CrosswordCluePlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrosswordCluePlaceholder.swift; sourceTree = "<group>"; };
 		FA06818F1B2B1491008A5C9F /* CreateCrosswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCrosswordViewController.swift; sourceTree = "<group>"; };
-		FA0D80041BFA1EE10021EFB3 /* ButtonTap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ButtonTap.wav; sourceTree = "<group>"; };
+		FA8D2D921C3F2F2B004F0375 /* ClueCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClueCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA96DE931B29C0CE00149113 /* LinguaDeGato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinguaDeGato.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA96DE971B29C0CE00149113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA96DE981B29C0CE00149113 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +85,8 @@
 		FA96DEAC1B29C0CE00149113 /* LinguaDeGato.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinguaDeGato.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA96DEB11B29C0CE00149113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA96DEB21B29C0CE00149113 /* miniChallenge2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = miniChallenge2Tests.swift; sourceTree = "<group>"; };
+		FAAB7EF61C3F19A9004561EF /* SavedGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedGameViewController.swift; sourceTree = "<group>"; };
+		FAAB7EFA1C3F1EC9004561EF /* AllWordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllWordsViewController.swift; sourceTree = "<group>"; };
 		FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWordCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAE1C8B11B385E1F00FFE77C /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		FAFAB86B1C161DA100CBC16B /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -88,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77D94C9B1C3ECE5900E28B84 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +111,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77D94CB11C401B6700E28B84 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				77D94CB21C401B7100E28B84 /* correctSound.wav */,
+				77D94CB81C401F5A00E28B84 /* wrongSound.wav */,
+			);
+			name = sounds;
+			sourceTree = "<group>";
+		};
 		EF995EE11BD1163600C27479 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +175,9 @@
 				FA06818F1B2B1491008A5C9F /* CreateCrosswordViewController.swift */,
 				EFB828681BF65B2E0017CF35 /* UINavigationControllerExtension.swift */,
 				77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */,
+				FAAB7EFA1C3F1EC9004561EF /* AllWordsViewController.swift */,
+				FA8D2D921C3F2F2B004F0375 /* ClueCollectionViewCell.swift */,
+				FAAB7EF61C3F19A9004561EF /* SavedGameViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -182,7 +204,8 @@
 		FA96DE8A1B29C0CE00149113 = {
 			isa = PBXGroup;
 			children = (
-				FA96DE951B29C0CE00149113 /* LingaDeGato */,
+				77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */,
+				FA96DE951B29C0CE00149113 /* LinguaDeGato */,
 				FA96DEAF1B29C0CE00149113 /* miniChallenge2Tests */,
 				FA96DE941B29C0CE00149113 /* Products */,
 			);
@@ -197,7 +220,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FA96DE951B29C0CE00149113 /* LingaDeGato */ = {
+		FA96DE951B29C0CE00149113 /* LinguaDeGato */ = {
 			isa = PBXGroup;
 			children = (
 				FA96DE981B29C0CE00149113 /* AppDelegate.swift */,
@@ -206,14 +229,14 @@
 				EFE6D07A1B85F45100CCC802 /* CrosswordGameplay */,
 				FA96DE961B29C0CE00149113 /* Supporting Files */,
 			);
-			name = LingaDeGato;
+			name = LinguaDeGato;
 			path = miniChallenge2;
 			sourceTree = "<group>";
 		};
 		FA96DE961B29C0CE00149113 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FA0D80041BFA1EE10021EFB3 /* ButtonTap.wav */,
+				77D94CB11C401B6700E28B84 /* sounds */,
 				FA96DE971B29C0CE00149113 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -280,7 +303,7 @@
 		FA96DE8B1B29C0CE00149113 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Kobayashi;
 				TargetAttributes = {
@@ -320,8 +343,9 @@
 			files = (
 				FA96DEA71B29C0CE00149113 /* LaunchScreen.xib in Resources */,
 				FA96DEA41B29C0CE00149113 /* Images.xcassets in Resources */,
-				FA0D80051BFA1EE10021EFB3 /* ButtonTap.wav in Resources */,
+				77D94CB91C401F5A00E28B84 /* wrongSound.wav in Resources */,
 				FA96DEA21B29C0CE00149113 /* Main.storyboard in Resources */,
+				77D94CB41C401B7100E28B84 /* correctSound.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +353,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA0D80061BFA1EE10021EFB3 /* ButtonTap.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +366,7 @@
 				EFE6D0841B860B4500CCC802 /* TileView.swift in Sources */,
 				EF995EE91BD1227C00C27479 /* CluePopupView.swift in Sources */,
 				EFB0BE4C1BECD331000981C1 /* LGCrosswordGenerator.swift in Sources */,
+				FA8D2D931C3F2F2B004F0375 /* ClueCollectionViewCell.swift in Sources */,
 				EFE480BA1BCD4EEB002F15FC /* ClueView.swift in Sources */,
 				FAD621531B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift in Sources */,
 				EFE680871BC80E0600EE755F /* CrosswordClue.swift in Sources */,
@@ -356,12 +380,14 @@
 				EFCC8B691BF11DE600F6851F /* WordManager.swift in Sources */,
 				EFDD44B71B862A460078C141 /* SquareView.swift in Sources */,
 				EFCC8B671BF10DC700F6851F /* BoardCellView.swift in Sources */,
+				FAAB7EF71C3F19A9004561EF /* SavedGameViewController.swift in Sources */,
 				77D725911C0F56CF00A687E8 /* StatusBarViewController.swift in Sources */,
 				EF41DCBA1BDAA584008D72CE /* Clue.swift in Sources */,
 				EFE6D07C1B85F4B700CCC802 /* GamePlayViewController.swift in Sources */,
 				EFA0932D1BCD35D5008525F1 /* CrosswordChar.swift in Sources */,
 				EF35E9111B88F6CE00540031 /* BoardView.swift in Sources */,
 				FA0681901B2B1491008A5C9F /* CreateCrosswordViewController.swift in Sources */,
+				FAAB7EFB1C3F1EC9004561EF /* AllWordsViewController.swift in Sources */,
 				EFE73AF21BFE2C6C007A8C13 /* CrosswordCluePlaceholder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,13 +519,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = miniChallenge2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.linguadegatoapp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.kobayashi;
 				PRODUCT_NAME = LinguaDeGato;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -507,11 +535,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = miniChallenge2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.linguadegatoapp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.kobayashi;
 				PRODUCT_NAME = LinguaDeGato;
 				PROVISIONING_PROFILE = "";
 			};

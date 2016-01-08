@@ -312,7 +312,7 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
                 //if tile is placed in right square
                 if tile.letter == aSquare.letter {
                     
-                    tile.visualFeedbackIfIsCorrect()
+                    tile.FeedbackIfIsCorrect()
                     
                     for word in aSquare.words {
                         //upadate word managers counters
@@ -325,7 +325,7 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
                 }
                 //if tile is place in wrong square
                 else {
-                    tile.visualFeedbackIfIsWrong()
+                    tile.FeedbackIfIsWrong()
                 }
             }
         }
