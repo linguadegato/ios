@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -228,7 +228,7 @@
                                                                 <action selector="delete" destination="5RJ-GH-ISS" eventType="touchUpInside" id="lNp-gW-YKX"/>
                                                             </connections>
                                                         </button>
-                                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPlayAudioBlackTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="h9p-Q2-hHh" userLabel="Audio Image">
+                                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPlayAudioBlackTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="h9p-Q2-hHh" userLabel="Audio Icon">
                                                             <rect key="frame" x="107" y="110" width="20" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="h9p-Q2-hHh" secondAttribute="height" multiplier="1:1" id="Fj3-Ji-2GT"/>
@@ -254,7 +254,7 @@
                                                     <constraint firstAttribute="trailingMargin" secondItem="aNw-FW-VCJ" secondAttribute="trailing" id="t11-9a-zNu"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="audioImage" destination="h9p-Q2-hHh" id="iQh-ik-qPN"/>
+                                                    <outlet property="audioIcon" destination="h9p-Q2-hHh" id="lf7-7i-Y2l"/>
                                                     <outlet property="deleteButton" destination="AuO-ct-wA3" id="gOT-Bt-6Ms"/>
                                                     <outlet property="imageCell" destination="989-se-9mI" id="dKQ-Y0-8cr"/>
                                                     <outlet property="labelCell" destination="aNw-FW-VCJ" id="a0t-CL-gqo"/>

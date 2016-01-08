@@ -5,10 +5,11 @@
 //  Created by Kobayashi on 6/12/15.
 //  Copyright (c) 2015 Kobayashi. All rights reserved.
 //
-
+//MARK: HARRY-TODO: Create a function for a aPathCompletion, not persist already persisted images
 import UIKit
 import MobileCoreServices
 import AVFoundation
+import Photos
 
 class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegate,
     UINavigationControllerDelegate, UICollectionViewDataSource,
@@ -92,16 +93,19 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         }
     }
     
-    private var arrayNewWords: [WordAndClue] = []
+    private var newWords: [WordAndClue] = []
     
     //MARK: File related variables
     private let aFileManager = NSFileManager.defaultManager()
     private let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     
+    //path of the image in newImageImgView
+    private var imageID: String?
+    
     // Audio session to manage recording and an audio recorder to handle the actual reading and saving of data
     private var recordingSession: AVAudioSession!
     private var audioRecorder: AVAudioRecorder!
-    private var audioPath: String!
+    private var audioPath: String?
     private var audio: AVAudioPlayer!
 
     
@@ -239,8 +243,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             */
             
             self.presentViewController(imagePicker, animated: true, completion: nil)
+            
             newMedia = true
-            hasClue = true
         }
     }
     
@@ -258,7 +262,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             
             self.presentViewController(imagePicker, animated: true, completion: nil)
             newMedia = false
-            hasClue = true
         }
     }
     
@@ -283,14 +286,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         if !(trimmedNewWordTxtField.characters.count > BoardView.maxSquaresInCol) {
             
-            let imagePath = "\(paths)/image\(arrayNewWords.count).png"
-            saveImage(imagePath)
-            
-            // Appending new word and new image at arrays:
-            let aClue = Clue(aImagePath: imagePath, anAudioPath: self.audioPath)
-            let aWord = WordAndClue(aWord: trimmedNewWordTxtField, aClue: aClue)
-            
-            arrayNewWords.append(aWord)
+            // Appending new word + clue to newwords array:
+            let aClue = Clue(aImageID: imageID, anAudioPath: audioPath)
+            newWords.append(WordAndClue(aWord: trimmedNewWordTxtField, aClue: aClue))
             
             // Clear audioPath variable
             self.audioPath = nil
@@ -307,7 +305,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             hasWord = false
             
             
-            if arrayNewWords.count >= 6 {
+            if newWords.count >= 6 {
                 wordsLimitReached = true
                 takePhotoButton.enabled = false
                 cameraRollButton.enabled = false
@@ -362,7 +360,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     func tapAndPlayRecord(sender: UITapGestureRecognizer){
         if self.audioPath != nil {
-            let audioURL = NSURL(fileURLWithPath: self.audioPath)
+            let audioURL = NSURL(fileURLWithPath: self.audioPath!)
             
             do {
                 try self.audio = AVAudioPlayer(contentsOfURL: audioURL)
@@ -421,7 +419,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                         self.audioPath = nil
                         self.audioRecorder = nil
                         self.recordingSession = nil
-                        if (self.newImageImgView.image == self.defaultImage){
+                        if (self.newImageImgView.image == self.audioImage) {
+                            self.newImageImgView.image = self.defaultImage
                             self.hasClue = false
                         }
         
@@ -465,9 +464,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         audioButton.setBackgroundImage(audioButtonRecordingImage, forState: .Normal)
         
-        self.audioPath = paths+"/audio\(arrayNewWords.count).m4a"
+        self.audioPath = paths+"/audio\(newWords.count).m4a"
         
-        let audioURL = NSURL(fileURLWithPath: self.audioPath)
+        let audioURL = NSURL(fileURLWithPath: self.audioPath!)
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -514,6 +513,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             completion: { (flag) -> Void in
                 self.arrow.hidden = true
                 self.arrow.transform = CGAffineTransformIdentity
+                self.arrow.frame.origin.x = self.audioImageImgView.center.x
+                self.arrow.setNeedsDisplay()
                 self.arrow.hidden = false
             }
         )
@@ -567,25 +568,25 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     //MARK: - FILE MANAGER RELATED METHODS
-    
+    //MARK: HARRY-TODO: DO NOT SAVE DEFAULT IMAGE
     //saves an image
-    private func saveImage(atPath: String) {
+    private func saveImage(image: UIImage, atPath: String) {
         
-        let selectedImage = newImageImgView.image
-        let filePathToWrite = atPath
-        let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
+        let imageData: NSData = UIImagePNGRepresentation(image)!
         
-        aFileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
+        aFileManager.createFileAtPath(atPath, contents: imageData, attributes: nil)
     }
     
     // MARK: - DELEGATES AND DATASOURCES METHDOS
     // MARK: UIImagePickerControllerDelegate Methods
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
         let mediaType = info[UIImagePickerControllerMediaType] as! String
         
         self.dismissViewControllerAnimated(true, completion: nil)
         
+        //Image treatment
         if mediaType.isEqual(kUTTypeImage as String) {
             
             var image = info[UIImagePickerControllerOriginalImage] as! UIImage
@@ -617,17 +618,34 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                     image = rotateImage(image, degrees: 0)
             }
             
+            //update crossword creation variables
             newImageImgView.image = image
+            hasClue = true
             
             // Show hidden elements (image view and new word text field)
             //showElements()
             
+            // persist media in library, if it's a new media
             if (newMedia == true) {
                 
-                UIImageWriteToSavedPhotosAlbum(image, self,"image:didFinishSavingWithError:contextInfo:", nil)
+                let photoRoll = PHPhotoLibrary.sharedPhotoLibrary()
                 
-            } else if mediaType.isEqual(kUTTypeMovie as String) {
-                // Code to support video here
+                photoRoll.performChanges({
+                    let request = PHAssetChangeRequest.creationRequestForAssetFromImage(image)
+                    self.imageID = request.placeholderForCreatedAsset?.localIdentifier
+                    },
+                    completionHandler: { (succes, error) -> () in
+                        if !succes {
+                            self.imageID = nil
+                        }
+                    }
+                )
+            }
+            else {
+                let results = PHAsset.fetchAssetsWithALAssetURLs([info[UIImagePickerControllerReferenceURL] as! NSURL], options: nil)
+                let asset = results.firstObject as! PHAsset
+                
+                imageID = asset.localIdentifier
             }
         }
     }
@@ -697,16 +715,24 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //return 6
-        return arrayNewWords.count
+        return newWords.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell: NewWordCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! NewWordCollectionViewCell
         
-        if indexPath.row < arrayNewWords.count {
-        
-            let aWord = arrayNewWords[indexPath.row]
+        if indexPath.row < newWords.count {
+            
+            //get source object in datasource array
+            let aWord = newWords[indexPath.row]
+            
+            //set cell's back-end properties
+            cell.wordAndClue = aWord
+            cell.index = indexPath.row
+            cell.delegate = self
+            
+            //set cell's front-end properties
             let wordLabel = aWord.word as NSString
             
             //Limits the length of the word when show in label
@@ -722,29 +748,30 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 cell.labelCell.text = wordLabel as String
             }
             
-            cell.wordAndClue = aWord
+            if (aWord.clue.audioPath != nil){
+                cell.audioIcon.hidden = false
+            }else{
+                cell.audioIcon.hidden = true
+            }
+            
+            if aWord.clue.imageID != nil {
 
-            
-            cell.index = indexPath.row
-            cell.delegate = self
-            
-            let getImagePath = aWord.clue.imagePath!
-            
-            if (aWord.clue.imagePath != nil){
-                if (aFileManager.fileExistsAtPath(getImagePath)){
-
-                    let selectedImage: UIImage = UIImage(contentsOfFile: getImagePath)!
-                    //let data: NSData = UIImagePNGRepresentation(selectedImage)!
-                    cell.imageCell.image = selectedImage
+                
+                let results = PHAsset.fetchAssetsWithLocalIdentifiers([aWord.clue.imageID!], options: nil)
+                
+                PHImageManager.defaultManager().requestImageForAsset(results.firstObject as! PHAsset, targetSize: CGSize(width: 1024,height: 1024), contentMode: .AspectFit, options: nil, resultHandler:
+                    { (image, _) -> Void in
                     
-                    if (aWord.clue.audioPath != nil){
-                        cell.audioImage.hidden = false
-                    }else{
-                        cell.audioImage.hidden = true
+                        cell.imageCell.image = image
                     }
-                    
-                }else{
-                    print("FILE NOT AVAILABLE");
+                )
+            }
+            else {
+                if audioPath != nil {
+                    cell.imageCell.image = audioImage
+                }
+                else {
+                    cell.imageCell.image = defaultImage
                 }
             }
             
@@ -752,6 +779,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             cell.deleteButton.hidden = false
         }
         
+        //not called when collection view is setted to only create cells for added words
         else {
             cell.labelCell.hidden = true
             cell.deleteButton.hidden = true
@@ -793,11 +821,12 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     func removeCell(index: Int){
-        arrayNewWords.removeAtIndex(index)
+        newWords.removeAtIndex(index)
+        
         wordsAddedCollectionView.reloadData()
         
         //re-enable buttons, if they were unenabled
-        if arrayNewWords.count == 5 {
+        if newWords.count == 5 {
             
             wordsLimitReached = false
             takePhotoButton.enabled = true
@@ -805,7 +834,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             audioButton.enabled = true
         }
         
-        if arrayNewWords.count == 0 {
+        if newWords.count == 0 {
             generateButton.enabled = false
             lowerContainer.hidden = true
         }
@@ -861,14 +890,23 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if (segue.identifier == "GenerateCrossword" && arrayNewWords.count > 0) {
+        //MARK: HARRY-TODO: ACTIVITY INDICATOR
+                
+        if (segue.identifier == "GenerateCrossword" && newWords.count > 0) {
             
-            for word in arrayNewWords {
-                word.word = word.word.uppercaseString
+            //moves audio files to a word related URL
+            for word in newWords {
+                if word.clue.audioPath != nil {
+                    
+                    let audioData = NSData(contentsOfURL: NSURL(fileURLWithPath: word.clue.audioPath!))
+                    let newPath = "\(paths)/audio\(word.word).m4a"
+                    
+                    audioData!.writeToURL(NSURL(fileURLWithPath: newPath), atomically: true)
+                    word.clue.audioPath = newPath
+                }
             }
             
-            let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: arrayNewWords)
+            let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: newWords)
             aGenerator.computeCrossword(2, spins: 4)
             
             //atribute it to GamePlayViewController
@@ -887,7 +925,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             self.newWordTxtField.text = ""
             self.hasWord = false
             
-            self.arrayNewWords = []
+            self.newWords = []
             self.wordsLimitReached = false
             
             //buttons reset

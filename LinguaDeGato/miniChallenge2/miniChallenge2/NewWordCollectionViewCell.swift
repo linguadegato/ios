@@ -12,10 +12,10 @@ class NewWordCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageCell: UIImageView!
     @IBOutlet weak var labelCell: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
-    @IBOutlet weak var audioImage: UIImageView!
+    @IBOutlet weak var audioIcon: UIImageView!
     
+    var wordAndClue: WordAndClue?
     
-    var wordAndClue: WordAndClue!
     var delegate: CreateCrosswordViewController!
     var index: Int!
     
