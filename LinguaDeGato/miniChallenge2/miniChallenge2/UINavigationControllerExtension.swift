@@ -20,4 +20,8 @@ extension UINavigationController {
     override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.Landscape
     }
+    
+    override public func viewDidLoad() {
+        interactivePopGestureRecognizer!.enabled = false
+    }
 }
