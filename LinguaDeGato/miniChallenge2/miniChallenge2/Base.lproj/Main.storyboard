@@ -612,10 +612,10 @@
             </objects>
             <point key="canvasLocation" x="-1202" y="351"/>
         </scene>
-        <!--Saved Games View Controller-->
+        <!--Gallery View Controller-->
         <scene sceneID="gi8-ES-11H">
             <objects>
-                <viewController id="Ztr-Cm-8Zd" userLabel="Saved Games View Controller" sceneMemberID="viewController">
+                <viewController id="Ztr-Cm-8Zd" userLabel="Gallery View Controller" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TOv-UR-yNL"/>
                         <viewControllerLayoutGuide type="bottom" id="ass-fY-UUH"/>
@@ -688,7 +688,7 @@
         <!--All Words View Controller-->
         <scene sceneID="zj3-V4-Wvx">
             <objects>
-                <viewController id="bos-pH-HnA" userLabel="All Words View Controller" sceneMemberID="viewController">
+                <viewController id="bos-pH-HnA" userLabel="All Words View Controller" customClass="AllWordsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="akN-SG-j9h"/>
                         <viewControllerLayoutGuide type="bottom" id="6v4-Af-wdH"/>
@@ -707,7 +707,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Galeria" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKm-qH-KN2" userLabel="Title Label">
-                                        <rect key="frame" x="55" y="14" width="63" height="24"/>
+                                        <rect key="frame" x="55" y="13.5" width="63" height="23.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" red="0.60392156860000001" green="0.75294117650000003" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -743,17 +743,17 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ggA-Mq-lfS">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClueCell" id="ggA-Mq-lfS" customClass="ClueCollectionViewCell" customModule="LinguaDeGato" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageDefaultAudio" translatesAutoresizingMaskIntoConstraints="NO" id="nW5-Ld-mKZ" userLabel="Clue image">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageDefaultAudio" translatesAutoresizingMaskIntoConstraints="NO" id="nW5-Ld-mKZ" userLabel="Image Cell">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="362-oU-nXw" userLabel="Clue name">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="labelCell" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="362-oU-nXw" userLabel="Label Cell">
                                                     <rect key="frame" x="0.0" y="40" width="50" height="10"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -783,6 +783,11 @@
                                             <constraint firstItem="nW5-Ld-mKZ" firstAttribute="centerY" secondItem="ggA-Mq-lfS" secondAttribute="centerY" id="kgB-Mg-nfR"/>
                                             <constraint firstItem="m9I-Gl-nyg" firstAttribute="height" secondItem="ggA-Mq-lfS" secondAttribute="height" multiplier="1:5" id="xPN-td-XO6"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="imageCell" destination="nW5-Ld-mKZ" id="Dan-LN-c4W"/>
+                                            <outlet property="labelCell" destination="362-oU-nXw" id="2eO-oh-MUz"/>
+                                            <outlet property="selectButton" destination="m9I-Gl-nyg" id="DKF-As-bcw"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -792,6 +797,9 @@
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="13f-9X-deP">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="bos-pH-HnA" id="N22-SH-rn4"/>
+                                        </connections>
                                     </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -826,7 +834,7 @@
         <!--Saved Game View Controller-->
         <scene sceneID="od5-7g-WCy">
             <objects>
-                <viewController id="t7a-s0-hF5" userLabel="Saved Game View Controller" sceneMemberID="viewController">
+                <viewController id="t7a-s0-hF5" userLabel="Saved Game View Controller" customClass="SavedGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Se2-W8-Vy1"/>
                         <viewControllerLayoutGuide type="bottom" id="S6L-eM-273"/>
@@ -898,7 +906,7 @@
                                                     <state key="normal" backgroundImage="iconPlayPink"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbR-FB-zcu" userLabel="Title Label">
-                                                    <rect key="frame" x="60" y="14" width="45" height="24"/>
+                                                    <rect key="frame" x="60" y="14" width="45" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.8862745098" green="0.20784313730000001" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
