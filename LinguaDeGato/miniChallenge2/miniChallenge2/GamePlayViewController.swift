@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardViewDataSource {
 
@@ -49,8 +50,23 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     
     func gameEnded() {
         
+        
+        let finishGame = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("finishGame", ofType: "wav")!)
+        var finishGamePlay = AVAudioPlayer()
+        
+        do {
+            try finishGamePlay = AVAudioPlayer(contentsOfURL: finishGame)
+        }
+        catch _ {
+            // Error handling
+        }
+        
+        finishGamePlay.play()
+        
         let alertController = UIAlertController(title: "PARABÉNS", message:
             "Você concluiu o jogo! \u{1F431}", preferredStyle: UIAlertControllerStyle.Alert)
+
+
         
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: backByWinningFromAlertAction))
         

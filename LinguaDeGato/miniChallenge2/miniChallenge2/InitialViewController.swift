@@ -8,20 +8,34 @@
 
 import UIKit
 import MobileCoreServices
+import AVFoundation
 
 class InitialViewController: StatusBarViewController {
     
     @IBOutlet weak var createCrosswordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
+
+    var backgroundAudio = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("backgroundAudio", ofType: "wav")!)
+    var backgroundAudioPlay = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
+        do {
+            try backgroundAudioPlay = AVAudioPlayer(contentsOfURL: backgroundAudio)
+        }
+        catch _ {
+            // Error handling
+        }
+
+        backgroundAudioPlay.play()
+    
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        // Dis pose of any resources that can be recreated.
     }
 
     /*
