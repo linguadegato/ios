@@ -628,17 +628,18 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             // persist media in library, if it's a new media
             if (newMedia == true) {
                 
-                //MARK: HARRY-TODO: Capture saved image url
+                let photoRoll = PHPhotoLibrary.sharedPhotoLibrary()
                 
-                UIImageWriteToSavedPhotosAlbum(info[UIImagePickerControllerOriginalImage] as! UIImage, self,"image:didFinishSavingWithError:contextInfo:", nil)
-                
-                let results = PHAsset.fetchAssetsWithALAssetURLs([info[UIImagePickerControllerReferenceURL] as! NSURL], options: nil)
-                if let asset = results.firstObject as? PHAsset {
-                    imageID = asset.localIdentifier
-                }
-                else {
-                    imageID = nil
-                }
+                photoRoll.performChanges({
+                    let request = PHAssetChangeRequest.creationRequestForAssetFromImage(image)
+                    self.imageID = request.placeholderForCreatedAsset?.localIdentifier
+                    },
+                    completionHandler: { (succes, error) -> () in
+                        if !succes {
+                            self.imageID = nil
+                        }
+                    }
+                )
             }
             else {
                 let results = PHAsset.fetchAssetsWithALAssetURLs([info[UIImagePickerControllerReferenceURL] as! NSURL], options: nil)

@@ -22,7 +22,7 @@ class AllWordsViewController: UICollectionViewController {
         
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         let imagePath = "\(paths)/image0.png"
-        let aClue = Clue(aImagePath: imagePath, anAudioPath: nil)
+        let aClue = Clue(aImageID: imagePath, anAudioPath: nil)
         let aWord = WordAndClue(aWord: "teste", aClue: aClue)
         
         arrayNewWords.append(aWord)

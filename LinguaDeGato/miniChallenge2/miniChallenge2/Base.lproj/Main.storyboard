@@ -688,10 +688,10 @@
         <!--All Words View Controller-->
         <scene sceneID="zj3-V4-Wvx">
             <objects>
-                <viewController id="bos-pH-HnA" userLabel="Show Words View Controller" sceneMemberID="viewController">
+                <viewController id="bos-pH-HnA" userLabel="All Words View Controller" customClass="AllWordsViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oAq-w6-zSu"/>
-                        <viewControllerLayoutGuide type="bottom" id="msJ-7D-VFB"/>
+                        <viewControllerLayoutGuide type="top" id="akN-SG-j9h"/>
+                        <viewControllerLayoutGuide type="bottom" id="6v4-Af-wdH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zjg-ed-b8Q">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="536"/>
