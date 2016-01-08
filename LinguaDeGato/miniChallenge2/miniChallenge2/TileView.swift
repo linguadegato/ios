@@ -31,9 +31,9 @@ class TileView: UIView, UIGestureRecognizerDelegate {
     var isCorrect: Bool?
     var inCorrectWordsCounter: Int = 0
     
-    var correctFeedbackAudioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("wink", ofType: "wav")!)
+    var correctFeedbackAudioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("correctSound", ofType: "wav")!)
     // plays an audio when tile is put in wrong square
-    var wrongFeedbackAudioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("poing", ofType: "wav")!)
+    var wrongFeedbackAudioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("wrongSound", ofType: "wav")!)
     var wrongFeedbackPlay = AVAudioPlayer()
     var correctFeedbackPlay = AVAudioPlayer()
     
