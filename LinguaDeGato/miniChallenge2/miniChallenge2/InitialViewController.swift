@@ -15,21 +15,32 @@ class InitialViewController: StatusBarViewController {
     @IBOutlet weak var createCrosswordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
 
-    var backgroundAudio = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("backgroundAudio", ofType: "wav")!)
-    var backgroundAudioPlay = AVAudioPlayer()
+    var backgroundMusic = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("backgroundAudio", ofType: "wav")!)
+    var backgroundMusicPlay = AVAudioPlayer()
+    
+    //play the background audio
+    func playBackgroundAudio(playAudio: Bool) {
+        
+        do {
+            try backgroundMusicPlay = AVAudioPlayer(contentsOfURL: backgroundMusic)
+        }
+        catch _ {
+            // Error handling
+        }
+        
+        if playAudio{
+            backgroundMusicPlay.play()
+        } else {
+            backgroundMusicPlay.stop()
+        }
+   
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
-        do {
-            try backgroundAudioPlay = AVAudioPlayer(contentsOfURL: backgroundAudio)
-        }
-        catch _ {
-            // Error handling
-        }
-
-        backgroundAudioPlay.play()
+        playBackgroundAudio(true)
     
     }
 
