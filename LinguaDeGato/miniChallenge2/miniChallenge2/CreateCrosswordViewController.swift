@@ -294,6 +294,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             self.audioPath = nil
             self.audioRecorder = nil
             self.recordingSession = nil
+            self.imageID = nil
             
             wordsAddedCollectionView.reloadData()
             
@@ -921,6 +922,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             self.audioPath = nil
             self.newMedia = false
             self.hasClue = false
+            self.imageID = nil
             
             self.newWordTxtField.text = ""
             self.hasWord = false
