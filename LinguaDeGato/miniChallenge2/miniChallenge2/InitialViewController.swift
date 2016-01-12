@@ -15,7 +15,7 @@ class InitialViewController: StatusBarViewController {
     @IBOutlet weak var createCrosswordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
 
-    var backgroundMusic = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("backgroundAudio", ofType: "wav")!)
+    var backgroundMusic = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("backgroundMusic", ofType: "wav")!)
     var backgroundMusicPlay = AVAudioPlayer()
     
     //play the background audio
@@ -28,6 +28,10 @@ class InitialViewController: StatusBarViewController {
             // Error handling
         }
         
+        
+        backgroundMusicPlay.volume = 0.2
+        backgroundMusicPlay.numberOfLoops = (-1) // always repeat music
+
         if playAudio{
             backgroundMusicPlay.play()
         } else {

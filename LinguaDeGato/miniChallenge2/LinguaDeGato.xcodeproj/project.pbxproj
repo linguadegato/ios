@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7786A6171C4573600011C32A /* backgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7786A6161C4573600011C32A /* backgroundMusic.wav */; };
 		77D725911C0F56CF00A687E8 /* StatusBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */; };
 		77D94C9B1C3ECE5900E28B84 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */; };
 		77D94CB41C401B7100E28B84 /* correctSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CB21C401B7100E28B84 /* correctSound.wav */; };
 		77D94CB91C401F5A00E28B84 /* wrongSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CB81C401F5A00E28B84 /* wrongSound.wav */; };
 		77D94CBD1C402CD600E28B84 /* finishGame.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CBC1C402CD600E28B84 /* finishGame.wav */; };
-		77D94CC51C403D1A00E28B84 /* backgroundAudio.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CC41C403D1A00E28B84 /* backgroundAudio.wav */; };
 		EF35E9111B88F6CE00540031 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35E9101B88F6CE00540031 /* BoardView.swift */; };
 		EF41DCB81BDAA50A008D72CE /* WordAndClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41DCB71BDAA50A008D72CE /* WordAndClue.swift */; };
 		EF41DCBA1BDAA584008D72CE /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41DCB91BDAA584008D72CE /* Clue.swift */; };
@@ -55,12 +55,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7786A6161C4573600011C32A /* backgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundMusic.wav; sourceTree = "<group>"; };
 		77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarViewController.swift; sourceTree = "<group>"; };
 		77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		77D94CB21C401B7100E28B84 /* correctSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correctSound.wav; sourceTree = "<group>"; };
 		77D94CB81C401F5A00E28B84 /* wrongSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrongSound.wav; sourceTree = "<group>"; };
 		77D94CBC1C402CD600E28B84 /* finishGame.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = finishGame.wav; sourceTree = "<group>"; };
-		77D94CC41C403D1A00E28B84 /* backgroundAudio.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundAudio.wav; sourceTree = "<group>"; };
 		EF35E9101B88F6CE00540031 /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		EF41DCB71BDAA50A008D72CE /* WordAndClue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordAndClue.swift; sourceTree = "<group>"; };
 		EF41DCB91BDAA584008D72CE /* Clue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 			children = (
 				77D94CB21C401B7100E28B84 /* correctSound.wav */,
 				77D94CB81C401F5A00E28B84 /* wrongSound.wav */,
-				77D94CC41C403D1A00E28B84 /* backgroundAudio.wav */,
+				7786A6161C4573600011C32A /* backgroundMusic.wav */,
 				77D94CBC1C402CD600E28B84 /* finishGame.wav */,
 			);
 			name = sounds;
@@ -348,12 +348,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA96DEA71B29C0CE00149113 /* LaunchScreen.xib in Resources */,
-				77D94CC51C403D1A00E28B84 /* backgroundAudio.wav in Resources */,
 				FA96DEA41B29C0CE00149113 /* Images.xcassets in Resources */,
 				77D94CB91C401F5A00E28B84 /* wrongSound.wav in Resources */,
 				77D94CBD1C402CD600E28B84 /* finishGame.wav in Resources */,
 				FA96DEA21B29C0CE00149113 /* Main.storyboard in Resources */,
 				77D94CB41C401B7100E28B84 /* correctSound.wav in Resources */,
+				7786A6171C4573600011C32A /* backgroundMusic.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
