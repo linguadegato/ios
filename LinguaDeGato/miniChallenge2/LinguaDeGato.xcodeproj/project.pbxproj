@@ -12,7 +12,7 @@
 		77D94CB41C401B7100E28B84 /* correctSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CB21C401B7100E28B84 /* correctSound.wav */; };
 		77D94CB91C401F5A00E28B84 /* wrongSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CB81C401F5A00E28B84 /* wrongSound.wav */; };
 		77D94CBD1C402CD600E28B84 /* finishGame.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CBC1C402CD600E28B84 /* finishGame.wav */; };
-		77D94CBF1C402F9D00E28B84 /* backgroundAudio.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CBE1C402F9D00E28B84 /* backgroundAudio.wav */; };
+		77D94CC51C403D1A00E28B84 /* backgroundAudio.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CC41C403D1A00E28B84 /* backgroundAudio.wav */; };
 		EF35E9111B88F6CE00540031 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35E9101B88F6CE00540031 /* BoardView.swift */; };
 		EF41DCB81BDAA50A008D72CE /* WordAndClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41DCB71BDAA50A008D72CE /* WordAndClue.swift */; };
 		EF41DCBA1BDAA584008D72CE /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41DCB91BDAA584008D72CE /* Clue.swift */; };
@@ -60,7 +60,7 @@
 		77D94CB21C401B7100E28B84 /* correctSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correctSound.wav; sourceTree = "<group>"; };
 		77D94CB81C401F5A00E28B84 /* wrongSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrongSound.wav; sourceTree = "<group>"; };
 		77D94CBC1C402CD600E28B84 /* finishGame.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = finishGame.wav; sourceTree = "<group>"; };
-		77D94CBE1C402F9D00E28B84 /* backgroundAudio.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundAudio.wav; sourceTree = "<group>"; };
+		77D94CC41C403D1A00E28B84 /* backgroundAudio.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundAudio.wav; sourceTree = "<group>"; };
 		EF35E9101B88F6CE00540031 /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		EF41DCB71BDAA50A008D72CE /* WordAndClue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordAndClue.swift; sourceTree = "<group>"; };
 		EF41DCB91BDAA584008D72CE /* Clue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 			children = (
 				77D94CB21C401B7100E28B84 /* correctSound.wav */,
 				77D94CB81C401F5A00E28B84 /* wrongSound.wav */,
-				77D94CBE1C402F9D00E28B84 /* backgroundAudio.wav */,
+				77D94CC41C403D1A00E28B84 /* backgroundAudio.wav */,
 				77D94CBC1C402CD600E28B84 /* finishGame.wav */,
 			);
 			name = sounds;
@@ -315,7 +315,7 @@
 				TargetAttributes = {
 					FA96DE921B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 7KYC4PVA26;
+						DevelopmentTeam = ZR6H5N286L;
 					};
 					FA96DEAB1B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -348,7 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA96DEA71B29C0CE00149113 /* LaunchScreen.xib in Resources */,
-				77D94CBF1C402F9D00E28B84 /* backgroundAudio.wav in Resources */,
+				77D94CC51C403D1A00E28B84 /* backgroundAudio.wav in Resources */,
 				FA96DEA41B29C0CE00149113 /* Images.xcassets in Resources */,
 				77D94CB91C401F5A00E28B84 /* wrongSound.wav in Resources */,
 				77D94CBD1C402CD600E28B84 /* finishGame.wav in Resources */,
