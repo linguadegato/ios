@@ -218,7 +218,7 @@ class TileView: UIView, UIGestureRecognizerDelegate {
             // Error handling
         }
         
-        wrongFeedbackPlay.volume = 0.6
+        wrongFeedbackPlay.volume = 0.5
         wrongFeedbackPlay.play()
         prepareToRedraw()
     }
