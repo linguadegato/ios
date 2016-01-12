@@ -21,7 +21,7 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     // MARK: - GAME PROPERTIES (words array, positions matrix, etc)
     var crosswordMatrix: [[CrosswordElement?]]?
     var words = [WordAndClue]()
-    var finishGamePlay = AVAudioPlayer()
+    var finishGamePlayAudio = AVAudioPlayer()
     
     // MARK: - LIFECYCLE METHODS
     
@@ -33,7 +33,7 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
         let finishGame = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("finishGame", ofType: "wav")!)
         
         do {
-            try finishGamePlay = AVAudioPlayer(contentsOfURL: finishGame)
+            try finishGamePlayAudio = AVAudioPlayer(contentsOfURL: finishGame)
         }
         catch _ {
             // Error handling
@@ -61,7 +61,8 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     
     func gameEnded() {
         
-        finishGamePlay.play()
+        finishGamePlayAudio.volume = 0.2
+        finishGamePlayAudio.play()
         
         let alertController = UIAlertController(title: "PARABÉNS", message:
             "Você concluiu o jogo! \u{1F431}", preferredStyle: UIAlertControllerStyle.Alert)
@@ -77,7 +78,7 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     // MARK: - TODO: NAVIGATION (porque voce tem que conseguir sair, neh?)
 
     func backByWinningFromAlertAction (action: UIAlertAction) {
-        finishGamePlay.stop()
+        finishGamePlayAudio.stop()
         self.navigationController!.popViewControllerAnimated(true)
     }
 }
