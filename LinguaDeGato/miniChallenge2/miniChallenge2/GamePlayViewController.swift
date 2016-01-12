@@ -77,6 +77,7 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     // MARK: - TODO: NAVIGATION (porque voce tem que conseguir sair, neh?)
 
     func backByWinningFromAlertAction (action: UIAlertAction) {
+        finishGamePlay.stop()
         self.navigationController!.popViewControllerAnimated(true)
     }
 }

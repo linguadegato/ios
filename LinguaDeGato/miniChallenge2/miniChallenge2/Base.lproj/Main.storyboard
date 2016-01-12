@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -130,7 +130,7 @@
                                                     <constraint firstAttribute="width" secondItem="XiI-TA-MYn" secondAttribute="height" multiplier="1:1" id="WjZ-Gp-RGJ"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="Audio Img" image="iconPlayAudioOranteTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="z5E-ym-D8p" userLabel="Audio Img">
+                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="Audio Img" image="iconPlayAudioOrangeTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="z5E-ym-D8p" userLabel="Audio Img">
                                                 <rect key="frame" x="187" y="0.0" width="38" height="38"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -972,7 +972,7 @@
         <image name="iconGalleryGreen" width="312" height="312"/>
         <image name="iconGamePink" width="128" height="128"/>
         <image name="iconPlayAudioBlackTransparent" width="134" height="134"/>
-        <image name="iconPlayAudioOranteTransparent" width="134" height="134"/>
+        <image name="iconPlayAudioOrangeTransparent" width="134" height="134"/>
         <image name="iconPlayGreen" width="134" height="134"/>
         <image name="iconPlayOrange" width="128" height="128"/>
         <image name="iconPlayPink" width="128" height="128"/>
