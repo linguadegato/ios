@@ -268,9 +268,11 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     // Record audio button
     @IBAction func recordAudio(sender: AnyObject) {
         if audioRecorder == nil {
+            MusicSingleton.sharedMusic().playBackgroundAudio(false)
             startRecording()
         } else {
             finishRecording(success: true)
+            MusicSingleton.sharedMusic().playBackgroundAudio(true)
         }
     }
     

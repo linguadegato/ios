@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7786A6171C4573600011C32A /* backgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7786A6161C4573600011C32A /* backgroundMusic.wav */; };
+		7786A6221C46B4930011C32A /* MusicSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786A6211C46B4930011C32A /* MusicSingleton.swift */; };
 		77D725911C0F56CF00A687E8 /* StatusBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */; };
 		77D94C9B1C3ECE5900E28B84 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */; };
 		77D94CB41C401B7100E28B84 /* correctSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CB21C401B7100E28B84 /* correctSound.wav */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		7786A6161C4573600011C32A /* backgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundMusic.wav; sourceTree = "<group>"; };
+		7786A6211C46B4930011C32A /* MusicSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicSingleton.swift; sourceTree = "<group>"; };
 		77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarViewController.swift; sourceTree = "<group>"; };
 		77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		77D94CB21C401B7100E28B84 /* correctSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correctSound.wav; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				FA8D2D921C3F2F2B004F0375 /* ClueCollectionViewCell.swift */,
 				FAAB7EF61C3F19A9004561EF /* AllGamesCollectionViewController.swift */,
 				FAF3E2191C45932800BE8A8F /* AllGamesHeaderView.swift */,
+				7786A6211C46B4930011C32A /* MusicSingleton.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -318,7 +321,7 @@
 				TargetAttributes = {
 					FA96DE921B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = X4P55MVJ74;
+						DevelopmentTeam = ZR6H5N286L;
 					};
 					FA96DEAB1B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -385,6 +388,7 @@
 				EFA0932B1BCD3524008525F1 /* CrosswordElement.swift in Sources */,
 				EFBF8B351BDFDEBC00784B94 /* CrosswordCoordinate.swift in Sources */,
 				FAE1C8B21B385E1F00FFE77C /* InitialViewController.swift in Sources */,
+				7786A6221C46B4930011C32A /* MusicSingleton.swift in Sources */,
 				FA96DE991B29C0CE00149113 /* AppDelegate.swift in Sources */,
 				FAFAB86C1C161DA100CBC16B /* UIColorExtension.swift in Sources */,
 				EF41DCB81BDAA50A008D72CE /* WordAndClue.swift in Sources */,
