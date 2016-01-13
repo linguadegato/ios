@@ -114,6 +114,8 @@ class CluePopupView: UIView {
             
             replayButton.addTarget(audio, action: "play", forControlEvents: .TouchUpInside)
             
+            MusicSingleton.sharedMusic().playBackgroundAudio(false)
+            
             //Play audio
             audio!.play()
         }
@@ -140,6 +142,7 @@ class CluePopupView: UIView {
             }
         }
         else {
+            MusicSingleton.sharedMusic().playBackgroundAudio(true)
             self.removeFromSuperview()
         }
     }

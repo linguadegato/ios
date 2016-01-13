@@ -27,7 +27,7 @@ class MusicSingleton: NSObject {
             try backgroundMusicPlay = AVAudioPlayer(contentsOfURL: backgroundMusic)
         }
         catch _ {
-        
+            // Error handling
         }
         
     }

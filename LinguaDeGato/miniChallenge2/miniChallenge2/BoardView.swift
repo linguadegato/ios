@@ -341,7 +341,7 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
         let aFrame = self.superview!.frame
         let popup = CluePopupView(frame: aFrame, aImage: aClue.image, anAudio: aClue.audio)
         let animationTime = 0.5
-
+        
         // animate the clue, with the pop-up effect
         UIView.animateWithDuration(NSTimeInterval(animationTime), animations: {
             popup.frameView.transform = CGAffineTransformMakeScale(0.9, 0.9)
