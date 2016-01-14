@@ -896,13 +896,36 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     func dismissKeyboard() {
         self.newWordTxtField.endEditing(true)
     }
-    
+
     // MARK: - NAVIGATION
+    
+    // MARK: TODO: save game
+    
+    var gameName: UITextField!
+    // generating the TextField in alert to save game
+    func configurationTextField(textField: UITextField!) {
+        
+        textField.placeholder = "Nome do jogo"
+        gameName = textField
+    }
+    
+    func alertSave() {
+        let alert = UIAlertController(title: "Deseja salvar o jogo?", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addTextFieldWithConfigurationHandler(configurationTextField)
+        alert.addAction(UIAlertAction(title: "Não salvar", style: UIAlertActionStyle.Default, handler:nil))
+        alert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
+            print(self.gameName.text, "salvo!")
+        }))
+        self.presentViewController(alert, animated: true, completion: {
+            print("completion block")
+        })
+    }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //MARK: HARRY-TODO: ACTIVITY INDICATOR
-                
+        
         if (segue.identifier == "GenerateCrossword" && newWords.count > 0) {
             
             //moves audio files to a word related URL
