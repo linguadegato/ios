@@ -9,21 +9,35 @@
 import UIKit
 
 class AllGamesCollectionViewController : UICollectionViewController{
+    
+    @IBOutlet var allWordsCollectionView: UICollectionView!
+    
+    var words = [[WordAndClue]]()
+    var collectionType = String()
+    
     private let reuseIdentifier = "ClueCell"
+    private let gamesViewController = "AllGames"
+    private let galleryViewController = "Gallery"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
     //DataSource
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 8
+        
+        return words.count
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return words[section].count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
-        cell.backgroundColor = UIColor.blackColor()
-        // Configure the cell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ClueCollectionViewCell
+        
+        cell.labelCell.text = words[indexPath.section][indexPath.row].word
+
         return cell
     }
     
@@ -36,6 +50,20 @@ class AllGamesCollectionViewController : UICollectionViewController{
         default:
             assert(false, "Unexpected element kind")
         }
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+
+        // Design:
+        let cellSizeForGallery = collectionView.bounds.size.width/3.2
+        let cellSizeForGame = collectionView.bounds.size.width/6.8
+        
+        if (collectionType == gamesViewController){
+            return CGSizeMake(cellSizeForGame, cellSizeForGame)
+        }else{
+            return CGSizeMake(cellSizeForGallery, cellSizeForGallery)
+        }
+        
     }
 
 }
