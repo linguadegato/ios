@@ -41,6 +41,7 @@
 		FAAB7EF71C3F19A9004561EF /* AllGamesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAB7EF61C3F19A9004561EF /* AllGamesCollectionViewController.swift */; };
 		FAAB7EFB1C3F1EC9004561EF /* AllWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAB7EFA1C3F1EC9004561EF /* AllWordsViewController.swift */; };
 		FAD621531B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */; };
+		FAE14DB91C47D3CD00E245CA /* GalleryAndGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE14DB81C47D3CD00E245CA /* GalleryAndGamesViewController.swift */; };
 		FAE1C8B21B385E1F00FFE77C /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE1C8B11B385E1F00FFE77C /* InitialViewController.swift */; };
 		FAF3E21A1C45932800BE8A8F /* AllGamesHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3E2191C45932800BE8A8F /* AllGamesHeaderView.swift */; };
 		FAFAB86C1C161DA100CBC16B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAB86B1C161DA100CBC16B /* UIColorExtension.swift */; };
@@ -95,6 +96,7 @@
 		FAAB7EF61C3F19A9004561EF /* AllGamesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGamesCollectionViewController.swift; sourceTree = "<group>"; };
 		FAAB7EFA1C3F1EC9004561EF /* AllWordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllWordsViewController.swift; sourceTree = "<group>"; };
 		FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWordCollectionViewCell.swift; sourceTree = "<group>"; };
+		FAE14DB81C47D3CD00E245CA /* GalleryAndGamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryAndGamesViewController.swift; sourceTree = "<group>"; };
 		FAE1C8B11B385E1F00FFE77C /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		FAF3E2191C45932800BE8A8F /* AllGamesHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGamesHeaderView.swift; sourceTree = "<group>"; };
 		FAFAB86B1C161DA100CBC16B /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		FA96DE8A1B29C0CE00149113 = {
 			isa = PBXGroup;
 			children = (
+				FAE14DB81C47D3CD00E245CA /* GalleryAndGamesViewController.swift */,
 				77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */,
 				FA96DE951B29C0CE00149113 /* LinguaDeGato */,
 				FA96DEAF1B29C0CE00149113 /* miniChallenge2Tests */,
@@ -321,7 +324,7 @@
 				TargetAttributes = {
 					FA96DE921B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = ZR6H5N286L;
+						DevelopmentTeam = X4P55MVJ74;
 					};
 					FA96DEAB1B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -403,6 +406,7 @@
 				EFA0932D1BCD35D5008525F1 /* CrosswordChar.swift in Sources */,
 				EF35E9111B88F6CE00540031 /* BoardView.swift in Sources */,
 				FA0681901B2B1491008A5C9F /* CreateCrosswordViewController.swift in Sources */,
+				FAE14DB91C47D3CD00E245CA /* GalleryAndGamesViewController.swift in Sources */,
 				FAAB7EFB1C3F1EC9004561EF /* AllWordsViewController.swift in Sources */,
 				EFE73AF21BFE2C6C007A8C13 /* CrosswordCluePlaceholder.swift in Sources */,
 			);
