@@ -23,7 +23,7 @@ class DatabaseManager {
     
     // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
     lazy var managedObjectModel: NSManagedObjectModel = {
-       let modelURL = NSBundle.mainBundle().URLForResource("LGdataModel", withExtension: "momd")!
+       let modelURL = NSBundle.mainBundle().URLForResource("LGDataModel", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
     
@@ -33,7 +33,7 @@ class DatabaseManager {
         
         // Create the coordinator and store
         var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("LGdataModel.sqlite")
+        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("LGDataModel.sqlite")
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
         
