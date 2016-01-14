@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1021" minimumToolsVersion="Xcode 7.0">
+    <entity name="LGCDGame" representedClassName=".LGCDGame" syncable="YES">
+        <attribute name="gameName" attributeType="String" syncable="YES"/>
+        <relationship name="wordsAndClues" toMany="YES" minCount="1" maxCount="6" deletionRule="Nullify" destinationEntity="LGCDWordAndClue" syncable="YES"/>
+    </entity>
+    <entity name="LGCDPhoto" representedClassName=".LGCDPhoto" syncable="YES">
+        <attribute name="photoID" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="LGCDWord" representedClassName=".LGCDWord" syncable="YES">
+        <attribute name="audioPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="word" attributeType="String" syncable="YES"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LGCDPhoto" syncable="YES"/>
+    </entity>
+    <entity name="LGCDWordAndClue" representedClassName=".LGCDWordAndClue" syncable="YES">
+        <attribute name="audio" attributeType="Boolean" syncable="YES"/>
+        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LGCDPhoto" syncable="YES"/>
+        <relationship name="word" maxCount="1" deletionRule="Nullify" destinationEntity="LGCDWord" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="LGCDGame" positionX="-36" positionY="63" width="128" height="75"/>
+        <element name="LGCDPhoto" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="LGCDWord" positionX="-54" positionY="0" width="128" height="90"/>
+        <element name="LGCDWordAndClue" positionX="-45" positionY="36" width="128" height="90"/>
+    </elements>
+</model>

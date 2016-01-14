@@ -9,4 +9,6 @@ import UIKit
 
 class AllGamesHeaderView: UICollectionReusableView {
     @IBOutlet weak var title: UILabel!
+    
+    
 }

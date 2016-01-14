@@ -221,7 +221,6 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
     }
     
     //MARK: - TILEVIEW DELEGATE
-    
     func tileGrabed(tile: TileView) {
         
         //brings to front

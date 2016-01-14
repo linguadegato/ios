@@ -5,9 +5,9 @@
 //  Created by Andre Scherma Soleo on 09/11/15.
 //  Copyright © 2015 Kobayashi. All rights reserved.
 //
-//  An object that manages, in BoardView, responses (either visual behavior and
+//  An object that manages, in BoardView, trigger to responses (either visual behavior and
 //  model related operations) to events ocurred in a specific word in a crossword
-//  game.
+//  game. Kind of an view controller anexus.
 
 import Foundation
 
