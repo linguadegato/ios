@@ -836,19 +836,19 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9dn-cj-3d6">
                             <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="50" height="70"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClueCell" id="ZXa-Om-ncX" customClass="ClueCollectionViewCell" customModule="LinguaDeGato" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="70" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconCat" translatesAutoresizingMaskIntoConstraints="NO" id="UNN-vS-fT3">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foto" translatesAutoresizingMaskIntoConstraints="NO" id="UNN-vS-fT3">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loW-VD-WqT">
@@ -878,27 +878,27 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AllGamesHeader" id="dJj-5L-2By" customClass="AllGamesHeaderView" customModule="LinguaDeGato" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="250" height="70"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VfX-Ze-5FX" userLabel="Title View">
-                                    <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="70"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconBoxPink" translatesAutoresizingMaskIntoConstraints="NO" id="ezu-Me-4GU" userLabel="Icon Image">
-                                            <rect key="frame" x="13" y="4" width="42" height="42"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iconBoxPink" translatesAutoresizingMaskIntoConstraints="NO" id="ezu-Me-4GU" userLabel="Icon Image">
+                                            <rect key="frame" x="13" y="11" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="ezu-Me-4GU" secondAttribute="height" multiplier="1:1" id="t2Q-fB-Mze"/>
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSc-7h-b2D" userLabel="Play Button">
-                                            <rect key="frame" x="209" y="9" width="33" height="33"/>
+                                            <rect key="frame" x="207" y="18" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="jSc-7h-b2D" secondAttribute="height" multiplier="1:1" id="RBG-5o-lQ0"/>
                                             </constraints>
                                             <state key="normal" backgroundImage="iconPlayPink"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbR-FB-zcu" userLabel="Title Label">
-                                            <rect key="frame" x="60" y="14" width="45" height="24"/>
+                                            <rect key="frame" x="68" y="24" width="45" height="24"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                             <color key="textColor" red="0.8862745098" green="0.20784313730000001" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -908,12 +908,11 @@
                                     <constraints>
                                         <constraint firstItem="jSc-7h-b2D" firstAttribute="trailing" secondItem="VfX-Ze-5FX" secondAttribute="trailingMargin" id="1uv-JE-jhc"/>
                                         <constraint firstItem="jSc-7h-b2D" firstAttribute="centerY" secondItem="VfX-Ze-5FX" secondAttribute="centerY" id="GbE-5c-2k7"/>
-                                        <constraint firstAttribute="height" constant="50" id="Okf-Bd-SvO"/>
                                         <constraint firstItem="ezu-Me-4GU" firstAttribute="centerY" secondItem="VfX-Ze-5FX" secondAttribute="centerY" id="YNK-aA-R5F"/>
                                         <constraint firstItem="ezu-Me-4GU" firstAttribute="leading" secondItem="VfX-Ze-5FX" secondAttribute="leadingMargin" constant="5" id="bho-gY-qJJ"/>
-                                        <constraint firstItem="ezu-Me-4GU" firstAttribute="height" secondItem="VfX-Ze-5FX" secondAttribute="height" multiplier="1:1.2" id="dYO-jS-RmK"/>
+                                        <constraint firstItem="ezu-Me-4GU" firstAttribute="height" secondItem="VfX-Ze-5FX" secondAttribute="height" multiplier="1:1.4" id="dYO-jS-RmK"/>
                                         <constraint firstItem="xbR-FB-zcu" firstAttribute="leading" secondItem="ezu-Me-4GU" secondAttribute="trailing" constant="5" id="qnS-44-loi"/>
-                                        <constraint firstItem="jSc-7h-b2D" firstAttribute="height" secondItem="VfX-Ze-5FX" secondAttribute="height" multiplier="1:1.5" id="wd5-Eh-xHT"/>
+                                        <constraint firstItem="jSc-7h-b2D" firstAttribute="height" secondItem="VfX-Ze-5FX" secondAttribute="height" multiplier="1:2" id="wd5-Eh-xHT"/>
                                         <constraint firstItem="xbR-FB-zcu" firstAttribute="centerY" secondItem="VfX-Ze-5FX" secondAttribute="centerY" id="xFR-jG-ufm"/>
                                     </constraints>
                                 </view>
@@ -942,9 +941,9 @@
         <image name="btnDelete" width="136" height="136"/>
         <image name="btnGalleryGreen" width="267" height="257"/>
         <image name="btnPlayBlue" width="130" height="130"/>
+        <image name="foto" width="1366" height="1330"/>
         <image name="iconBoxGreen" width="306" height="306"/>
         <image name="iconBoxPink" width="306" height="306"/>
-        <image name="iconCat" width="699" height="669"/>
         <image name="iconCatTransparent" width="699" height="669"/>
         <image name="iconGalleryGreen" width="312" height="312"/>
         <image name="iconGamePink" width="128" height="128"/>
