@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7786A6171C4573600011C32A /* backgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7786A6161C4573600011C32A /* backgroundMusic.wav */; };
+		7786A6221C46B4930011C32A /* MusicSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786A6211C46B4930011C32A /* MusicSingleton.swift */; };
 		77D725911C0F56CF00A687E8 /* StatusBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */; };
 		77D94C9B1C3ECE5900E28B84 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */; };
 		77D94CB41C401B7100E28B84 /* correctSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CB21C401B7100E28B84 /* correctSound.wav */; };
 		77D94CB91C401F5A00E28B84 /* wrongSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CB81C401F5A00E28B84 /* wrongSound.wav */; };
 		77D94CBD1C402CD600E28B84 /* finishGame.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CBC1C402CD600E28B84 /* finishGame.wav */; };
-		77D94CC51C403D1A00E28B84 /* backgroundAudio.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CC41C403D1A00E28B84 /* backgroundAudio.wav */; };
 		EF35E9111B88F6CE00540031 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35E9101B88F6CE00540031 /* BoardView.swift */; };
 		EF41DCB81BDAA50A008D72CE /* WordAndClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41DCB71BDAA50A008D72CE /* WordAndClue.swift */; };
 		EF41DCBA1BDAA584008D72CE /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41DCB91BDAA584008D72CE /* Clue.swift */; };
@@ -38,10 +39,11 @@
 		FA96DEA41B29C0CE00149113 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA96DEA31B29C0CE00149113 /* Images.xcassets */; };
 		FA96DEA71B29C0CE00149113 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA96DEA51B29C0CE00149113 /* LaunchScreen.xib */; };
 		FA96DEB31B29C0CE00149113 /* miniChallenge2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96DEB21B29C0CE00149113 /* miniChallenge2Tests.swift */; };
-		FAAB7EF71C3F19A9004561EF /* SavedGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAB7EF61C3F19A9004561EF /* SavedGameViewController.swift */; };
+		FAAB7EF71C3F19A9004561EF /* AllGamesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAB7EF61C3F19A9004561EF /* AllGamesCollectionViewController.swift */; };
 		FAAB7EFB1C3F1EC9004561EF /* AllWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAB7EFA1C3F1EC9004561EF /* AllWordsViewController.swift */; };
 		FAD621531B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */; };
 		FAE1C8B21B385E1F00FFE77C /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE1C8B11B385E1F00FFE77C /* InitialViewController.swift */; };
+		FAF3E21A1C45932800BE8A8F /* AllGamesHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3E2191C45932800BE8A8F /* AllGamesHeaderView.swift */; };
 		FAFAB86C1C161DA100CBC16B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAB86B1C161DA100CBC16B /* UIColorExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,12 +58,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7786A6161C4573600011C32A /* backgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundMusic.wav; sourceTree = "<group>"; };
+		7786A6211C46B4930011C32A /* MusicSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicSingleton.swift; sourceTree = "<group>"; };
 		77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarViewController.swift; sourceTree = "<group>"; };
 		77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		77D94CB21C401B7100E28B84 /* correctSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correctSound.wav; sourceTree = "<group>"; };
 		77D94CB81C401F5A00E28B84 /* wrongSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrongSound.wav; sourceTree = "<group>"; };
 		77D94CBC1C402CD600E28B84 /* finishGame.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = finishGame.wav; sourceTree = "<group>"; };
-		77D94CC41C403D1A00E28B84 /* backgroundAudio.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundAudio.wav; sourceTree = "<group>"; };
 		EF35E9101B88F6CE00540031 /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		EF41DCB71BDAA50A008D72CE /* WordAndClue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordAndClue.swift; sourceTree = "<group>"; };
 		EF41DCB91BDAA584008D72CE /* Clue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
@@ -91,10 +94,11 @@
 		FA96DEAC1B29C0CE00149113 /* LinguaDeGato.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinguaDeGato.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA96DEB11B29C0CE00149113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA96DEB21B29C0CE00149113 /* miniChallenge2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = miniChallenge2Tests.swift; sourceTree = "<group>"; };
-		FAAB7EF61C3F19A9004561EF /* SavedGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedGameViewController.swift; sourceTree = "<group>"; };
+		FAAB7EF61C3F19A9004561EF /* AllGamesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGamesCollectionViewController.swift; sourceTree = "<group>"; };
 		FAAB7EFA1C3F1EC9004561EF /* AllWordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllWordsViewController.swift; sourceTree = "<group>"; };
 		FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWordCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAE1C8B11B385E1F00FFE77C /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		FAF3E2191C45932800BE8A8F /* AllGamesHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGamesHeaderView.swift; sourceTree = "<group>"; };
 		FAFAB86B1C161DA100CBC16B /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,7 +126,7 @@
 			children = (
 				77D94CB21C401B7100E28B84 /* correctSound.wav */,
 				77D94CB81C401F5A00E28B84 /* wrongSound.wav */,
-				77D94CC41C403D1A00E28B84 /* backgroundAudio.wav */,
+				7786A6161C4573600011C32A /* backgroundMusic.wav */,
 				77D94CBC1C402CD600E28B84 /* finishGame.wav */,
 			);
 			name = sounds;
@@ -185,7 +189,9 @@
 				77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */,
 				FAAB7EFA1C3F1EC9004561EF /* AllWordsViewController.swift */,
 				FA8D2D921C3F2F2B004F0375 /* ClueCollectionViewCell.swift */,
-				FAAB7EF61C3F19A9004561EF /* SavedGameViewController.swift */,
+				FAAB7EF61C3F19A9004561EF /* AllGamesCollectionViewController.swift */,
+				FAF3E2191C45932800BE8A8F /* AllGamesHeaderView.swift */,
+				7786A6211C46B4930011C32A /* MusicSingleton.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -359,12 +365,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA96DEA71B29C0CE00149113 /* LaunchScreen.xib in Resources */,
-				77D94CC51C403D1A00E28B84 /* backgroundAudio.wav in Resources */,
 				FA96DEA41B29C0CE00149113 /* Images.xcassets in Resources */,
 				77D94CB91C401F5A00E28B84 /* wrongSound.wav in Resources */,
 				77D94CBD1C402CD600E28B84 /* finishGame.wav in Resources */,
 				FA96DEA21B29C0CE00149113 /* Main.storyboard in Resources */,
 				77D94CB41C401B7100E28B84 /* correctSound.wav in Resources */,
+				7786A6171C4573600011C32A /* backgroundMusic.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,15 +399,17 @@
 				EFA0932B1BCD3524008525F1 /* CrosswordElement.swift in Sources */,
 				EFBF8B351BDFDEBC00784B94 /* CrosswordCoordinate.swift in Sources */,
 				FAE1C8B21B385E1F00FFE77C /* InitialViewController.swift in Sources */,
+				7786A6221C46B4930011C32A /* MusicSingleton.swift in Sources */,
 				FA96DE991B29C0CE00149113 /* AppDelegate.swift in Sources */,
 				FAFAB86C1C161DA100CBC16B /* UIColorExtension.swift in Sources */,
 				EF41DCB81BDAA50A008D72CE /* WordAndClue.swift in Sources */,
 				EFCC8B691BF11DE600F6851F /* WordManager.swift in Sources */,
 				EFDD44B71B862A460078C141 /* SquareView.swift in Sources */,
 				EFCC8B671BF10DC700F6851F /* BoardCellView.swift in Sources */,
-				FAAB7EF71C3F19A9004561EF /* SavedGameViewController.swift in Sources */,
+				FAAB7EF71C3F19A9004561EF /* AllGamesCollectionViewController.swift in Sources */,
 				77D725911C0F56CF00A687E8 /* StatusBarViewController.swift in Sources */,
 				EF41DCBA1BDAA584008D72CE /* Clue.swift in Sources */,
+				FAF3E21A1C45932800BE8A8F /* AllGamesHeaderView.swift in Sources */,
 				EFE6D07C1B85F4B700CCC802 /* GamePlayViewController.swift in Sources */,
 				EFA0932D1BCD35D5008525F1 /* CrosswordChar.swift in Sources */,
 				EF35E9111B88F6CE00540031 /* BoardView.swift in Sources */,

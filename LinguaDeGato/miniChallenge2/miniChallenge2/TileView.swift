@@ -199,6 +199,7 @@ class TileView: UIView, UIGestureRecognizerDelegate {
             // Error handling
         }
         
+        correctFeedbackPlay.volume = 1.0
         correctFeedbackPlay.play()
         
         //setNeedsDisplay is needed since tile can change from
@@ -217,6 +218,7 @@ class TileView: UIView, UIGestureRecognizerDelegate {
             // Error handling
         }
         
+        wrongFeedbackPlay.volume = 0.5
         wrongFeedbackPlay.play()
         prepareToRedraw()
     }
