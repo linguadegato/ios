@@ -83,6 +83,7 @@
                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CB4-Gq-Y70">
                                         <rect key="frame" x="421" y="83" width="75" height="225"/>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.7843137255" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="iconAddWhiteSmall"/>
                                         <connections>
                                             <action selector="addNewWord" destination="poN-pE-e0p" eventType="touchUpInside" id="a9w-ae-KFd"/>
                                         </connections>
@@ -942,6 +943,7 @@
         <image name="btnGalleryGreen" width="267" height="257"/>
         <image name="btnPlayBlue" width="130" height="130"/>
         <image name="foto" width="1366" height="1330"/>
+        <image name="iconAddWhiteSmall" width="267" height="267"/>
         <image name="iconBoxGreen" width="306" height="306"/>
         <image name="iconBoxPink" width="306" height="306"/>
         <image name="iconCatTransparent" width="699" height="669"/>
