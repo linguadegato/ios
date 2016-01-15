@@ -141,7 +141,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         //buttons
         generateButton.enabled = false
-        addButton.enabled = false
+        addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(0.5))
+        addButton.userInteractionEnabled = false
         
         //MARK: Set gesture recognizers
         //gesture recognizer to dismiss keyboard
@@ -326,10 +327,10 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private func setAddButtonState() {
         if hasClue && hasWord && !wordsLimitReached {
             addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(1))
-            addButton.enabled = true
+            addButton.userInteractionEnabled = true
         } else {
-            addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(0.8))
-            addButton.enabled = false
+            addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(0.5))
+            addButton.userInteractionEnabled = false
         }
     }
     
