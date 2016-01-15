@@ -879,6 +879,9 @@
                                                 <constraint firstAttribute="width" secondItem="jSc-7h-b2D" secondAttribute="height" multiplier="1:1" id="RBG-5o-lQ0"/>
                                             </constraints>
                                             <state key="normal" backgroundImage="iconPlayPink"/>
+                                            <connections>
+                                                <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromSelectedGame" id="tQq-Cc-Ja3"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbR-FB-zcu" userLabel="Title Label">
                                             <rect key="frame" x="68" y="24" width="45" height="24"/>
@@ -942,4 +945,7 @@
         <image name="slideOrange" width="78" height="78"/>
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="OJj-Wf-kYc"/>
+    </inferredMetricsTieBreakers>
 </document>

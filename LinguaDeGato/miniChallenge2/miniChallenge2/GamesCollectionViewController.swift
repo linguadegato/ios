@@ -32,7 +32,7 @@ class GamesCollectionViewController : UICollectionViewController{
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GameCollectionViewCell
         
         cell.labelCell.text = allGames[indexPath.section].wordsAndClueArray[indexPath.row].word
-
+        
         return cell
     }
     
@@ -53,6 +53,22 @@ class GamesCollectionViewController : UICollectionViewController{
         
         let cellSizeForGame = collectionView.bounds.size.width/6.8
         return CGSizeMake(cellSizeForGame, cellSizeForGame)
+        
+    }
+    
+    //atribute it to GamePlayViewController
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //MARK: HARRY-TODO: ACTIVITY INDICATOR
+        
+        let selectedGame = allGames[0].wordsAndClueArray
+        
+        let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: selectedGame)
+        aGenerator.computeCrossword(2, spins: 4)
+
+        if (segue.identifier == "CreateGameFromSelectedGame" ) {
+            (segue.destinationViewController as! GamePlayViewController).crosswordMatrix = aGenerator.grid
+            (segue.destinationViewController as! GamePlayViewController).words = aGenerator.currentWordlist
+        }
         
     }
 

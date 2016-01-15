@@ -18,7 +18,7 @@ class GalleryAndGamesViewController: UIViewController {
         
         var games = [Game]()
         
-        let clue = Clue.init(aImageID: "", anAudioPath: "")
+        let clue = Clue.init(aImageID: "4C702013-B31B-4697-A5A8-D1112997D11B/L0/001", anAudioPath: "")
         
         let gameAnimais = Game(gameName: "Animais", wordsAndClue: [WordAndClue]())
         gameAnimais.wordsAndClueArray.append(WordAndClue.init(aWord: "cachorro", aClue: clue))
