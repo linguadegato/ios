@@ -10,48 +10,63 @@ import UIKit
 
 class GalleryAndGamesViewController: UIViewController {
     
-    private var wordsMatrixGames = [[WordAndClue]]()
-    private var wordsMatrixGallery = [[WordAndClue]]()
+    private var allGames = [Game]()
+    private var gallery = [Game]()
     
     // Remove this function (for test)
-    private func createExampleMatrixGame() -> [[WordAndClue]]{
+    private func createExampleGames() -> [Game]{
         
-        var wordsMatrix = [[WordAndClue]]()
-        let clue = Clue.init(aImageID: "iconPlayPink", anAudioPath: "")
+        var games = [Game]()
         
-        var arrayAnimais = [WordAndClue]()
-        arrayAnimais.append(WordAndClue.init(aWord: "cachorro", aClue: clue))
-        arrayAnimais.append(WordAndClue.init(aWord: "gato", aClue: clue))
-        wordsMatrix.append(arrayAnimais)
+        let clue = Clue.init(aImageID: "", anAudioPath: "")
         
-        var arrayPessoas = [WordAndClue]()
-        arrayPessoas.append(WordAndClue.init(aWord: "Huguinho", aClue: clue))
-        arrayPessoas.append(WordAndClue.init(aWord: "Zezinho", aClue: clue))
-        arrayPessoas.append(WordAndClue.init(aWord: "Luizinho", aClue: clue))
-        wordsMatrix.append(arrayPessoas)
+        let gameAnimais = Game(gameName: "Animais", wordsAndClue: [WordAndClue]())
+        gameAnimais.wordsAndClueArray.append(WordAndClue.init(aWord: "cachorro", aClue: clue))
+        gameAnimais.wordsAndClueArray.append(WordAndClue.init(aWord: "gato", aClue: clue))
+          
+        let gamePessoas = Game(gameName: "Pessoas", wordsAndClue: [WordAndClue]())
+        gamePessoas.wordsAndClueArray.append(WordAndClue.init(aWord: "Huguinho", aClue: clue))
+        gamePessoas.wordsAndClueArray.append(WordAndClue.init(aWord: "Zezinho", aClue: clue))
+        gamePessoas.wordsAndClueArray.append(WordAndClue.init(aWord: "Luizinho", aClue: clue))
         
+        let gameMonica = Game(gameName:"Turma da Mônica", wordsAndClue: [WordAndClue]())
+        gameMonica.wordsAndClueArray.append(WordAndClue.init(aWord: "Cebelinha", aClue: clue))
+        gameMonica.wordsAndClueArray.append(WordAndClue.init(aWord: "Cascão", aClue: clue))
+        gameMonica.wordsAndClueArray.append(WordAndClue.init(aWord: "Mônica", aClue: clue))
+        gameMonica.wordsAndClueArray.append(WordAndClue.init(aWord: "Magali", aClue: clue))
+        gameMonica.wordsAndClueArray.append(WordAndClue.init(aWord: "Anginho", aClue: clue))
+        gameMonica.wordsAndClueArray.append(WordAndClue.init(aWord: "Dudu", aClue: clue))
         
-        arrayPessoas.append(WordAndClue.init(aWord: "Pink", aClue: clue))
-        arrayPessoas.append(WordAndClue.init(aWord: "Cérebro", aClue: clue))
-        arrayPessoas.append(WordAndClue.init(aWord: "Mônica", aClue: clue))
-        wordsMatrix.append(arrayPessoas)
+        games.append(gameAnimais)
+        games.append(gamePessoas)
+        games.append(gameMonica)
         
-        return wordsMatrix
+        return games
         
     }
     
-    private func createExampleMatrixGallery() -> [[WordAndClue]]{
+    private func createExampleGallery() -> [Game]{
         
-        var wordsMatrix = [[WordAndClue]]()
+        var words = [WordAndClue]()
         let clue = Clue.init(aImageID: "iconPlayPink", anAudioPath: "")
         
-        var arrayAnimais = [WordAndClue]()
-        arrayAnimais.append(WordAndClue.init(aWord: "cachorro", aClue: clue))
-        arrayAnimais.append(WordAndClue.init(aWord: "gato", aClue: clue))
-        wordsMatrix.append(arrayAnimais)
+        words.append(WordAndClue.init(aWord: "cachorro", aClue: clue))
+        words.append(WordAndClue.init(aWord: "gato", aClue: clue))
+        words.append(WordAndClue.init(aWord: "Huguinho", aClue: clue))
+        words.append(WordAndClue.init(aWord: "Zezinho", aClue: clue))
+        words.append(WordAndClue.init(aWord: "Luizinho", aClue: clue))
+        words.append(WordAndClue.init(aWord: "Cebelinha", aClue: clue))
+        words.append(WordAndClue.init(aWord: "Cascão", aClue: clue))
+        words.append(WordAndClue.init(aWord: "Mônica", aClue: clue))
+        words.append(WordAndClue.init(aWord: "Magali", aClue: clue))
+        words.append(WordAndClue.init(aWord: "Anginho", aClue: clue))
+        words.append(WordAndClue.init(aWord: "Dudu", aClue: clue))
         
-        return wordsMatrix
+        let gameWithAllWords = Game(gameName: "Galeria", wordsAndClue: words)
+        var gallery = [Game]()
+        gallery.append(gameWithAllWords)
         
+        return gallery
     }
 
     
@@ -59,17 +74,18 @@ class GalleryAndGamesViewController: UIViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        wordsMatrixGames = createExampleMatrixGame()
-        wordsMatrixGallery = createExampleMatrixGallery()
+        allGames = createExampleGames()
+        gallery = createExampleGallery()
         
         if (segue.identifier == "AllGamesSegue") {
             
             (segue.destinationViewController as! AllGamesCollectionViewController).collectionType = "AllGames"
-            (segue.destinationViewController as! AllGamesCollectionViewController).words = wordsMatrixGames
+            (segue.destinationViewController as! AllGamesCollectionViewController).words = allGames
             
         }else if (segue.identifier == "GallerySegue"){
+
             (segue.destinationViewController as! AllGamesCollectionViewController).collectionType = "Gallery"
-            (segue.destinationViewController as! AllGamesCollectionViewController).words = wordsMatrixGallery
+            (segue.destinationViewController as! AllGamesCollectionViewController).words = gallery
         }
     }
 

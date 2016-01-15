@@ -12,7 +12,7 @@ class AllGamesCollectionViewController : UICollectionViewController{
     
     @IBOutlet var allWordsCollectionView: UICollectionView!
     
-    var words = [[WordAndClue]]()
+    var words = [Game]()
     var collectionType = String()
     
     private let reuseIdentifier = "ClueCell"
@@ -30,13 +30,13 @@ class AllGamesCollectionViewController : UICollectionViewController{
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return words[section].count
+        return words[section].wordsAndClueArray.count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ClueCollectionViewCell
         
-        cell.labelCell.text = words[indexPath.section][indexPath.row].word
+        cell.labelCell.text = words[indexPath.section].wordsAndClueArray[indexPath.row].word
 
         return cell
     }
@@ -44,9 +44,11 @@ class AllGamesCollectionViewController : UICollectionViewController{
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionElementKindSectionHeader:
+            
             let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "AllGamesHeader",forIndexPath: indexPath) as! AllGamesHeaderView
-            headerView.title.text = "Título Collection"
+            headerView.title.text = words[indexPath.section].name
             return headerView
+
         default:
             assert(false, "Unexpected element kind")
         }
