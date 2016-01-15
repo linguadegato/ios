@@ -686,66 +686,6 @@
             </objects>
             <point key="canvasLocation" x="-1208" y="1124"/>
         </scene>
-        <!--Gallery View Controller 2-->
-        <scene sceneID="zj3-V4-Wvx">
-            <objects>
-                <viewController storyboardIdentifier="Gallery View Controller" id="bos-pH-HnA" userLabel="Gallery View Controller 2" customClass="GalleryCollectionViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="akN-SG-j9h"/>
-                        <viewControllerLayoutGuide type="bottom" id="6v4-Af-wdH"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Zjg-ed-b8Q">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4np-g8-v8j">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="486"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O89-1a-TKW">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huC-JR-3Fj" userLabel="Lower View">
-                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
-                                <subviews>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="13f-9X-deP">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="bos-pH-HnA" id="N22-SH-rn4"/>
-                                        </connections>
-                                    </searchBar>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="13f-9X-deP" firstAttribute="height" secondItem="huC-JR-3Fj" secondAttribute="height" id="1g3-fQ-Z0l"/>
-                                    <constraint firstItem="13f-9X-deP" firstAttribute="centerX" secondItem="huC-JR-3Fj" secondAttribute="centerX" id="BKD-oS-gze"/>
-                                    <constraint firstAttribute="height" constant="50" id="MU1-jc-itO"/>
-                                    <constraint firstItem="13f-9X-deP" firstAttribute="width" secondItem="huC-JR-3Fj" secondAttribute="width" id="rUh-Jb-4ln"/>
-                                    <constraint firstItem="13f-9X-deP" firstAttribute="centerY" secondItem="huC-JR-3Fj" secondAttribute="centerY" id="zVF-8K-zgm"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="huC-JR-3Fj" firstAttribute="width" secondItem="Zjg-ed-b8Q" secondAttribute="width" id="1fT-GU-ugL"/>
-                            <constraint firstItem="4np-g8-v8j" firstAttribute="width" secondItem="Zjg-ed-b8Q" secondAttribute="width" id="GVs-0t-bnH"/>
-                            <constraint firstItem="huC-JR-3Fj" firstAttribute="centerX" secondItem="Zjg-ed-b8Q" secondAttribute="centerX" id="LEg-RJ-kLc"/>
-                            <constraint firstItem="6v4-Af-wdH" firstAttribute="top" secondItem="huC-JR-3Fj" secondAttribute="bottom" id="LMq-NP-xbo"/>
-                            <constraint firstItem="4np-g8-v8j" firstAttribute="top" secondItem="akN-SG-j9h" secondAttribute="bottom" id="NaH-02-Eby"/>
-                            <constraint firstItem="4np-g8-v8j" firstAttribute="centerX" secondItem="Zjg-ed-b8Q" secondAttribute="centerX" id="NzC-vO-ZUG"/>
-                            <constraint firstItem="huC-JR-3Fj" firstAttribute="top" secondItem="4np-g8-v8j" secondAttribute="bottom" id="aUI-ue-640"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Um-In-avN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1764" y="2210"/>
-        </scene>
         <!--Gallery Collection View Controller-->
         <scene sceneID="Q2W-iT-GmQ">
             <objects>

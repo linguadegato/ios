@@ -51,7 +51,6 @@
 		FA96DEA71B29C0CE00149113 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA96DEA51B29C0CE00149113 /* LaunchScreen.xib */; };
 		FA96DEB31B29C0CE00149113 /* miniChallenge2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96DEB21B29C0CE00149113 /* miniChallenge2Tests.swift */; };
 		FAAB7EF71C3F19A9004561EF /* GamesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAB7EF61C3F19A9004561EF /* GamesCollectionViewController.swift */; };
-		FAAB7EFB1C3F1EC9004561EF /* AllWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAB7EFA1C3F1EC9004561EF /* AllWordsViewController.swift */; };
 		FAC71AC11C49637100F67F8C /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC71AC01C49637100F67F8C /* GalleryCollectionViewCell.swift */; };
 		FAC71AC51C496DF600F67F8C /* GalleryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC71AC41C496DF600F67F8C /* GalleryHeaderView.swift */; };
 		FAD621531B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */; };
@@ -120,7 +119,6 @@
 		FA96DEB11B29C0CE00149113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA96DEB21B29C0CE00149113 /* miniChallenge2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = miniChallenge2Tests.swift; sourceTree = "<group>"; };
 		FAAB7EF61C3F19A9004561EF /* GamesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesCollectionViewController.swift; sourceTree = "<group>"; };
-		FAAB7EFA1C3F1EC9004561EF /* AllWordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllWordsViewController.swift; sourceTree = "<group>"; };
 		FAC71AC01C49637100F67F8C /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAC71AC41C496DF600F67F8C /* GalleryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryHeaderView.swift; sourceTree = "<group>"; };
 		FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWordCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -247,7 +245,6 @@
 				FA06818F1B2B1491008A5C9F /* CreateCrosswordViewController.swift */,
 				EFB828681BF65B2E0017CF35 /* UINavigationControllerExtension.swift */,
 				77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */,
-				FAAB7EFA1C3F1EC9004561EF /* AllWordsViewController.swift */,
 				7786A6211C46B4930011C32A /* MusicSingleton.swift */,
 				FA2DEFB51C492CDA00465F73 /* GalleryAndGamesViewController.swift */,
 				FA1E0EF51C495BB000596D44 /* GalleryCollectionViewController.swift */,
@@ -414,7 +411,7 @@
 				TargetAttributes = {
 					FA96DE921B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = ZR6H5N286L;
+						DevelopmentTeam = X4P55MVJ74;
 					};
 					FA96DEAB1B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -510,7 +507,6 @@
 				FAE14DBB1C49139100E245CA /* Game.swift in Sources */,
 				EF040D241C49115900B78D2D /* LGCDWord.swift in Sources */,
 				FA0681901B2B1491008A5C9F /* CreateCrosswordViewController.swift in Sources */,
-				FAAB7EFB1C3F1EC9004561EF /* AllWordsViewController.swift in Sources */,
 				EFE73AF21BFE2C6C007A8C13 /* CrosswordCluePlaceholder.swift in Sources */,
 				EFFB40CA1C46A5D10099BA6F /* DatabaseManager.swift in Sources */,
 			);
