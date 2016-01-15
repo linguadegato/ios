@@ -1,23 +1,22 @@
 //
-//  SavedGamesViewController.swift
+//  GalleryCollectionViewController.swift
 //  LinguaDeGato
 //
-//  Created by Kobayashi on 1/7/16.
+//  Created by Kobayashi on 1/15/16.
 //  Copyright © 2016 Kobayashi. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class AllGamesCollectionViewController : UICollectionViewController{
+class GalleryCollectionViewController : UICollectionViewController{
     
     @IBOutlet var allWordsCollectionView: UICollectionView!
     
-    var words = [Game]()
-    var collectionType = String()
-    
+    var gallery = [WordAndClue]()
+
     private let reuseIdentifier = "ClueCell"
-    private let gamesViewController = "AllGames"
-    private let galleryViewController = "Gallery"
+    private let collectionTitle = "Galeria"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,19 +24,18 @@ class AllGamesCollectionViewController : UICollectionViewController{
     
     //DataSource
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        
-        return words.count
+        return 1
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return words[section].wordsAndClueArray.count
+        return gallery.count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ClueCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GalleryCollectionViewCell
         
-        cell.labelCell.text = words[indexPath.section].wordsAndClueArray[indexPath.row].word
-
+        cell.labelCell.text = gallery[indexPath.row].word
+        
         return cell
     }
     
@@ -45,27 +43,20 @@ class AllGamesCollectionViewController : UICollectionViewController{
         switch kind {
         case UICollectionElementKindSectionHeader:
             
-            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "AllGamesHeader",forIndexPath: indexPath) as! AllGamesHeaderView
-            headerView.title.text = words[indexPath.section].name
+            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "GalleryHeader",forIndexPath: indexPath) as! GalleryHeaderView
+            headerView.title.text = collectionTitle
             return headerView
-
+            
         default:
             assert(false, "Unexpected element kind")
         }
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-
-        // Design:
-        let cellSizeForGallery = collectionView.bounds.size.width/3.2
-        let cellSizeForGame = collectionView.bounds.size.width/6.8
         
-        if (collectionType == gamesViewController){
-            return CGSizeMake(cellSizeForGame, cellSizeForGame)
-        }else{
-            return CGSizeMake(cellSizeForGallery, cellSizeForGallery)
-        }
+        let cellSizeForGallery = collectionView.bounds.size.width/3.2
+        return CGSizeMake(cellSizeForGallery, cellSizeForGallery)
         
     }
-
+    
 }

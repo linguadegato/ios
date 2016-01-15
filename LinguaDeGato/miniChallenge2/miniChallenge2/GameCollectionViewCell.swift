@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ClueCollectionViewCell: UICollectionViewCell {
+class GameCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageCell: UIImageView!
     @IBOutlet weak var labelCell: UILabel!
     @IBOutlet weak var selectButton: UIButton!
@@ -19,9 +19,5 @@ class ClueCollectionViewCell: UICollectionViewCell {
     var wordAndClue: WordAndClue!
     var delegate: CreateCrosswordViewController!
     var index: Int!
-    
-//    @IBAction func delete() {
-//        delegate!.cellAlert(index!)
-//    }
     
 }

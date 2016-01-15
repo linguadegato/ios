@@ -1,14 +1,15 @@
 //
-//  AllGamesHeaderView.swift
+//  GalleryHeaderView.swift
 //  LinguaDeGato
 //
-//  Created by Kobayashi on 1/12/16.
+//  Created by Kobayashi on 1/15/16.
 //  Copyright © 2016 Kobayashi. All rights reserved.
 //
+
+import Foundation
 import UIKit
 
-class AllGamesHeaderView: UICollectionReusableView {
+class GalleryHeaderView: UICollectionReusableView {
     @IBOutlet weak var title: UILabel!
-    
     
 }

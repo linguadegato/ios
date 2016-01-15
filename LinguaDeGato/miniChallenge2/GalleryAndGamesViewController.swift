@@ -11,7 +11,7 @@ import UIKit
 class GalleryAndGamesViewController: UIViewController {
     
     private var allGames = [Game]()
-    private var gallery = [Game]()
+    private var gallery = [WordAndClue]()
     
     // Remove this function (for test)
     private func createExampleGames() -> [Game]{
@@ -45,7 +45,7 @@ class GalleryAndGamesViewController: UIViewController {
         
     }
     
-    private func createExampleGallery() -> [Game]{
+    private func createExampleGallery() -> [WordAndClue]{
         
         var words = [WordAndClue]()
         let clue = Clue.init(aImageID: "iconPlayPink", anAudioPath: "")
@@ -62,11 +62,7 @@ class GalleryAndGamesViewController: UIViewController {
         words.append(WordAndClue.init(aWord: "Anginho", aClue: clue))
         words.append(WordAndClue.init(aWord: "Dudu", aClue: clue))
         
-        let gameWithAllWords = Game(gameName: "Galeria", wordsAndClue: words)
-        var gallery = [Game]()
-        gallery.append(gameWithAllWords)
-        
-        return gallery
+        return words
     }
 
     
@@ -79,13 +75,11 @@ class GalleryAndGamesViewController: UIViewController {
         
         if (segue.identifier == "AllGamesSegue") {
             
-            (segue.destinationViewController as! AllGamesCollectionViewController).collectionType = "AllGames"
-            (segue.destinationViewController as! AllGamesCollectionViewController).words = allGames
+            (segue.destinationViewController as! GamesCollectionViewController).allGames = allGames
             
         }else if (segue.identifier == "GallerySegue"){
 
-            (segue.destinationViewController as! AllGamesCollectionViewController).collectionType = "Gallery"
-            (segue.destinationViewController as! AllGamesCollectionViewController).words = gallery
+            (segue.destinationViewController as! GalleryCollectionViewController).gallery = self.gallery
         }
     }
 

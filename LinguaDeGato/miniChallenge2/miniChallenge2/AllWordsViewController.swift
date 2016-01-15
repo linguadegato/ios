@@ -70,7 +70,7 @@ class AllWordsViewController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell : ClueCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("ClueCell", forIndexPath: indexPath) as! ClueCollectionViewCell
+        let cell : GameCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("ClueCell", forIndexPath: indexPath) as! GameCollectionViewCell
 
     
         // Configure the cell
