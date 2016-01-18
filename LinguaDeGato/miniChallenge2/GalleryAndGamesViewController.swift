@@ -37,7 +37,7 @@ class GalleryAndGamesViewController: UIViewController {
         gameMonica.wordsAndClueArray.append(WordAndClue.init(aWord: "Anginho", aClue: clue))
         gameMonica.wordsAndClueArray.append(WordAndClue.init(aWord: "Dudu", aClue: clue))
         
-        games.append(gameAnimais)V
+        games.append(gameAnimais)
         games.append(gamePessoas)
         games.append(gameMonica)
         
