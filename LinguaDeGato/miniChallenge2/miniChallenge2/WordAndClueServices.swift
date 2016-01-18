@@ -24,8 +24,7 @@ class WordAndClueServices {
     
     static func saveWordAndClue(wordAndClue: WordAndClue) {
         if WordAndClueDAO.retrieveWordAndClue(wordAndClue) == nil {
-            let newData = LGCDWordAndClue()
-            WordAndClueDAO.insert(newData)
+            WordAndClueDAO.insert(wordAndClue)
         }
     }
 }

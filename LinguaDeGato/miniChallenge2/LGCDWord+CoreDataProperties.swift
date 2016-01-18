@@ -2,7 +2,7 @@
 //  LGCDWord+CoreDataProperties.swift
 //  LinguaDeGato
 //
-//  Created by Andre Scherma Soleo on 15/01/16.
+//  Created by Andre Scherma Soleo on 18/01/16.
 //  Copyright © 2016 Kobayashi. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,6 +16,6 @@ extension LGCDWord {
 
     @NSManaged var audioPath: String?
     @NSManaged var word: String?
-    @NSManaged var photos: NSSet?
+    @NSManaged var wordAndClue: NSSet?
 
 }

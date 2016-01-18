@@ -10,7 +10,7 @@ import Foundation
 
 class WordAndClueDAO {
     
-    static func insert(wordAndClue: LGCDWordAndClue) {
+    static func insert(wordAndClue: WordAndClue) {
         
     }
     

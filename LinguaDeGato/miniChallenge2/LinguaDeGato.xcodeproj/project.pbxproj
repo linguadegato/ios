@@ -14,14 +14,6 @@
 		77D94CB41C401B7100E28B84 /* correctSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CB21C401B7100E28B84 /* correctSound.wav */; };
 		77D94CB91C401F5A00E28B84 /* wrongSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CB81C401F5A00E28B84 /* wrongSound.wav */; };
 		77D94CBD1C402CD600E28B84 /* finishGame.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CBC1C402CD600E28B84 /* finishGame.wav */; };
-		EF040D1F1C49115900B78D2D /* LGCDPhoto+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF040D171C49115900B78D2D /* LGCDPhoto+CoreDataProperties.swift */; };
-		EF040D201C49115900B78D2D /* LGCDPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF040D181C49115900B78D2D /* LGCDPhoto.swift */; };
-		EF040D211C49115900B78D2D /* LGCDWordAndClue+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF040D191C49115900B78D2D /* LGCDWordAndClue+CoreDataProperties.swift */; };
-		EF040D221C49115900B78D2D /* LGCDWordAndClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF040D1A1C49115900B78D2D /* LGCDWordAndClue.swift */; };
-		EF040D231C49115900B78D2D /* LGCDWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF040D1B1C49115900B78D2D /* LGCDWord+CoreDataProperties.swift */; };
-		EF040D241C49115900B78D2D /* LGCDWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF040D1C1C49115900B78D2D /* LGCDWord.swift */; };
-		EF040D251C49115900B78D2D /* LGCDGame+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF040D1D1C49115900B78D2D /* LGCDGame+CoreDataProperties.swift */; };
-		EF040D261C49115900B78D2D /* LGCDGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF040D1E1C49115900B78D2D /* LGCDGame.swift */; };
 		EF35E9111B88F6CE00540031 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35E9101B88F6CE00540031 /* BoardView.swift */; };
 		EF41DCB81BDAA50A008D72CE /* WordAndClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41DCB71BDAA50A008D72CE /* WordAndClue.swift */; };
 		EF41DCBA1BDAA584008D72CE /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41DCB91BDAA584008D72CE /* Clue.swift */; };
@@ -32,6 +24,12 @@
 		EFB0BE4C1BECD331000981C1 /* LGCrosswordGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB0BE4B1BECD331000981C1 /* LGCrosswordGenerator.swift */; };
 		EFB828691BF65B2E0017CF35 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB828681BF65B2E0017CF35 /* UINavigationControllerExtension.swift */; };
 		EFBF8B351BDFDEBC00784B94 /* CrosswordCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBF8B341BDFDEBC00784B94 /* CrosswordCoordinate.swift */; };
+		EFC9C2E41C4D62240012B094 /* LGCDGame+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9C2DE1C4D62240012B094 /* LGCDGame+CoreDataProperties.swift */; };
+		EFC9C2E51C4D62240012B094 /* LGCDGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9C2DF1C4D62240012B094 /* LGCDGame.swift */; };
+		EFC9C2E61C4D62240012B094 /* LGCDWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9C2E01C4D62240012B094 /* LGCDWord+CoreDataProperties.swift */; };
+		EFC9C2E71C4D62240012B094 /* LGCDWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9C2E11C4D62240012B094 /* LGCDWord.swift */; };
+		EFC9C2E81C4D62240012B094 /* LGCDWordAndClue+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9C2E21C4D62240012B094 /* LGCDWordAndClue+CoreDataProperties.swift */; };
+		EFC9C2E91C4D62240012B094 /* LGCDWordAndClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9C2E31C4D62240012B094 /* LGCDWordAndClue.swift */; };
 		EFCC8B671BF10DC700F6851F /* BoardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC8B661BF10DC700F6851F /* BoardCellView.swift */; };
 		EFCC8B691BF11DE600F6851F /* WordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC8B681BF11DE600F6851F /* WordManager.swift */; };
 		EFDD44B71B862A460078C141 /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDD44B61B862A460078C141 /* SquareView.swift */; };
@@ -43,11 +41,9 @@
 		EFFAD7D91C4AA35600E89FE9 /* GameServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD7D81C4AA35600E89FE9 /* GameServices.swift */; };
 		EFFAD7DF1C4AA4AD00E89FE9 /* WordServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD7DE1C4AA4AD00E89FE9 /* WordServices.swift */; };
 		EFFAD7E11C4AA5B900E89FE9 /* WordAndClueServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD7E01C4AA5B900E89FE9 /* WordAndClueServices.swift */; };
-		EFFAD7E31C4AA7B000E89FE9 /* ImageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD7E21C4AA7B000E89FE9 /* ImageServices.swift */; };
 		EFFAD7E51C4AD20100E89FE9 /* GameDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD7E41C4AD20100E89FE9 /* GameDAO.swift */; };
 		EFFAD7E71C4AD20E00E89FE9 /* WordAndClueDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD7E61C4AD20E00E89FE9 /* WordAndClueDAO.swift */; };
 		EFFAD7E91C4AD21E00E89FE9 /* WordDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD7E81C4AD21E00E89FE9 /* WordDAO.swift */; };
-		EFFAD7EB1C4AD23000E89FE9 /* ImageDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD7EA1C4AD23000E89FE9 /* ImageDAO.swift */; };
 		EFFB40CA1C46A5D10099BA6F /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFB40C91C46A5D10099BA6F /* DatabaseManager.swift */; };
 		FA0681901B2B1491008A5C9F /* CreateCrosswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06818F1B2B1491008A5C9F /* CreateCrosswordViewController.swift */; };
 		FA2DEFB61C492CDA00465F73 /* GalleryAndGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DEFB51C492CDA00465F73 /* GalleryAndGamesViewController.swift */; };
@@ -84,14 +80,6 @@
 		77D94CB21C401B7100E28B84 /* correctSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correctSound.wav; sourceTree = "<group>"; };
 		77D94CB81C401F5A00E28B84 /* wrongSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrongSound.wav; sourceTree = "<group>"; };
 		77D94CBC1C402CD600E28B84 /* finishGame.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = finishGame.wav; sourceTree = "<group>"; };
-		EF040D171C49115900B78D2D /* LGCDPhoto+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LGCDPhoto+CoreDataProperties.swift"; path = "../LGCDPhoto+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		EF040D181C49115900B78D2D /* LGCDPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LGCDPhoto.swift; path = ../LGCDPhoto.swift; sourceTree = "<group>"; };
-		EF040D191C49115900B78D2D /* LGCDWordAndClue+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LGCDWordAndClue+CoreDataProperties.swift"; path = "../LGCDWordAndClue+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		EF040D1A1C49115900B78D2D /* LGCDWordAndClue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LGCDWordAndClue.swift; path = ../LGCDWordAndClue.swift; sourceTree = "<group>"; };
-		EF040D1B1C49115900B78D2D /* LGCDWord+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LGCDWord+CoreDataProperties.swift"; path = "../LGCDWord+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		EF040D1C1C49115900B78D2D /* LGCDWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LGCDWord.swift; path = ../LGCDWord.swift; sourceTree = "<group>"; };
-		EF040D1D1C49115900B78D2D /* LGCDGame+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LGCDGame+CoreDataProperties.swift"; path = "../LGCDGame+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		EF040D1E1C49115900B78D2D /* LGCDGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LGCDGame.swift; path = ../LGCDGame.swift; sourceTree = "<group>"; };
 		EF35E9101B88F6CE00540031 /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		EF41DCB71BDAA50A008D72CE /* WordAndClue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordAndClue.swift; sourceTree = "<group>"; };
 		EF41DCB91BDAA584008D72CE /* Clue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
@@ -102,6 +90,12 @@
 		EFB0BE4B1BECD331000981C1 /* LGCrosswordGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGCrosswordGenerator.swift; sourceTree = "<group>"; };
 		EFB828681BF65B2E0017CF35 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		EFBF8B341BDFDEBC00784B94 /* CrosswordCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrosswordCoordinate.swift; sourceTree = "<group>"; };
+		EFC9C2DE1C4D62240012B094 /* LGCDGame+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LGCDGame+CoreDataProperties.swift"; path = "../LGCDGame+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EFC9C2DF1C4D62240012B094 /* LGCDGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LGCDGame.swift; path = ../LGCDGame.swift; sourceTree = "<group>"; };
+		EFC9C2E01C4D62240012B094 /* LGCDWord+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LGCDWord+CoreDataProperties.swift"; path = "../LGCDWord+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EFC9C2E11C4D62240012B094 /* LGCDWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LGCDWord.swift; path = ../LGCDWord.swift; sourceTree = "<group>"; };
+		EFC9C2E21C4D62240012B094 /* LGCDWordAndClue+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LGCDWordAndClue+CoreDataProperties.swift"; path = "../LGCDWordAndClue+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EFC9C2E31C4D62240012B094 /* LGCDWordAndClue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LGCDWordAndClue.swift; path = ../LGCDWordAndClue.swift; sourceTree = "<group>"; };
 		EFCC8B661BF10DC700F6851F /* BoardCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCellView.swift; sourceTree = "<group>"; };
 		EFCC8B681BF11DE600F6851F /* WordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordManager.swift; sourceTree = "<group>"; };
 		EFDD44B61B862A460078C141 /* SquareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
@@ -113,11 +107,9 @@
 		EFFAD7D81C4AA35600E89FE9 /* GameServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameServices.swift; sourceTree = "<group>"; };
 		EFFAD7DE1C4AA4AD00E89FE9 /* WordServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordServices.swift; sourceTree = "<group>"; };
 		EFFAD7E01C4AA5B900E89FE9 /* WordAndClueServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordAndClueServices.swift; sourceTree = "<group>"; };
-		EFFAD7E21C4AA7B000E89FE9 /* ImageServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageServices.swift; sourceTree = "<group>"; };
 		EFFAD7E41C4AD20100E89FE9 /* GameDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDAO.swift; sourceTree = "<group>"; };
 		EFFAD7E61C4AD20E00E89FE9 /* WordAndClueDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordAndClueDAO.swift; sourceTree = "<group>"; };
 		EFFAD7E81C4AD21E00E89FE9 /* WordDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDAO.swift; sourceTree = "<group>"; };
-		EFFAD7EA1C4AD23000E89FE9 /* ImageDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDAO.swift; sourceTree = "<group>"; };
 		EFFB40C91C46A5D10099BA6F /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		FA06818F1B2B1491008A5C9F /* CreateCrosswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCrosswordViewController.swift; sourceTree = "<group>"; };
 		FA2DEFB51C492CDA00465F73 /* GalleryAndGamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GalleryAndGamesViewController.swift; path = ../GalleryAndGamesViewController.swift; sourceTree = "<group>"; };
@@ -173,14 +165,12 @@
 		EF7582691C481AB100F6C781 /* Value Objects */ = {
 			isa = PBXGroup;
 			children = (
-				EF040D171C49115900B78D2D /* LGCDPhoto+CoreDataProperties.swift */,
-				EF040D181C49115900B78D2D /* LGCDPhoto.swift */,
-				EF040D191C49115900B78D2D /* LGCDWordAndClue+CoreDataProperties.swift */,
-				EF040D1A1C49115900B78D2D /* LGCDWordAndClue.swift */,
-				EF040D1B1C49115900B78D2D /* LGCDWord+CoreDataProperties.swift */,
-				EF040D1C1C49115900B78D2D /* LGCDWord.swift */,
-				EF040D1D1C49115900B78D2D /* LGCDGame+CoreDataProperties.swift */,
-				EF040D1E1C49115900B78D2D /* LGCDGame.swift */,
+				EFC9C2DE1C4D62240012B094 /* LGCDGame+CoreDataProperties.swift */,
+				EFC9C2DF1C4D62240012B094 /* LGCDGame.swift */,
+				EFC9C2E01C4D62240012B094 /* LGCDWord+CoreDataProperties.swift */,
+				EFC9C2E11C4D62240012B094 /* LGCDWord.swift */,
+				EFC9C2E21C4D62240012B094 /* LGCDWordAndClue+CoreDataProperties.swift */,
+				EFC9C2E31C4D62240012B094 /* LGCDWordAndClue.swift */,
 			);
 			name = "Value Objects";
 			sourceTree = "<group>";
@@ -191,7 +181,6 @@
 				EFFAD7E41C4AD20100E89FE9 /* GameDAO.swift */,
 				EFFAD7E81C4AD21E00E89FE9 /* WordDAO.swift */,
 				EFFAD7E61C4AD20E00E89FE9 /* WordAndClueDAO.swift */,
-				EFFAD7EA1C4AD23000E89FE9 /* ImageDAO.swift */,
 			);
 			name = "Data Access Objects";
 			sourceTree = "<group>";
@@ -202,7 +191,6 @@
 				EFFAD7D81C4AA35600E89FE9 /* GameServices.swift */,
 				EFFAD7DE1C4AA4AD00E89FE9 /* WordServices.swift */,
 				EFFAD7E01C4AA5B900E89FE9 /* WordAndClueServices.swift */,
-				EFFAD7E21C4AA7B000E89FE9 /* ImageServices.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -469,51 +457,47 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFFAD7EB1C4AD23000E89FE9 /* ImageDAO.swift in Sources */,
-				EF040D221C49115900B78D2D /* LGCDWordAndClue.swift in Sources */,
 				EFE6D0841B860B4500CCC802 /* TileView.swift in Sources */,
 				EF995EE91BD1227C00C27479 /* CluePopupView.swift in Sources */,
+				EFC9C2E71C4D62240012B094 /* LGCDWord.swift in Sources */,
 				EFB0BE4C1BECD331000981C1 /* LGCrosswordGenerator.swift in Sources */,
 				FA8D2D931C3F2F2B004F0375 /* ClueCollectionViewCell.swift in Sources */,
 				FA2DEFB61C492CDA00465F73 /* GalleryAndGamesViewController.swift in Sources */,
 				EFE480BA1BCD4EEB002F15FC /* ClueView.swift in Sources */,
 				FAD621531B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift in Sources */,
 				EFE680871BC80E0600EE755F /* CrosswordClue.swift in Sources */,
+				EFC9C2E81C4D62240012B094 /* LGCDWordAndClue+CoreDataProperties.swift in Sources */,
 				EFB828691BF65B2E0017CF35 /* UINavigationControllerExtension.swift in Sources */,
 				EFA0932B1BCD3524008525F1 /* CrosswordElement.swift in Sources */,
 				EFFAD7E71C4AD20E00E89FE9 /* WordAndClueDAO.swift in Sources */,
-				EF040D231C49115900B78D2D /* LGCDWord+CoreDataProperties.swift in Sources */,
+				EFC9C2E61C4D62240012B094 /* LGCDWord+CoreDataProperties.swift in Sources */,
 				EFBF8B351BDFDEBC00784B94 /* CrosswordCoordinate.swift in Sources */,
 				FAE1C8B21B385E1F00FFE77C /* InitialViewController.swift in Sources */,
 				7786A6221C46B4930011C32A /* MusicSingleton.swift in Sources */,
+				EFC9C2E51C4D62240012B094 /* LGCDGame.swift in Sources */,
 				FA96DE991B29C0CE00149113 /* AppDelegate.swift in Sources */,
-				EF040D211C49115900B78D2D /* LGCDWordAndClue+CoreDataProperties.swift in Sources */,
 				FAFAB86C1C161DA100CBC16B /* UIColorExtension.swift in Sources */,
-				EF040D201C49115900B78D2D /* LGCDPhoto.swift in Sources */,
-				EF040D1F1C49115900B78D2D /* LGCDPhoto+CoreDataProperties.swift in Sources */,
 				EF41DCB81BDAA50A008D72CE /* WordAndClue.swift in Sources */,
 				EFCC8B691BF11DE600F6851F /* WordManager.swift in Sources */,
-				EF040D261C49115900B78D2D /* LGCDGame.swift in Sources */,
 				EF7582451C480D7F00F6C781 /* LGDataModel.xcdatamodeld in Sources */,
 				EFDD44B71B862A460078C141 /* SquareView.swift in Sources */,
 				EFFAD7DF1C4AA4AD00E89FE9 /* WordServices.swift in Sources */,
 				EFCC8B671BF10DC700F6851F /* BoardCellView.swift in Sources */,
 				EFFAD7E51C4AD20100E89FE9 /* GameDAO.swift in Sources */,
-				EF040D251C49115900B78D2D /* LGCDGame+CoreDataProperties.swift in Sources */,
+				EFC9C2E91C4D62240012B094 /* LGCDWordAndClue.swift in Sources */,
 				FAAB7EF71C3F19A9004561EF /* AllGamesCollectionViewController.swift in Sources */,
 				77D725911C0F56CF00A687E8 /* StatusBarViewController.swift in Sources */,
 				EF41DCBA1BDAA584008D72CE /* Clue.swift in Sources */,
 				FAF3E21A1C45932800BE8A8F /* AllGamesHeaderView.swift in Sources */,
 				EFE6D07C1B85F4B700CCC802 /* GamePlayViewController.swift in Sources */,
-				EFFAD7E31C4AA7B000E89FE9 /* ImageServices.swift in Sources */,
 				EFA0932D1BCD35D5008525F1 /* CrosswordChar.swift in Sources */,
 				EF35E9111B88F6CE00540031 /* BoardView.swift in Sources */,
 				FAE14DBB1C49139100E245CA /* Game.swift in Sources */,
-				EF040D241C49115900B78D2D /* LGCDWord.swift in Sources */,
 				EFFAD7D91C4AA35600E89FE9 /* GameServices.swift in Sources */,
 				FA0681901B2B1491008A5C9F /* CreateCrosswordViewController.swift in Sources */,
 				FAAB7EFB1C3F1EC9004561EF /* AllWordsViewController.swift in Sources */,
 				EFE73AF21BFE2C6C007A8C13 /* CrosswordCluePlaceholder.swift in Sources */,
+				EFC9C2E41C4D62240012B094 /* LGCDGame+CoreDataProperties.swift in Sources */,
 				EFFAD7E11C4AA5B900E89FE9 /* WordAndClueServices.swift in Sources */,
 				EFFB40CA1C46A5D10099BA6F /* DatabaseManager.swift in Sources */,
 				EFFAD7E91C4AD21E00E89FE9 /* WordDAO.swift in Sources */,

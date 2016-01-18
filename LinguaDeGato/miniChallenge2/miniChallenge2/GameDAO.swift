@@ -10,7 +10,7 @@ import Foundation
 
 class GameDAO {
     
-    class func insert(game: LGCDGame){
+    class func insert(game: Game){
         
     }
     

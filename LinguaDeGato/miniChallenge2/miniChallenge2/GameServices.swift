@@ -14,8 +14,8 @@ class GameServices {
     //return true if game was saved, false if there's already a game with that name
     static func saveGame(game: Game) -> Bool {
         if GameDAO.retrieveGameByName(game.name) == nil {
-            let newGame = LGCDGame()
-            GameDAO.insert(newGame)
+            GameDAO.insert(game)
+            //save context
             return true
         }
         return false

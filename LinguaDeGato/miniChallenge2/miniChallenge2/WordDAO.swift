@@ -10,8 +10,8 @@ import Foundation
 
 class WordDAO {
     
-    static func insert(word: LGCDWord) {
-        
+    static func insert(word: String, audioPath: String?) {
+
     }
     
     static func delete(word: LGCDWord) {
@@ -22,4 +22,6 @@ class WordDAO {
         
         return nil
     }
+    
+    
 }

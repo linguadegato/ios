@@ -2,7 +2,7 @@
 //  LGCDWord.swift
 //  LinguaDeGato
 //
-//  Created by Andre Scherma Soleo on 15/01/16.
+//  Created by Andre Scherma Soleo on 18/01/16.
 //  Copyright © 2016 Kobayashi. All rights reserved.
 //
 
@@ -14,11 +14,22 @@ class LGCDWord: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
     
-    func appendImageToWord(imageID: LGCDPhoto) {
+    init(newWord: String) {
         
+        // get context
+        let context: NSManagedObjectContext = DatabaseManager.sharedInstance.managedObjectContext!
+        
+        // create entity description
+        let entityDescription: NSEntityDescription? = NSEntityDescription.entityForName("LGCDWord", inManagedObjectContext: context)
+        
+        //call super using
+        super.init(entity: entityDescription!, insertIntoManagedObjectContext: context)
+        
+        //set properties and relationships
+        self.word = newWord
     }
     
-    func writeAudio(audioPath: String) {
+    func appendAudio(audioPath: String) {
         
     }
 }
