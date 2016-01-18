@@ -281,7 +281,7 @@
                                                     <constraint firstAttribute="width" constant="70" id="nvP-XO-Rkc"/>
                                                     <constraint firstAttribute="height" constant="70" id="qzR-al-YoV"/>
                                                 </constraints>
-                                                <state key="normal" title="Salvar" image="iconSaveBlue"/>
+                                                <state key="normal" title="Salvar" image="btnPlayBlue"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="CAT-0m-zCv"/>
@@ -292,7 +292,7 @@
                                                     </mask>
                                                 </variation>
                                                 <connections>
-                                                    <action selector="saveGame:" destination="poN-pE-e0p" eventType="touchUpInside" id="T4P-ho-xUq"/>
+                                                    <action selector="playGame:" destination="poN-pE-e0p" eventType="touchUpInside" id="Xz0-AU-fKe"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7F-d6-yNo" userLabel="Play">
@@ -304,7 +304,7 @@
                                                     <constraint firstAttribute="width" constant="45" id="dVT-V0-x5A"/>
                                                     <constraint firstAttribute="width" constant="70" id="kJv-d4-2sz"/>
                                                 </constraints>
-                                                <state key="normal" image="btnPlayBlue"/>
+                                                <state key="normal" image="iconSaveBlue"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="Ebp-IN-2dN"/>
