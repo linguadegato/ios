@@ -103,8 +103,6 @@ class GalleryCollectionViewController : UICollectionViewController{
         let header = galleryCollectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "GalleryHeader", forIndexPath: indexPath) as! GalleryHeaderView
         header.playButton.enabled = true
 
-        print("Adicionado:")
-        printSelecteWords()
     }
     
     private func deselectCell(indexPath: NSIndexPath){
@@ -118,9 +116,6 @@ class GalleryCollectionViewController : UICollectionViewController{
             let header = galleryCollectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "GalleryHeader", forIndexPath: indexPath) as! GalleryHeaderView
             header.playButton.enabled = false
         }
-        
-        print("Removido:")
-        printSelecteWords()
     }
     
     private func deselectAllCells(){
@@ -128,14 +123,17 @@ class GalleryCollectionViewController : UICollectionViewController{
         if (selectedCells?.isEmpty == false){
             let numberOfSelectedCells = selectedCells!.count
             for count in 0...numberOfSelectedCells-1{
+                let indexPath = selectedCells![count]
                 
-                let selectedCell = galleryCollectionView.cellForItemAtIndexPath(selectedCells![count]) as! GalleryCollectionViewCell
+                let selectedCell = galleryCollectionView.cellForItemAtIndexPath(indexPath) as! GalleryCollectionViewCell
                 
                 selectedCell.layer.borderWidth = 0
                 selectedCell.layer.borderColor = UIColor.greenPalete().CGColor
                 selectedCell.selectImage.hidden = true
+                galleryCollectionView.deselectItemAtIndexPath(indexPath, animated: false)
                 
-                let header = galleryCollectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "GalleryHeader", forIndexPath: selectedCells![count]) as! GalleryHeaderView
+                // Disable play button on header
+                let header = galleryCollectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "GalleryHeader", forIndexPath: indexPath) as! GalleryHeaderView
                 header.playButton.enabled = false
 
             }
@@ -146,7 +144,6 @@ class GalleryCollectionViewController : UICollectionViewController{
     
     private func printSelecteWords(){
         if (selectedWords.count > 0){
-            print("printSelecteWords")
             for count in 0...selectedWords.count-1{
                 print("pos\(count): \(selectedWords[count].word)")
             }
@@ -164,7 +161,7 @@ class GalleryCollectionViewController : UICollectionViewController{
         aGenerator.computeCrossword(2, spins: 4)
         
         if (segue.identifier == "CreateGameFromGallery" ) {
-            printSelecteWords()
+            
             (segue.destinationViewController as! GamePlayViewController).crosswordMatrix = aGenerator.grid
             (segue.destinationViewController as! GamePlayViewController).words = aGenerator.currentWordlist
             
