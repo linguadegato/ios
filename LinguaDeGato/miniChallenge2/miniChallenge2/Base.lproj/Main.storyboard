@@ -450,7 +450,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40l-l1-zj0" userLabel="Play">
                                                                 <rect key="frame" x="0.0" y="0.0" width="117" height="99"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMZ-68-6Ji">
+                                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMZ-68-6Ji" userLabel="Play Random Game Button">
                                                                         <rect key="frame" x="29" y="0.0" width="59" height="59"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" secondItem="zMZ-68-6Ji" secondAttribute="width" id="bpU-dp-zGC"/>
@@ -606,7 +606,7 @@
                     <navigationItem key="navigationItem" id="WDg-E8-mOP"/>
                     <connections>
                         <outlet property="createCrosswordButton" destination="i1h-AD-wNb" id="Kvg-RR-uWk"/>
-                        <outlet property="playButton" destination="zMZ-68-6Ji" id="Uik-ky-mZb"/>
+                        <outlet property="playRandomGameButton" destination="zMZ-68-6Ji" id="roW-gk-W55"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgn-Gy-cpt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -773,7 +773,7 @@
                                             </constraints>
                                             <state key="normal" backgroundImage="iconPlayGreen"/>
                                             <connections>
-                                                <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromGallery" id="rCP-FH-Pur"/>
+                                                <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromGallery" id="jVy-kP-ALy"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -798,7 +798,8 @@
                                 <constraint firstItem="lmO-dL-qQv" firstAttribute="centerY" secondItem="f5Q-Y4-Mhq" secondAttribute="centerY" id="aTQ-RT-8eF"/>
                             </constraints>
                             <connections>
-                                <outlet property="title" destination="LKm-qH-KN2" id="Qqk-EQ-AI2"/>
+                                <outlet property="playButton" destination="2z8-9H-7LU" id="NVU-Xf-bvX"/>
+                                <outlet property="title" destination="LKm-qH-KN2" id="Q3b-kS-nHI"/>
                             </connections>
                         </collectionReusableView>
                         <connections>
@@ -951,6 +952,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rCP-FH-Pur"/>
+        <segue reference="jVy-kP-ALy"/>
     </inferredMetricsTieBreakers>
 </document>

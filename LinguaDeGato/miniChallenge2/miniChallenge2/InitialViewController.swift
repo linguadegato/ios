@@ -13,7 +13,7 @@ import MobileCoreServices
 class InitialViewController: StatusBarViewController {
     
     @IBOutlet weak var createCrosswordButton: UIButton!
-    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var playRandomGameButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

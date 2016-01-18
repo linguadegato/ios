@@ -13,6 +13,7 @@ class GalleryCollectionViewController : UICollectionViewController{
     
     @IBOutlet var galleryCollectionView: UICollectionView!
     
+    
     var gallery = [WordAndClue]()
     var selectedWords = [WordAndClue]()
 
@@ -21,8 +22,9 @@ class GalleryCollectionViewController : UICollectionViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         galleryCollectionView.allowsMultipleSelection = true
+
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -66,7 +68,7 @@ class GalleryCollectionViewController : UICollectionViewController{
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if (selectedWords.count < 6){
             selectedWords.append(gallery[indexPath.row])
-            setSelectedDesignToCell(indexPath)
+            selectCell(indexPath)
         }
         
         /*
@@ -82,30 +84,42 @@ class GalleryCollectionViewController : UICollectionViewController{
         for count in 0...selectedWords.count-1{
             if ((selectedWords[count].word == wordToRemove) && (selectedWords[count].clue.imageID == imageToRemove)){
                 selectedWords.removeAtIndex(count)
-                setDeselectedDesignToCell(indexPath)
+                deselectCell(indexPath)
                 break
             }
         }
     }
     
-    // MARK: - Design
-    private func setSelectedDesignToCell(indexPath: NSIndexPath){
+    // MARK: - Behavior when select and deselect cells
+    private func selectCell(indexPath: NSIndexPath){
+        
+        
         let selectedCell = galleryCollectionView.cellForItemAtIndexPath(indexPath) as! GalleryCollectionViewCell
 
         selectedCell.layer.borderWidth = 3
         selectedCell.layer.borderColor = UIColor.greenPalete().CGColor
         selectedCell.selectImage.hidden = false
         
+        let header = galleryCollectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "GalleryHeader", forIndexPath: indexPath) as! GalleryHeaderView
+        header.playButton.enabled = true
     }
     
-    private func setDeselectedDesignToCell(indexPath: NSIndexPath){
+    private func deselectCell(indexPath: NSIndexPath){
         let selectedCell = galleryCollectionView.cellForItemAtIndexPath(indexPath) as! GalleryCollectionViewCell
 
         selectedCell.layer.borderWidth = 0
         selectedCell.layer.borderColor = UIColor.greenPalete().CGColor
         selectedCell.selectImage.hidden = true
         
+        if (selectedWords.isEmpty){
+            let header = galleryCollectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "GalleryHeader", forIndexPath: indexPath) as! GalleryHeaderView
+            header.playButton.enabled = false
+        }
     }
+    
+//    private func deselectAllCells(){
+//        
+//    }
     
     //MARK: - NAVIGATION
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
