@@ -102,6 +102,9 @@ class GalleryCollectionViewController : UICollectionViewController{
         
         let header = galleryCollectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "GalleryHeader", forIndexPath: indexPath) as! GalleryHeaderView
         header.playButton.enabled = true
+
+        print("Adicionado:")
+        printSelecteWords()
     }
     
     private func deselectCell(indexPath: NSIndexPath){
@@ -115,11 +118,43 @@ class GalleryCollectionViewController : UICollectionViewController{
             let header = galleryCollectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "GalleryHeader", forIndexPath: indexPath) as! GalleryHeaderView
             header.playButton.enabled = false
         }
+        
+        print("Removido:")
+        printSelecteWords()
     }
     
-//    private func deselectAllCells(){
-//        
-//    }
+    private func deselectAllCells(){
+        let selectedCells = galleryCollectionView.indexPathsForSelectedItems()
+        if (selectedCells?.isEmpty == false){
+            let numberOfSelectedCells = selectedCells!.count
+            for count in 0...numberOfSelectedCells-1{
+                
+                let selectedCell = galleryCollectionView.cellForItemAtIndexPath(selectedCells![count]) as! GalleryCollectionViewCell
+                
+                selectedCell.layer.borderWidth = 0
+                selectedCell.layer.borderColor = UIColor.greenPalete().CGColor
+                selectedCell.selectImage.hidden = true
+                
+                let header = galleryCollectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "GalleryHeader", forIndexPath: selectedCells![count]) as! GalleryHeaderView
+                header.playButton.enabled = false
+
+            }
+        }
+        
+        
+    }
+    
+    private func printSelecteWords(){
+        if (selectedWords.count > 0){
+            print("printSelecteWords")
+            for count in 0...selectedWords.count-1{
+                print("pos\(count): \(selectedWords[count].word)")
+            }
+            print("-----")
+        }else{
+            print("nenhuma palavra selecionada")
+        }
+    }
     
     //MARK: - NAVIGATION
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -129,8 +164,12 @@ class GalleryCollectionViewController : UICollectionViewController{
         aGenerator.computeCrossword(2, spins: 4)
         
         if (segue.identifier == "CreateGameFromGallery" ) {
+            printSelecteWords()
             (segue.destinationViewController as! GamePlayViewController).crosswordMatrix = aGenerator.grid
             (segue.destinationViewController as! GamePlayViewController).words = aGenerator.currentWordlist
+            
+            deselectAllCells()
+            selectedWords = []
         }
         
     }
