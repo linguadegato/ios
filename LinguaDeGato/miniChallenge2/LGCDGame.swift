@@ -11,7 +11,6 @@ import CoreData
 
 
 class LGCDGame: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
-
+    
+    //MARK: TODO: init(game: Game)
 }

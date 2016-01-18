@@ -13,5 +13,12 @@ import CoreData
 class LGCDWord: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
-
+    
+    func appendImageToWord(imageID: LGCDPhoto) {
+        
+    }
+    
+    func writeAudio(audioPath: String) {
+        
+    }
 }
