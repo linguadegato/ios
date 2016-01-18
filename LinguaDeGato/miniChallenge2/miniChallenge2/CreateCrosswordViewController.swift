@@ -907,10 +907,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         gameName = textField
     }
     
-    @IBAction func saveGame(sender: AnyObject) {
-    
+    @IBAction func playGame(sender: AnyObject) {
         alertSave()
-        
     }
     
     func alertSave() {
