@@ -11,18 +11,28 @@ import UIKit
 
 class GalleryCollectionViewController : UICollectionViewController{
     
-    @IBOutlet var allWordsCollectionView: UICollectionView!
+    @IBOutlet var galleryCollectionView: UICollectionView!
     
     var gallery = [WordAndClue]()
+    var selectedWords = [WordAndClue]()
 
     private let reuseIdentifier = "ClueCell"
     private let collectionTitle = "Galeria"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        galleryCollectionView.allowsMultipleSelection = true
     }
     
-    //DataSource
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        let cellSizeForGallery = collectionView.bounds.size.width/3.2
+        return CGSizeMake(cellSizeForGallery, cellSizeForGallery)
+        
+    }
+    
+    //MARK: -DataSource
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -52,11 +62,57 @@ class GalleryCollectionViewController : UICollectionViewController{
         }
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    // MARK: Selection and deselection of a celll
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if (selectedWords.count < 6){
+            selectedWords.append(gallery[indexPath.row])
+            
+            setSelectedDesignToCell(indexPath)
+        }
         
-        let cellSizeForGallery = collectionView.bounds.size.width/3.2
-        return CGSizeMake(cellSizeForGallery, cellSizeForGallery)
+        printSelectedWords()
         
+        /*
+        TODO: elese exibir alerta de que o máximo de palavras são 6
+        */
+        
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        let wordToRemove = gallery[indexPath.row].word
+        let imageToRemove = gallery[indexPath.row].clue.imageID
+        
+        for count in 0...selectedWords.count-1{
+            if ((selectedWords[count].word == wordToRemove) && (selectedWords[count].clue.imageID == imageToRemove)){
+                selectedWords.removeAtIndex(count)
+                setDeselectedDesignToCell(indexPath)
+                break
+            }
+        }
+        
+        printSelectedWords()
+        
+    }
+    
+    // MARK: - Design
+    private func setSelectedDesignToCell(indexPath: NSIndexPath){
+        galleryCollectionView.cellForItemAtIndexPath(indexPath)?.layer.borderWidth = 3
+        galleryCollectionView.cellForItemAtIndexPath(indexPath)?.layer.borderColor = UIColor.greenPalete().CGColor
+    }
+    
+    private func setDeselectedDesignToCell(indexPath: NSIndexPath){
+        galleryCollectionView.cellForItemAtIndexPath(indexPath)?.layer.borderWidth = 0
+        galleryCollectionView.cellForItemAtIndexPath(indexPath)?.layer.borderColor = UIColor.greenPalete().CGColor
+    }
+    
+    
+    // MARK: debug (remove it)
+    private func printSelectedWords(){
+        print("printSelectedWords:")
+        for count in 0...selectedWords.count-1{
+            print("Pos\(count): \(selectedWords[count].word) | \(selectedWords[count].clue.imageID) ")
+        }
+        print("----------")
     }
     
 }

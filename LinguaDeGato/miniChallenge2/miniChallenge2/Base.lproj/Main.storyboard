@@ -690,7 +690,7 @@
         <scene sceneID="Q2W-iT-GmQ">
             <objects>
                 <collectionViewController id="Pfu-8O-Vpi" customClass="GalleryCollectionViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1QJ-kp-tw4">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="1QJ-kp-tw4">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -718,12 +718,12 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9I-Gl-nyg" userLabel="Select Button">
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9I-Gl-nyg" userLabel="Select Button">
                                             <rect key="frame" x="40" y="0.0" width="10" height="10"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="m9I-Gl-nyg" secondAttribute="height" multiplier="1:1" id="ODK-sK-5fW"/>
                                             </constraints>
-                                            <state key="normal" title="Button" image="iconSelectImage" backgroundImage="iconSelectImage"/>
+                                            <state key="normal" title="Button" image="iconPawGreen"/>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -804,6 +804,9 @@
                             <outlet property="delegate" destination="Pfu-8O-Vpi" id="BI8-rc-PYj"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <outlet property="galleryCollectionView" destination="1QJ-kp-tw4" id="89a-LU-QM9"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ou-ti-iGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -934,12 +937,12 @@
         <image name="iconCatTransparent" width="699" height="669"/>
         <image name="iconGalleryGreen" width="312" height="312"/>
         <image name="iconGamePink" width="128" height="128"/>
+        <image name="iconPawGreen" width="284" height="285"/>
         <image name="iconPlayAudioBlackTransparent" width="134" height="134"/>
         <image name="iconPlayAudioOrangeTransparent" width="134" height="134"/>
         <image name="iconPlayGreen" width="134" height="134"/>
         <image name="iconPlayOrange" width="128" height="128"/>
         <image name="iconPlayPink" width="128" height="128"/>
-        <image name="iconSelectImage" width="284" height="285"/>
         <image name="iconTrashOrangeTransparent" width="256" height="256"/>
         <image name="imageDefault" width="683" height="499"/>
         <image name="slideOrange" width="78" height="78"/>
