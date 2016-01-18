@@ -13,7 +13,7 @@ class GalleryAndGamesViewController: UIViewController {
     private var allGames = [Game]()
     private var gallery = [WordAndClue]()
     
-    // Remove this function (for test)
+    // TODO: Remove this function (for test)
     private func createExampleGames() -> [Game]{
         
         var games = [Game]()
@@ -37,7 +37,7 @@ class GalleryAndGamesViewController: UIViewController {
         gameMonica.wordsAndClueArray.append(WordAndClue.init(aWord: "Anginho", aClue: clue))
         gameMonica.wordsAndClueArray.append(WordAndClue.init(aWord: "Dudu", aClue: clue))
         
-        games.append(gameAnimais)
+        games.append(gameAnimais)V
         games.append(gamePessoas)
         games.append(gameMonica)
         
@@ -48,7 +48,7 @@ class GalleryAndGamesViewController: UIViewController {
     private func createExampleGallery() -> [WordAndClue]{
         
         var words = [WordAndClue]()
-        let clue = Clue.init(aImageID: "iconPlayPink", anAudioPath: "")
+        let clue = Clue.init(aImageID: "4C702013-B31B-4697-A5A8-D1112997D11B/L0/001", anAudioPath: "")
         
         words.append(WordAndClue.init(aWord: "cachorro", aClue: clue))
         words.append(WordAndClue.init(aWord: "gato", aClue: clue))

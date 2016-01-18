@@ -18,7 +18,7 @@ class GamesCollectionViewController : UICollectionViewController{
         super.viewDidLoad()
     }
     
-    //DataSource
+    //MARK: - DATASOURCE
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         
         return allGames.count
@@ -56,7 +56,7 @@ class GamesCollectionViewController : UICollectionViewController{
         
     }
     
-    //atribute it to GamePlayViewController
+    //MARK: - NAVIGATION
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //MARK: HARRY-TODO: ACTIVITY INDICATOR
         

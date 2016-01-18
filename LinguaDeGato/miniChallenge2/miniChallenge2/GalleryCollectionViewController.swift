@@ -32,7 +32,7 @@ class GalleryCollectionViewController : UICollectionViewController{
         
     }
     
-    //MARK: -DataSource
+    //MARK: -DATASOURCE
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -104,6 +104,20 @@ class GalleryCollectionViewController : UICollectionViewController{
         selectedCell.layer.borderWidth = 0
         selectedCell.layer.borderColor = UIColor.greenPalete().CGColor
         selectedCell.selectImage.hidden = true
+        
+    }
+    
+    //MARK: - NAVIGATION
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //MARK: HARRY-TODO: ACTIVITY INDICATOR
+        
+        let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: selectedWords)
+        aGenerator.computeCrossword(2, spins: 4)
+        
+        if (segue.identifier == "CreateGameFromGallery" ) {
+            (segue.destinationViewController as! GamePlayViewController).crosswordMatrix = aGenerator.grid
+            (segue.destinationViewController as! GamePlayViewController).words = aGenerator.currentWordlist
+        }
         
     }
     
