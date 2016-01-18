@@ -66,14 +66,11 @@ class GalleryCollectionViewController : UICollectionViewController{
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if (selectedWords.count < 6){
             selectedWords.append(gallery[indexPath.row])
-            
             setSelectedDesignToCell(indexPath)
         }
         
-        printSelectedWords()
-        
         /*
-        TODO: elese exibir alerta de que o máximo de palavras são 6
+        TODO: else exibir alerta de que o máximo de palavras são 6
         */
         
     }
@@ -89,30 +86,25 @@ class GalleryCollectionViewController : UICollectionViewController{
                 break
             }
         }
-        
-        printSelectedWords()
-        
     }
     
     // MARK: - Design
     private func setSelectedDesignToCell(indexPath: NSIndexPath){
-        galleryCollectionView.cellForItemAtIndexPath(indexPath)?.layer.borderWidth = 3
-        galleryCollectionView.cellForItemAtIndexPath(indexPath)?.layer.borderColor = UIColor.greenPalete().CGColor
+        let selectedCell = galleryCollectionView.cellForItemAtIndexPath(indexPath) as! GalleryCollectionViewCell
+
+        selectedCell.layer.borderWidth = 3
+        selectedCell.layer.borderColor = UIColor.greenPalete().CGColor
+        selectedCell.selectImage.hidden = false
+        
     }
     
     private func setDeselectedDesignToCell(indexPath: NSIndexPath){
-        galleryCollectionView.cellForItemAtIndexPath(indexPath)?.layer.borderWidth = 0
-        galleryCollectionView.cellForItemAtIndexPath(indexPath)?.layer.borderColor = UIColor.greenPalete().CGColor
-    }
-    
-    
-    // MARK: debug (remove it)
-    private func printSelectedWords(){
-        print("printSelectedWords:")
-        for count in 0...selectedWords.count-1{
-            print("Pos\(count): \(selectedWords[count].word) | \(selectedWords[count].clue.imageID) ")
-        }
-        print("----------")
+        let selectedCell = galleryCollectionView.cellForItemAtIndexPath(indexPath) as! GalleryCollectionViewCell
+
+        selectedCell.layer.borderWidth = 0
+        selectedCell.layer.borderColor = UIColor.greenPalete().CGColor
+        selectedCell.selectImage.hidden = true
+        
     }
     
 }

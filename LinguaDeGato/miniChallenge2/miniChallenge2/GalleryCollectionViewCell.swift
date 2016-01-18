@@ -10,9 +10,10 @@ import Foundation
 import UIKit
 
 class GalleryCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var imageCell: UIImageView!
     @IBOutlet weak var labelCell: UILabel!
-    @IBOutlet weak var selectButton: UIButton!
+    @IBOutlet weak var selectImage: UIImageView!
     @IBOutlet weak var audioImage: UIImageView!
     
     

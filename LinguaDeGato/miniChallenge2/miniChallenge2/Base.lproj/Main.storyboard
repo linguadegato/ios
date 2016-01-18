@@ -711,40 +711,39 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foto" translatesAutoresizingMaskIntoConstraints="NO" id="nW5-Ld-mKZ" userLabel="Image Cell">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="labelCell" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="362-oU-nXw" userLabel="Label Cell">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="labelCell" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="362-oU-nXw" userLabel="Label Cell">
                                             <rect key="frame" x="0.0" y="40" width="50" height="10"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9I-Gl-nyg" userLabel="Select Button">
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPawGreen" translatesAutoresizingMaskIntoConstraints="NO" id="uzL-Qf-uNr" userLabel="Selected Image">
                                             <rect key="frame" x="40" y="0.0" width="10" height="10"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="m9I-Gl-nyg" secondAttribute="height" multiplier="1:1" id="ODK-sK-5fW"/>
+                                                <constraint firstAttribute="width" secondItem="uzL-Qf-uNr" secondAttribute="height" multiplier="1:1" id="ujT-io-Cyq"/>
                                             </constraints>
-                                            <state key="normal" title="Button" image="iconPawGreen"/>
-                                        </button>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="m9I-Gl-nyg" firstAttribute="trailing" secondItem="ggA-Mq-lfS" secondAttribute="trailing" id="0KL-kr-TK8"/>
                                     <constraint firstItem="362-oU-nXw" firstAttribute="width" secondItem="ggA-Mq-lfS" secondAttribute="width" id="3GC-Bq-Ks2"/>
+                                    <constraint firstItem="uzL-Qf-uNr" firstAttribute="top" secondItem="ggA-Mq-lfS" secondAttribute="top" id="4gK-h0-411"/>
                                     <constraint firstItem="nW5-Ld-mKZ" firstAttribute="centerX" secondItem="ggA-Mq-lfS" secondAttribute="centerX" id="AcM-ms-kC4"/>
                                     <constraint firstItem="nW5-Ld-mKZ" firstAttribute="height" secondItem="ggA-Mq-lfS" secondAttribute="height" id="BuH-Mh-xuF"/>
+                                    <constraint firstAttribute="trailing" secondItem="uzL-Qf-uNr" secondAttribute="trailing" id="C7x-xy-vfS"/>
                                     <constraint firstItem="nW5-Ld-mKZ" firstAttribute="width" secondItem="ggA-Mq-lfS" secondAttribute="width" id="GiF-co-6f9"/>
                                     <constraint firstItem="362-oU-nXw" firstAttribute="centerX" secondItem="ggA-Mq-lfS" secondAttribute="centerX" id="VVx-Gh-Ore"/>
                                     <constraint firstItem="362-oU-nXw" firstAttribute="bottom" secondItem="ggA-Mq-lfS" secondAttribute="bottom" id="YlJ-9d-vPP"/>
-                                    <constraint firstItem="m9I-Gl-nyg" firstAttribute="top" secondItem="ggA-Mq-lfS" secondAttribute="top" id="ZQF-wx-Mw3"/>
                                     <constraint firstItem="362-oU-nXw" firstAttribute="height" secondItem="ggA-Mq-lfS" secondAttribute="height" multiplier="1:5" id="fyi-b2-mdF"/>
                                     <constraint firstItem="nW5-Ld-mKZ" firstAttribute="centerY" secondItem="ggA-Mq-lfS" secondAttribute="centerY" id="kgB-Mg-nfR"/>
-                                    <constraint firstItem="m9I-Gl-nyg" firstAttribute="height" secondItem="ggA-Mq-lfS" secondAttribute="height" multiplier="1:5" id="xPN-td-XO6"/>
+                                    <constraint firstItem="uzL-Qf-uNr" firstAttribute="width" secondItem="ggA-Mq-lfS" secondAttribute="width" multiplier="1:5" id="lH4-4A-qzr"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="imageCell" destination="nW5-Ld-mKZ" id="5uQ-WF-J53"/>
                                     <outlet property="labelCell" destination="362-oU-nXw" id="40Y-9m-uv1"/>
-                                    <outlet property="selectButton" destination="m9I-Gl-nyg" id="hVS-Qs-w3f"/>
+                                    <outlet property="selectImage" destination="uzL-Qf-uNr" id="T0G-XN-TET"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
