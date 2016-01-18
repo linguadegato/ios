@@ -50,7 +50,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // - Add new clue
     private let addButtonImageOn = (UIImage(named: "iconAddWhiteSmall"))
-    private let addButtonImageOff = (UIImage())
     
     //textField
     private let textFieldBorderColor = UIColor.bluePalete().CGColor
@@ -133,7 +132,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         animationBackgroundView.layer.cornerRadius = slideViewBorderRadius
         
         addButton.setImage(addButtonImageOn, forState: UIControlState.Normal)
-        addButton.setImage(addButtonImageOff, forState: UIControlState.Disabled)
         addButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
         setAddButtonState()
         
@@ -965,7 +963,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             self.wordsLimitReached = false
             
             //buttons reset
-            self.addButton.enabled = false
+            self.addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(0.5))
+            self.addButton.userInteractionEnabled = false
             self.takePhotoButton.enabled = true
             self.cameraRollButton.enabled = true
             self.audioButton.enabled = true
