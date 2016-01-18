@@ -73,6 +73,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private var arrowAnimationTimer: NSTimer!
     
     //MARK: Crossword Creation related variables
+    private var gameName: UITextField!
     private var newMedia: Bool?
     
     private var hasClue = false {
@@ -899,8 +900,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     // MARK: - NAVIGATION
     
     // MARK: TODO: save game
-    
-    var gameName: UITextField!
     // generating the TextField in alert to save game
     func configurationTextField(textField: UITextField!) {
         
@@ -908,11 +907,19 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         gameName = textField
     }
     
+    @IBAction func saveGame(sender: AnyObject) {
+    
+        alertSave()
+        
+    }
+    
     func alertSave() {
         let alert = UIAlertController(title: "Deseja salvar o jogo?", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addTextFieldWithConfigurationHandler(configurationTextField)
-        alert.addAction(UIAlertAction(title: "Não salvar", style: UIAlertActionStyle.Default, handler:nil))
+        alert.addAction(UIAlertAction(title: "Não salvar", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
+            self.performSegueWithIdentifier("GenerateCrossword", sender: self)
+        }))
         alert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
             print(self.gameName.text, "salvo!")
         }))
@@ -936,6 +943,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                     
                     audioData!.writeToURL(NSURL(fileURLWithPath: newPath), atomically: true)
                     word.clue.audioPath = newPath
+
                 }
             }
             
@@ -972,6 +980,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             //collectionView reset
             self.wordsAddedCollectionView.reloadData()
             self.lowerContainer.hidden = true
+            
         }
     }
 }
