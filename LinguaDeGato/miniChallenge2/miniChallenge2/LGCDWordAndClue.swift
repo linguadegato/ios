@@ -12,6 +12,20 @@ import CoreData
 
 class LGCDWordAndClue: NSManagedObject {
 
-// Insert code here to add functionality to your managed object subclass
-
+    init(aWord: String, anAudioPath: String?, anImageID: String) {
+        
+        // get context
+        let context: NSManagedObjectContext = DatabaseManager.sharedInstance.managedObjectContext!
+        
+        // create entity description
+        let entityDescription: NSEntityDescription? = NSEntityDescription.entityForName("LGCDGame", inManagedObjectContext: context)
+        
+        //call super using
+        super.init(entity: entityDescription!, insertIntoManagedObjectContext: context)
+        
+        //set properties and relationships
+        self.word = aWord
+        self.audioPath = anAudioPath
+        self.imageID = anImageID
+    }
 }
