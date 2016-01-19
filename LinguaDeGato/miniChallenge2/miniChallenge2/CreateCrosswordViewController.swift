@@ -108,11 +108,20 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private var audioPath: String?
     private var audio: AVAudioPlayer!
 
+    var backButton : UIBarButtonItem!
     
     //MARK: - VIEW LIFECYCLE METHODS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Disable the swipe to make sure you get your chance to save
+        self.navigationController?.interactivePopGestureRecognizer?.enabled = false
+        
+        // Replace the default back button
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        self.backButton = UIBarButtonItem(title: "Início", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
+        self.navigationItem.leftBarButtonItem = backButton
         
         //MARK: appearance settings
         
@@ -208,6 +217,21 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     // MARK: - BUTTON ACTIONS
+    
+    func goBack() {
+        let alert = UIAlertController(title: "Deseja realmente sair?", message: " As palavras criadas serão perdidas.", preferredStyle: UIAlertControllerStyle.Alert)
+
+        alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler:nil))
+        alert.addAction(UIAlertAction(title: "Sair", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
+            self.navigationController?.popViewControllerAnimated(true)
+            // Don't forget to re-enable the interactive gesture
+            self.navigationController?.interactivePopGestureRecognizer!.enabled = true
+        }))
+        self.presentViewController(alert, animated: true, completion: {
+            print("completion block")
+        })
+
+    }
     
     //"camera" button (new photo)
     @IBAction func useCamera(sender: AnyObject) {
@@ -321,6 +345,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     // MARK: Button state management
+    
+    // Then handle the button selection
     
     //disable addButton if there's no clue, or no word, or if there's already 6 words
     private func setAddButtonState() {

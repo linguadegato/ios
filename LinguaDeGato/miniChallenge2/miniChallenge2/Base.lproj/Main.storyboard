@@ -1022,9 +1022,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-       <segue reference="uDm-0q-eKI"/>
-=======
         <segue reference="MqY-2r-mQO"/>
->>>>>>> 649af2c4f65da2f58a518873ca94af2b7c25470e
     </inferredMetricsTieBreakers>
 </document>
