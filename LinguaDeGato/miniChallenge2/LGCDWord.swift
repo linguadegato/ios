@@ -29,7 +29,7 @@ class LGCDWord: NSManagedObject {
         self.word = newWord
     }
     
-    func appendAudio(audioPath: String) {
-        
+    func appendAudio(anAudioPath: String) {
+        self.audioPath = anAudioPath
     }
 }

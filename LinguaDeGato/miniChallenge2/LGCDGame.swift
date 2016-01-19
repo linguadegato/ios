@@ -14,7 +14,6 @@ class LGCDGame: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
     
-    
     init(newGameName: String, newWordsAndClues: [LGCDWordAndClue]) {
         
         // get context
