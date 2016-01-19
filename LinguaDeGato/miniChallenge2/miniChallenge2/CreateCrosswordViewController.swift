@@ -50,7 +50,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // - Add new clue
     private let addButtonImageOn = (UIImage(named: "iconAddWhiteSmall"))
-    private let addButtonImageOff = (UIImage())
     
     //textField
     private let textFieldBorderColor = UIColor.bluePalete().CGColor
@@ -74,6 +73,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private var arrowAnimationTimer: NSTimer!
     
     //MARK: Crossword Creation related variables
+    private var gameName: UITextField!
     private var newMedia: Bool?
     
     private var hasClue = false {
@@ -133,7 +133,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         animationBackgroundView.layer.cornerRadius = slideViewBorderRadius
         
         addButton.setImage(addButtonImageOn, forState: UIControlState.Normal)
-        addButton.setImage(addButtonImageOff, forState: UIControlState.Disabled)
         addButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
         setAddButtonState()
         
@@ -141,7 +140,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         //buttons
         generateButton.enabled = false
-        addButton.enabled = false
+        addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(0.5))
+        addButton.userInteractionEnabled = false
         
         //MARK: Set gesture recognizers
         //gesture recognizer to dismiss keyboard
@@ -326,10 +326,10 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private func setAddButtonState() {
         if hasClue && hasWord && !wordsLimitReached {
             addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(1))
-            addButton.enabled = true
+            addButton.userInteractionEnabled = true
         } else {
-            addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(0.8))
-            addButton.enabled = false
+            addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(0.5))
+            addButton.userInteractionEnabled = false
         }
     }
     
@@ -900,8 +900,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     // MARK: - NAVIGATION
     
     // MARK: TODO: save game
-    
-    var gameName: UITextField!
     // generating the TextField in alert to save game
     func configurationTextField(textField: UITextField!) {
         
@@ -909,11 +907,17 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         gameName = textField
     }
     
+    @IBAction func playGame(sender: AnyObject) {
+        alertSave()
+    }
+    
     func alertSave() {
         let alert = UIAlertController(title: "Deseja salvar o jogo?", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addTextFieldWithConfigurationHandler(configurationTextField)
-        alert.addAction(UIAlertAction(title: "Não salvar", style: UIAlertActionStyle.Default, handler:nil))
+        alert.addAction(UIAlertAction(title: "Não salvar", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
+            self.performSegueWithIdentifier("GenerateCrossword", sender: self)
+        }))
         alert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
             print(self.gameName.text, "salvo!")
         }))
@@ -937,6 +941,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                     
                     audioData!.writeToURL(NSURL(fileURLWithPath: newPath), atomically: true)
                     word.clue.audioPath = newPath
+
                 }
             }
             
@@ -964,7 +969,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             self.wordsLimitReached = false
             
             //buttons reset
-            self.addButton.enabled = false
+            self.addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(0.5))
+            self.addButton.userInteractionEnabled = false
             self.takePhotoButton.enabled = true
             self.cameraRollButton.enabled = true
             self.audioButton.enabled = true
@@ -972,6 +978,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             //collectionView reset
             self.wordsAddedCollectionView.reloadData()
             self.lowerContainer.hidden = true
+            
         }
     }
 }

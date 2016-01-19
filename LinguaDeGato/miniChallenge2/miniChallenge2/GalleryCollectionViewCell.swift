@@ -1,18 +1,19 @@
 //
-//  clueCollectionViewCell.swift
+//  GalleryCollectionViewCell.swift
 //  LinguaDeGato
 //
-//  Created by Kobayashi on 1/7/16.
+//  Created by Kobayashi on 1/15/16.
 //  Copyright © 2016 Kobayashi. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class ClueCollectionViewCell: UICollectionViewCell {
+class GalleryCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var imageCell: UIImageView!
     @IBOutlet weak var labelCell: UILabel!
-    @IBOutlet weak var selectButton: UIButton!
+    @IBOutlet weak var selectImage: UIImageView!
     @IBOutlet weak var audioImage: UIImageView!
     
     
@@ -20,8 +21,8 @@ class ClueCollectionViewCell: UICollectionViewCell {
     var delegate: CreateCrosswordViewController!
     var index: Int!
     
-//    @IBAction func delete() {
-//        delegate!.cellAlert(index!)
-//    }
+    //    @IBAction func delete() {
+    //        delegate!.cellAlert(index!)
+    //    }
     
 }

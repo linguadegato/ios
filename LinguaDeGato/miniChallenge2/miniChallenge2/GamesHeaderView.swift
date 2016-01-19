@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class AllGamesHeaderView: UICollectionReusableView {
+class GamesHeaderView: UICollectionReusableView {
     @IBOutlet weak var title: UILabel!
     
     
