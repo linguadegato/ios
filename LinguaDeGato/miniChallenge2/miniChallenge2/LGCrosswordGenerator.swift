@@ -9,7 +9,6 @@
 //  clues.
 
 import Foundation
-import UIKit
 
 
 class LGCrosswordGenerator {

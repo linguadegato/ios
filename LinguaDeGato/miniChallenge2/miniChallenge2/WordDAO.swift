@@ -10,6 +10,7 @@ import Foundation
 
 class WordDAO {
     
+    // insert has the responsability of prevent the criation of two objects for the same word.
     static func insert(word: String, audioPath: String?) {
 
     }

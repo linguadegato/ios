@@ -10,8 +10,11 @@ import Foundation
 
 class GameDAO {
     
+    
+    //insert has the responsability of avoid insertion of two games with same name.
     class func insert(game: Game){
         
+        for game.
     }
     
     class func delete(game: LGCDGame){

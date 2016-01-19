@@ -8,7 +8,6 @@
 //  Represents a multimedia clue for a word in a crosswords game.
 
 import Foundation
-import UIKit
 
 class Clue {
     

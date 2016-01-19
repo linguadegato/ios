@@ -10,6 +10,7 @@ import Foundation
 
 class WordAndClueDAO {
     
+    //insert has the responsability of avoid creation of redunand objects (same word and same imageID)
     static func insert(wordAndClue: WordAndClue) {
         
     }

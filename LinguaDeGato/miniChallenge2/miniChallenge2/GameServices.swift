@@ -15,7 +15,6 @@ class GameServices {
     static func saveGame(game: Game) -> Bool {
         if GameDAO.retrieveGameByName(game.name) == nil {
             GameDAO.insert(game)
-            //save context
             return true
         }
         return false
