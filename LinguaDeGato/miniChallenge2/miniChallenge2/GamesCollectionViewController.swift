@@ -10,9 +10,13 @@ import UIKit
 
 class GamesCollectionViewController : UICollectionViewController{
     
+    
+    @IBOutlet var gamesCollectionView: UICollectionView!
+    
     var allGames = [Game]()
     
     private let reuseIdentifier = "ClueCell"
+    private var selectedSection : Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +46,7 @@ class GamesCollectionViewController : UICollectionViewController{
             
             let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "AllGamesHeader",forIndexPath: indexPath) as! GamesHeaderView
             headerView.title.text = allGames[indexPath.section].name
+            headerView.playButton.setTitle("\(indexPath.section)", forState: UIControlState.Selected)
             return headerView
 
         default:
@@ -57,19 +62,27 @@ class GamesCollectionViewController : UICollectionViewController{
     }
     
     //MARK: - NAVIGATION
+    @IBAction func playGame(sender: UIButton) {
+        let buttonTitle = sender.titleForState(UIControlState.Selected)
+        selectedSection = Int(buttonTitle!)
+
+        self.performSegueWithIdentifier("CreateGameFromSelectedGame", sender: nil)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //MARK: HARRY-TODO: ACTIVITY INDICATOR
-        
-        let selectedGame = allGames[0].wordsAndClueArray
-        
-        let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: selectedGame)
-        aGenerator.computeCrossword(2, spins: 4)
-
-        if (segue.identifier == "CreateGameFromSelectedGame" ) {
-            (segue.destinationViewController as! GamePlayViewController).crosswordMatrix = aGenerator.grid
-            (segue.destinationViewController as! GamePlayViewController).words = aGenerator.currentWordlist
+        if (selectedSection != nil){
+            let selectedGame = allGames[selectedSection!].wordsAndClueArray
+            
+            let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: selectedGame)
+            aGenerator.computeCrossword(2, spins: 4)
+            
+            if (segue.identifier == "CreateGameFromSelectedGame" ) {
+                (segue.destinationViewController as! GamePlayViewController).crosswordMatrix = aGenerator.grid
+                (segue.destinationViewController as! GamePlayViewController).words = aGenerator.currentWordlist
+            }
         }
         
     }
-
+    
 }

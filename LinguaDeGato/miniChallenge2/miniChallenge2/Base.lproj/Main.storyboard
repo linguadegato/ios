@@ -456,7 +456,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOf-ag-Lri" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18" y="1124"/>
+            <point key="canvasLocation" x="34" y="1139"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="0g3-yJ-IvD">
@@ -949,7 +949,7 @@
                                             </constraints>
                                             <state key="normal" backgroundImage="iconPlayPink"/>
                                             <connections>
-                                                <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromSelectedGame" id="tQq-Cc-Ja3"/>
+                                                <action selector="playGame:" destination="oi9-UR-oqx" eventType="touchUpInside" id="tES-Hn-Y8r"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbR-FB-zcu" userLabel="Title Label">
@@ -979,10 +979,15 @@
                                 <constraint firstItem="VfX-Ze-5FX" firstAttribute="centerX" secondItem="dJj-5L-2By" secondAttribute="centerX" id="Y5F-tU-jhf"/>
                             </constraints>
                             <connections>
+                                <outlet property="playButton" destination="jSc-7h-b2D" id="bnj-JC-N8e"/>
                                 <outlet property="title" destination="xbR-FB-zcu" id="SYS-ej-gEg"/>
                             </connections>
                         </collectionReusableView>
                     </collectionView>
+                    <connections>
+                        <outlet property="gamesCollectionView" destination="wev-d2-wdC" id="faQ-fk-m0E"/>
+                        <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromSelectedGame" id="uDm-0q-eKI"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQb-Z6-x2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1016,6 +1021,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jVy-kP-ALy"/>
+        <segue reference="uDm-0q-eKI"/>
     </inferredMetricsTieBreakers>
 </document>
