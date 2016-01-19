@@ -908,23 +908,33 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     @IBAction func playGame(sender: AnyObject) {
-        alertSave()
-    }
-    
-    func alertSave() {
         let alert = UIAlertController(title: "Deseja salvar o jogo?", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-        
+
         alert.addTextFieldWithConfigurationHandler(configurationTextField)
         alert.addAction(UIAlertAction(title: "Não salvar", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
             self.performSegueWithIdentifier("GenerateCrossword", sender: self)
         }))
         alert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
-            print(self.gameName.text, "salvo!")
+            print("\(self.gameName.text) salvo!")
         }))
         self.presentViewController(alert, animated: true, completion: {
             print("completion block")
         })
     }
+    
+    @IBAction func saveGame(sender: AnyObject) {
+        let alert = UIAlertController(title: "Dê um nome ao jogo:", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addTextFieldWithConfigurationHandler(configurationTextField)
+        alert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
+            self.performSegueWithIdentifier("GenerateCrossword", sender: self)
+            print("\(self.gameName.text) salvo!")
+        }))
+        self.presentViewController(alert, animated: true, completion: {
+            print("completion block")
+        })
+    }
+
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

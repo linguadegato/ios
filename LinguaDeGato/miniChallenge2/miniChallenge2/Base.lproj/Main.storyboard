@@ -313,7 +313,7 @@
                                                     </mask>
                                                 </variation>
                                                 <connections>
-                                                    <segue destination="epj-fT-bue" kind="show" identifier="GenerateCrossword" id="OJj-Wf-kYc"/>
+                                                    <action selector="saveGame:" destination="poN-pE-e0p" eventType="touchUpInside" id="dU6-Tc-rYa"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -396,6 +396,7 @@
                         <outlet property="takePhotoButton" destination="Xfs-vm-kQE" id="aqm-Sd-WbM"/>
                         <outlet property="trashImageImgView" destination="XiI-TA-MYn" id="AOj-DH-bLI"/>
                         <outlet property="wordsAddedCollectionView" destination="oXI-ep-K2E" id="gkc-AF-jLK"/>
+                        <segue destination="epj-fT-bue" kind="show" identifier="GenerateCrossword" id="MqY-2r-mQO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXV-ks-Gh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -411,14 +412,14 @@
                         <viewControllerLayoutGuide type="bottom" id="B9L-XC-Vs3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PGi-CJ-GlE">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="250" height="492"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-3h-t5z">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="492"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
@@ -1016,6 +1017,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jVy-kP-ALy"/>
+        <segue reference="MqY-2r-mQO"/>
     </inferredMetricsTieBreakers>
 </document>
