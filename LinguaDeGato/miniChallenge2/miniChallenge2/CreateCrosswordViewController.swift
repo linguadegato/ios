@@ -110,10 +110,14 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
 
     var backButton : UIBarButtonItem!
     
+    let limitLength = 12
+    
     //MARK: - VIEW LIFECYCLE METHODS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        newWordTxtField.delegate = self
         
         // Disable the swipe to make sure you get your chance to save
         self.navigationController?.interactivePopGestureRecognizer?.enabled = false
@@ -363,6 +367,15 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+    
+    //MARK: - TEXTFIELD PROPERTIES
+    
+    //limits the characters in newWordTxtField
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        guard let text = newWordTxtField.text else { return true }
+        let newLength = text.characters.count + string.characters.count - range.length
+        return newLength <= limitLength
     }
     
     //MARK: - GESTURE RECOGNIZERS GENERATORS
