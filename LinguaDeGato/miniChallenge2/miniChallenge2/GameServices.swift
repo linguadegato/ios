@@ -30,7 +30,7 @@ class GameServices {
         GameServices.saveGame(newGame)
     }
     
-    static func retrieveAllGames() -> [LGCDGame]{
-        return GameDAO.retrieveAllGames()
+    static func retrieveAllGames() -> [Game]{
+        return []
     }
 }

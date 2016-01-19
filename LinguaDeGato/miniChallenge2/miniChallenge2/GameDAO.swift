@@ -10,7 +10,7 @@ import Foundation
 
 class GameDAO {
     
-    static func insert(game: Game) -> LGCDGame {
+    static func insert(game: Game) /* -> LGCDGame */ {
         
     }
     
@@ -20,5 +20,9 @@ class GameDAO {
     
     static func retrieveGameByName(name: String) -> LGCDGame? {
         return nil
+    }
+    
+    static func retrieveAllGames() -> [LGCDGame] {
+        return []
     }
 }
