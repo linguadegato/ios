@@ -1,5 +1,5 @@
 //
-//  LGCDWord+CoreDataProperties.swift
+//  LGCDGame+CoreDataProperties.swift
 //  LinguaDeGato
 //
 //  Created by Andre Scherma Soleo on 19/01/16.
@@ -12,10 +12,9 @@
 import Foundation
 import CoreData
 
-extension LGCDWord {
+extension LGCDGame {
 
-    @NSManaged var audioPath: String?
-    @NSManaged var word: String?
-    @NSManaged var wordAndClue: NSSet?
+    @NSManaged var name: String?
+    @NSManaged var words: NSSet?
 
 }
