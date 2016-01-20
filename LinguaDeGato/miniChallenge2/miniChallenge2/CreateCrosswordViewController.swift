@@ -124,7 +124,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         // Replace the default back button
         self.navigationItem.setHidesBackButton(true, animated: false)
-        self.backButton = UIBarButtonItem(title: "Início", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
+        self.backButton = UIBarButtonItem(title: "< Início", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
         self.navigationItem.leftBarButtonItem = backButton
         
         //MARK: appearance settings
@@ -223,7 +223,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     // MARK: - BUTTON ACTIONS
     
     func goBack() {
-        let alert = UIAlertController(title: "Deseja realmente sair?", message: " As palavras criadas serão perdidas.", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Deseja realmente sair?", message: "As palavras criadas serão perdidas.", preferredStyle: UIAlertControllerStyle.Alert)
 
         alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler:nil))
         alert.addAction(UIAlertAction(title: "Sair", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
@@ -947,18 +947,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     @IBAction func playGame(sender: AnyObject) {
-        let alert = UIAlertController(title: "Deseja salvar o jogo?", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        self.performSegueWithIdentifier("GenerateCrossword", sender: self)
 
-        alert.addTextFieldWithConfigurationHandler(configurationTextField)
-        alert.addAction(UIAlertAction(title: "Não salvar", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
-            self.performSegueWithIdentifier("GenerateCrossword", sender: self)
-        }))
-        alert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
-            print("\(self.gameName.text) salvo!")
-        }))
-        self.presentViewController(alert, animated: true, completion: {
-            print("completion block")
-        })
     }
     
     @IBAction func saveGame(sender: AnyObject) {
