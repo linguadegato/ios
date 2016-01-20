@@ -23,12 +23,23 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     var words = [WordAndClue]()
     var finishGamePlayAudio = AVAudioPlayer()
     
+    // navigation bar button
+    var backButton : UIBarButtonItem!
+    
     // MARK: - LIFECYCLE METHODS
     
     override func viewDidLoad() {
         super.viewDidLoad()
         boardView.dataSource = self
         boardView.delegate = self
+        
+        // Disable the swipe to make sure you get your chance to save
+        self.navigationController?.interactivePopGestureRecognizer?.enabled = false
+        
+        // Replace the default back button
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        self.backButton = UIBarButtonItem(title: "< Sair", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
+        self.navigationItem.leftBarButtonItem = backButton
         
         let finishGame = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("finishGame", ofType: "wav")!)
         
@@ -55,6 +66,26 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     
     func getCrossWordWords() -> [WordAndClue] {
         return words
+    }
+    
+    // MARK - BUTTON ACTIONS
+    func goBack() {
+        let alert = UIAlertController(title: "Deseja realmente sair?", message: "O jogo será interrompido.", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler:nil))
+        alert.addAction(UIAlertAction(title: "Sair", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
+            self.navigationController?.popViewControllerAnimated(true)
+            
+            // Don't forget to re-enable the interactive gesture
+            self.navigationController?.interactivePopGestureRecognizer!.enabled = true
+            
+            // if the back button is pressed when a clue audio is open, the music status is stoped
+            // so we need to play when exit to another screen
+            MusicSingleton.sharedMusic().playBackgroundAudio(true)
+        }))
+        self.presentViewController(alert, animated: true, completion: {
+        })
+        
     }
     
     //MARK: - BOARDGAME DELEGATE METHODS

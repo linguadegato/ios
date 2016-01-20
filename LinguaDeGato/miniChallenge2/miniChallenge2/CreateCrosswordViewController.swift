@@ -108,11 +108,24 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private var audioPath: String?
     private var audio: AVAudioPlayer!
 
+    var backButton : UIBarButtonItem!
+    
+    let limitLength = BoardView.maxSquaresInCol
     
     //MARK: - VIEW LIFECYCLE METHODS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        newWordTxtField.delegate = self
+        
+        // Disable the swipe to make sure you get your chance to save
+        self.navigationController?.interactivePopGestureRecognizer?.enabled = false
+        
+        // Replace the default back button
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        self.backButton = UIBarButtonItem(title: "< Início", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
+        self.navigationItem.leftBarButtonItem = backButton
         
         //MARK: appearance settings
         
@@ -208,6 +221,26 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     // MARK: - BUTTON ACTIONS
+    
+    func goBack() {
+        let alert = UIAlertController(title: "Deseja realmente sair?", message: "As palavras criadas serão perdidas.", preferredStyle: UIAlertControllerStyle.Alert)
+
+        alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler:nil))
+        alert.addAction(UIAlertAction(title: "Sair", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
+            self.navigationController?.popViewControllerAnimated(true)
+            // Don't forget to re-enable the interactive gesture
+            
+            self.navigationController?.interactivePopGestureRecognizer!.enabled = true
+            
+            // if the back button is pressed when a clue audio is recording or playing, the music status is stoped
+            // so we need to play when exit to another screen
+            MusicSingleton.sharedMusic().playBackgroundAudio(true)
+        }))
+        self.presentViewController(alert, animated: true, completion: {
+            print("completion block")
+        })
+
+    }
     
     //"camera" button (new photo)
     @IBAction func useCamera(sender: AnyObject) {
@@ -322,6 +355,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // MARK: Button state management
     
+    // Then handle the button selection
+    
     //disable addButton if there's no clue, or no word, or if there's already 6 words
     private func setAddButtonState() {
         if hasClue && hasWord && !wordsLimitReached {
@@ -337,6 +372,15 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+    
+    //MARK: - TEXTFIELD PROPERTIES
+    
+    //limits the characters in newWordTxtField
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        guard let text = newWordTxtField.text else { return true }
+        let newLength = text.characters.count + string.characters.count - range.length
+        return newLength <= limitLength
     }
     
     //MARK: - GESTURE RECOGNIZERS GENERATORS
@@ -908,23 +952,24 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     @IBAction func playGame(sender: AnyObject) {
-        alertSave()
+        
+        self.performSegueWithIdentifier("GenerateCrossword", sender: self)
+
     }
     
-    func alertSave() {
-        let alert = UIAlertController(title: "Deseja salvar o jogo?", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+    @IBAction func saveGame(sender: AnyObject) {
+        let alert = UIAlertController(title: "Dê um nome ao jogo:", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addTextFieldWithConfigurationHandler(configurationTextField)
-        alert.addAction(UIAlertAction(title: "Não salvar", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
-            self.performSegueWithIdentifier("GenerateCrossword", sender: self)
-        }))
         alert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
-            print(self.gameName.text, "salvo!")
+            self.performSegueWithIdentifier("GenerateCrossword", sender: self)
+            print("\(self.gameName.text) salvo!")
         }))
         self.presentViewController(alert, animated: true, completion: {
             print("completion block")
         })
     }
+
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
