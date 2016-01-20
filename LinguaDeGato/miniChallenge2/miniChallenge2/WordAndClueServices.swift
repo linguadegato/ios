@@ -11,23 +11,50 @@ import Foundation
 class WordAndClueServices {
     
     static func retrieveWordAndClue(aWordAndClue: WordAndClue) -> WordAndClue? {
-        //return WordAndClueDAO.retrieveWordAndClue(aWordAndClue)
-        return nil
+        
+        let aWord = WordAndClueDAO.retrieveWordAndClue(aWordAndClue)
+        
+        if aWord != nil {
+            return WordAndClueServices.wordAndClueFromDataBase(aWord!)
+        }
+        else {
+            return nil
+        }
     }
     
     static func retriveWordAndCluesWithWord(word: String) -> [WordAndClue]{
-        //return WordAndClueDAO.retriveWordAndCluesWithWord(word)
-        return []
+
+        var wordsList: [WordAndClue] = []
+        
+        let persistedWords = WordAndClueDAO.retriveWordAndCluesWithWord(word)
+        
+        for word in persistedWords {
+            wordsList.append(WordAndClueServices.wordAndClueFromDataBase(word))
+        }
+        return wordsList
     }
     
     static func retriveAllWordAndClues() -> [WordAndClue] {
-        //return WordAndClueDAO.retriveAllWordAndClues()
-        return []
+        
+        var wordsList: [WordAndClue] = []
+        let persistedWords = WordAndClueDAO.retriveAllWordAndClues()
+        
+        for word in persistedWords {
+            wordsList.append(WordAndClueServices.wordAndClueFromDataBase(word))
+        }
+        return wordsList
     }
     
     static func saveWordAndClue(wordAndClue: WordAndClue) {
         if WordAndClueDAO.retrieveWordAndClue(wordAndClue) == nil {
             WordAndClueDAO.insert(wordAndClue)
         }
+    }
+    
+    //auxiliar method to create WordAndClue from LGCDWordAndClue
+    static func wordAndClueFromDataBase(word: LGCDWordAndClue) -> WordAndClue {
+        
+        let aClue = Clue(aImageID: word.imageID, anAudioPath: word.audioPath)
+        return WordAndClue(aWord: word.word!, aClue: aClue)
     }
 }

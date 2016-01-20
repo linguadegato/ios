@@ -12,7 +12,7 @@ import CoreData
 
 class LGCDWordAndClue: NSManagedObject {
 
-    init(aWord: String, anAudioPath: String?, anImageID: String) {
+    init(aWord: String, anAudioPath: String?, anImageID: String?) {
         
         // get context
         let context: NSManagedObjectContext = DatabaseManager.sharedInstance.managedObjectContext!

@@ -5,6 +5,7 @@
 //  Created by Andre Scherma Soleo on 19/01/16.
 //  Copyright © 2016 Kobayashi. All rights reserved.
 //
+// It's GameServices responsability to avoid that two games have the same name'
 
 import Foundation
 
@@ -30,7 +31,40 @@ class GameServices {
         GameServices.saveGame(newGame)
     }
     
+    static func retrieveGameByName(aName: String) -> Game? {
+        
+        let aPersistedGame = GameDAO.retrieveGameByName(aName)
+        
+        if aPersistedGame != nil {
+            return gameFromDataBase(aPersistedGame!)
+        }
+        else {
+            return nil
+        }
+    }
+    
     static func retrieveAllGames() -> [Game]{
-        return []
+        
+        var games: [Game] = []
+        let dbGames = GameDAO.retrieveAllGames()
+        
+        for game in dbGames {
+            games.append(GameServices.gameFromDataBase(game))
+        }
+        return games
+    }
+    
+    //auxiliar method to create a Game from a LGCDGame
+    static func gameFromDataBase(persistedGame: LGCDGame) -> Game {
+
+        var words: [WordAndClue] = []
+        
+        for object in persistedGame.words! {
+            
+            if let aWord = object as? LGCDWordAndClue {
+                words.append(WordAndClueServices.wordAndClueFromDataBase(aWord))
+            }
+        }
+        return Game(gameName: persistedGame.name!, wordsAndClue: words)
     }
 }
