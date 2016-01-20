@@ -68,14 +68,20 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
         return words
     }
     
+    // MARK - BUTTON ACTIONS
     func goBack() {
         let alert = UIAlertController(title: "Deseja realmente sair?", message: "O jogo será interrompido.", preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler:nil))
         alert.addAction(UIAlertAction(title: "Sair", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
             self.navigationController?.popViewControllerAnimated(true)
+            
             // Don't forget to re-enable the interactive gesture
             self.navigationController?.interactivePopGestureRecognizer!.enabled = true
+            
+            // if the back button is pressed when a clue audio is open, the music status is stoped
+            // so we need to play when exit to another screen
+            MusicSingleton.sharedMusic().playBackgroundAudio(true)
         }))
         self.presentViewController(alert, animated: true, completion: {
         })

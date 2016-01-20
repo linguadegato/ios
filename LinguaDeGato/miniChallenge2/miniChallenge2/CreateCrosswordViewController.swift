@@ -110,7 +110,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
 
     var backButton : UIBarButtonItem!
     
-    let limitLength = 12
+    let limitLength = BoardView.maxSquaresInCol
     
     //MARK: - VIEW LIFECYCLE METHODS
     
@@ -229,7 +229,12 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         alert.addAction(UIAlertAction(title: "Sair", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
             self.navigationController?.popViewControllerAnimated(true)
             // Don't forget to re-enable the interactive gesture
+            
             self.navigationController?.interactivePopGestureRecognizer!.enabled = true
+            
+            // if the back button is pressed when a clue audio is recording or playing, the music status is stoped
+            // so we need to play when exit to another screen
+            MusicSingleton.sharedMusic().playBackgroundAudio(true)
         }))
         self.presentViewController(alert, animated: true, completion: {
             print("completion block")
