@@ -13,7 +13,8 @@ class MusicSingleton: NSObject {
     
     var backgroundMusic = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("backgroundMusic", ofType: "wav")!)
     var backgroundMusicPlay:AVAudioPlayer!
-    
+    var mute: Bool = false
+
     private static var instance:MusicSingleton = MusicSingleton()
     
     internal  static func  sharedMusic() -> MusicSingleton {

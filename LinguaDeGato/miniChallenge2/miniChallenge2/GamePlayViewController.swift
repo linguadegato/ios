@@ -18,14 +18,15 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     // MARK: - VIEWS
     @IBOutlet weak var boardView: BoardView!
     
+    // MARK: - NAVIGATION BUTTONS
+    // navigation bar button
+    var backButton : UIBarButtonItem!
+    
     // MARK: - GAME PROPERTIES (words array, positions matrix, etc)
     var crosswordMatrix: [[CrosswordElement?]]?
     var words = [WordAndClue]()
     var finishGamePlayAudio = AVAudioPlayer()
-    
-    // navigation bar button
-    var backButton : UIBarButtonItem!
-    
+
     // MARK: - LIFECYCLE METHODS
     
     override func viewDidLoad() {
@@ -69,6 +70,8 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     }
     
     // MARK - BUTTON ACTIONS
+    
+    // "back" button
     func goBack() {
         let alert = UIAlertController(title: "Deseja realmente sair?", message: "O jogo será interrompido.", preferredStyle: UIAlertControllerStyle.Alert)
         
@@ -81,11 +84,25 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
             
             // if the back button is pressed when a clue audio is open, the music status is stoped
             // so we need to play when exit to another screen
+            if !MusicSingleton.sharedMusic().mute {
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
+            }
         }))
         self.presentViewController(alert, animated: true, completion: {
         })
-        
+    }
+    
+    // "mute" button
+    @IBAction func muteButton(sender: AnyObject) {
+        if MusicSingleton.sharedMusic().mute {
+            // music will play
+            MusicSingleton.sharedMusic().mute = false
+            MusicSingleton.sharedMusic().playBackgroundAudio(true)
+        } else {
+            // music will stop
+            MusicSingleton.sharedMusic().mute = true
+            MusicSingleton.sharedMusic().playBackgroundAudio(false)
+        }
     }
     
     //MARK: - BOARDGAME DELEGATE METHODS
