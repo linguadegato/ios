@@ -13,19 +13,34 @@ class GameDAO {
     
     static func insert(game: Game) -> LGCDGame {
         
+        //adding wordAndClues
         var wordsList: [LGCDWordAndClue] = []
         
         for word in game.wordsAndClueArray {
             wordsList.append(WordAndClueDAO.insert(word))
         }
-        try! DatabaseManager.sharedInstance.managedObjectContext?.save()
         
-        return LGCDGame(newGameName: game.name, newWordsAndClues: wordsList)
+        //inserting game
+        let newGame = LGCDGame(newGameName: game.name, newWordsAndClues: wordsList)
+        
+        //saving context
+        do {
+            try DatabaseManager.sharedInstance.managedObjectContext?.save()
+        } catch{
+            print("error while saving game - insert(game: Game) -> LGCDGame")
+        }
+        
+        return newGame
     }
     
     static func delete(game: LGCDGame) {
         DatabaseManager.sharedInstance.managedObjectContext?.deleteObject(game)
-        try! DatabaseManager.sharedInstance.managedObjectContext?.save()
+        do {
+            try DatabaseManager.sharedInstance.managedObjectContext?.save()
+        }
+        catch {
+            print("error deleting game - delete(game: LGCDGame)")
+        }
     }
     
     static func retrieveGameByName(name: String) -> LGCDGame? {
@@ -35,16 +50,24 @@ class GameDAO {
         request.predicate = NSPredicate(format: "name == %@", name)
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
-        let results = try? DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)
+        //executing request
         
-        if results == nil || results!!.count == 0 {
+        var results: [LGCDGame]? = nil
+        
+        do {
+            results = try DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request) as? [LGCDGame]
+        }
+        catch {
+            print("error executing request - retrieveGameByName(name: String) -> LGCDGame?")
+        }
+        
+        //returns
+        if results == nil || results!.count == 0 {
             return nil
         }
         else {
-            return (results!![0] as! LGCDGame)
+            return results![0]
         }
-
-
     }
     
     static func retrieveAllGames() -> [LGCDGame] {
@@ -52,7 +75,14 @@ class GameDAO {
         let request = NSFetchRequest(entityName: "LGCDGame")
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
-        let results = try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request) as! [LGCDGame]
+        var results: [LGCDGame] = []
+        
+        do {
+            results = try DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request) as! [LGCDGame]
+        }
+        catch{
+            print("error executing request - retrieveAllGames()")
+        }
         
         return results
     }

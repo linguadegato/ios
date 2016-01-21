@@ -46,9 +46,15 @@ class WordAndClueServices {
     }
     
     static func saveWordAndClue(wordAndClue: WordAndClue) {
-        if WordAndClueDAO.retrieveWordAndClue(wordAndClue) == nil {
-            WordAndClueDAO.insert(wordAndClue)
+        
+        let operation = NSBlockOperation {
+            if WordAndClueDAO.retrieveWordAndClue(wordAndClue) == nil {
+                WordAndClueDAO.insert(wordAndClue)
+            }
         }
+        
+        let auxiliarQueue = NSOperationQueue()
+        auxiliarQueue.addOperation(operation)
     }
     
     //auxiliar method to create WordAndClue from LGCDWordAndClue
