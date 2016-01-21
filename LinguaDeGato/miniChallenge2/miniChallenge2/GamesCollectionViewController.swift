@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import Photos
 
 class GamesCollectionViewController : UICollectionViewController{
     
@@ -34,8 +36,21 @@ class GamesCollectionViewController : UICollectionViewController{
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GameCollectionViewCell
+        let clueWord = allGames[indexPath.section].wordsAndClueArray[indexPath.row].word
+        let imageID = allGames[indexPath.section].wordsAndClueArray[indexPath.row].clue.imageID
         
-        cell.labelCell.text = allGames[indexPath.section].wordsAndClueArray[indexPath.row].word
+        //set image
+        if imageID != nil {
+            
+            let results = PHAsset.fetchAssetsWithLocalIdentifiers([imageID!], options: nil)
+            
+            PHImageManager.defaultManager().requestImageForAsset(results.firstObject as! PHAsset, targetSize: CGSize(width: 1024,height: 1024), contentMode: .AspectFit, options: nil, resultHandler:
+                { (aImage, _) -> Void in
+                    cell.imageCell.image = aImage
+            })
+        }
+        
+        cell.labelCell.text = clueWord
         
         return cell
     }

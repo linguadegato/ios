@@ -39,7 +39,6 @@
 		EFE6D07C1B85F4B700CCC802 /* GamePlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6D07B1B85F4B700CCC802 /* GamePlayViewController.swift */; };
 		EFE6D0841B860B4500CCC802 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6D0831B860B4500CCC802 /* TileView.swift */; };
 		EFE73AF21BFE2C6C007A8C13 /* CrosswordCluePlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE73AF11BFE2C6C007A8C13 /* CrosswordCluePlaceholder.swift */; };
-		EFE825561C4E58E300E7C28E /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE14DBA1C49139100E245CA /* Game.swift */; };
 		EFE8F3801C4E864C006C7018 /* WordAndClueDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE8F37F1C4E864C006C7018 /* WordAndClueDAO.swift */; };
 		EFE8F3821C4E865C006C7018 /* GameDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE8F3811C4E865C006C7018 /* GameDAO.swift */; };
 		EFFB40CA1C46A5D10099BA6F /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFB40C91C46A5D10099BA6F /* DatabaseManager.swift */; };
@@ -52,6 +51,7 @@
 		FA96DEA71B29C0CE00149113 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA96DEA51B29C0CE00149113 /* LaunchScreen.xib */; };
 		FA96DEB31B29C0CE00149113 /* miniChallenge2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96DEB21B29C0CE00149113 /* miniChallenge2Tests.swift */; };
 		FAAB7EF71C3F19A9004561EF /* GamesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAB7EF61C3F19A9004561EF /* GamesCollectionViewController.swift */; };
+		FAACFB371C5157A100344723 /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41DCB91BDAA584008D72CE /* Clue.swift */; };
 		FAC71AC11C49637100F67F8C /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC71AC01C49637100F67F8C /* GalleryCollectionViewCell.swift */; };
 		FAC71AC51C496DF600F67F8C /* GalleryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC71AC41C496DF600F67F8C /* GalleryHeaderView.swift */; };
 		FAD621531B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */; };
@@ -412,7 +412,7 @@
 				TargetAttributes = {
 					FA96DE921B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = ZR6H5N286L;
+						DevelopmentTeam = X4P55MVJ74;
 					};
 					FA96DEAB1B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -518,7 +518,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA96DEB31B29C0CE00149113 /* miniChallenge2Tests.swift in Sources */,
-				EFE825561C4E58E300E7C28E /* Game.swift in Sources */,
+				FAACFB371C5157A100344723 /* Clue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
