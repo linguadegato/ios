@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -381,6 +381,21 @@
                             <constraint firstItem="uAm-yU-xHW" firstAttribute="leading" secondItem="53x-dE-byk" secondAttribute="leading" id="lB4-1T-bAh"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="xpP-l2-P9N">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="WOX-OI-wWH">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kJl-t4-65j">
+                                <rect key="frame" x="535" y="-1" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btnMuteMusic"/>
+                                <connections>
+                                    <action selector="muteButton:" destination="poN-pE-e0p" eventType="touchUpInside" id="Q3K-ZP-edR"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="muteButton:" destination="poN-pE-e0p" id="JUB-Eb-WCl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="CB4-Gq-Y70" id="sRx-Ik-OLi"/>
                         <outlet property="animationBackgroundView" destination="Os5-kR-Gec" id="q3S-9g-vfF"/>
@@ -449,6 +464,21 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Kr8-gs-dXO">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="h5C-oq-K2b">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qiF-gD-ctR">
+                                <rect key="frame" x="535" y="-1" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btnMuteMusic"/>
+                                <connections>
+                                    <action selector="muteButton:" destination="epj-fT-bue" eventType="touchUpInside" id="tYV-ej-noJ"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="muteButton:" destination="epj-fT-bue" id="elJ-Zb-C2E"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
@@ -667,7 +697,21 @@
                             <constraint firstItem="xRa-ZF-3Ot" firstAttribute="top" secondItem="iTP-WE-60i" secondAttribute="bottom" id="zfa-2b-3BL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="WDg-E8-mOP"/>
+                    <navigationItem key="navigationItem" id="5AI-fL-QIF">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ygy-iG-ns7">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sA2-xq-6gI">
+                                <rect key="frame" x="535" y="-1" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btnMuteMusic"/>
+                                <connections>
+                                    <action selector="muteMusic:" destination="Yba-oo-O4l" eventType="touchUpInside" id="g88-Mu-Ekw"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="muteMusic:" destination="Yba-oo-O4l" id="D0J-Rh-C8k"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="createCrosswordButton" destination="i1h-AD-wNb" id="Kvg-RR-uWk"/>
                         <outlet property="playRandomGameButton" destination="zMZ-68-6Ji" id="roW-gk-W55"/>
@@ -745,6 +789,15 @@
                             <constraint firstItem="nT4-mE-MoB" firstAttribute="leading" secondItem="jNh-nI-rDI" secondAttribute="leading" id="zdD-yV-Hx2"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Ul9-kY-6Pv">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="po5-v3-nIJ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZTl-oC-rd0">
+                                <rect key="frame" x="535" y="-1" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btnMuteMusic"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aiy-x2-KpD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1001,6 +1054,7 @@
         <image name="btnAudio" width="264" height="254"/>
         <image name="btnDelete" width="136" height="136"/>
         <image name="btnGalleryGreen" width="267" height="257"/>
+        <image name="btnMuteMusic" width="128" height="128"/>
         <image name="btnPlayBlue" width="130" height="130"/>
         <image name="foto" width="1366" height="1330"/>
         <image name="iconAddWhiteSmall" width="267" height="267"/>

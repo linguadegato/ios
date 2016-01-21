@@ -108,8 +108,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private var audioPath: String?
     private var audio: AVAudioPlayer!
 
-    var backButton : UIBarButtonItem!
-    
+    private var backButton : UIBarButtonItem!
+
     let limitLength = BoardView.maxSquaresInCol
     
     //MARK: - VIEW LIFECYCLE METHODS
@@ -234,12 +234,27 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             
             // if the back button is pressed when a clue audio is recording or playing, the music status is stoped
             // so we need to play when exit to another screen
+            if !MusicSingleton.sharedMusic().mute {
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
+            }
         }))
         self.presentViewController(alert, animated: true, completion: {
             print("completion block")
         })
 
+    }
+    
+    // "mute" button
+    @IBAction func muteButton(sender: AnyObject) {
+        if MusicSingleton.sharedMusic().mute {
+            // music will play
+            MusicSingleton.sharedMusic().mute = false
+            MusicSingleton.sharedMusic().playBackgroundAudio(true)
+        } else {
+            // music will stop
+            MusicSingleton.sharedMusic().mute = true
+            MusicSingleton.sharedMusic().playBackgroundAudio(false)
+        }
     }
     
     //"camera" button (new photo)
@@ -305,7 +320,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             startRecording()
         } else {
             finishRecording(success: true)
+            if !MusicSingleton.sharedMusic().mute {
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
+            }
         }
     }
     
@@ -423,7 +440,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     func playMusicAfterPlayClue(){
+        if !MusicSingleton.sharedMusic().mute {
         MusicSingleton.sharedMusic().playBackgroundAudio(true)
+        }
     }
     
     // MARK: Long Press and show trash animation

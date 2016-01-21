@@ -15,6 +15,21 @@ class InitialViewController: StatusBarViewController {
     @IBOutlet weak var createCrosswordButton: UIButton!
     @IBOutlet weak var playRandomGameButton: UIButton!
     
+    // MARK - BUTTON ACTIONS
+    // "mute" button
+    @IBAction func muteMusic(sender: AnyObject) {
+        if MusicSingleton.sharedMusic().mute {
+            // music will play
+            MusicSingleton.sharedMusic().mute = false
+            MusicSingleton.sharedMusic().playBackgroundAudio(true)
+        } else {
+            // music will stop
+            MusicSingleton.sharedMusic().mute = true
+            MusicSingleton.sharedMusic().playBackgroundAudio(false)
+
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -27,6 +42,8 @@ class InitialViewController: StatusBarViewController {
         super.didReceiveMemoryWarning()
         // Dis pose of any resources that can be recreated.
     }
+    
+
 
     /*
     // MARK: - Navigation
