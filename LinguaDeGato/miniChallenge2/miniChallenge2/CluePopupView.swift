@@ -142,7 +142,9 @@ class CluePopupView: UIView {
             }
         }
         else {
-            MusicSingleton.sharedMusic().playBackgroundAudio(true)
+            if !MusicSingleton.sharedMusic().mute{
+                MusicSingleton.sharedMusic().playBackgroundAudio(true)
+            }
             self.removeFromSuperview()
         }
     }
