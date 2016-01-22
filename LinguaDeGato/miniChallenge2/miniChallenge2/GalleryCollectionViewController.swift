@@ -35,7 +35,7 @@ class GalleryCollectionViewController : UICollectionViewController{
         
     }
     
-    //MARK: -DATASOURCE
+    //MARK: - DATASOURCE
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -55,10 +55,13 @@ class GalleryCollectionViewController : UICollectionViewController{
             
             let results = PHAsset.fetchAssetsWithLocalIdentifiers([imageID!], options: nil)
             
-            PHImageManager.defaultManager().requestImageForAsset(results.firstObject as! PHAsset, targetSize: CGSize(width: 1024,height: 1024), contentMode: .AspectFit, options: nil, resultHandler:
-                { (aImage, _) -> Void in
-                    cell.imageCell.image = aImage
-            })
+            if results.firstObject != nil {
+            
+                PHImageManager.defaultManager().requestImageForAsset(results.firstObject as! PHAsset, targetSize: CGSize(width: 1024,height: 1024), contentMode: .AspectFit, options: nil, resultHandler:
+                    { (aImage, _) -> Void in
+                        cell.imageCell.image = aImage
+                })
+            }
         }
         
         cell.labelCell.text = clueWord
