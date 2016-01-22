@@ -14,18 +14,23 @@ class InitialViewController: StatusBarViewController {
     
     @IBOutlet weak var createCrosswordButton: UIButton!
     @IBOutlet weak var playRandomGameButton: UIButton!
+    @IBOutlet weak var muteButton: UIButton!
     
+    private let muteOnImage = UIImage(named: "btnMuteOnLightBlue")
+    private let muteOffImage = UIImage(named: "btnMuteOffLightBlue")
     
     // MARK - BUTTON ACTIONS
     // "mute" button
     @IBAction func muteMusic(sender: AnyObject) {
-        if MusicSingleton.sharedMusic().mute {
+        if MusicSingleton.sharedMusic().isMute {
             // music will play
-            MusicSingleton.sharedMusic().mute = false
+            muteButton.setImage(muteOffImage, forState: .Normal)
+            MusicSingleton.sharedMusic().isMute = false
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
         } else {
             // music will stop
-            MusicSingleton.sharedMusic().mute = true
+            muteButton.setImage(muteOnImage, forState: .Normal)
+            MusicSingleton.sharedMusic().isMute = true
             MusicSingleton.sharedMusic().playBackgroundAudio(false)
 
         }
@@ -34,7 +39,16 @@ class InitialViewController: StatusBarViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
+        
+        //set image of mute button
+        if MusicSingleton.sharedMusic().isMute {
+            muteButton.setImage(muteOnImage, forState: .Normal)
+        } else {
+            muteButton.setImage(muteOffImage, forState: .Normal)
+        }
+        
+        
+        //starts the background music
         MusicSingleton.sharedMusic().playBackgroundAudio(true)
     }
 
