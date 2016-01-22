@@ -53,8 +53,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     //textField
     private let textFieldBorderColor = UIColor.bluePalete().CGColor
-    private let textFieldBorderWidth: CGFloat = 2.0
-    private let textFieldBorderRadius : CGFloat = 8.0
+    private let textFieldBorderWidth: CGFloat = 1.0
+    private let textFieldBorderRadius : CGFloat = 1.0
 
     //newImageImgView
     private let newImageBorderColor = UIColor.bluePalete().CGColor
