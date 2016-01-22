@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7786A6171C4573600011C32A /* backgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7786A6161C4573600011C32A /* backgroundMusic.wav */; };
 		7786A6221C46B4930011C32A /* MusicSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786A6211C46B4930011C32A /* MusicSingleton.swift */; };
+		77BCE0491C5153FF004CA31B /* GalleryAndGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BCE0481C5153FF004CA31B /* GalleryAndGamesViewController.swift */; };
 		77D725911C0F56CF00A687E8 /* StatusBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */; };
 		77D94C9B1C3ECE5900E28B84 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */; };
 		77D94CB41C401B7100E28B84 /* correctSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CB21C401B7100E28B84 /* correctSound.wav */; };
@@ -52,6 +53,7 @@
 		FA96DEA71B29C0CE00149113 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA96DEA51B29C0CE00149113 /* LaunchScreen.xib */; };
 		FA96DEB31B29C0CE00149113 /* miniChallenge2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96DEB21B29C0CE00149113 /* miniChallenge2Tests.swift */; };
 		FAAB7EF71C3F19A9004561EF /* GamesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAB7EF61C3F19A9004561EF /* GamesCollectionViewController.swift */; };
+		FAACFB371C5157A100344723 /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41DCB91BDAA584008D72CE /* Clue.swift */; };
 		FAC71AC11C49637100F67F8C /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC71AC01C49637100F67F8C /* GalleryCollectionViewCell.swift */; };
 		FAC71AC51C496DF600F67F8C /* GalleryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC71AC41C496DF600F67F8C /* GalleryHeaderView.swift */; };
 		FAD621531B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */; };
@@ -74,6 +76,7 @@
 /* Begin PBXFileReference section */
 		7786A6161C4573600011C32A /* backgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundMusic.wav; sourceTree = "<group>"; };
 		7786A6211C46B4930011C32A /* MusicSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicSingleton.swift; sourceTree = "<group>"; };
+		77BCE0481C5153FF004CA31B /* GalleryAndGamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryAndGamesViewController.swift; sourceTree = "<group>"; };
 		77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarViewController.swift; sourceTree = "<group>"; };
 		77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		77D94CB21C401B7100E28B84 /* correctSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correctSound.wav; sourceTree = "<group>"; };
@@ -220,6 +223,7 @@
 				7786A6211C46B4930011C32A /* MusicSingleton.swift */,
 				FA1E0EF51C495BB000596D44 /* GalleryCollectionViewController.swift */,
 				FAAB7EF61C3F19A9004561EF /* GamesCollectionViewController.swift */,
+				77BCE0481C5153FF004CA31B /* GalleryAndGamesViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -412,7 +416,7 @@
 				TargetAttributes = {
 					FA96DE921B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 7KYC4PVA26;
+						DevelopmentTeam = X4P55MVJ74;
 					};
 					FA96DEAB1B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -491,6 +495,7 @@
 				EFCC8B691BF11DE600F6851F /* WordManager.swift in Sources */,
 				FA1E0EF61C495BB000596D44 /* GalleryCollectionViewController.swift in Sources */,
 				EFDD44B71B862A460078C141 /* SquareView.swift in Sources */,
+				77BCE0491C5153FF004CA31B /* GalleryAndGamesViewController.swift in Sources */,
 				EFE48ACB1C4E8150008D3DC7 /* LGDataModel.xcdatamodeld in Sources */,
 				EFCC8B671BF10DC700F6851F /* BoardCellView.swift in Sources */,
 				FAAB7EF71C3F19A9004561EF /* GamesCollectionViewController.swift in Sources */,
@@ -518,7 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA96DEB31B29C0CE00149113 /* miniChallenge2Tests.swift in Sources */,
-				EFE825561C4E58E300E7C28E /* Game.swift in Sources */,
+				FAACFB371C5157A100344723 /* Clue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

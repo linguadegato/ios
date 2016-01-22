@@ -110,7 +110,9 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     func gameEnded() {
         
         finishGamePlayAudio.volume = 0.2
+        if !MusicSingleton.sharedMusic().mute {
         finishGamePlayAudio.play()
+        }
         
         let alertController = UIAlertController(title: "PARABÉNS", message:
             "Você concluiu o jogo! \u{1F431}", preferredStyle: UIAlertControllerStyle.Alert)

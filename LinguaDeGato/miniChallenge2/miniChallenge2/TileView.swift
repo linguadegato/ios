@@ -200,7 +200,9 @@ class TileView: UIView, UIGestureRecognizerDelegate {
         }
         
         correctFeedbackPlay.volume = 1.0
+        if !MusicSingleton.sharedMusic().mute {
         correctFeedbackPlay.play()
+        }
         
         //setNeedsDisplay is needed since tile can change from
         //FeedbackIfWordIsCorrect to visualFeedbackIfIsCorrect
@@ -219,7 +221,9 @@ class TileView: UIView, UIGestureRecognizerDelegate {
         }
         
         wrongFeedbackPlay.volume = 0.5
+        if !MusicSingleton.sharedMusic().mute {
         wrongFeedbackPlay.play()
+        }
         prepareToRedraw()
     }
     

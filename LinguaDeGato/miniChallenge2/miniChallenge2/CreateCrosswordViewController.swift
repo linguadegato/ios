@@ -124,7 +124,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         // Replace the default back button
         self.navigationItem.setHidesBackButton(true, animated: false)
-        self.backButton = UIBarButtonItem(title: "< Início", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
+        self.backButton = UIBarButtonItem(title: "< ", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
+        self.backButton.tintColor = UIColor.bluePalete()
         self.navigationItem.leftBarButtonItem = backButton
         
         //MARK: appearance settings

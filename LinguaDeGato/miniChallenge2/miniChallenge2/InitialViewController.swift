@@ -15,6 +15,7 @@ class InitialViewController: StatusBarViewController {
     @IBOutlet weak var createCrosswordButton: UIButton!
     @IBOutlet weak var playRandomGameButton: UIButton!
     
+    
     // MARK - BUTTON ACTIONS
     // "mute" button
     @IBAction func muteMusic(sender: AnyObject) {
@@ -35,7 +36,6 @@ class InitialViewController: StatusBarViewController {
         // Do any additional setup after loading the view.
 
         MusicSingleton.sharedMusic().playBackgroundAudio(true)
-    
     }
 
     override func didReceiveMemoryWarning() {
