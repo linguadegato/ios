@@ -14,6 +14,10 @@ class GalleryAndGamesViewController: UIViewController {
     private var allGames = [Game]()
     private var gallery = [WordAndClue]()
     private var backButton : UIBarButtonItem!
+    private let muteOnImage = UIImage(named: "btnMuteOnLightBlue")
+    private let muteOffImage = UIImage(named: "btnMuteOffLightBlue")
+    
+    @IBOutlet weak var muteButton: UIButton!
     
     override func viewDidLoad() {
         // Replace the default back button
@@ -21,6 +25,28 @@ class GalleryAndGamesViewController: UIViewController {
 //        self.backButton = UIBarButtonItem(title: "< ", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
 //        self.backButton.tintColor = UIColor.bluePalete()
 //        self.navigationItem.leftBarButtonItem = backButton
+        
+        //set image of mute button
+        if MusicSingleton.sharedMusic().isMute {
+            muteButton.setImage(muteOnImage, forState: .Normal)
+        } else {
+            muteButton.setImage(muteOffImage, forState: .Normal)
+        }
+    }
+    
+    @IBAction func muteButton(sender: AnyObject) {
+        if MusicSingleton.sharedMusic().isMute {
+            // music will play
+            muteButton.setImage(muteOffImage, forState: .Normal)
+            MusicSingleton.sharedMusic().isMute = false
+            MusicSingleton.sharedMusic().playBackgroundAudio(true)
+        } else {
+            // music will stop
+            muteButton.setImage(muteOnImage, forState: .Normal)
+            MusicSingleton.sharedMusic().isMute = true
+            MusicSingleton.sharedMusic().playBackgroundAudio(false)
+            
+        }
     }
     
     // Remove this function (for test)
@@ -28,7 +54,7 @@ class GalleryAndGamesViewController: UIViewController {
         
         var games = [Game]()
         
-        let clue = Clue.init(aImageID: "77B4DE11-9946-455D-B832-83737A6A8233/L0/001", anAudioPath: "")
+        let clue = Clue.init(aImageID: "1AB244CD-1CF9-4659-B0E7-217F64E5B12F/L0/001", anAudioPath: "")
         
         let gameAnimais = Game(gameName: "Animais", wordsAndClue: [WordAndClue]())
         gameAnimais.wordsAndClueArray.append(WordAndClue.init(aWord: "cachorro", aClue: clue))

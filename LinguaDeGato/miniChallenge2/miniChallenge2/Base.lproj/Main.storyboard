@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -16,7 +16,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Snv-fP-CW1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.20000000000000001" green="0.62352941176470589" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.20000000000000001" green="0.62352941176470589" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -405,16 +404,13 @@
                     <navigationItem key="navigationItem" id="xpP-l2-P9N">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="WOX-OI-wWH">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kJl-t4-65j">
-                                <rect key="frame" x="535" y="-1" width="45" height="45"/>
+                                <rect key="frame" x="540" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="btnMuteMusic"/>
+                                <state key="normal" image="btnMuteMusicLightBlue"/>
                                 <connections>
                                     <action selector="muteButton:" destination="poN-pE-e0p" eventType="touchUpInside" id="Q3K-ZP-edR"/>
                                 </connections>
                             </button>
-                            <connections>
-                                <action selector="muteButton:" destination="poN-pE-e0p" id="JUB-Eb-WCl"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -426,6 +422,7 @@
                         <outlet property="cameraRollButton" destination="9xl-u6-9Xk" id="GYb-T5-dKk"/>
                         <outlet property="generateButton" destination="G7F-d6-yNo" id="4Mj-Bw-D4h"/>
                         <outlet property="lowerContainer" destination="07X-lJ-afV" id="A7z-i0-JaP"/>
+                        <outlet property="muteButton" destination="kJl-t4-65j" id="z0w-jR-iaL"/>
                         <outlet property="newImageImgView" destination="HqU-dF-wwX" id="dLN-CQ-sCp"/>
                         <outlet property="newWordTxtField" destination="mQc-ZF-1gt" id="sGL-WN-o0H"/>
                         <outlet property="removeAudioView" destination="X5J-Xa-xim" id="qhg-RE-zh2"/>
@@ -488,9 +485,9 @@
                     <navigationItem key="navigationItem" id="Kr8-gs-dXO">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="h5C-oq-K2b">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qiF-gD-ctR">
-                                <rect key="frame" x="535" y="-1" width="45" height="45"/>
+                                <rect key="frame" x="540" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="btnMuteMusic"/>
+                                <state key="normal" image="btnMuteMusicLightBlue"/>
                                 <connections>
                                     <action selector="muteButton:" destination="epj-fT-bue" eventType="touchUpInside" id="tYV-ej-noJ"/>
                                 </connections>
@@ -504,6 +501,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="boardView" destination="nER-cG-Zd8" id="2Sj-Iv-b49"/>
+                        <outlet property="muteButton" destination="qiF-gD-ctR" id="kIJ-CI-TXO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOf-ag-Lri" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -721,9 +719,9 @@
                     <navigationItem key="navigationItem" id="5AI-fL-QIF">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="ygy-iG-ns7">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sA2-xq-6gI">
-                                <rect key="frame" x="535" y="-1" width="45" height="45"/>
+                                <rect key="frame" x="540" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="btnMuteMusic"/>
+                                <state key="normal" image="btnMuteMusicLightBlue"/>
                                 <connections>
                                     <action selector="muteMusic:" destination="Yba-oo-O4l" eventType="touchUpInside" id="g88-Mu-Ekw"/>
                                 </connections>
@@ -735,6 +733,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="createCrosswordButton" destination="i1h-AD-wNb" id="Kvg-RR-uWk"/>
+                        <outlet property="muteButton" destination="sA2-xq-6gI" id="TPi-6U-2vz"/>
                         <outlet property="playRandomGameButton" destination="zMZ-68-6Ji" id="roW-gk-W55"/>
                     </connections>
                 </viewController>
@@ -813,12 +812,18 @@
                     <navigationItem key="navigationItem" id="Ul9-kY-6Pv">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="po5-v3-nIJ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZTl-oC-rd0">
-                                <rect key="frame" x="535" y="-1" width="45" height="45"/>
+                                <rect key="frame" x="540" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="btnMuteMusic"/>
+                                <state key="normal" image="btnMuteMusicLightBlue"/>
+                                <connections>
+                                    <action selector="muteButton:" destination="Ztr-Cm-8Zd" eventType="touchUpInside" id="ZEa-Ws-pH5"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="muteButton" destination="ZTl-oC-rd0" id="FdC-YR-a9H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aiy-x2-KpD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1075,7 +1080,7 @@
         <image name="btnAudio" width="264" height="254"/>
         <image name="btnDelete" width="136" height="136"/>
         <image name="btnGalleryGreen" width="267" height="257"/>
-        <image name="btnMuteMusic" width="128" height="128"/>
+        <image name="btnMuteMusicLightBlue" width="351" height="351"/>
         <image name="btnPlayBlue" width="130" height="130"/>
         <image name="foto" width="1366" height="1330"/>
         <image name="iconAddWhiteSmall" width="267" height="267"/>
