@@ -2,16 +2,16 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1509" minimumToolsVersion="Xcode 7.0">
     <entity name="LGCDGame" representedClassName=".LGCDGame" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="words" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LGCDWordAndClue" inverseName="games" inverseEntity="LGCDWordAndClue" syncable="YES"/>
+        <relationship name="words" optional="YES" toMany="YES" minCount="1" maxCount="6" deletionRule="Nullify" destinationEntity="LGCDWordAndClue" inverseName="games" inverseEntity="LGCDWordAndClue" syncable="YES"/>
     </entity>
     <entity name="LGCDWordAndClue" representedClassName=".LGCDWordAndClue" syncable="YES">
         <attribute name="audioPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="word" attributeType="String" syncable="YES"/>
-        <relationship name="games" toMany="YES" minCount="1" maxCount="6" deletionRule="Nullify" destinationEntity="LGCDGame" inverseName="words" inverseEntity="LGCDGame" syncable="YES"/>
+        <relationship name="games" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LGCDGame" inverseName="words" inverseEntity="LGCDGame" syncable="YES"/>
     </entity>
     <elements>
-        <element name="LGCDWordAndClue" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="LGCDGame" positionX="-54" positionY="18" width="128" height="75"/>
+        <element name="LGCDWordAndClue" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>

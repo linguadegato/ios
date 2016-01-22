@@ -25,6 +25,7 @@ class WordAndClueDAO {
             }
             catch {
                 print("error while saving context - insert(wac: WordAndClue) -> LGCDWordAndClue")
+                print(error)
             }
         }
         return aPersistedClue!

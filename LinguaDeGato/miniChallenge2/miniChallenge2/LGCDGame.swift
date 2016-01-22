@@ -2,7 +2,7 @@
 //  LGCDGame.swift
 //  LinguaDeGato
 //
-//  Created by Andre Scherma Soleo on 19/01/16.
+//  Created by Andre Scherma Soleo on 22/01/16.
 //  Copyright © 2016 Kobayashi. All rights reserved.
 //
 
