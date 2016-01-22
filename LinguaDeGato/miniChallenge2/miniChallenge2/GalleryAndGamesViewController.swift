@@ -13,6 +13,15 @@ class GalleryAndGamesViewController: UIViewController {
     
     private var allGames = [Game]()
     private var gallery = [WordAndClue]()
+    private var backButton : UIBarButtonItem!
+    
+    override func viewDidLoad() {
+        // Replace the default back button
+//        self.navigationItem.setHidesBackButton(true, animated: false)
+//        self.backButton = UIBarButtonItem(title: "< ", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
+//        self.backButton.tintColor = UIColor.bluePalete()
+//        self.navigationItem.leftBarButtonItem = backButton
+    }
     
     // Remove this function (for test)
     private func createExampleGames() -> [Game]{
