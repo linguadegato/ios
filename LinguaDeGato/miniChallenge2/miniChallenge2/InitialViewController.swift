@@ -15,6 +15,7 @@ class InitialViewController: StatusBarViewController {
     @IBOutlet weak var createCrosswordButton: UIButton!
     @IBOutlet weak var playRandomGameButton: UIButton!
     
+    
     // MARK - BUTTON ACTIONS
     // "mute" button
     @IBAction func muteMusic(sender: AnyObject) {
@@ -35,6 +36,15 @@ class InitialViewController: StatusBarViewController {
         // Do any additional setup after loading the view.
 
         MusicSingleton.sharedMusic().playBackgroundAudio(true)
+        
+        
+        // Set navigation bar color
+        let bar:UINavigationBar! =  self.navigationController?.navigationBar
+        
+        bar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        bar.shadowImage = UIImage()
+        bar.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.001)
+        //bar.tintColor = UIColor.bluePalete()
     
     }
 
