@@ -49,7 +49,7 @@ class TileView: UIView, UIGestureRecognizerDelegate {
 
     // Tile in the right place on the crossword
     let tileBackgroundColorRightLetter = UIColor.whiteColor()
-    let tileTextColorRightLetter = UIColor.orangePalete()
+    let tileTextColorRightLetter = UIColor.greenPalete()
     let tileBorderColorRightLetter = UIColor.bluePalete()
     
     // Tile in the wrong place on the crossword
@@ -58,9 +58,9 @@ class TileView: UIView, UIGestureRecognizerDelegate {
     let tileBorderColorColorWrongLetter = UIColor.bluePalete()
     
     // When finish a right word
-    let tileBackgroundColorFinishedWord = UIColor.orangePalete()
+    let tileBackgroundColorFinishedWord = UIColor.greenPalete()
     let tileTextColorFinishedWord = UIColor.whiteColor()
-    let tileBorderColorFinishedWord = UIColor.orangePalete()
+    let tileBorderColorFinishedWord = UIColor.greenPalete()
     
     //MARK: - INITIALIZERS
     
