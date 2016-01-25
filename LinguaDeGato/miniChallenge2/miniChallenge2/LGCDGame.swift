@@ -27,4 +27,16 @@ class LGCDGame: NSManagedObject {
         self.name = newGameName
         self.words = NSSet(array: newWordsAndClues)
     }
+    
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+        
+        // get context
+        let context: NSManagedObjectContext = DatabaseManager.sharedInstance.managedObjectContext!
+        
+        // create entity description
+        let entityDescription: NSEntityDescription? = NSEntityDescription.entityForName("LGCDGame", inManagedObjectContext: context)
+        
+        //call super using
+        super.init(entity: entityDescription!, insertIntoManagedObjectContext: context)
+    }
 }

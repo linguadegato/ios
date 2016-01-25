@@ -16,16 +16,20 @@ class GameServices {
     static func saveGame(game: Game, completion: (Bool) -> Void) {
         
         let operation = NSBlockOperation(block: {
-            if GameDAO.retrieveGameByName(game.name) == nil {
+            
+            let savedGame = GameDAO.retrieveGameByName(game.name)
+            if savedGame == nil {
                 GameDAO.insert(game)
                 completion(true)
             }
-            completion(false)
+            else {
+                print(savedGame!.name)
+                completion(false)
+            }
         })
         
         //call DAO's method asyncronaly
         DatabaseManager.sharedInstance.databaseQueue.addOperation(operation)
-
     }
     
     //if there's already a game with it's name, this function remove from DB, than

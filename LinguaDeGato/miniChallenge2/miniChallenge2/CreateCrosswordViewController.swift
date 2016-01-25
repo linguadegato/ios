@@ -79,7 +79,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private var arrowAnimationTimer: NSTimer!
     
     //MARK: Crossword Creation related variables
-    private var gameName: UITextField!
+    private var gameName: String!
     private var newMedia: Bool?
     
     private var hasClue = false {
@@ -344,7 +344,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         }
     }
     
-    
     // Add new word button
     @IBAction func addNewWord() {
         
@@ -388,9 +387,49 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         }
     }
     
-    // MARK: Button state management
+    @IBAction func playGame(sender: AnyObject) {
+        
+        self.performSegueWithIdentifier("GenerateCrossword", sender: self)
+        
+    }
     
-    // Then handle the button selection
+    @IBAction func saveGame(sender: AnyObject) {
+        
+        let alert = UIAlertController(title: "Dê um nome ao jogo:", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+
+        alert.addTextFieldWithConfigurationHandler({ alertTextField in
+            alertTextField.placeholder = "Nome do jogo"
+        })
+        let alertTextField = alert.textFields![0]
+        
+        alert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ _ in
+            
+            if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
+                
+                let newGame = Game(gameName: alertTextField.text!, wordsAndClue: self.newWords)
+                GameServices.saveGame(newGame, completion: {success in
+                    if success {
+                        let operation = NSBlockOperation(block: { () -> Void in
+                            self.performSegueWithIdentifier("GenerateCrossword", sender: self)
+                        })
+                        NSOperationQueue.mainQueue().addOperation(operation)
+                    }
+                    else{
+                        NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: { print("salvar jogo falhou") }))
+                    }
+                })
+            }
+            else {
+                print("empty text field!")
+            }
+        }))
+        
+        self.presentViewController(alert, animated: true, completion: {
+            print("alert presented")
+        })
+    }
+    
+    // MARK: Button state management
     
     //disable addButton if there's no clue, or no word, or if there's already 6 words
     private func setAddButtonState() {
@@ -401,12 +440,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(0.5))
             addButton.userInteractionEnabled = false
         }
-    }
-    
-    //Hide keyboard with return key
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
     }
     
     //MARK: - TEXTFIELD PROPERTIES
@@ -977,36 +1010,15 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     func dismissKeyboard() {
         self.newWordTxtField.endEditing(true)
     }
+    
+    //used by save game alert
+    //Hide keyboard with return key
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 
     // MARK: - NAVIGATION
-    
-    // MARK: TODO: save game
-    // generating the TextField in alert to save game
-    func configurationTextField(textField: UITextField!) {
-        
-        textField.placeholder = "Nome do jogo"
-        gameName = textField
-    }
-    
-    @IBAction func playGame(sender: AnyObject) {
-        
-        self.performSegueWithIdentifier("GenerateCrossword", sender: self)
-
-    }
-    
-    @IBAction func saveGame(sender: AnyObject) {
-        let alert = UIAlertController(title: "Dê um nome ao jogo:", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-        
-        alert.addTextFieldWithConfigurationHandler(configurationTextField)
-        alert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
-            self.performSegueWithIdentifier("GenerateCrossword", sender: self)
-            print("\(self.gameName.text) salvo!")
-        }))
-        self.presentViewController(alert, animated: true, completion: {
-            print("completion block")
-        })
-    }
-
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -1040,9 +1052,12 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             self.recordingSession = nil
             self.audioRecorder = nil
             self.audioPath = nil
+            
             self.newMedia = false
-            self.hasClue = false
             self.imageID = nil
+            self.newImageImgView.image = defaultImage
+            
+            self.hasClue = false
             
             self.newWordTxtField.text = ""
             self.hasWord = false
@@ -1050,12 +1065,14 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             self.newWords = []
             self.wordsLimitReached = false
             
+            /* None of this is necessary
             //buttons reset
             self.addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(0.5))
             self.addButton.userInteractionEnabled = false
             self.takePhotoButton.enabled = true
             self.cameraRollButton.enabled = true
             self.audioButton.enabled = true
+            */
             
             //collectionView reset
             self.wordsAddedCollectionView.reloadData()

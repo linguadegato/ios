@@ -33,7 +33,6 @@ class MusicSingleton: NSObject {
         
     }
     
-    
     //plays the background music
     func playBackgroundAudio(playAudio: Bool) {
         
@@ -47,5 +46,4 @@ class MusicSingleton: NSObject {
         }
         
     }
-    
 }

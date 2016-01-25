@@ -25,6 +25,11 @@ class GalleryCollectionViewController : UICollectionViewController{
         super.viewDidLoad()
 
         galleryCollectionView.allowsMultipleSelection = true
+        WordAndClueServices.retriveAllWordAndClues({result in
+            
+            self.gallery = result
+            self.galleryCollectionView.reloadData()
+        })
 
     }
     

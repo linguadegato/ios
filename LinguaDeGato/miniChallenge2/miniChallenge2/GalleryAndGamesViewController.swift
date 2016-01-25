@@ -48,7 +48,7 @@ class GalleryAndGamesViewController: UIViewController {
             
         }
     }
-    
+    /*
     // Remove this function (for test)
     private func createExampleGames() -> [Game]{
         
@@ -100,22 +100,22 @@ class GalleryAndGamesViewController: UIViewController {
         
         return words
     }
-    
+    */
     
     // MARK: - NAVIGATION
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        allGames = createExampleGames()
-        gallery = createExampleGallery()
+        //allGames = createExampleGames()
+        //gallery = createExampleGallery()
         
         if (segue.identifier == "AllGamesSegue") {
             
-            (segue.destinationViewController as! GamesCollectionViewController).allGames = allGames
+            //(segue.destinationViewController as! GamesCollectionViewController).allGames = allGames
             
         }else if (segue.identifier == "GallerySegue"){
             
-            (segue.destinationViewController as! GalleryCollectionViewController).gallery = gallery
+            //(segue.destinationViewController as! GalleryCollectionViewController).gallery = gallery
         }
     }
     

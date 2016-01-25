@@ -22,6 +22,11 @@ class GamesCollectionViewController : UICollectionViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        GameServices.retrieveAllGames({ result in
+            
+            self.allGames = result
+            self.gamesCollectionView.reloadData()
+        })
     }
     
     //MARK: - DATASOURCE
