@@ -14,6 +14,12 @@ class DatabaseManager {
     // Database manager singleton
     static let sharedInstance = DatabaseManager()
     
+    // Database unique operation queue
+    lazy var databaseQueue: NSOperationQueue = {
+        let dbQueue = NSOperationQueue()
+        dbQueue.maxConcurrentOperationCount = 1
+        return dbQueue
+    }()
     
     // The directory the application uses to store the Core Data store file.
     lazy var applicationDocumentsDirectory: NSURL = {

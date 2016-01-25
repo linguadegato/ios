@@ -13,9 +13,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let words = ["gato", "gato", "papagaio", "agiota"]
-        let ids = ["412343124", "89889", "675568568", "8348943"]
-        let paths = ["uuuuu", "yyyyyy", "iiiii", "jjjjjj"]
+        let words = ["brodi", "mano", "brow", "parça"]
+        let ids = ["12345", "0987", "4657", "333333"]
+        let paths = ["qqqqqq", "kkkkkk", "ccccc", "hhhhh"]
         var wacs: [WordAndClue] = []
         
         
@@ -27,39 +27,62 @@ class ViewController: UIViewController {
             let aWordAndClue = WordAndClue(aWord: aWord, aClue: aClue)
             wacs.append(aWordAndClue)
             
-            //WordAndClueServices.saveWordAndClue(aWordAndClue)
+            WordAndClueServices.saveWordAndClue(aWordAndClue)
         }
         
-        /*
+        
         for i in 1...2 {
-            //WordAndClueServices.saveWordAndClue(wacs[i])
+            WordAndClueServices.saveWordAndClue(wacs[i])
         }
-        */
         
         print("retrieving by word and clue")
         for i in 0...3 {
-            if let aWac = WordAndClueServices.retrieveWordAndClue(wacs[i]){
-                print(aWac.word)
-            }
+            WordAndClueServices.retrieveWordAndClue(wacs[i], completion: { result in
+                NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
+                    
+                    if result != nil {
+                        print(result!.word)
+                    }
+                    else{
+                        print("none")
+                    }
+                }))
+            })
         }
         
-        var anotherWac = WordAndClueServices.retriveWordAndCluesWithWord("papagaio")
-        print("\n wacs with papagaio")
-        for w in anotherWac {
-            print(w.word, w.clue.imageID, w.clue.audioPath)
-        }
+        var anotherWac: [WordAndClue] = []
+        WordAndClueServices.retriveWordAndCluesWithWord("papagaio", completion: {result in
+            
+            NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
 
-        anotherWac = WordAndClueServices.retriveWordAndCluesWithWord("macaco")
-        print("\n wacs with macaco")
-        for w in anotherWac {
-            print(w.word, w.clue.imageID, w.clue.audioPath)
-        }
-        let allWacs = WordAndClueServices.retriveAllWordAndClues()
+                print("\n wacs with papagaio")
+                for w in result {
+                    print(w.word, w.clue.imageID, w.clue.audioPath)
+                }
+            }))
+        })
+
+        WordAndClueServices.retriveWordAndCluesWithWord("macaco", completion: { result in
+           
+            NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
+                print("\n wacs with macaco")
+                for w in result {
+                    print(w.word, w.clue.imageID, w.clue.audioPath)
+                }
+            }))
+        })
         
-        print("allWacs")
-        for word in allWacs {
-            print(word.word, word.clue.audioPath, word.clue.imageID)
-        }
+        
+        WordAndClueServices.retriveAllWordAndClues({ results in
+            
+            NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
+            let allWacs = results
+            print("allWacs")
+                for word in allWacs {
+                    print(word.word, word.clue.audioPath, word.clue.imageID)
+                }
+            }))
+        })
         
         print("cabou")
     }

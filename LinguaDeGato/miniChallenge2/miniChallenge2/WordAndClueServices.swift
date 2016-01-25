@@ -10,45 +10,71 @@ import Foundation
 
 class WordAndClueServices {
     
-    static func retrieveWordAndClue(aWordAndClue: WordAndClue) -> WordAndClue? {
+    static func retrieveWordAndClue(aWordAndClue: WordAndClue, completion: (WordAndClue? -> Void)) {
         
-        let aWord = WordAndClueDAO.retrieveWordAndClue(aWordAndClue)
-        
-        if aWord != nil {
-            return WordAndClueServices.wordAndClueFromDataBase(aWord!)
-        }
-        else {
-            return nil
-        }
+        let operation = NSBlockOperation(block: {
+            let aWord = WordAndClueDAO.retrieveWordAndClue(aWordAndClue)
+            
+            if aWord != nil {
+                completion(WordAndClueServices.wordAndClueFromDataBase(aWord!))
+            }
+            else {
+                completion(nil)
+            }
+        })
+    
+        //call DAO's method asyncronaly
+        DatabaseManager.sharedInstance.databaseQueue.addOperation(operation)
     }
     
-    static func retriveWordAndCluesWithWord(word: String) -> [WordAndClue]{
+    static func retriveWordAndCluesWithWord(word: String, completion:([WordAndClue] -> Void)) {
+        
+        let operation = NSBlockOperation(block: {
+                var wordsList: [WordAndClue] = []
+            
+                let persistedWords = WordAndClueDAO.retriveWordAndCluesWithWord(word)
+                
+                for word in persistedWords {
+                    wordsList.append(WordAndClueServices.wordAndClueFromDataBase(word))
+                }
+            completion(wordsList)
+        })
+        
+        //call DAO's method asyncronaly
+        DatabaseManager.sharedInstance.databaseQueue.addOperation(operation)
 
-        var wordsList: [WordAndClue] = []
-        
-        let persistedWords = WordAndClueDAO.retriveWordAndCluesWithWord(word)
-        
-        for word in persistedWords {
-            wordsList.append(WordAndClueServices.wordAndClueFromDataBase(word))
-        }
-        return wordsList
     }
     
-    static func retriveAllWordAndClues() -> [WordAndClue] {
+    static func retriveAllWordAndClues(completion: ([WordAndClue] -> Void)) {
         
-        var wordsList: [WordAndClue] = []
-        let persistedWords = WordAndClueDAO.retriveAllWordAndClues()
         
-        for word in persistedWords {
-            wordsList.append(WordAndClueServices.wordAndClueFromDataBase(word))
-        }
-        return wordsList
+        let operation = NSBlockOperation(block: {
+            var wordsList: [WordAndClue] = []
+            let persistedWords = WordAndClueDAO.retriveAllWordAndClues()
+            
+            for word in persistedWords {
+                wordsList.append(WordAndClueServices.wordAndClueFromDataBase(word))
+            }
+            
+            completion(wordsList)
+        })
+        
+        //call DAO's method asyncronaly
+        DatabaseManager.sharedInstance.databaseQueue.addOperation(operation)
+
     }
     
     static func saveWordAndClue(wordAndClue: WordAndClue) {
-        if WordAndClueDAO.retrieveWordAndClue(wordAndClue) == nil {
-            WordAndClueDAO.insert(wordAndClue)
-        }
+        
+        let operation = NSBlockOperation(block: {
+            if WordAndClueDAO.retrieveWordAndClue(wordAndClue) == nil {
+                WordAndClueDAO.insert(wordAndClue)
+            }
+        })
+        
+        //call DAO's method asyncronaly
+        DatabaseManager.sharedInstance.databaseQueue.addOperation(operation)
+
     }
     
     //auxiliar method to create WordAndClue from LGCDWordAndClue

@@ -13,45 +13,70 @@ class GameServices {
     
     //creates a LGCDGame from Game and save it
     //return true if game was saved, false if there's already a game with that name
-    static func saveGame(game: Game) -> Bool {
-        if GameDAO.retrieveGameByName(game.name) == nil {
-            GameDAO.insert(game)
-            return true
-        }
-        return false
+    static func saveGame(game: Game, completion: (Bool) -> Void) {
+        
+        let operation = NSBlockOperation(block: {
+            if GameDAO.retrieveGameByName(game.name) == nil {
+                GameDAO.insert(game)
+                completion(true)
+            }
+            completion(false)
+        })
+        
+        //call DAO's method asyncronaly
+        DatabaseManager.sharedInstance.databaseQueue.addOperation(operation)
+
     }
     
     //if there's already a game with it's name, this function remove from DB, than
     //creates a LGCDGame and save it (calling saveGame)
     static func overwriteGame(newGame: Game) {
         
-        if let oldGame = GameDAO.retrieveGameByName(newGame.name) {
-            GameDAO.delete(oldGame)
-        }
-        GameServices.saveGame(newGame)
+        let operation = NSBlockOperation(block: {
+            if let oldGame = GameDAO.retrieveGameByName(newGame.name) {
+                GameDAO.delete(oldGame)
+            }
+            GameDAO.insert(newGame)
+        })
+        
+        //call DAO's method asyncronaly
+        DatabaseManager.sharedInstance.databaseQueue.addOperation(operation)
+
     }
     
-    static func retrieveGameByName(aName: String) -> Game? {
+    static func retrieveGameByName(aName: String, completion: (Game?) -> Void) {
         
-        let aPersistedGame = GameDAO.retrieveGameByName(aName)
+        let operation = NSBlockOperation(block: {
+            let aPersistedGame = GameDAO.retrieveGameByName(aName)
+            
+            if aPersistedGame != nil {
+                completion(gameFromDataBase(aPersistedGame!))
+            }
+            else {
+                completion(nil)
+            }
+        })
         
-        if aPersistedGame != nil {
-            return gameFromDataBase(aPersistedGame!)
-        }
-        else {
-            return nil
-        }
+        //call DAO's method asyncronaly
+        DatabaseManager.sharedInstance.databaseQueue.addOperation(operation)
+
     }
     
-    static func retrieveAllGames() -> [Game]{
+    static func retrieveAllGames(completion: ([Game] -> Void)) {
         
-        var games: [Game] = []
-        let dbGames = GameDAO.retrieveAllGames()
+        let operation = NSBlockOperation(block: {
+            var games: [Game] = []
+            let dbGames = GameDAO.retrieveAllGames()
+            
+            for game in dbGames {
+                games.append(GameServices.gameFromDataBase(game))
+            }
+            completion(games)
+        })
         
-        for game in dbGames {
-            games.append(GameServices.gameFromDataBase(game))
-        }
-        return games
+        //call DAO's method asyncronaly
+        DatabaseManager.sharedInstance.databaseQueue.addOperation(operation)
+
     }
     
     //auxiliar method to create a Game from a LGCDGame

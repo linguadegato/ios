@@ -77,7 +77,7 @@ class WordAndClueDAO {
         }
     }
     
-    static func retriveWordAndCluesWithWord(word: String) -> [LGCDWordAndClue] {
+    static func retriveWordAndCluesWithWord(word: String)  -> [LGCDWordAndClue] {
         
         // create fetch request
         let request = NSFetchRequest(entityName: "LGCDWordAndClue")
@@ -90,6 +90,7 @@ class WordAndClueDAO {
         
         do {
             results = try DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request) as! [LGCDWordAndClue]
+            
         }
         catch {
             print("error executing FetchRequest - retrieveWordAndClueWithWord(word: String) -> [LGCDWordAndClue]")
