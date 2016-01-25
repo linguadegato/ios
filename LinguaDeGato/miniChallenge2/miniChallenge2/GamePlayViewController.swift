@@ -111,7 +111,7 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
         } else {
             // music will stop
-            muteButton.setImage(muteOffImage, forState: .Normal)
+            muteButton.setImage(muteOnImage, forState: .Normal)
             MusicSingleton.sharedMusic().isMute = true
             MusicSingleton.sharedMusic().playBackgroundAudio(false)
         }
