@@ -138,6 +138,9 @@ class CluePopupView: UIView {
         
         if imageView.pointInside(sender.locationOfTouch(0, inView: frameView), withEvent: nil) {
             if audio != nil {
+                if !MusicSingleton.sharedMusic().isMute {
+                    MusicSingleton.sharedMusic().playBackgroundAudio(false)
+                }
                 audio!.play()
             }
         }

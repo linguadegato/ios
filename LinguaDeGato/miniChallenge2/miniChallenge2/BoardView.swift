@@ -362,7 +362,6 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
 
     //MARK: - AUXILIAR METHODS
     
-    
     func getCell(row: Int, col: Int) -> BoardCellView? {
         if (row >= 0 && row < crosswordMatrix!.count){
             if (col >= 0 && col < crosswordMatrix![row].count){
