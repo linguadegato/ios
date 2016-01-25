@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -16,7 +16,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Snv-fP-CW1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.20000000000000001" green="0.62352941176470589" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.20000000000000001" green="0.62352941176470589" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -66,7 +65,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="390"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfs-vm-kQE">
-                                        <rect key="frame" x="105" y="83" width="75" height="75"/>
+                                        <rect key="frame" x="421" y="0.0" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.91764705879999997" green="0.31764705879999999" blue="0.58039215690000001" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Xfs-vm-kQE" secondAttribute="height" id="I0S-cI-Cmn"/>
@@ -77,7 +76,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xl-u6-9Xk">
-                                        <rect key="frame" x="105" y="158" width="75" height="75"/>
+                                        <rect key="frame" x="421" y="75" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.38823529410000002" green="0.69411764710000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="9xl-u6-9Xk" secondAttribute="height" id="v4A-sb-MSd"/>
@@ -88,11 +87,11 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wrg-Y3-HR3" userLabel="Audio Button Background Image">
-                                        <rect key="frame" x="105" y="233" width="75" height="75"/>
+                                        <rect key="frame" x="421" y="150" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.95294117647058818" green="0.59999999999999998" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n00-fW-Tt7">
-                                        <rect key="frame" x="105" y="233" width="75" height="75"/>
+                                        <rect key="frame" x="421" y="150" width="75" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="n00-fW-Tt7" secondAttribute="height" id="22e-yA-c13"/>
                                         </constraints>
@@ -102,7 +101,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CB4-Gq-Y70">
-                                        <rect key="frame" x="421" y="83" width="75" height="225"/>
+                                        <rect key="frame" x="421" y="225" width="75" height="38"/>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.7843137255" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="iconAddWhiteSmall"/>
                                         <connections>
@@ -110,7 +109,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite a palavra..." textAlignment="center" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mQc-ZF-1gt">
-                                        <rect key="frame" x="188" y="316" width="225" height="66"/>
+                                        <rect key="frame" x="188" y="225" width="225" height="38"/>
                                         <color key="tintColor" red="0.18823529411764706" green="0.49019607843137253" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -119,14 +118,14 @@
                                         </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageDefault" translatesAutoresizingMaskIntoConstraints="NO" id="HqU-dF-wwX">
-                                        <rect key="frame" x="188" y="83" width="225" height="225"/>
+                                        <rect key="frame" x="188" y="0.0" width="225" height="225"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="HqU-dF-wwX" secondAttribute="height" id="KbK-Ed-A1K"/>
                                         </constraints>
                                     </imageView>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5J-Xa-xim" userLabel="Remove Audio View">
-                                        <rect key="frame" x="188" y="270" width="225" height="38"/>
+                                        <rect key="frame" x="188" y="187" width="225" height="38"/>
                                         <subviews>
                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Os5-kR-Gec" userLabel="Animation Background View">
                                                 <rect key="frame" x="0.0" y="0.0" width="225" height="38"/>
@@ -175,33 +174,34 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="HqU-dF-wwX" firstAttribute="leading" secondItem="9xl-u6-9Xk" secondAttribute="trailing" constant="8" id="3hq-eh-pmG"/>
                                     <constraint firstItem="Wrg-Y3-HR3" firstAttribute="bottom" secondItem="n00-fW-Tt7" secondAttribute="bottom" id="7gi-pJ-OhF"/>
                                     <constraint firstItem="Xfs-vm-kQE" firstAttribute="top" secondItem="HqU-dF-wwX" secondAttribute="top" id="8AM-2I-TLe"/>
                                     <constraint firstItem="mQc-ZF-1gt" firstAttribute="width" secondItem="HqU-dF-wwX" secondAttribute="width" id="8v7-jT-hny"/>
                                     <constraint firstItem="X5J-Xa-xim" firstAttribute="leading" secondItem="HqU-dF-wwX" secondAttribute="leading" id="Dft-Zt-5U0"/>
+                                    <constraint firstItem="mQc-ZF-1gt" firstAttribute="height" secondItem="CB4-Gq-Y70" secondAttribute="height" id="Djs-v0-Kwu"/>
+                                    <constraint firstItem="mQc-ZF-1gt" firstAttribute="top" secondItem="CB4-Gq-Y70" secondAttribute="top" id="DqH-ad-Oqm"/>
                                     <constraint firstItem="n00-fW-Tt7" firstAttribute="width" secondItem="HqU-dF-wwX" secondAttribute="width" multiplier="1:3" id="EdR-TW-jeC"/>
                                     <constraint firstItem="9xl-u6-9Xk" firstAttribute="top" secondItem="Xfs-vm-kQE" secondAttribute="bottom" id="FWV-nC-Jaf"/>
                                     <constraint firstItem="n00-fW-Tt7" firstAttribute="top" secondItem="9xl-u6-9Xk" secondAttribute="bottom" id="Fxs-JV-df3"/>
-                                    <constraint firstItem="HqU-dF-wwX" firstAttribute="leading" secondItem="n00-fW-Tt7" secondAttribute="trailing" constant="8" id="Gpk-sq-d0p"/>
                                     <constraint firstItem="HqU-dF-wwX" firstAttribute="width" secondItem="pFx-lX-yzd" secondAttribute="width" multiplier="3:8" id="K0C-xZ-caW"/>
-                                    <constraint firstItem="CB4-Gq-Y70" firstAttribute="height" secondItem="HqU-dF-wwX" secondAttribute="height" id="L6g-jZ-fVs"/>
-                                    <constraint firstItem="HqU-dF-wwX" firstAttribute="centerY" secondItem="pFx-lX-yzd" secondAttribute="centerY" id="L8m-PB-tyL"/>
-                                    <constraint firstItem="CB4-Gq-Y70" firstAttribute="leading" secondItem="HqU-dF-wwX" secondAttribute="trailing" constant="8" id="MmR-5H-xlr"/>
-                                    <constraint firstItem="mQc-ZF-1gt" firstAttribute="top" secondItem="HqU-dF-wwX" secondAttribute="bottom" constant="8" id="Mow-bH-hdh"/>
+                                    <constraint firstItem="HqU-dF-wwX" firstAttribute="top" secondItem="pFx-lX-yzd" secondAttribute="top" id="Pfh-M7-ZAM"/>
+                                    <constraint firstItem="CB4-Gq-Y70" firstAttribute="top" secondItem="n00-fW-Tt7" secondAttribute="bottom" id="QnU-Fj-Qtw"/>
                                     <constraint firstItem="Wrg-Y3-HR3" firstAttribute="leading" secondItem="n00-fW-Tt7" secondAttribute="leading" id="VfZ-i0-hhj"/>
-                                    <constraint firstItem="CB4-Gq-Y70" firstAttribute="top" secondItem="HqU-dF-wwX" secondAttribute="top" id="Vlt-is-KWt"/>
                                     <constraint firstItem="mQc-ZF-1gt" firstAttribute="centerX" secondItem="HqU-dF-wwX" secondAttribute="centerX" id="aT1-m0-yht"/>
+                                    <constraint firstItem="Xfs-vm-kQE" firstAttribute="leading" secondItem="HqU-dF-wwX" secondAttribute="trailing" constant="8" id="cr5-JE-wHk"/>
                                     <constraint firstItem="HqU-dF-wwX" firstAttribute="centerX" secondItem="pFx-lX-yzd" secondAttribute="centerX" id="fTK-X9-nNK"/>
+                                    <constraint firstItem="CB4-Gq-Y70" firstAttribute="leading" secondItem="n00-fW-Tt7" secondAttribute="leading" id="hL2-hQ-RN2"/>
                                     <constraint firstItem="X5J-Xa-xim" firstAttribute="width" secondItem="HqU-dF-wwX" secondAttribute="width" id="hab-2v-jnU"/>
                                     <constraint firstItem="9xl-u6-9Xk" firstAttribute="width" secondItem="HqU-dF-wwX" secondAttribute="width" multiplier="1:3" id="lb8-Kp-pDd"/>
-                                    <constraint firstItem="HqU-dF-wwX" firstAttribute="leading" secondItem="Xfs-vm-kQE" secondAttribute="trailing" constant="8" id="oa1-3j-atP"/>
+                                    <constraint firstItem="CB4-Gq-Y70" firstAttribute="width" secondItem="n00-fW-Tt7" secondAttribute="width" id="ndh-e7-ZHP"/>
                                     <constraint firstItem="X5J-Xa-xim" firstAttribute="height" secondItem="n00-fW-Tt7" secondAttribute="height" multiplier="0.5" id="q9f-Rv-hNW"/>
                                     <constraint firstItem="Wrg-Y3-HR3" firstAttribute="height" secondItem="n00-fW-Tt7" secondAttribute="height" id="rGg-PF-LJv"/>
                                     <constraint firstItem="X5J-Xa-xim" firstAttribute="bottom" secondItem="HqU-dF-wwX" secondAttribute="bottom" id="seF-r9-jkf"/>
                                     <constraint firstItem="Xfs-vm-kQE" firstAttribute="width" secondItem="HqU-dF-wwX" secondAttribute="width" multiplier="1:3" id="t8T-KQ-1Fj"/>
-                                    <constraint firstItem="CB4-Gq-Y70" firstAttribute="width" secondItem="HqU-dF-wwX" secondAttribute="width" multiplier="1:3" id="xEv-II-GPz"/>
+                                    <constraint firstItem="CB4-Gq-Y70" firstAttribute="height" secondItem="n00-fW-Tt7" secondAttribute="height" multiplier="1:2" id="vO3-8U-bhv"/>
+                                    <constraint firstItem="n00-fW-Tt7" firstAttribute="leading" secondItem="9xl-u6-9Xk" secondAttribute="leading" id="vZa-5f-wfN"/>
                                     <constraint firstItem="Wrg-Y3-HR3" firstAttribute="width" secondItem="n00-fW-Tt7" secondAttribute="width" id="xaG-d8-Wrj"/>
+                                    <constraint firstItem="9xl-u6-9Xk" firstAttribute="leading" secondItem="Xfs-vm-kQE" secondAttribute="leading" id="ySk-fu-Msc"/>
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="07X-lJ-afV" userLabel="LowerContainer">
@@ -401,20 +401,22 @@
                             <constraint firstItem="kIP-fa-tc1" firstAttribute="top" secondItem="07X-lJ-afV" secondAttribute="bottom" constant="8" id="b3C-ap-cCI"/>
                             <constraint firstItem="uAm-yU-xHW" firstAttribute="leading" secondItem="53x-dE-byk" secondAttribute="leading" id="lB4-1T-bAh"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BOP-6k-BoR"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="xpP-l2-P9N">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="WOX-OI-wWH">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kJl-t4-65j">
-                                <rect key="frame" x="535" y="-1" width="45" height="45"/>
+                                <rect key="frame" x="540" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="btnMuteMusic"/>
+                                <state key="normal" image="btnMuteMusicLightBlue"/>
                                 <connections>
                                     <action selector="muteButton:" destination="poN-pE-e0p" eventType="touchUpInside" id="Q3K-ZP-edR"/>
                                 </connections>
                             </button>
-                            <connections>
-                                <action selector="muteButton:" destination="poN-pE-e0p" id="JUB-Eb-WCl"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -426,6 +428,7 @@
                         <outlet property="cameraRollButton" destination="9xl-u6-9Xk" id="GYb-T5-dKk"/>
                         <outlet property="generateButton" destination="G7F-d6-yNo" id="4Mj-Bw-D4h"/>
                         <outlet property="lowerContainer" destination="07X-lJ-afV" id="A7z-i0-JaP"/>
+                        <outlet property="muteButton" destination="kJl-t4-65j" id="z0w-jR-iaL"/>
                         <outlet property="newImageImgView" destination="HqU-dF-wwX" id="dLN-CQ-sCp"/>
                         <outlet property="newWordTxtField" destination="mQc-ZF-1gt" id="sGL-WN-o0H"/>
                         <outlet property="removeAudioView" destination="X5J-Xa-xim" id="qhg-RE-zh2"/>
@@ -488,9 +491,9 @@
                     <navigationItem key="navigationItem" id="Kr8-gs-dXO">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="h5C-oq-K2b">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qiF-gD-ctR">
-                                <rect key="frame" x="535" y="-1" width="45" height="45"/>
+                                <rect key="frame" x="540" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="btnMuteMusic"/>
+                                <state key="normal" image="btnMuteMusicLightBlue"/>
                                 <connections>
                                     <action selector="muteButton:" destination="epj-fT-bue" eventType="touchUpInside" id="tYV-ej-noJ"/>
                                 </connections>
@@ -504,6 +507,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="boardView" destination="nER-cG-Zd8" id="2Sj-Iv-b49"/>
+                        <outlet property="muteButton" destination="qiF-gD-ctR" id="kIJ-CI-TXO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOf-ag-Lri" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -721,9 +725,9 @@
                     <navigationItem key="navigationItem" id="5AI-fL-QIF">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="ygy-iG-ns7">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sA2-xq-6gI">
-                                <rect key="frame" x="535" y="-1" width="45" height="45"/>
+                                <rect key="frame" x="540" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="btnMuteMusic"/>
+                                <state key="normal" image="btnMuteMusicLightBlue"/>
                                 <connections>
                                     <action selector="muteMusic:" destination="Yba-oo-O4l" eventType="touchUpInside" id="g88-Mu-Ekw"/>
                                 </connections>
@@ -735,6 +739,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="createCrosswordButton" destination="i1h-AD-wNb" id="Kvg-RR-uWk"/>
+                        <outlet property="muteButton" destination="sA2-xq-6gI" id="TPi-6U-2vz"/>
                         <outlet property="playRandomGameButton" destination="zMZ-68-6Ji" id="roW-gk-W55"/>
                     </connections>
                 </viewController>
@@ -813,12 +818,18 @@
                     <navigationItem key="navigationItem" id="Ul9-kY-6Pv">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="po5-v3-nIJ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZTl-oC-rd0">
-                                <rect key="frame" x="535" y="-1" width="45" height="45"/>
+                                <rect key="frame" x="540" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="btnMuteMusic"/>
+                                <state key="normal" image="btnMuteMusicLightBlue"/>
+                                <connections>
+                                    <action selector="muteButton:" destination="Ztr-Cm-8Zd" eventType="touchUpInside" id="ZEa-Ws-pH5"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="muteButton" destination="ZTl-oC-rd0" id="FdC-YR-a9H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aiy-x2-KpD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1075,7 +1086,7 @@
         <image name="btnAudio" width="264" height="254"/>
         <image name="btnDelete" width="136" height="136"/>
         <image name="btnGalleryGreen" width="267" height="257"/>
-        <image name="btnMuteMusic" width="128" height="128"/>
+        <image name="btnMuteMusicLightBlue" width="351" height="351"/>
         <image name="btnPlayBlue" width="130" height="130"/>
         <image name="foto" width="1366" height="1330"/>
         <image name="iconAddWhiteSmall" width="267" height="267"/>

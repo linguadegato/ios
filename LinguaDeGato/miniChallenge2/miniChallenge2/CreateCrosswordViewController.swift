@@ -24,6 +24,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     @IBOutlet weak var audioButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var generateButton: UIButton!
+    @IBOutlet weak var muteButton: UIButton!
+
     
     //MARK: Views
     @IBOutlet weak var newImageImgView: UIImageView!
@@ -53,8 +55,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     //textField
     private let textFieldBorderColor = UIColor.bluePalete().CGColor
-    private let textFieldBorderWidth: CGFloat = 2.0
-    private let textFieldBorderRadius : CGFloat = 8.0
+    private let textFieldBorderWidth: CGFloat = 1.0
+    private let textFieldBorderRadius : CGFloat = 1.0
 
     //newImageImgView
     private let newImageBorderColor = UIColor.bluePalete().CGColor
@@ -65,6 +67,10 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     //animation 
     private var playAudioImgViewOriginalPosition : CGPoint?
+    
+    //mute button images
+    private let muteOnImage = UIImage(named: "btnMuteOnLightBlue")
+    private let muteOffImage = UIImage(named: "btnMuteOffLightBlue")
     
     //MARK: Keyboard variable
     private var isKeyboardLifted: Bool = false
@@ -117,7 +123,16 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        //used to limiting the number of characters
         newWordTxtField.delegate = self
+        
+        //set image of mute button
+        if MusicSingleton.sharedMusic().isMute {
+            muteButton.setImage(muteOnImage, forState: .Normal)
+        } else {
+            muteButton.setImage(muteOffImage, forState: .Normal)
+        }
         
         // Disable the swipe to make sure you get your chance to save
         self.navigationController?.interactivePopGestureRecognizer?.enabled = false
@@ -235,7 +250,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             
             // if the back button is pressed when a clue audio is recording or playing, the music status is stoped
             // so we need to play when exit to another screen
-            if !MusicSingleton.sharedMusic().mute {
+            if !MusicSingleton.sharedMusic().isMute {
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
             }
         }))
@@ -247,13 +262,15 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // "mute" button
     @IBAction func muteButton(sender: AnyObject) {
-        if MusicSingleton.sharedMusic().mute {
+        if MusicSingleton.sharedMusic().isMute {
             // music will play
-            MusicSingleton.sharedMusic().mute = false
+            muteButton.setImage(muteOffImage, forState: .Normal)
+            MusicSingleton.sharedMusic().isMute = false
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
         } else {
             // music will stop
-            MusicSingleton.sharedMusic().mute = true
+            muteButton.setImage(muteOnImage, forState: .Normal)
+            MusicSingleton.sharedMusic().isMute = true
             MusicSingleton.sharedMusic().playBackgroundAudio(false)
         }
     }
@@ -321,7 +338,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             startRecording()
         } else {
             finishRecording(success: true)
-            if !MusicSingleton.sharedMusic().mute {
+            if !MusicSingleton.sharedMusic().isMute {
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
             }
         }
@@ -441,7 +458,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     func playMusicAfterPlayClue(){
-        if !MusicSingleton.sharedMusic().mute {
+        if !MusicSingleton.sharedMusic().isMute {
         MusicSingleton.sharedMusic().playBackgroundAudio(true)
         }
     }

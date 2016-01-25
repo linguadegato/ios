@@ -17,10 +17,13 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     
     // MARK: - VIEWS
     @IBOutlet weak var boardView: BoardView!
+    @IBOutlet weak var muteButton: UIButton!
     
     // MARK: - NAVIGATION BUTTONS
     // navigation bar button
     var backButton : UIBarButtonItem!
+    private let muteOnImage = UIImage(named: "btnMuteOnLightBlue")
+    private let muteOffImage = UIImage(named: "btnMuteOffLightBlue")
     
     // MARK: - GAME PROPERTIES (words array, positions matrix, etc)
     var crosswordMatrix: [[CrosswordElement?]]?
@@ -33,6 +36,13 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
         super.viewDidLoad()
         boardView.dataSource = self
         boardView.delegate = self
+        
+        //set image of mute button
+        if MusicSingleton.sharedMusic().isMute {
+            muteButton.setImage(muteOnImage, forState: .Normal)
+        } else {
+            muteButton.setImage(muteOffImage, forState: .Normal)
+        }
         
         // Disable the swipe to make sure you get your chance to save
         self.navigationController?.interactivePopGestureRecognizer?.enabled = false
@@ -84,7 +94,7 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
             
             // if the back button is pressed when a clue audio is open, the music status is stoped
             // so we need to play when exit to another screen
-            if !MusicSingleton.sharedMusic().mute {
+            if !MusicSingleton.sharedMusic().isMute {
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
             }
         }))
@@ -94,13 +104,15 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     
     // "mute" button
     @IBAction func muteButton(sender: AnyObject) {
-        if MusicSingleton.sharedMusic().mute {
+        if MusicSingleton.sharedMusic().isMute {
             // music will play
-            MusicSingleton.sharedMusic().mute = false
+            muteButton.setImage(muteOffImage, forState: .Normal)
+            MusicSingleton.sharedMusic().isMute = false
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
         } else {
             // music will stop
-            MusicSingleton.sharedMusic().mute = true
+            muteButton.setImage(muteOffImage, forState: .Normal)
+            MusicSingleton.sharedMusic().isMute = true
             MusicSingleton.sharedMusic().playBackgroundAudio(false)
         }
     }
@@ -110,9 +122,7 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     func gameEnded() {
         
         finishGamePlayAudio.volume = 0.2
-        if !MusicSingleton.sharedMusic().mute {
         finishGamePlayAudio.play()
-        }
         
         let alertController = UIAlertController(title: "PARABÉNS", message:
             "Você concluiu o jogo! \u{1F431}", preferredStyle: UIAlertControllerStyle.Alert)
