@@ -426,12 +426,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             }
         }))
         
-        saveAlert.addAction(UIAlertAction(title: "Cancela", style: UIAlertActionStyle.Default, handler: {_ in
-            
-        }))
+        saveAlert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler:nil))
         
         self.presentViewController(saveAlert, animated: true, completion: {
-            print("alert presented")
         })
     }
     
