@@ -67,6 +67,12 @@ class GalleryCollectionViewController : UICollectionViewController{
                         cell.imageCell.image = aImage
                 })
             }
+            else {
+                cell.imageCell.image = AppImages.onlyAudioImage
+            }
+        }
+        else {
+            cell.imageCell.image = AppImages.onlyAudioImage
         }
         
         cell.labelCell.text = clueWord

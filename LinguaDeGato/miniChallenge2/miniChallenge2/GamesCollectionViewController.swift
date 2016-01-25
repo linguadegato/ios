@@ -12,13 +12,16 @@ import Photos
 
 class GamesCollectionViewController : UICollectionViewController{
     
-    
     @IBOutlet var gamesCollectionView: UICollectionView!
     
     var allGames = [Game]()
     
     private let reuseIdentifier = "ClueCell"
     private var selectedSection : Int?
+    
+    static let onlyAudioImage = UIImage(named: "imageDefaultAudio")
+        
+    //MARK: - LIFECYCLE METHODS
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +59,12 @@ class GamesCollectionViewController : UICollectionViewController{
                             cell.imageCell.image = aImage
                 })
             }
+            else{
+                cell.imageCell.image = AppImages.onlyAudioImage
+            }
+        }
+        else {
+            cell.imageCell.image = AppImages.onlyAudioImage
         }
         
         cell.labelCell.text = clueWord

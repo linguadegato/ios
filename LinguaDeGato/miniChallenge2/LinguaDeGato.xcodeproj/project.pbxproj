@@ -36,6 +36,7 @@
 		EFCC8B691BF11DE600F6851F /* WordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC8B681BF11DE600F6851F /* WordManager.swift */; };
 		EFDD44B71B862A460078C141 /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDD44B61B862A460078C141 /* SquareView.swift */; };
 		EFE30C3D1C4E637A0093984B /* WordAndClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41DCB71BDAA50A008D72CE /* WordAndClue.swift */; };
+		EFE420551C56961D00E4B1CE /* AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE420541C56961D00E4B1CE /* AppImages.swift */; };
 		EFE480BA1BCD4EEB002F15FC /* ClueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE480B91BCD4EEB002F15FC /* ClueView.swift */; };
 		EFE48ACB1C4E8150008D3DC7 /* LGDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFE48AC91C4E8150008D3DC7 /* LGDataModel.xcdatamodeld */; };
 		EFE680871BC80E0600EE755F /* CrosswordClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE680861BC80E0600EE755F /* CrosswordClue.swift */; };
@@ -102,6 +103,7 @@
 		EFCC8B661BF10DC700F6851F /* BoardCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCellView.swift; sourceTree = "<group>"; };
 		EFCC8B681BF11DE600F6851F /* WordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordManager.swift; sourceTree = "<group>"; };
 		EFDD44B61B862A460078C141 /* SquareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
+		EFE420541C56961D00E4B1CE /* AppImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppImages.swift; sourceTree = "<group>"; };
 		EFE480B91BCD4EEB002F15FC /* ClueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClueView.swift; sourceTree = "<group>"; };
 		EFE48ACA1C4E8150008D3DC7 /* LGDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LGDataModel.xcdatamodel; sourceTree = "<group>"; };
 		EFE680861BC80E0600EE755F /* CrosswordClue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrosswordClue.swift; sourceTree = "<group>"; };
@@ -311,7 +313,6 @@
 			isa = PBXGroup;
 			children = (
 				FA96DE981B29C0CE00149113 /* AppDelegate.swift */,
-				FAFAB86B1C161DA100CBC16B /* UIColorExtension.swift */,
 				EFF0BD0C1BDA458F00027024 /* Non-playable Screens */,
 				EFE6D07A1B85F45100CCC802 /* CrosswordGameplay */,
 				EFFB40C81C46A5530099BA6F /* Persistence */,
@@ -324,6 +325,8 @@
 		FA96DE961B29C0CE00149113 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FAFAB86B1C161DA100CBC16B /* UIColorExtension.swift */,
+				EFE420541C56961D00E4B1CE /* AppImages.swift */,
 				77D94CB11C401B6700E28B84 /* sounds */,
 				FA96DE971B29C0CE00149113 /* Info.plist */,
 			);
@@ -508,6 +511,7 @@
 				EF35E9111B88F6CE00540031 /* BoardView.swift in Sources */,
 				EF5313CD1C5271F900B2FEC3 /* WordAndClueDAO.swift in Sources */,
 				FAE14DBB1C49139100E245CA /* Game.swift in Sources */,
+				EFE420551C56961D00E4B1CE /* AppImages.swift in Sources */,
 				EF5313CA1C5271ED00B2FEC3 /* GameServices.swift in Sources */,
 				FA0681901B2B1491008A5C9F /* CreateCrosswordViewController.swift in Sources */,
 				EF5313D51C5272E500B2FEC3 /* LGCDGame+CoreDataProperties.swift in Sources */,

@@ -48,59 +48,6 @@ class GalleryAndGamesViewController: UIViewController {
             
         }
     }
-    /*
-    // Remove this function (for test)
-    private func createExampleGames() -> [Game]{
-        
-        var games = [Game]()
-        
-        let clue = Clue.init(aImageID: "1AB244CD-1CF9-4659-B0E7-217F64E5B12F/L0/001", anAudioPath: "")
-        
-        let gameAnimais = Game(gameName: "Animais", wordsAndClue: [WordAndClue]())
-        gameAnimais.wordsAndClueArray.append(WordAndClue.init(aWord: "cachorro", aClue: clue))
-        gameAnimais.wordsAndClueArray.append(WordAndClue.init(aWord: "gato", aClue: clue))
-        
-        let gamePessoas = Game(gameName: "Pessoas", wordsAndClue: [WordAndClue]())
-        gamePessoas.wordsAndClueArray.append(WordAndClue.init(aWord: "Huguinho", aClue: clue))
-        gamePessoas.wordsAndClueArray.append(WordAndClue.init(aWord: "Zezinho", aClue: clue))
-        gamePessoas.wordsAndClueArray.append(WordAndClue.init(aWord: "Luizinho", aClue: clue))
-        
-        let gameMonica = Game(gameName:"Turma da Mônica", wordsAndClue: [WordAndClue]())
-        gameMonica.wordsAndClueArray.append(WordAndClue.init(aWord: "Cebelinha", aClue: clue))
-        gameMonica.wordsAndClueArray.append(WordAndClue.init(aWord: "Cascão", aClue: clue))
-        gameMonica.wordsAndClueArray.append(WordAndClue.init(aWord: "Mônica", aClue: clue))
-        gameMonica.wordsAndClueArray.append(WordAndClue.init(aWord: "Magali", aClue: clue))
-        gameMonica.wordsAndClueArray.append(WordAndClue.init(aWord: "Anginho", aClue: clue))
-        gameMonica.wordsAndClueArray.append(WordAndClue.init(aWord: "Dudu", aClue: clue))
-        
-        games.append(gameAnimais)
-        games.append(gamePessoas)
-        games.append(gameMonica)
-        
-        return games
-        
-    }
-    
-    private func createExampleGallery() -> [WordAndClue]{
-        
-        var words = [WordAndClue]()
-        let clue = Clue.init(aImageID: "77B4DE11-9946-455D-B832-83737A6A8233/L0/001", anAudioPath: "")
-        
-        words.append(WordAndClue.init(aWord: "cachorro", aClue: clue))
-        words.append(WordAndClue.init(aWord: "gato", aClue: clue))
-        words.append(WordAndClue.init(aWord: "Huguinho", aClue: clue))
-        words.append(WordAndClue.init(aWord: "Zezinho", aClue: clue))
-        words.append(WordAndClue.init(aWord: "Luizinho", aClue: clue))
-        words.append(WordAndClue.init(aWord: "Cebelinha", aClue: clue))
-        words.append(WordAndClue.init(aWord: "Cascão", aClue: clue))
-        words.append(WordAndClue.init(aWord: "Mônica", aClue: clue))
-        words.append(WordAndClue.init(aWord: "Magali", aClue: clue))
-        words.append(WordAndClue.init(aWord: "Anginho", aClue: clue))
-        words.append(WordAndClue.init(aWord: "Dudu", aClue: clue))
-        
-        return words
-    }
-    */
     
     // MARK: - NAVIGATION
     

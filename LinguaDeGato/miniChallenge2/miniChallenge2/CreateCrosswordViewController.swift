@@ -395,14 +395,14 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     @IBAction func saveGame(sender: AnyObject) {
         
-        let alert = UIAlertController(title: "Dê um nome ao jogo:", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        let saveAlert = UIAlertController(title: "Dê um nome ao jogo:", message: "", preferredStyle: UIAlertControllerStyle.Alert)
 
-        alert.addTextFieldWithConfigurationHandler({ alertTextField in
+        saveAlert.addTextFieldWithConfigurationHandler({ alertTextField in
             alertTextField.placeholder = "Nome do jogo"
         })
-        let alertTextField = alert.textFields![0]
+        let alertTextField = saveAlert.textFields![0]
         
-        alert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ _ in
+        saveAlert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ _ in
             
             if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
                 
@@ -415,7 +415,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                         NSOperationQueue.mainQueue().addOperation(operation)
                     }
                     else{
-                        NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: { print("salvar jogo falhou") }))
+                        NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
+                            self.overwriteGame(newGame)
+                        }))
                     }
                 })
             }
@@ -424,7 +426,11 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             }
         }))
         
-        self.presentViewController(alert, animated: true, completion: {
+        saveAlert.addAction(UIAlertAction(title: "Cancela", style: UIAlertActionStyle.Default, handler: {_ in
+            
+        }))
+        
+        self.presentViewController(saveAlert, animated: true, completion: {
             print("alert presented")
         })
     }
@@ -700,6 +706,21 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         let imageData: NSData = UIImagePNGRepresentation(image)!
         
         aFileManager.createFileAtPath(atPath, contents: imageData, attributes: nil)
+    }
+    
+    private func overwriteGame(aGame: Game) {
+        let overwriteAlert = UIAlertController(title: "Sobreescrever jogo?", message: "Já existe um jogo salvo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        overwriteAlert.addAction(UIAlertAction(title: "SIM", style: UIAlertActionStyle.Default, handler: {_ in
+            GameServices.overwriteGame(aGame)
+            self.performSegueWithIdentifier("GenerateCrossword", sender: nil)
+        }))
+        
+        overwriteAlert.addAction(UIAlertAction(title: "NÃO", style: UIAlertActionStyle.Default, handler: {_ in
+            self.saveGame(self)
+        }))
+        
+        self.presentViewController(overwriteAlert, animated: true, completion: nil)
     }
     
     // MARK: - DELEGATES AND DATASOURCES METHDOS
