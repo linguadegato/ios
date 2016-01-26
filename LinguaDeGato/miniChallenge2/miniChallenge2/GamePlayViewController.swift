@@ -37,13 +37,6 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
         boardView.dataSource = self
         boardView.delegate = self
         
-        //set image of mute button
-        if MusicSingleton.sharedMusic().isMute {
-            muteButton.setImage(muteOnImage, forState: .Normal)
-        } else {
-            muteButton.setImage(muteOffImage, forState: .Normal)
-        }
-        
         // Disable the swipe to make sure you get your chance to save
         self.navigationController?.interactivePopGestureRecognizer?.enabled = false
         
@@ -61,6 +54,15 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
             // Error handling
         }
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        //set image of mute button
+        if MusicSingleton.sharedMusic().isMute {
+            muteButton.setImage(muteOnImage, forState: .Normal)
+        } else {
+            muteButton.setImage(muteOffImage, forState: .Normal)
+        }
     }
     
     override func didReceiveMemoryWarning() {
