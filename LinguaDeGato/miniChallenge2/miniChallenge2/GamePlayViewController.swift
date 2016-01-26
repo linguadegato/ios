@@ -40,10 +40,10 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
         // Disable the swipe to make sure you get your chance to save
         self.navigationController?.interactivePopGestureRecognizer?.enabled = false
         
-        // Replace the default back button
-        self.navigationItem.setHidesBackButton(true, animated: false)
-        self.backButton = UIBarButtonItem(title: "< Sair", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
-        self.navigationItem.leftBarButtonItem = backButton
+//        // Replace the default back button
+//        self.navigationItem.setHidesBackButton(true, animated: false)
+//        self.backButton = UIBarButtonItem(title: "< Sair", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
+//        self.navigationItem.leftBarButtonItem = backButton
         
         let finishGame = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("finishGame", ofType: "wav")!)
         
