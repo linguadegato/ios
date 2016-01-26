@@ -19,10 +19,9 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     @IBOutlet weak var boardView: BoardView!
     @IBOutlet weak var muteButton: UIButton!
     
-    
     // MARK: - NAVIGATION BUTTONS
     // navigation bar button
-    private var backButton = UIButton()
+    var backButton : UIBarButtonItem!
     private let muteOnImage = UIImage(named: "btnMuteOnLightBlue")
     private let muteOffImage = UIImage(named: "btnMuteOffLightBlue")
     
@@ -40,6 +39,11 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
         
         // Disable the swipe to make sure you get your chance to save
         self.navigationController?.interactivePopGestureRecognizer?.enabled = false
+        
+        // Replace the default back button
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        self.backButton = UIBarButtonItem(title: "< Sair", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
+        self.navigationItem.leftBarButtonItem = backButton
         
         let finishGame = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("finishGame", ofType: "wav")!)
         
@@ -79,31 +83,25 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     
     // MARK - BUTTON ACTIONS
     
-    @IBAction func goHome(sender: AnyObject) {
+    // "back" button
+    func goBack() {
         let alert = UIAlertController(title: "Deseja realmente sair?", message: "O jogo será interrompido.", preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler:nil))
-        
-        alert.addAction(UIAlertAction(
-            title: "Sair",
-            style: UIAlertActionStyle.Default,
-            handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: "Sair", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
+            self.navigationController?.popViewControllerAnimated(true)
             
-                self.navigationController?.popToRootViewControllerAnimated(true)
-                // Don't forget to re-enable the interactive gesture
-                self.navigationController?.interactivePopGestureRecognizer!.enabled = true
+            // Don't forget to re-enable the interactive gesture
+            self.navigationController?.interactivePopGestureRecognizer!.enabled = true
             
-                // if the back button is pressed when a clue audio is open, the music status is stoped
-                // so we need to play when exit to another screen
-                if !MusicSingleton.sharedMusic().isMute {
-                    MusicSingleton.sharedMusic().playBackgroundAudio(true)
-                }
+            // if the back button is pressed when a clue audio is open, the music status is stoped
+            // so we need to play when exit to another screen
+            if !MusicSingleton.sharedMusic().isMute {
+            MusicSingleton.sharedMusic().playBackgroundAudio(true)
             }
-        ))
-        
-        self.presentViewController(alert, animated: true, completion: {})
-        
-        print("home")
+        }))
+        self.presentViewController(alert, animated: true, completion: {
+        })
     }
     
     // "mute" button
@@ -140,7 +138,7 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     
     // MARK: - TODO: NAVIGATION (porque voce tem que conseguir sair, neh?)
 
-    private func backByWinningFromAlertAction (action: UIAlertAction) {
+    func backByWinningFromAlertAction (action: UIAlertAction) {
         finishGamePlayAudio.stop()
         self.navigationController!.popViewControllerAnimated(true)
     }

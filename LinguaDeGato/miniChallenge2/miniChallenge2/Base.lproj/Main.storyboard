@@ -6,7 +6,6 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -441,15 +440,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXV-ks-Gh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="231" y="351"/>
+            <point key="canvasLocation" x="34" y="359"/>
         </scene>
         <!--Game Play View Controller-->
         <scene sceneID="Fxu-H6-vaK">
             <objects>
                 <viewController id="epj-fT-bue" customClass="GamePlayViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="V4n-Uo-KWN"/>
-                        <viewControllerLayoutGuide type="bottom" id="cKe-K7-66K"/>
+                        <viewControllerLayoutGuide type="top" id="b4d-cD-jcb"/>
+                        <viewControllerLayoutGuide type="bottom" id="B9L-XC-Vs3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PGi-CJ-GlE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -462,43 +461,35 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="aAc-D9-BCo" firstAttribute="centerX" secondItem="g6m-bA-yGV" secondAttribute="centerX" id="0eq-9c-spu"/>
-                                    <constraint firstItem="aAc-D9-BCo" firstAttribute="height" secondItem="g6m-bA-yGV" secondAttribute="height" id="Dxh-nV-ipR"/>
-                                    <constraint firstItem="aAc-D9-BCo" firstAttribute="centerY" secondItem="g6m-bA-yGV" secondAttribute="centerY" id="oID-Md-ztH"/>
-                                    <constraint firstItem="aAc-D9-BCo" firstAttribute="width" secondItem="g6m-bA-yGV" secondAttribute="width" id="vNL-sR-Ei7"/>
+                                    <constraint firstItem="gZf-3h-t5z" firstAttribute="leading" secondItem="nER-cG-Zd8" secondAttribute="leading" id="20I-mv-yDa"/>
+                                    <constraint firstItem="gZf-3h-t5z" firstAttribute="height" secondItem="nER-cG-Zd8" secondAttribute="height" id="8nO-uT-nLW"/>
+                                    <constraint firstItem="gZf-3h-t5z" firstAttribute="top" secondItem="nER-cG-Zd8" secondAttribute="top" id="9Pz-3Y-gRh"/>
+                                    <constraint firstItem="gZf-3h-t5z" firstAttribute="centerX" secondItem="nER-cG-Zd8" secondAttribute="centerX" id="T29-Eb-9YQ"/>
+                                    <constraint firstItem="gZf-3h-t5z" firstAttribute="centerY" secondItem="nER-cG-Zd8" secondAttribute="centerY" id="mmz-qf-Dem"/>
+                                    <constraint firstItem="gZf-3h-t5z" firstAttribute="width" secondItem="nER-cG-Zd8" secondAttribute="width" id="ysj-un-AZo"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="T29-Eb-9YQ"/>
+                                        <exclude reference="mmz-qf-Dem"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="cKe-K7-66K" firstAttribute="top" secondItem="g6m-bA-yGV" secondAttribute="bottom" id="DcC-cK-VKb"/>
-                            <constraint firstItem="g6m-bA-yGV" firstAttribute="leading" secondItem="F9r-s4-mWF" secondAttribute="leading" id="Vd3-Lz-5GW"/>
-                            <constraint firstAttribute="trailing" secondItem="g6m-bA-yGV" secondAttribute="trailing" id="ik8-2z-YkL"/>
-                            <constraint firstItem="g6m-bA-yGV" firstAttribute="top" secondItem="V4n-Uo-KWN" secondAttribute="bottom" id="rP1-u8-Pvh"/>
+                            <constraint firstItem="nER-cG-Zd8" firstAttribute="top" secondItem="b4d-cD-jcb" secondAttribute="bottom" id="456-rK-g2u"/>
+                            <constraint firstAttribute="trailing" secondItem="nER-cG-Zd8" secondAttribute="trailing" id="Gs7-SY-7MC"/>
+                            <constraint firstItem="B9L-XC-Vs3" firstAttribute="top" secondItem="nER-cG-Zd8" secondAttribute="bottom" id="JGS-fD-ZAJ"/>
+                            <constraint firstItem="nER-cG-Zd8" firstAttribute="leading" secondItem="PGi-CJ-GlE" secondAttribute="leading" id="ifi-vl-NW7"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Kr8-gs-dXO">
-                        <leftBarButtonItems>
-                            <barButtonItem style="plain" id="prg-eM-eZb" userLabel="Back Img Bar Button Item">
-                                <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5VF-92-qc7">
-                                    <rect key="frame" x="20" y="2" width="40" height="40"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Button" image="iconCatTransparent"/>
-                                    <connections>
-                                        <action selector="goHome:" destination="epj-fT-bue" eventType="touchUpInside" id="rGa-1S-dMP"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                            <barButtonItem title="Sair" id="dOY-rF-ikk" userLabel="Sair Text">
-                                <connections>
-                                    <action selector="goHome:" destination="epj-fT-bue" id="AOQ-TK-FEu"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="h5C-oq-K2b" userLabel="Sound Bar Button Item">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="h5C-oq-K2b">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qiF-gD-ctR">
                                 <rect key="frame" x="540" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -515,18 +506,18 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="boardView" destination="g6m-bA-yGV" id="vvG-ex-pNN"/>
+                        <outlet property="boardView" destination="nER-cG-Zd8" id="2Sj-Iv-b49"/>
                         <outlet property="muteButton" destination="qiF-gD-ctR" id="kIJ-CI-TXO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOf-ag-Lri" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="241" y="1136"/>
+            <point key="canvasLocation" x="34" y="1139"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="0g3-yJ-IvD">
             <objects>
-                <viewController restorationIdentifier="HomeViewController" storyboardIdentifier="HomeViewController" id="Yba-oo-O4l" customClass="InitialViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Yba-oo-O4l" customClass="InitialViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iTP-WE-60i"/>
                         <viewControllerLayoutGuide type="bottom" id="93C-Ug-VIN"/>
