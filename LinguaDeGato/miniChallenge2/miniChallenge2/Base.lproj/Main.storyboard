@@ -855,6 +855,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ul9-kY-6Pv">
+                        <leftBarButtonItems>
+                            <barButtonItem style="plain" id="aZT-z6-tlI" userLabel="Back Bar Button Item">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="51Z-MB-cws" userLabel="Back Button">
+                                    <rect key="frame" x="20" y="2" width="40" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button" image="slideBlue"/>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem title="Voltar" id="dWO-wH-Yks" userLabel="Back Item"/>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="po5-v3-nIJ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZTl-oC-rd0">
                                 <rect key="frame" x="540" y="2" width="40" height="40"/>
