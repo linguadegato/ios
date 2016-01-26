@@ -129,12 +129,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         // Disable the swipe to make sure you get your chance to save
         self.navigationController?.interactivePopGestureRecognizer?.enabled = false
         
-        // Replace the default back button
-        self.navigationItem.setHidesBackButton(true, animated: false)
-        self.backButton = UIBarButtonItem(title: "< ", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
-        self.backButton.tintColor = UIColor.bluePalete()
-        self.navigationItem.leftBarButtonItem = backButton
-        
         //MARK: appearance settings
         
         lowerContainer.hidden = true
@@ -236,29 +230,44 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     // MARK: - BUTTON ACTIONS
-    
-    func goBack() {
-        let alert = UIAlertController(title: "Deseja realmente sair?", message: "As palavras criadas serão perdidas.", preferredStyle: UIAlertControllerStyle.Alert)
-
-        alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler:nil))
-        alert.addAction(UIAlertAction(title: "Sair", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
-            self.navigationController?.popViewControllerAnimated(true)
-            // Don't forget to re-enable the interactive gesture
+    @IBAction func goBackPopup(sender: AnyObject) {
+        
+        if (wordsAddedCollectionView.numberOfItemsInSection(0) > 0){
             
-            self.navigationController?.interactivePopGestureRecognizer!.enabled = true
+            let alert = UIAlertController(title: "Deseja realmente sair?", message: "As palavras criadas serão perdidas.", preferredStyle: UIAlertControllerStyle.Alert)
             
-            // if the back button is pressed when a clue audio is recording or playing, the music status is stoped
-            // so we need to play when exit to another screen
-            if !MusicSingleton.sharedMusic().isMute {
-            MusicSingleton.sharedMusic().playBackgroundAudio(true)
-            }
-        }))
-        self.presentViewController(alert, animated: true, completion: {
-            print("completion block")
-        })
-
+            alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler:nil))
+            
+            alert.addAction(UIAlertAction(
+                title: "Sair",
+                style: UIAlertActionStyle.Default,
+                handler:
+                {(UIAlertAction)in
+                    self.goBack()                }
+                ))
+            
+            self.presentViewController(alert, animated: true, completion: {
+                print("completion block")
+            })
+            
+        }else{
+            self.goBack()
+        }
     }
     
+    private func goBack(){
+        self.navigationController?.popViewControllerAnimated(true)
+        
+        // Don't forget to re-enable the interactive gesture
+        self.navigationController?.interactivePopGestureRecognizer!.enabled = true
+        
+        // if the back button is pressed when a clue audio is recording or playing, the music status is stoped
+        // so we need to play when exit to another screen
+        if !MusicSingleton.sharedMusic().isMute {
+            MusicSingleton.sharedMusic().playBackgroundAudio(true)
+        }
+    }
+
     // "mute" button
     @IBAction func muteButton(sender: AnyObject) {
         if MusicSingleton.sharedMusic().isMute {
