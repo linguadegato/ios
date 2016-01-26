@@ -451,14 +451,14 @@
                         <viewControllerLayoutGuide type="bottom" id="B9L-XC-Vs3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PGi-CJ-GlE">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="250" height="492"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-3h-t5z">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="492"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
@@ -569,7 +569,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40l-l1-zj0" userLabel="Play">
                                                                 <rect key="frame" x="0.0" y="0.0" width="117" height="99"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMZ-68-6Ji" userLabel="Play Random Game Button">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMZ-68-6Ji" userLabel="Play Random Game Button">
                                                                         <rect key="frame" x="29" y="0.0" width="59" height="59"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" secondItem="zMZ-68-6Ji" secondAttribute="width" id="bpU-dp-zGC"/>
@@ -580,6 +580,9 @@
                                                                         <state key="normal" backgroundImage="iconPlayOrange">
                                                                             <color key="titleColor" red="0.95294117647058818" green="0.59999999999999998" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="randomGame:" destination="Yba-oo-O4l" eventType="touchUpInside" id="46B-8q-Xlh"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga0-yN-LU7" userLabel="Play Label">
                                                                         <rect key="frame" x="0.0" y="79" width="117" height="28"/>
@@ -741,11 +744,12 @@
                         <outlet property="createCrosswordButton" destination="i1h-AD-wNb" id="Kvg-RR-uWk"/>
                         <outlet property="muteButton" destination="sA2-xq-6gI" id="TPi-6U-2vz"/>
                         <outlet property="playRandomGameButton" destination="zMZ-68-6Ji" id="roW-gk-W55"/>
+                        <segue destination="epj-fT-bue" kind="show" identifier="randomGame" id="jFj-O3-2OQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgn-Gy-cpt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1202" y="351"/>
+            <point key="canvasLocation" x="-1208" y="351"/>
         </scene>
         <!--Gallery and Games View Controller-->
         <scene sceneID="gi8-ES-11H">
@@ -1108,6 +1112,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uDm-0q-eKI"/>
+        <segue reference="jFj-O3-2OQ"/>
     </inferredMetricsTieBreakers>
 </document>
