@@ -123,16 +123,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         //used to limiting the number of characters
         newWordTxtField.delegate = self
-        
-        //set image of mute button
-        if MusicSingleton.sharedMusic().isMute {
-            muteButton.setImage(muteOnImage, forState: .Normal)
-        } else {
-            muteButton.setImage(muteOffImage, forState: .Normal)
-        }
         
         // Disable the swipe to make sure you get your chance to save
         self.navigationController?.interactivePopGestureRecognizer?.enabled = false
@@ -218,6 +210,13 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     override func viewWillAppear(animated: Bool) {
+        
+        //set image of mute button
+        if MusicSingleton.sharedMusic().isMute {
+            muteButton.setImage(muteOnImage, forState: .Normal)
+        } else {
+            muteButton.setImage(muteOffImage, forState: .Normal)
+        }
         
         // Keyboard:
         super.viewWillAppear(animated)
@@ -395,7 +394,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     @IBAction func saveGame(sender: AnyObject) {
         
-        let saveAlert = UIAlertController(title: "Dê um nome ao jogo:", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        let saveAlert = UIAlertController(title: "Dê um nome ao jogo:", message: "É preciso inserir um nome para salvar", preferredStyle: UIAlertControllerStyle.Alert)
 
         saveAlert.addTextFieldWithConfigurationHandler({ alertTextField in
             alertTextField.placeholder = "Nome do jogo"

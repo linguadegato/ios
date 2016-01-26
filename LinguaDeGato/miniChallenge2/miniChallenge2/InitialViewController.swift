@@ -26,6 +26,11 @@ class InitialViewController: StatusBarViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //starts the background music
+        MusicSingleton.sharedMusic().playBackgroundAudio(true)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         //set image of mute button
         if MusicSingleton.sharedMusic().isMute {
             muteButton.setImage(muteOnImage, forState: .Normal)

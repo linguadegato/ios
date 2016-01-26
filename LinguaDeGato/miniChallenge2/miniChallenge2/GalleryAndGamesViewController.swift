@@ -25,7 +25,9 @@ class GalleryAndGamesViewController: UIViewController {
 //        self.backButton = UIBarButtonItem(title: "< ", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
 //        self.backButton.tintColor = UIColor.bluePalete()
 //        self.navigationItem.leftBarButtonItem = backButton
-        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         //set image of mute button
         if MusicSingleton.sharedMusic().isMute {
             muteButton.setImage(muteOnImage, forState: .Normal)
