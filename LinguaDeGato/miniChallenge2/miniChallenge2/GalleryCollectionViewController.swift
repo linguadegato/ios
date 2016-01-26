@@ -19,7 +19,7 @@ class GalleryCollectionViewController : UICollectionViewController{
     var selectedWords = [WordAndClue]()
 
     private let reuseIdentifier = "ClueCell"
-    private let collectionTitle = "Galeria"
+    private let collectionTitle = "Palavras Salvas"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,7 +130,7 @@ class GalleryCollectionViewController : UICollectionViewController{
         selectedCell.selectImage.hidden = false
         
         let header = galleryCollectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "GalleryHeader", forIndexPath: indexPath) as! GalleryHeaderView
-        header.playButton.enabled = true
+        header.playButton.hidden = false
 
     }
     
@@ -143,7 +143,7 @@ class GalleryCollectionViewController : UICollectionViewController{
         
         if (selectedWords.isEmpty){
             let header = galleryCollectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "GalleryHeader", forIndexPath: indexPath) as! GalleryHeaderView
-            header.playButton.enabled = false
+            header.playButton.hidden = true
         }
     }
     
@@ -163,7 +163,7 @@ class GalleryCollectionViewController : UICollectionViewController{
                 
                 // Disable play button on header
                 let header = galleryCollectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "GalleryHeader", forIndexPath: indexPath) as! GalleryHeaderView
-                header.playButton.enabled = false
+                header.playButton.hidden = true
 
             }
         }
