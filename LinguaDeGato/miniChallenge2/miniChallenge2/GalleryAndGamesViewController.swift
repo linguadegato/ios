@@ -19,14 +19,6 @@ class GalleryAndGamesViewController: UIViewController {
     
     @IBOutlet weak var muteButton: UIButton!
     
-    override func viewDidLoad() {
-        // Replace the default back button
-//        self.navigationItem.setHidesBackButton(true, animated: false)
-//        self.backButton = UIBarButtonItem(title: "< ", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
-//        self.backButton.tintColor = UIColor.bluePalete()
-//        self.navigationItem.leftBarButtonItem = backButton
-    }
-    
     override func viewWillAppear(animated: Bool) {
         //set image of mute button
         if MusicSingleton.sharedMusic().isMute {
@@ -48,6 +40,21 @@ class GalleryAndGamesViewController: UIViewController {
             MusicSingleton.sharedMusic().isMute = true
             MusicSingleton.sharedMusic().playBackgroundAudio(false)
             
+        }
+    }
+    
+    // MARK: - Button Actions
+    
+    @IBAction func goBack(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+        
+        // Don't forget to re-enable the interactive gesture
+        self.navigationController?.interactivePopGestureRecognizer!.enabled = true
+        
+        // if the back button is pressed when a clue audio is recording or playing, the music status is stoped
+        // so we need to play when exit to another screen
+        if !MusicSingleton.sharedMusic().isMute {
+            MusicSingleton.sharedMusic().playBackgroundAudio(true)
         }
     }
     

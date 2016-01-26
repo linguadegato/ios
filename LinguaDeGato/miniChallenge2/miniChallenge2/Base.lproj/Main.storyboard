@@ -861,9 +861,16 @@
                                     <rect key="frame" x="20" y="2" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Button" image="slideBlue"/>
+                                    <connections>
+                                        <action selector="goBack:" destination="Ztr-Cm-8Zd" eventType="touchUpInside" id="UDK-yB-WmL"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
-                            <barButtonItem title="Voltar" id="dWO-wH-Yks" userLabel="Back Item"/>
+                            <barButtonItem title="Voltar" id="dWO-wH-Yks" userLabel="Back Item">
+                                <connections>
+                                    <action selector="goBack:" destination="Ztr-Cm-8Zd" id="IFP-eG-nii"/>
+                                </connections>
+                            </barButtonItem>
                         </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="po5-v3-nIJ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZTl-oC-rd0">
