@@ -14,10 +14,10 @@ class GalleryCollectionViewController : UICollectionViewController{
     
     @IBOutlet var galleryCollectionView: UICollectionView!
     
-    
     var gallery = [WordAndClue]()
     var selectedWords = [WordAndClue]()
 
+    private let maximumNumberOfWords = 6
     private let reuseIdentifier = "ClueCell"
     private let collectionTitle = "Palavras Salvas"
     
@@ -95,15 +95,14 @@ class GalleryCollectionViewController : UICollectionViewController{
     
     // MARK: Selection and deselection of a celll
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if (selectedWords.count < 6){
+        if (selectedWords.count < maximumNumberOfWords){
             selectedWords.append(gallery[indexPath.row])
             selectCell(indexPath)
         }
         
-        /*
-        TODO: else exibir alerta de que o máximo de palavras são 6
-        */
-        
+        if (selectedWords.count == maximumNumberOfWords){
+            opaqueCells()
+        }
     }
     
     override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
@@ -116,6 +115,10 @@ class GalleryCollectionViewController : UICollectionViewController{
                 deselectCell(indexPath)
                 break
             }
+        }
+        
+        if (selectedWords.count == maximumNumberOfWords-1){
+            removeOpaqueCells()
         }
     }
     
@@ -171,6 +174,37 @@ class GalleryCollectionViewController : UICollectionViewController{
         
     }
     
+    private func opaqueCells(){
+        let selectedCells = galleryCollectionView.indexPathsForSelectedItems()
+        if (selectedCells?.isEmpty == false){
+            
+            let numberOfCells = galleryCollectionView.numberOfItemsInSection(0)
+            
+            for cellIndex in 0...numberOfCells-1{
+                let indexPath = NSIndexPath(forItem: cellIndex, inSection: 0)
+                
+                //not selected item
+                if (selectedCells!.contains(indexPath) == false){
+                    let notSelecteCell = self.galleryCollectionView.cellForItemAtIndexPath(indexPath)
+                    notSelecteCell?.alpha = 0.5
+                }
+            }
+        }
+    }
+    
+    private func removeOpaqueCells(){
+        let numberOfCells = galleryCollectionView.numberOfItemsInSection(0)
+        
+        for cellIndex in 0...numberOfCells-1{
+            let indexPath = NSIndexPath(forItem: cellIndex, inSection: 0)
+            let cell = self.galleryCollectionView.cellForItemAtIndexPath(indexPath)
+            if (cell?.alpha == 0.5){
+                cell?.alpha = 1
+            }
+        }
+    }
+    
+    // MARK: For debug
     private func printSelecteWords(){
         if (selectedWords.count > 0){
             for count in 0...selectedWords.count-1{

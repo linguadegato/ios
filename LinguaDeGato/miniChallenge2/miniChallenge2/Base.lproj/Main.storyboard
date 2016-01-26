@@ -903,20 +903,20 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmO-dL-qQv" userLabel="Title View">
                                     <rect key="frame" x="0.0" y="0.0" width="250" height="70"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iconBoxGreen" translatesAutoresizingMaskIntoConstraints="NO" id="Fk0-mV-eqz" userLabel="Icon Image">
-                                            <rect key="frame" x="8" y="10" width="51" height="50"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconBoxGreen" translatesAutoresizingMaskIntoConstraints="NO" id="Fk0-mV-eqz" userLabel="Icon Image">
+                                            <rect key="frame" x="8" y="10" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="Fk0-mV-eqz" secondAttribute="height" multiplier="1:1" id="fRQ-Mn-uHs"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Palavras Salvas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKm-qH-KN2" userLabel="Title Label">
-                                            <rect key="frame" x="64" y="24" width="141" height="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Palavras Salvas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKm-qH-KN2" userLabel="Title Label">
+                                            <rect key="frame" x="63" y="24" width="141" height="24"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                             <color key="textColor" red="0.60392156860000001" green="0.75294117650000003" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2z8-9H-7LU" userLabel="Play Button">
-                                            <rect key="frame" x="196" y="13" width="47" height="46"/>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2z8-9H-7LU" userLabel="Play Button">
+                                            <rect key="frame" x="207" y="18" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="2z8-9H-7LU" secondAttribute="height" multiplier="1:1" id="Qhj-eY-ucm"/>
                                             </constraints>
@@ -935,7 +935,7 @@
                                         <constraint firstItem="LKm-qH-KN2" firstAttribute="leading" secondItem="Fk0-mV-eqz" secondAttribute="trailing" constant="5" id="WOd-is-Utp"/>
                                         <constraint firstItem="Fk0-mV-eqz" firstAttribute="centerY" secondItem="lmO-dL-qQv" secondAttribute="centerY" id="Xaq-D0-aeS"/>
                                         <constraint firstItem="Fk0-mV-eqz" firstAttribute="height" secondItem="lmO-dL-qQv" secondAttribute="height" multiplier="1:1.4" id="Y9L-mO-msg"/>
-                                        <constraint firstItem="2z8-9H-7LU" firstAttribute="height" secondItem="lmO-dL-qQv" secondAttribute="height" multiplier="1:1.5" id="YOG-qp-m56"/>
+                                        <constraint firstItem="2z8-9H-7LU" firstAttribute="height" secondItem="lmO-dL-qQv" secondAttribute="height" multiplier="1:2" id="YOG-qp-m56"/>
                                     </constraints>
                                 </view>
                             </subviews>
