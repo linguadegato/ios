@@ -513,10 +513,10 @@
                                     <rect key="frame" x="20" y="2" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="iconCatTransparent"/>
+                                    <connections>
+                                        <action selector="goHome:" destination="epj-fT-bue" eventType="touchUpInside" id="eEZ-S4-LNk"/>
+                                    </connections>
                                 </button>
-                                <connections>
-                                    <action selector="goHome:" destination="epj-fT-bue" id="LaN-5z-jTW"/>
-                                </connections>
                             </barButtonItem>
                             <barButtonItem title="Sair" id="IIZ-54-lW2" userLabel="Sair">
                                 <connections>
