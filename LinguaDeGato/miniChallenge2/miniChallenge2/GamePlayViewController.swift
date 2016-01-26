@@ -40,11 +40,6 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
         // Disable the swipe to make sure you get your chance to save
         self.navigationController?.interactivePopGestureRecognizer?.enabled = false
         
-//        // Replace the default back button
-//        self.navigationItem.setHidesBackButton(true, animated: false)
-//        self.backButton = UIBarButtonItem(title: "< Sair", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
-//        self.navigationItem.leftBarButtonItem = backButton
-        
         let finishGame = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("finishGame", ofType: "wav")!)
         
         do {
@@ -83,25 +78,32 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     
     // MARK - BUTTON ACTIONS
     
-    // "back" button
-    func goBack() {
+    
+    @IBAction func goHome(sender: AnyObject) {
         let alert = UIAlertController(title: "Deseja realmente sair?", message: "O jogo será interrompido.", preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler:nil))
-        alert.addAction(UIAlertAction(title: "Sair", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
-            self.navigationController?.popViewControllerAnimated(true)
-            
-            // Don't forget to re-enable the interactive gesture
-            self.navigationController?.interactivePopGestureRecognizer!.enabled = true
-            
-            // if the back button is pressed when a clue audio is open, the music status is stoped
-            // so we need to play when exit to another screen
-            if !MusicSingleton.sharedMusic().isMute {
-            MusicSingleton.sharedMusic().playBackgroundAudio(true)
+        
+        alert.addAction(UIAlertAction(
+            title: "Sair",
+            style: UIAlertActionStyle.Default,
+            handler:{ (UIAlertAction)in
+                
+                self.navigationController?.popToRootViewControllerAnimated(true)
+                // Don't forget to re-enable the interactive gesture
+                self.navigationController?.interactivePopGestureRecognizer!.enabled = true
+                
+                // if the back button is pressed when a clue audio is open, the music status is stoped
+                // so we need to play when exit to another screen
+                if !MusicSingleton.sharedMusic().isMute {
+                    MusicSingleton.sharedMusic().playBackgroundAudio(true)
+                }
             }
-        }))
-        self.presentViewController(alert, animated: true, completion: {
-        })
+            ))
+        
+        self.presentViewController(alert, animated: true, completion: {})
+        
+        print("home")
     }
     
     // "mute" button

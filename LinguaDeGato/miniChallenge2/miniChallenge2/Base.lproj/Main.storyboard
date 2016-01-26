@@ -497,8 +497,15 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="iconCatTransparent"/>
                                 </button>
+                                <connections>
+                                    <action selector="goHome:" destination="epj-fT-bue" id="LaN-5z-jTW"/>
+                                </connections>
                             </barButtonItem>
-                            <barButtonItem title="Sair" id="IIZ-54-lW2" userLabel="Sair"/>
+                            <barButtonItem title="Sair" id="IIZ-54-lW2" userLabel="Sair">
+                                <connections>
+                                    <action selector="goHome:" destination="epj-fT-bue" id="sII-vk-y2l"/>
+                                </connections>
+                            </barButtonItem>
                         </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="h5C-oq-K2b">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qiF-gD-ctR">
