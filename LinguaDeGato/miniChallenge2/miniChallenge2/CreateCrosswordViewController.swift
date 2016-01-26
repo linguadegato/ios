@@ -394,7 +394,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     @IBAction func saveGame(sender: AnyObject) {
         
-        let saveAlert = UIAlertController(title: "Dê um nome ao jogo:", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        let saveAlert = UIAlertController(title: "Dê um nome ao jogo:", message: "É preciso inserir um nome para salvar", preferredStyle: UIAlertControllerStyle.Alert)
 
         saveAlert.addTextFieldWithConfigurationHandler({ alertTextField in
             alertTextField.placeholder = "Nome do jogo"
