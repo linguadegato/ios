@@ -1057,6 +1057,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 }
             }
             
+            // I dont know why cols and rows are interchanged... will not fix it right now
             let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: newWords)
             aGenerator.computeCrossword(3, spins: 4)
             

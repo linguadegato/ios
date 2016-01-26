@@ -45,7 +45,7 @@ class InitialViewController: StatusBarViewController {
     // MARK - BUTTON ACTIONS
 
     @IBAction func randomGame(sender: AnyObject) {
-        print("me apertou! quero random game!")
+
         WordAndClueServices.retriveAllWordAndClues( { words in
             
             let operation = NSBlockOperation( block: {
@@ -63,7 +63,8 @@ class InitialViewController: StatusBarViewController {
                 }
                 
                 //generate a crossword
-                self.aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresinRow, cols: BoardView.maxSquaresInCol, maxloops: 2000, avaiableWords: randomWords)
+                // I dont know why cols and rows are interchanged... will not fix it right now
+                self.aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: randomWords)
                 
                 self.aGenerator.computeCrossword(3, spins: 4)
                 
