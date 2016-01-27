@@ -176,6 +176,10 @@ class GalleryCollectionViewController : UICollectionViewController{
     }
     
     private func deselectAllCells(){
+        
+        selectedWords = []
+        
+        /*
         let selectedCells = galleryCollectionView.indexPathsForSelectedItems()
         if (selectedCells?.isEmpty == false){
             let numberOfSelectedCells = selectedCells!.count
@@ -192,11 +196,9 @@ class GalleryCollectionViewController : UICollectionViewController{
                 // Disable play button on header
                 header.playButton.hidden = true
                 galleryCollectionView.reloadInputViews()
-
             }
         }
-        
-        
+        */
     }
     
     private func opaqueCells(){
