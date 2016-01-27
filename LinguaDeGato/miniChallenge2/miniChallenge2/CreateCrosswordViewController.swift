@@ -24,7 +24,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     @IBOutlet weak var audioButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var generateButton: UIButton!
-    @IBOutlet weak var muteButton: UIButton!
+    @IBOutlet weak var muteMusicButton: UIButton!
 
     
     //MARK: Views
@@ -69,8 +69,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private var playAudioImgViewOriginalPosition : CGPoint?
     
     //mute button images
-    private let muteOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
-    private let muteOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
+    private let muteMusicOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
+    private let muteMusicOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
     
     //MARK: Keyboard variable
     private var isKeyboardLifted: Bool = false
@@ -206,10 +206,10 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     override func viewWillAppear(animated: Bool) {
         
         //set image of mute button
-        if MusicSingleton.sharedMusic().isMute {
-            muteButton.setImage(muteOnImage, forState: .Normal)
+        if MusicSingleton.sharedMusic().isMusicMute {
+            muteMusicButton.setImage(muteMusicOnImage, forState: .Normal)
         } else {
-            muteButton.setImage(muteOffImage, forState: .Normal)
+            muteMusicButton.setImage(muteMusicOffImage, forState: .Normal)
         }
         
         // Keyboard:
@@ -263,22 +263,22 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         // if the back button is pressed when a clue audio is recording or playing, the music status is stoped
         // so we need to play when exit to another screen
-        if !MusicSingleton.sharedMusic().isMute {
+        if !MusicSingleton.sharedMusic().isMusicMute {
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
         }
     }
 
     // "mute" button
-    @IBAction func muteButton(sender: AnyObject) {
-        if MusicSingleton.sharedMusic().isMute {
+    @IBAction func muteMusicButton(sender: AnyObject) {
+        if MusicSingleton.sharedMusic().isMusicMute {
             // music will play
-            muteButton.setImage(muteOffImage, forState: .Normal)
-            MusicSingleton.sharedMusic().isMute = false
+            muteMusicButton.setImage(muteMusicOffImage, forState: .Normal)
+            MusicSingleton.sharedMusic().isMusicMute = false
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
         } else {
             // music will stop
-            muteButton.setImage(muteOnImage, forState: .Normal)
-            MusicSingleton.sharedMusic().isMute = true
+            muteMusicButton.setImage(muteMusicOnImage, forState: .Normal)
+            MusicSingleton.sharedMusic().isMusicMute = true
             MusicSingleton.sharedMusic().playBackgroundAudio(false)
         }
     }
@@ -346,7 +346,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             startRecording()
         } else {
             finishRecording(success: true)
-            if !MusicSingleton.sharedMusic().isMute {
+            if !MusicSingleton.sharedMusic().isMusicMute {
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
             }
         }
@@ -502,7 +502,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     func playMusicAfterPlayClue(){
-        if !MusicSingleton.sharedMusic().isMute {
+        if !MusicSingleton.sharedMusic().isMusicMute {
         MusicSingleton.sharedMusic().playBackgroundAudio(true)
         }
     }

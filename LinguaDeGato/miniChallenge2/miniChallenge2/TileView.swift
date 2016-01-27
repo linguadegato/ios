@@ -32,6 +32,7 @@ class TileView: UIView, UIGestureRecognizerDelegate {
     var inCorrectWordsCounter: Int = 0
     
     var correctFeedbackAudioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("correctSound", ofType: "wav")!)
+    
     // plays an audio when tile is put in wrong square
     var wrongFeedbackAudioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("wrongSound", ofType: "wav")!)
     var wrongFeedbackPlay = AVAudioPlayer()
@@ -199,8 +200,10 @@ class TileView: UIView, UIGestureRecognizerDelegate {
             // Error handling
         }
         
-        correctFeedbackPlay.volume = 1.0
-        correctFeedbackPlay.play()
+        if !MusicSingleton.sharedMusic().isAudioMute {
+            correctFeedbackPlay.volume = 1.0
+            correctFeedbackPlay.play()
+        }
 
         
         //setNeedsDisplay is needed since tile can change from
@@ -219,8 +222,10 @@ class TileView: UIView, UIGestureRecognizerDelegate {
             // Error handling
         }
         
-        wrongFeedbackPlay.volume = 0.5
-        wrongFeedbackPlay.play()
+        if !MusicSingleton.sharedMusic().isAudioMute {
+            wrongFeedbackPlay.volume = 0.5
+            wrongFeedbackPlay.play()
+        }
 
         prepareToRedraw()
     }

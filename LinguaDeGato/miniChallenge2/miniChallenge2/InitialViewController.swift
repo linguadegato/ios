@@ -14,10 +14,11 @@ class InitialViewController: StatusBarViewController {
     
     @IBOutlet weak var createCrosswordButton: UIButton!
     @IBOutlet weak var playRandomGameButton: UIButton!
-    @IBOutlet weak var muteButton: UIButton!
+    @IBOutlet weak var muteMusicButton: UIButton!
+
     
-    private let muteOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
-    private let muteOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
+    private let muteMusicOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
+    private let muteMusicOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
     
     private var aGenerator: LGCrosswordGenerator!
     
@@ -31,11 +32,11 @@ class InitialViewController: StatusBarViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        //set image of mute button
-        if MusicSingleton.sharedMusic().isMute {
-            muteButton.setImage(muteOnImage, forState: .Normal)
+        //set image of mute music button
+        if MusicSingleton.sharedMusic().isMusicMute {
+            muteMusicButton.setImage(muteMusicOnImage, forState: .Normal)
         } else {
-            muteButton.setImage(muteOffImage, forState: .Normal)
+            muteMusicButton.setImage(muteMusicOffImage, forState: .Normal)
         }
     }
 
@@ -77,17 +78,17 @@ class InitialViewController: StatusBarViewController {
         })
     }
 
-    // "mute" button
-    @IBAction func muteMusic(sender: AnyObject) {
-        if MusicSingleton.sharedMusic().isMute {
+    // "mute music" button
+    @IBAction func muteMusicButton(sender: AnyObject) {
+        if MusicSingleton.sharedMusic().isMusicMute {
             // music will play
-            muteButton.setImage(muteOffImage, forState: .Normal)
-            MusicSingleton.sharedMusic().isMute = false
+            muteMusicButton.setImage(muteMusicOffImage, forState: .Normal)
+            MusicSingleton.sharedMusic().isMusicMute = false
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
         } else {
             // music will stop
-            muteButton.setImage(muteOnImage, forState: .Normal)
-            MusicSingleton.sharedMusic().isMute = true
+            muteMusicButton.setImage(muteMusicOnImage, forState: .Normal)
+            MusicSingleton.sharedMusic().isMusicMute = true
             MusicSingleton.sharedMusic().playBackgroundAudio(false)
         }
     }
