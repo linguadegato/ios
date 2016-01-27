@@ -22,8 +22,8 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     // MARK: - NAVIGATION BUTTONS
     // navigation bar button
     var backButton : UIBarButtonItem!
-    private let muteOnImage = UIImage(named: "btnMuteOnLightBlue")
-    private let muteOffImage = UIImage(named: "btnMuteOffLightBlue")
+    private let muteOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
+    private let muteOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
     
     // MARK: - GAME PROPERTIES (words array, positions matrix, etc)
     var crosswordMatrix: [[CrosswordElement?]]?

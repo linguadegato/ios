@@ -16,8 +16,8 @@ class InitialViewController: StatusBarViewController {
     @IBOutlet weak var playRandomGameButton: UIButton!
     @IBOutlet weak var muteButton: UIButton!
     
-    private let muteOnImage = UIImage(named: "btnMuteOnLightBlue")
-    private let muteOffImage = UIImage(named: "btnMuteOffLightBlue")
+    private let muteOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
+    private let muteOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
     
     private var aGenerator: LGCrosswordGenerator!
     
@@ -37,9 +37,6 @@ class InitialViewController: StatusBarViewController {
         } else {
             muteButton.setImage(muteOffImage, forState: .Normal)
         }
-        
-        //starts the background music
-        MusicSingleton.sharedMusic().playBackgroundAudio(true)
     }
 
     override func didReceiveMemoryWarning() {

@@ -69,8 +69,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private var playAudioImgViewOriginalPosition : CGPoint?
     
     //mute button images
-    private let muteOnImage = UIImage(named: "btnMuteOnLightBlue")
-    private let muteOffImage = UIImage(named: "btnMuteOffLightBlue")
+    private let muteOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
+    private let muteOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
     
     //MARK: Keyboard variable
     private var isKeyboardLifted: Bool = false
