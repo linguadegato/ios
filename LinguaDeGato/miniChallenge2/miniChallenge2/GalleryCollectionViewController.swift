@@ -16,6 +16,7 @@ class GalleryCollectionViewController : UICollectionViewController{
     
     var gallery = [WordAndClue]()
     var selectedWords = [WordAndClue]()
+    var header: GalleryHeaderView!
 
     private let maximumNumberOfWords = 6
     private let reuseIdentifier = "ClueCell"
@@ -77,6 +78,28 @@ class GalleryCollectionViewController : UICollectionViewController{
         
         cell.labelCell.text = clueWord
         
+        cell.selected = (selectedWords.contains(gallery[indexPath.row])) ? true : false
+        if cell.selected {
+            cell.layer.borderWidth = 3
+            cell.layer.borderColor = UIColor.greenPalete().CGColor
+            cell.selectImage.hidden = false
+            
+            self.header.playButton.hidden = false
+            galleryCollectionView.reloadInputViews()
+        }
+        else {
+            cell.layer.borderWidth = 0
+            cell.layer.borderColor = UIColor.greenPalete().CGColor
+            cell.selectImage.hidden = true
+            
+            if (selectedWords.isEmpty){
+                if header != nil {
+                    header.playButton.hidden = true
+                }
+                galleryCollectionView.reloadInputViews()
+            }
+        }
+        
         return cell
     }
     
@@ -86,6 +109,8 @@ class GalleryCollectionViewController : UICollectionViewController{
             
             let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "GalleryHeader",forIndexPath: indexPath) as! GalleryHeaderView
             headerView.title.text = collectionTitle
+            header = headerView
+            header!.playButton.hidden = (self.selectedWords.isEmpty) ? true : false
             return headerView
             
         default:
@@ -106,6 +131,7 @@ class GalleryCollectionViewController : UICollectionViewController{
     }
     
     override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        
         let wordToRemove = gallery[indexPath.row].word
         let imageToRemove = gallery[indexPath.row].clue.imageID
         
@@ -125,19 +151,18 @@ class GalleryCollectionViewController : UICollectionViewController{
     // MARK: - Behavior when select and deselect cells
     private func selectCell(indexPath: NSIndexPath){
         
-        
         let selectedCell = galleryCollectionView.cellForItemAtIndexPath(indexPath) as! GalleryCollectionViewCell
 
         selectedCell.layer.borderWidth = 3
         selectedCell.layer.borderColor = UIColor.greenPalete().CGColor
         selectedCell.selectImage.hidden = false
         
-        let header = galleryCollectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "GalleryHeader", forIndexPath: indexPath) as! GalleryHeaderView
-        header.playButton.hidden = false
-
+        self.header.playButton.hidden = false
+        galleryCollectionView.reloadInputViews()
     }
     
     private func deselectCell(indexPath: NSIndexPath){
+        
         let selectedCell = galleryCollectionView.cellForItemAtIndexPath(indexPath) as! GalleryCollectionViewCell
 
         selectedCell.layer.borderWidth = 0
@@ -145,8 +170,8 @@ class GalleryCollectionViewController : UICollectionViewController{
         selectedCell.selectImage.hidden = true
         
         if (selectedWords.isEmpty){
-            let header = galleryCollectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "GalleryHeader", forIndexPath: indexPath) as! GalleryHeaderView
             header.playButton.hidden = true
+            galleryCollectionView.reloadInputViews()
         }
     }
     
@@ -165,8 +190,8 @@ class GalleryCollectionViewController : UICollectionViewController{
                 galleryCollectionView.deselectItemAtIndexPath(indexPath, animated: false)
                 
                 // Disable play button on header
-                let header = galleryCollectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "GalleryHeader", forIndexPath: indexPath) as! GalleryHeaderView
                 header.playButton.hidden = true
+                galleryCollectionView.reloadInputViews()
 
             }
         }
