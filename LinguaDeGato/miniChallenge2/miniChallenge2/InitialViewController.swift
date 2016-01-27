@@ -16,8 +16,8 @@ class InitialViewController: StatusBarViewController {
     @IBOutlet weak var playRandomGameButton: UIButton!
     @IBOutlet weak var muteButton: UIButton!
     
-    private let muteOnImage = UIImage(named: "btnMuteOnLightBlue")
-    private let muteOffImage = UIImage(named: "btnMuteOffLightBlue")
+    private let muteOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
+    private let muteOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
     
     private var aGenerator: LGCrosswordGenerator!
     

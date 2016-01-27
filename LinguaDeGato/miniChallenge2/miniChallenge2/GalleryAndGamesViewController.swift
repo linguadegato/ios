@@ -14,8 +14,8 @@ class GalleryAndGamesViewController: UIViewController {
     private var allGames = [Game]()
     private var gallery = [WordAndClue]()
     private var backButton : UIBarButtonItem!
-    private let muteOnImage = UIImage(named: "btnMuteOnLightBlue")
-    private let muteOffImage = UIImage(named: "btnMuteOffLightBlue")
+    private let muteOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
+    private let muteOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
     
     @IBOutlet weak var muteButton: UIButton!
     
