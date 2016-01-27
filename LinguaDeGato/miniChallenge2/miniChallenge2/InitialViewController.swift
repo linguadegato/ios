@@ -37,9 +37,6 @@ class InitialViewController: StatusBarViewController {
         } else {
             muteButton.setImage(muteOffImage, forState: .Normal)
         }
-        
-        //starts the background music
-        MusicSingleton.sharedMusic().playBackgroundAudio(true)
     }
 
     override func didReceiveMemoryWarning() {
