@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -465,14 +465,14 @@
                         <viewControllerLayoutGuide type="bottom" id="B9L-XC-Vs3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PGi-CJ-GlE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="273" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <rect key="frame" x="0.0" y="0.0" width="273" height="492"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-3h-t5z">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="273" height="492"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
@@ -806,10 +806,10 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nT4-mE-MoB" userLabel="Gallery View">
-                                <rect key="frame" x="0.0" y="64" width="250" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="273" height="536"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMr-Hp-p2V" userLabel="Gallery Container View">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="536"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="273" height="536"/>
                                         <connections>
                                             <segue destination="Pfu-8O-Vpi" kind="embed" identifier="GallerySegue" id="gu0-yW-XZC"/>
                                         </connections>
@@ -824,10 +824,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6W-qE-AcA" userLabel="Games View">
-                                <rect key="frame" x="350" y="64" width="250" height="536"/>
+                                <rect key="frame" x="327" y="64" width="273" height="536"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fN0-pW-PDC" userLabel="Games Container View">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="536"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="273" height="536"/>
                                         <connections>
                                             <segue destination="oi9-UR-oqx" kind="embed" identifier="AllGamesSegue" id="YcB-vU-k2G"/>
                                         </connections>
@@ -848,8 +848,8 @@
                             <constraint firstItem="a6W-qE-AcA" firstAttribute="trailing" secondItem="jNh-nI-rDI" secondAttribute="trailing" id="BoK-ya-WH7"/>
                             <constraint firstItem="a6W-qE-AcA" firstAttribute="height" secondItem="cgk-bY-eR1" secondAttribute="height" id="M7T-3g-Ydq"/>
                             <constraint firstItem="nT4-mE-MoB" firstAttribute="height" secondItem="cgk-bY-eR1" secondAttribute="height" id="Ysd-2h-3Os"/>
-                            <constraint firstItem="a6W-qE-AcA" firstAttribute="width" secondItem="jNh-nI-rDI" secondAttribute="width" multiplier="1:2.4" id="Zeh-A0-aik"/>
-                            <constraint firstItem="nT4-mE-MoB" firstAttribute="width" secondItem="jNh-nI-rDI" secondAttribute="width" multiplier="1:2.4" id="bKK-hI-jHH"/>
+                            <constraint firstItem="a6W-qE-AcA" firstAttribute="width" secondItem="jNh-nI-rDI" secondAttribute="width" multiplier="1:2.2" id="Zeh-A0-aik"/>
+                            <constraint firstItem="nT4-mE-MoB" firstAttribute="width" secondItem="jNh-nI-rDI" secondAttribute="width" multiplier="1:2.2" id="bKK-hI-jHH"/>
                             <constraint firstItem="cgk-bY-eR1" firstAttribute="top" secondItem="TOv-UR-yNL" secondAttribute="bottom" id="c78-tv-ucG"/>
                             <constraint firstAttribute="trailing" secondItem="cgk-bY-eR1" secondAttribute="trailing" id="e7e-tF-VuB"/>
                             <constraint firstItem="ass-fY-UUH" firstAttribute="top" secondItem="cgk-bY-eR1" secondAttribute="bottom" id="tg9-qa-tIS"/>
@@ -888,6 +888,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="galleryView" destination="nT4-mE-MoB" id="UFZ-dx-Skd"/>
+                        <outlet property="gamesView" destination="a6W-qE-AcA" id="nY2-Fm-ZAR"/>
                         <outlet property="muteMusicButton" destination="ZTl-oC-rd0" id="nH9-s4-5jj"/>
                     </connections>
                 </viewController>
@@ -900,18 +902,18 @@
             <objects>
                 <collectionViewController id="Pfu-8O-Vpi" customClass="GalleryCollectionViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="1QJ-kp-tw4">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="273" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sSI-HL-LWq">
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="sSI-HL-LWq">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="50" height="70"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClueCell" id="ggA-Mq-lfS" customClass="GalleryCollectionViewCell" customModule="LinguaDeGato" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="70" width="50" height="50"/>
+                                <rect key="frame" x="5" y="75" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -930,7 +932,7 @@
                                             <rect key="frame" x="0.0" y="40" width="50" height="10"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="labelCell" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="362-oU-nXw" userLabel="Label Cell">
-                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="10"/>
+                                                    <rect key="frame" x="8" y="0.0" width="32" height="10"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -945,7 +947,7 @@
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="uXJ-Qu-fxi" secondAttribute="trailing" id="1zT-FV-SVZ"/>
-                                                <constraint firstItem="362-oU-nXw" firstAttribute="leading" secondItem="dkQ-4g-4ZM" secondAttribute="leading" id="2gm-pO-Irj"/>
+                                                <constraint firstItem="362-oU-nXw" firstAttribute="leading" secondItem="dkQ-4g-4ZM" secondAttribute="leadingMargin" id="2gm-pO-Irj"/>
                                                 <constraint firstAttribute="bottom" secondItem="362-oU-nXw" secondAttribute="bottom" id="9eb-wc-rky"/>
                                                 <constraint firstItem="uXJ-Qu-fxi" firstAttribute="leading" secondItem="362-oU-nXw" secondAttribute="trailing" id="Q9i-WS-EQB"/>
                                                 <constraint firstAttribute="bottom" secondItem="uXJ-Qu-fxi" secondAttribute="bottom" id="UDH-rc-Ltq"/>
@@ -956,6 +958,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="uzL-Qf-uNr" firstAttribute="top" secondItem="ggA-Mq-lfS" secondAttribute="top" id="4gK-h0-411"/>
                                     <constraint firstItem="nW5-Ld-mKZ" firstAttribute="centerX" secondItem="ggA-Mq-lfS" secondAttribute="centerX" id="AcM-ms-kC4"/>
@@ -978,41 +981,42 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryHeader" id="f5Q-Y4-Mhq" customClass="GalleryHeaderView" customModule="LinguaDeGato" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="250" height="70"/>
+                            <rect key="frame" x="0.0" y="0.0" width="273" height="70"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmO-dL-qQv" userLabel="Title View">
-                                    <rect key="frame" x="0.0" y="0.0" width="250" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="273" height="70"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconBoxGreen" translatesAutoresizingMaskIntoConstraints="NO" id="Fk0-mV-eqz" userLabel="Icon Image">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconBoxTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="Fk0-mV-eqz" userLabel="Icon Image">
                                             <rect key="frame" x="8" y="10" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="Fk0-mV-eqz" secondAttribute="height" multiplier="1:1" id="fRQ-Mn-uHs"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Palavras Salvas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKm-qH-KN2" userLabel="Title Label">
-                                            <rect key="frame" x="63" y="24" width="141" height="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Palavras Salvas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKm-qH-KN2" userLabel="Title Label">
+                                            <rect key="frame" x="63" y="24" width="167" height="24"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                            <color key="textColor" red="0.60392156860000001" green="0.75294117650000003" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2z8-9H-7LU" userLabel="Play Button">
-                                            <rect key="frame" x="207" y="18" width="35" height="35"/>
+                                            <rect key="frame" x="230" y="18" width="35" height="35"/>
+                                            <color key="backgroundColor" red="0.60392156860000001" green="0.75294117650000003" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="2z8-9H-7LU" secondAttribute="height" multiplier="1:1" id="Qhj-eY-ucm"/>
                                             </constraints>
-                                            <state key="normal" backgroundImage="iconPlayGreen"/>
+                                            <state key="normal" image="iconPlayWhiteTransparent"/>
                                             <connections>
                                                 <action selector="createNewGame:" destination="Pfu-8O-Vpi" eventType="touchUpInside" id="rAk-Jz-F53"/>
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="LKm-qH-KN2" firstAttribute="centerY" secondItem="lmO-dL-qQv" secondAttribute="centerY" id="8JR-py-hfb"/>
                                         <constraint firstItem="2z8-9H-7LU" firstAttribute="trailing" secondItem="lmO-dL-qQv" secondAttribute="trailingMargin" id="QyP-iw-t0o"/>
                                         <constraint firstItem="Fk0-mV-eqz" firstAttribute="leading" secondItem="lmO-dL-qQv" secondAttribute="leadingMargin" id="Qyd-dW-tCv"/>
                                         <constraint firstItem="2z8-9H-7LU" firstAttribute="centerY" secondItem="lmO-dL-qQv" secondAttribute="centerY" id="Rgj-oc-jM8"/>
+                                        <constraint firstItem="2z8-9H-7LU" firstAttribute="leading" secondItem="LKm-qH-KN2" secondAttribute="trailing" id="UlO-rn-vKv"/>
                                         <constraint firstItem="LKm-qH-KN2" firstAttribute="leading" secondItem="Fk0-mV-eqz" secondAttribute="trailing" constant="5" id="WOd-is-Utp"/>
                                         <constraint firstItem="Fk0-mV-eqz" firstAttribute="centerY" secondItem="lmO-dL-qQv" secondAttribute="centerY" id="Xaq-D0-aeS"/>
                                         <constraint firstItem="Fk0-mV-eqz" firstAttribute="height" secondItem="lmO-dL-qQv" secondAttribute="height" multiplier="1:1.4" id="Y9L-mO-msg"/>
@@ -1020,6 +1024,7 @@
                                     </constraints>
                                 </view>
                             </subviews>
+                            <color key="backgroundColor" red="0.60392156860000001" green="0.75294117650000003" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="lmO-dL-qQv" firstAttribute="width" secondItem="f5Q-Y4-Mhq" secondAttribute="width" id="7jJ-LO-zNN"/>
                                 <constraint firstItem="lmO-dL-qQv" firstAttribute="height" secondItem="f5Q-Y4-Mhq" secondAttribute="height" id="E8u-ey-27T"/>
@@ -1050,18 +1055,18 @@
             <objects>
                 <collectionViewController id="oi9-UR-oqx" userLabel="Games Collection View Controller" customClass="GamesCollectionViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="wev-d2-wdC">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="273" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9dn-cj-3d6">
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="9dn-cj-3d6">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="50" height="70"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClueCell" id="ZXa-Om-ncX" customClass="GameCollectionViewCell" customModule="LinguaDeGato" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="70" width="50" height="50"/>
+                                <rect key="frame" x="5" y="75" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -1118,36 +1123,36 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AllGamesHeader" id="dJj-5L-2By" customClass="GamesHeaderView" customModule="LinguaDeGato" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="250" height="70"/>
+                            <rect key="frame" x="0.0" y="0.0" width="273" height="70"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VfX-Ze-5FX" userLabel="Title View">
-                                    <rect key="frame" x="0.0" y="0.0" width="250" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="273" height="70"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconBoxGreen" translatesAutoresizingMaskIntoConstraints="NO" id="ezu-Me-4GU" userLabel="Icon Image">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconBoxTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="ezu-Me-4GU" userLabel="Icon Image">
                                             <rect key="frame" x="13" y="10" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="ezu-Me-4GU" secondAttribute="height" multiplier="1:1" id="t2Q-fB-Mze"/>
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSc-7h-b2D" userLabel="Play Button">
-                                            <rect key="frame" x="207" y="18" width="35" height="35"/>
+                                            <rect key="frame" x="230" y="18" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="jSc-7h-b2D" secondAttribute="height" multiplier="1:1" id="RBG-5o-lQ0"/>
                                             </constraints>
-                                            <state key="normal" backgroundImage="iconPlayGreen"/>
+                                            <state key="normal" backgroundImage="iconPlayWhiteTransparent"/>
                                             <connections>
                                                 <action selector="playGame:" destination="oi9-UR-oqx" eventType="touchUpInside" id="tES-Hn-Y8r"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbR-FB-zcu" userLabel="Title Label">
-                                            <rect key="frame" x="68" y="24" width="45" height="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbR-FB-zcu" userLabel="Title Label">
+                                            <rect key="frame" x="68" y="24" width="162" height="24"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                            <color key="textColor" red="0.60392156860000001" green="0.75294117650000003" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="0.60392156860000001" green="0.75294117650000003" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="jSc-7h-b2D" firstAttribute="trailing" secondItem="VfX-Ze-5FX" secondAttribute="trailingMargin" id="1uv-JE-jhc"/>
                                         <constraint firstItem="jSc-7h-b2D" firstAttribute="centerY" secondItem="VfX-Ze-5FX" secondAttribute="centerY" id="GbE-5c-2k7"/>
@@ -1157,6 +1162,7 @@
                                         <constraint firstItem="xbR-FB-zcu" firstAttribute="leading" secondItem="ezu-Me-4GU" secondAttribute="trailing" constant="5" id="qnS-44-loi"/>
                                         <constraint firstItem="jSc-7h-b2D" firstAttribute="height" secondItem="VfX-Ze-5FX" secondAttribute="height" multiplier="1:2" id="wd5-Eh-xHT"/>
                                         <constraint firstItem="xbR-FB-zcu" firstAttribute="centerY" secondItem="VfX-Ze-5FX" secondAttribute="centerY" id="xFR-jG-ufm"/>
+                                        <constraint firstItem="jSc-7h-b2D" firstAttribute="leading" secondItem="xbR-FB-zcu" secondAttribute="trailing" id="zoI-8V-BwJ"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -1191,15 +1197,16 @@
         <image name="btnMuteAudioOffLightBlue" width="351" height="351"/>
         <image name="btnMuteMusicOffLightBlue" width="351" height="351"/>
         <image name="btnPlayBlue" width="130" height="130"/>
-        <image name="iconAddWord" width="135" height="135"/>
+        <image name="iconAddWord" width="70" height="70"/>
         <image name="iconBoxGreen" width="306" height="306"/>
+        <image name="iconBoxTransparent" width="306" height="306"/>
         <image name="iconCatTransparent" width="699" height="669"/>
         <image name="iconGamePink" width="128" height="128"/>
         <image name="iconPawGreen" width="284" height="285"/>
         <image name="iconPlayAudioBlackTransparent" width="134" height="134"/>
         <image name="iconPlayAudioOrangeTransparent" width="134" height="134"/>
-        <image name="iconPlayGreen" width="134" height="134"/>
         <image name="iconPlayOrange" width="128" height="128"/>
+        <image name="iconPlayWhiteTransparent" width="130" height="130"/>
         <image name="iconSaveBlue" width="324" height="324"/>
         <image name="iconTrashOrangeTransparent" width="256" height="256"/>
         <image name="imageDefault" width="683" height="499"/>
@@ -1208,6 +1215,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jFj-O3-2OQ"/>
+        <segue reference="uDm-0q-eKI"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -18,9 +18,19 @@ class GalleryAndGamesViewController: UIViewController {
     private let muteMusicOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
     
     @IBOutlet weak var muteMusicButton: UIButton!
+    @IBOutlet weak var galleryView: UIView!
+    @IBOutlet weak var gamesView: UIView!
+    
 
     override func viewWillAppear(animated: Bool) {
-        //set image of mute button
+        
+        //Set border to collection views
+//        self.gamesView.layer.borderColor = UIColor.greenPalete().CGColor
+//        self.gamesView.layer.borderWidth = 2
+//        self.galleryView.layer.borderColor = UIColor.greenPalete().CGColor
+//        self.galleryView.layer.borderWidth = 2
+        
+        //Set image of mute button
         if MusicSingleton.sharedMusic().isMusicMute {
             muteMusicButton.setImage(muteMusicOnImage, forState: .Normal)
         } else {
