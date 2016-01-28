@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -463,20 +463,20 @@
         <!--Game Play View Controller-->
         <scene sceneID="Fxu-H6-vaK">
             <objects>
-                <viewController id="epj-fT-bue" customClass="GamePlayViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="GamePlayViC" id="epj-fT-bue" customClass="GamePlayViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b4d-cD-jcb"/>
                         <viewControllerLayoutGuide type="bottom" id="B9L-XC-Vs3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PGi-CJ-GlE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="250" height="492"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-3h-t5z">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="492"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
@@ -557,7 +557,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOf-ag-Lri" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34" y="1139"/>
+            <point key="canvasLocation" x="-13" y="1156"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="0g3-yJ-IvD">
@@ -985,7 +985,7 @@
                                             </constraints>
                                             <state key="normal" backgroundImage="iconPlayGreen"/>
                                             <connections>
-                                                <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromGallery" id="jVy-kP-ALy"/>
+                                                <action selector="createNewGame:" destination="Pfu-8O-Vpi" eventType="touchUpInside" id="rAk-Jz-F53"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -1020,6 +1020,7 @@
                     </collectionView>
                     <connections>
                         <outlet property="galleryCollectionView" destination="1QJ-kp-tw4" id="89a-LU-QM9"/>
+                        <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromGallery" id="Ca8-aX-QSL"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ou-ti-iGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1168,6 +1169,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MqY-2r-mQO"/>
+        <segue reference="Ca8-aX-QSL"/>
     </inferredMetricsTieBreakers>
 </document>

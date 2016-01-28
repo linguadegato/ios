@@ -28,9 +28,7 @@ class GalleryAndGamesViewController: UIViewController {
         }
     }
     
-    // "mute music" button
-    
-    
+    // MARK: - Button Actions
     @IBAction func muteMusicButton(sender: AnyObject) {
         if MusicSingleton.sharedMusic().isMusicMute {
             // music will play
@@ -45,8 +43,6 @@ class GalleryAndGamesViewController: UIViewController {
         }
     }
     
-    // MARK: - Button Actions
-    
     @IBAction func goBack(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
         
@@ -59,22 +55,5 @@ class GalleryAndGamesViewController: UIViewController {
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
         }
     }
-    
-    // MARK: - NAVIGATION
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //allGames = createExampleGames()
-        //gallery = createExampleGallery()
-        
-        if (segue.identifier == "AllGamesSegue") {
-            
-            //(segue.destinationViewController as! GamesCollectionViewController).allGames = allGames
-            
-        }else if (segue.identifier == "GallerySegue"){
-            
-            //(segue.destinationViewController as! GalleryCollectionViewController).gallery = gallery
-        }
-    }
-    
+
 }
