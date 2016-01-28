@@ -923,13 +923,20 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageDefault" translatesAutoresizingMaskIntoConstraints="NO" id="nW5-Ld-mKZ" userLabel="Image Cell">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="labelCell" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="362-oU-nXw" userLabel="Label Cell">
-                                            <rect key="frame" x="0.0" y="40" width="50" height="10"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="labelCell" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="362-oU-nXw" userLabel="Label Cell">
+                                            <rect key="frame" x="0.0" y="40" width="40" height="10"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPlayAudioBlackTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="uXJ-Qu-fxi" userLabel="Audio Image View">
+                                            <rect key="frame" x="40" y="40" width="10" height="10"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="uXJ-Qu-fxi" secondAttribute="height" multiplier="1:1" id="dte-1r-UZ0"/>
+                                            </constraints>
+                                        </imageView>
                                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPawGreen" translatesAutoresizingMaskIntoConstraints="NO" id="uzL-Qf-uNr" userLabel="Selected Image">
                                             <rect key="frame" x="40" y="0.0" width="10" height="10"/>
                                             <constraints>
@@ -940,17 +947,20 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="362-oU-nXw" firstAttribute="width" secondItem="ggA-Mq-lfS" secondAttribute="width" id="3GC-Bq-Ks2"/>
                                     <constraint firstItem="uzL-Qf-uNr" firstAttribute="top" secondItem="ggA-Mq-lfS" secondAttribute="top" id="4gK-h0-411"/>
+                                    <constraint firstAttribute="bottom" secondItem="uXJ-Qu-fxi" secondAttribute="bottom" id="6tK-7U-xS6"/>
+                                    <constraint firstItem="uXJ-Qu-fxi" firstAttribute="height" secondItem="362-oU-nXw" secondAttribute="height" id="7yu-KI-BUv"/>
                                     <constraint firstItem="nW5-Ld-mKZ" firstAttribute="centerX" secondItem="ggA-Mq-lfS" secondAttribute="centerX" id="AcM-ms-kC4"/>
                                     <constraint firstItem="nW5-Ld-mKZ" firstAttribute="height" secondItem="ggA-Mq-lfS" secondAttribute="height" id="BuH-Mh-xuF"/>
                                     <constraint firstAttribute="trailing" secondItem="uzL-Qf-uNr" secondAttribute="trailing" id="C7x-xy-vfS"/>
+                                    <constraint firstItem="362-oU-nXw" firstAttribute="trailing" secondItem="uXJ-Qu-fxi" secondAttribute="leading" id="EgT-9f-90M"/>
                                     <constraint firstItem="nW5-Ld-mKZ" firstAttribute="width" secondItem="ggA-Mq-lfS" secondAttribute="width" id="GiF-co-6f9"/>
-                                    <constraint firstItem="362-oU-nXw" firstAttribute="centerX" secondItem="ggA-Mq-lfS" secondAttribute="centerX" id="VVx-Gh-Ore"/>
                                     <constraint firstItem="362-oU-nXw" firstAttribute="bottom" secondItem="ggA-Mq-lfS" secondAttribute="bottom" id="YlJ-9d-vPP"/>
                                     <constraint firstItem="362-oU-nXw" firstAttribute="height" secondItem="ggA-Mq-lfS" secondAttribute="height" multiplier="1:5" id="fyi-b2-mdF"/>
                                     <constraint firstItem="nW5-Ld-mKZ" firstAttribute="centerY" secondItem="ggA-Mq-lfS" secondAttribute="centerY" id="kgB-Mg-nfR"/>
                                     <constraint firstItem="uzL-Qf-uNr" firstAttribute="width" secondItem="ggA-Mq-lfS" secondAttribute="width" multiplier="1:5" id="lH4-4A-qzr"/>
+                                    <constraint firstAttribute="trailing" secondItem="uXJ-Qu-fxi" secondAttribute="trailing" id="qtR-ox-DNN"/>
+                                    <constraint firstItem="362-oU-nXw" firstAttribute="leading" secondItem="ggA-Mq-lfS" secondAttribute="leading" id="tf1-tI-pVc"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="imageCell" destination="nW5-Ld-mKZ" id="5uQ-WF-J53"/>
