@@ -59,27 +59,51 @@ class InitialViewController: StatusBarViewController {
                 avaiableWords = words
                 randomWords = []
                 
-                for _ in 1...6 {
-                    let anIndex = random() % avaiableWords.count
-                    randomWords.append(avaiableWords[anIndex])
-                    avaiableWords.removeAtIndex(anIndex)
+                if avaiableWords.isEmpty {
+                    self.noWordsAlert()
                 }
-                
-                //generate a crossword
-                // I dont know why cols and rows are interchanged... will not fix it right now
-                self.aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: randomWords)
-                
-                self.aGenerator.computeCrossword(3, spins: 4)
-                
-                self.performSegueWithIdentifier("randomGame", sender: nil)
+                else {
+                    let wordsForRandom = min(6, avaiableWords.count)
+                    
+                    for _ in 1...wordsForRandom {
+                        let anIndex = random() % avaiableWords.count
+                        randomWords.append(avaiableWords[anIndex])
+                        avaiableWords.removeAtIndex(anIndex)
+                    }
+                    
+                    //generate a crossword
+                    // I dont know why cols and rows are interchanged... will not fix it right now
+                    self.aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: randomWords)
+                    
+                    self.aGenerator.computeCrossword(3, spins: 4)
+                    
+                    self.performSegueWithIdentifier("randomGame", sender: nil)
+                }
             })
             
             NSOperationQueue.mainQueue().addOperation(operation)
         })
     }
 
+    @IBAction func savedGame(sender: AnyObject) {
+        //MARK: FIX-ME: NEEDS A ACTIVITY INDICATOR
+        WordAndClueServices.retriveAllWordAndClues({ words in
+            
+            let operation = NSBlockOperation(block: {
+                if words.isEmpty {
+                    self.noWordsAlert()
+                }
+                else {
+                    self.performSegueWithIdentifier("toGallery", sender: nil)
+                }
+            })
+            NSOperationQueue.mainQueue().addOperation(operation)
+        })
+    }
+    
     // "mute music" button
     @IBAction func muteMusicButton(sender: AnyObject) {
+        
         if MusicSingleton.sharedMusic().isMusicMute {
             // music will play
             muteMusicButton.setImage(muteMusicOffImage, forState: .Normal)
@@ -91,6 +115,15 @@ class InitialViewController: StatusBarViewController {
             MusicSingleton.sharedMusic().isMusicMute = true
             MusicSingleton.sharedMusic().playBackgroundAudio(false)
         }
+    }
+    
+    //MARK: - ALERTS
+    private func noWordsAlert() {
+        
+        let alert = UIAlertController(title: "Ainda não há palavras salvas", message: "Crie jogos para salvar palavras", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     //MARK: - NAVIGATION

@@ -56,10 +56,10 @@ class GalleryCollectionViewController : UICollectionViewController{
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GalleryCollectionViewCell
         let clueWord = gallery[indexPath.row].word
         let imageID = gallery[indexPath.row].clue.imageID
+        let audioClue = gallery[indexPath.row].clue.audioPath
         
         //set image
         if imageID != nil {
-            
             let results = PHAsset.fetchAssetsWithLocalIdentifiers([imageID!], options: nil)
             
             if results.firstObject != nil {
@@ -72,13 +72,19 @@ class GalleryCollectionViewController : UICollectionViewController{
             else {
                 cell.imageCell.image = AppImages.onlyAudioImage
             }
-        }
-        else {
+        } else {
             cell.imageCell.image = AppImages.onlyAudioImage
         }
         
+        //set image name
         cell.labelCell.text = clueWord
         
+        //set audio button or not
+        if (audioClue != nil) {
+            cell.audioImage.hidden = false
+        }
+        
+        //set layout if the cell is selected
         cell.selected = (selectedWords.contains(gallery[indexPath.row])) ? true : false
         if cell.selected {
             cell.layer.borderWidth = 3

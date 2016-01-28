@@ -12,7 +12,6 @@ import UIKit
 class GameCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageCell: UIImageView!
     @IBOutlet weak var labelCell: UILabel!
-    @IBOutlet weak var selectButton: UIButton!
     @IBOutlet weak var audioImage: UIImageView!
     
     
