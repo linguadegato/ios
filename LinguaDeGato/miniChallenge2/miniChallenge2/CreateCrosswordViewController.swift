@@ -51,7 +51,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private let audioButtonRecordingImage = (UIImage(named: "btnAudioBlue"))
     
     // - Add new clue
-    private let addButtonImageOn = (UIImage(named: "iconAddWhiteSmall"))
+    private let addButtonImageOn = (UIImage(named: "iconAddWord"))
     
     //textField
     private let textFieldBorderColor = UIColor.bluePalete().CGColor
