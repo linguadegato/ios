@@ -1078,7 +1078,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPlayAudioBlackTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="Dg5-qj-4rT" userLabel="Audio Image View">
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPlayAudioBlackTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="Dg5-qj-4rT" userLabel="Audio Image View">
                                                     <rect key="frame" x="40" y="0.0" width="10" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Dg5-qj-4rT" secondAttribute="height" multiplier="1:1" id="5QB-kD-aRk"/>
@@ -1110,6 +1110,7 @@
                                     <constraint firstItem="J6S-5z-VWU" firstAttribute="height" secondItem="ZXa-Om-ncX" secondAttribute="height" multiplier="1:5" id="yp5-DV-Paz"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="audioImage" destination="Dg5-qj-4rT" id="TUu-0u-PT4"/>
                                     <outlet property="imageCell" destination="UNN-vS-fT3" id="Wp4-Fm-juN"/>
                                     <outlet property="labelCell" destination="loW-VD-WqT" id="gQW-w9-dpp"/>
                                 </connections>
