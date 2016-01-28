@@ -459,20 +459,20 @@
         <!--Game Play View Controller-->
         <scene sceneID="Fxu-H6-vaK">
             <objects>
-                <viewController id="epj-fT-bue" customClass="GamePlayViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="GamePlayViC" id="epj-fT-bue" customClass="GamePlayViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b4d-cD-jcb"/>
                         <viewControllerLayoutGuide type="bottom" id="B9L-XC-Vs3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PGi-CJ-GlE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="250" height="492"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-3h-t5z">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="492"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
@@ -553,7 +553,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOf-ag-Lri" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34" y="1139"/>
+            <point key="canvasLocation" x="-13" y="1156"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="0g3-yJ-IvD">
@@ -919,13 +919,20 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageDefault" translatesAutoresizingMaskIntoConstraints="NO" id="nW5-Ld-mKZ" userLabel="Image Cell">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="labelCell" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="362-oU-nXw" userLabel="Label Cell">
-                                            <rect key="frame" x="0.0" y="40" width="50" height="10"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="labelCell" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="362-oU-nXw" userLabel="Label Cell">
+                                            <rect key="frame" x="0.0" y="40" width="40" height="10"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPlayAudioBlackTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="uXJ-Qu-fxi" userLabel="Audio Image View">
+                                            <rect key="frame" x="40" y="40" width="10" height="10"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="uXJ-Qu-fxi" secondAttribute="height" multiplier="1:1" id="dte-1r-UZ0"/>
+                                            </constraints>
+                                        </imageView>
                                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPawGreen" translatesAutoresizingMaskIntoConstraints="NO" id="uzL-Qf-uNr" userLabel="Selected Image">
                                             <rect key="frame" x="40" y="0.0" width="10" height="10"/>
                                             <constraints>
@@ -936,17 +943,20 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="362-oU-nXw" firstAttribute="width" secondItem="ggA-Mq-lfS" secondAttribute="width" id="3GC-Bq-Ks2"/>
                                     <constraint firstItem="uzL-Qf-uNr" firstAttribute="top" secondItem="ggA-Mq-lfS" secondAttribute="top" id="4gK-h0-411"/>
+                                    <constraint firstAttribute="bottom" secondItem="uXJ-Qu-fxi" secondAttribute="bottom" id="6tK-7U-xS6"/>
+                                    <constraint firstItem="uXJ-Qu-fxi" firstAttribute="height" secondItem="362-oU-nXw" secondAttribute="height" id="7yu-KI-BUv"/>
                                     <constraint firstItem="nW5-Ld-mKZ" firstAttribute="centerX" secondItem="ggA-Mq-lfS" secondAttribute="centerX" id="AcM-ms-kC4"/>
                                     <constraint firstItem="nW5-Ld-mKZ" firstAttribute="height" secondItem="ggA-Mq-lfS" secondAttribute="height" id="BuH-Mh-xuF"/>
                                     <constraint firstAttribute="trailing" secondItem="uzL-Qf-uNr" secondAttribute="trailing" id="C7x-xy-vfS"/>
+                                    <constraint firstItem="362-oU-nXw" firstAttribute="trailing" secondItem="uXJ-Qu-fxi" secondAttribute="leading" id="EgT-9f-90M"/>
                                     <constraint firstItem="nW5-Ld-mKZ" firstAttribute="width" secondItem="ggA-Mq-lfS" secondAttribute="width" id="GiF-co-6f9"/>
-                                    <constraint firstItem="362-oU-nXw" firstAttribute="centerX" secondItem="ggA-Mq-lfS" secondAttribute="centerX" id="VVx-Gh-Ore"/>
                                     <constraint firstItem="362-oU-nXw" firstAttribute="bottom" secondItem="ggA-Mq-lfS" secondAttribute="bottom" id="YlJ-9d-vPP"/>
                                     <constraint firstItem="362-oU-nXw" firstAttribute="height" secondItem="ggA-Mq-lfS" secondAttribute="height" multiplier="1:5" id="fyi-b2-mdF"/>
                                     <constraint firstItem="nW5-Ld-mKZ" firstAttribute="centerY" secondItem="ggA-Mq-lfS" secondAttribute="centerY" id="kgB-Mg-nfR"/>
                                     <constraint firstItem="uzL-Qf-uNr" firstAttribute="width" secondItem="ggA-Mq-lfS" secondAttribute="width" multiplier="1:5" id="lH4-4A-qzr"/>
+                                    <constraint firstAttribute="trailing" secondItem="uXJ-Qu-fxi" secondAttribute="trailing" id="qtR-ox-DNN"/>
+                                    <constraint firstItem="362-oU-nXw" firstAttribute="leading" secondItem="ggA-Mq-lfS" secondAttribute="leading" id="tf1-tI-pVc"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="imageCell" destination="nW5-Ld-mKZ" id="5uQ-WF-J53"/>
@@ -981,7 +991,7 @@
                                             </constraints>
                                             <state key="normal" backgroundImage="iconPlayGreen"/>
                                             <connections>
-                                                <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromGallery" id="jVy-kP-ALy"/>
+                                                <action selector="createNewGame:" destination="Pfu-8O-Vpi" eventType="touchUpInside" id="rAk-Jz-F53"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -1016,6 +1026,7 @@
                     </collectionView>
                     <connections>
                         <outlet property="galleryCollectionView" destination="1QJ-kp-tw4" id="89a-LU-QM9"/>
+                        <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromGallery" id="Ca8-aX-QSL"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ou-ti-iGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1164,6 +1175,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MqY-2r-mQO"/>
+        <segue reference="Ca8-aX-QSL"/>
     </inferredMetricsTieBreakers>
 </document>

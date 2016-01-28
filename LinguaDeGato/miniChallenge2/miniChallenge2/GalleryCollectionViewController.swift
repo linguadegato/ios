@@ -17,7 +17,8 @@ class GalleryCollectionViewController : UICollectionViewController{
     var gallery = [WordAndClue]()
     var selectedWords = [WordAndClue]()
     var header: GalleryHeaderView!
-
+    
+    private let gameViewControler = GamePlayViewController()
     private let maximumNumberOfWords = 6
     private let reuseIdentifier = "ClueCell"
     private let collectionTitle = "Palavras Salvas"
@@ -178,27 +179,7 @@ class GalleryCollectionViewController : UICollectionViewController{
     private func deselectAllCells(){
         
         selectedWords = []
-        
-        /*
-        let selectedCells = galleryCollectionView.indexPathsForSelectedItems()
-        if (selectedCells?.isEmpty == false){
-            let numberOfSelectedCells = selectedCells!.count
-            for count in 0...numberOfSelectedCells-1{
-                let indexPath = selectedCells![count]
-                
-                let selectedCell = galleryCollectionView.cellForItemAtIndexPath(indexPath) as! GalleryCollectionViewCell
-                
-                selectedCell.layer.borderWidth = 0
-                selectedCell.layer.borderColor = UIColor.greenPalete().CGColor
-                selectedCell.selectImage.hidden = true
-                galleryCollectionView.deselectItemAtIndexPath(indexPath, animated: false)
-                
-                // Disable play button on header
-                header.playButton.hidden = true
-                galleryCollectionView.reloadInputViews()
-            }
-        }
-        */
+
     }
     
     private func opaqueCells(){
@@ -243,10 +224,71 @@ class GalleryCollectionViewController : UICollectionViewController{
         }
     }
     
+    //MARK: - CREATE GAME BUTTON
+    @IBAction func createNewGame(sender: AnyObject) {
+        
+        let saveAlert = UIAlertController(title: "Deseja salvar esse jogo?", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        saveAlert.addTextFieldWithConfigurationHandler({ alertTextField in
+            alertTextField.placeholder = "Nome do jogo"
+        })
+        let alertTextField = saveAlert.textFields![0]
+        
+        saveAlert.addAction(UIAlertAction(
+            title: "Salvar",
+            style: UIAlertActionStyle.Default,
+            handler:{
+                _ in
+                if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
+                    let newGame = Game(gameName: alertTextField.text!, wordsAndClue: self.selectedWords)
+                    GameServices.saveGame(newGame, completion: {
+                        success in
+                        if success {
+                            let operation = NSBlockOperation(block: {
+                                () -> Void in self.performSegueWithIdentifier("CreateGameFromGallery", sender: nil)
+                            })
+                            NSOperationQueue.mainQueue().addOperation(operation)
+                        }else{
+                            NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
+                                self.overwriteGame(newGame)
+                            }))
+                        }
+                    })
+                }else {
+                    print("empty text field!")
+                }
+            }
+        ))
+        
+        saveAlert.addAction(UIAlertAction(
+            title: "Não",
+            style: UIAlertActionStyle.Cancel,
+            handler: {_ in self.performSegueWithIdentifier("CreateGameFromGallery", sender: nil)}
+        ))
+        
+        self.presentViewController(saveAlert, animated: true, completion: {
+        })
+    }
+    
+    private func overwriteGame(aGame: Game) {
+        let overwriteAlert = UIAlertController(title: "Sobreescrever jogo?", message: "Já existe um jogo salvo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        overwriteAlert.addAction(UIAlertAction(title: "SIM", style: UIAlertActionStyle.Default, handler: {_ in
+            GameServices.overwriteGame(aGame)
+            self.performSegueWithIdentifier("GenerateCrossword", sender: nil)
+        }))
+        
+        overwriteAlert.addAction(UIAlertAction(title: "NÃO", style: UIAlertActionStyle.Default, handler: {_ in
+            self.createNewGame(self)
+        }))
+        
+        self.presentViewController(overwriteAlert, animated: true, completion: nil)
+    }
+    
     //MARK: - NAVIGATION
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //MARK: HARRY-TODO: ACTIVITY INDICATOR
-        
         let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: selectedWords)
         aGenerator.computeCrossword(2, spins: 4)
         
