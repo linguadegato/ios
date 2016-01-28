@@ -46,6 +46,7 @@ class GamesCollectionViewController : UICollectionViewController{
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GameCollectionViewCell
         let clueWord = allGames[indexPath.section].wordsAndClueArray[indexPath.row].word
         let imageID = allGames[indexPath.section].wordsAndClueArray[indexPath.row].clue.imageID
+        let audioPath = allGames[indexPath.section].wordsAndClueArray[indexPath.row].clue.audioPath
         
         //set image
         if imageID != nil {
@@ -68,6 +69,10 @@ class GamesCollectionViewController : UICollectionViewController{
         }
         
         cell.labelCell.text = clueWord
+        
+        if (audioPath != nil){
+            cell.audioImage.hidden = false
+        }
         
         return cell
     }
