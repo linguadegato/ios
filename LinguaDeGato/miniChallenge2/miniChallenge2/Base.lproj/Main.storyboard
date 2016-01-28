@@ -1069,25 +1069,45 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageDefault" translatesAutoresizingMaskIntoConstraints="NO" id="UNN-vS-fT3">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loW-VD-WqT">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6S-5z-VWU" userLabel="Subtitle View">
                                             <rect key="frame" x="0.0" y="40" width="50" height="10"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loW-VD-WqT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="10"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPlayAudioBlackTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="Dg5-qj-4rT" userLabel="Audio Image View">
+                                                    <rect key="frame" x="40" y="0.0" width="10" height="10"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Dg5-qj-4rT" secondAttribute="height" multiplier="1:1" id="5QB-kD-aRk"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Dg5-qj-4rT" secondAttribute="bottom" id="A6b-iy-dLA"/>
+                                                <constraint firstItem="Dg5-qj-4rT" firstAttribute="height" secondItem="J6S-5z-VWU" secondAttribute="height" id="LRW-Hj-n3N"/>
+                                                <constraint firstItem="loW-VD-WqT" firstAttribute="height" secondItem="J6S-5z-VWU" secondAttribute="height" id="UJL-nl-sHb"/>
+                                                <constraint firstAttribute="trailing" secondItem="Dg5-qj-4rT" secondAttribute="trailing" id="YKi-Uh-KCo"/>
+                                                <constraint firstItem="loW-VD-WqT" firstAttribute="leading" secondItem="J6S-5z-VWU" secondAttribute="leading" id="shK-C6-zUi"/>
+                                                <constraint firstAttribute="bottom" secondItem="loW-VD-WqT" secondAttribute="bottom" id="uBN-Vd-MQP"/>
+                                                <constraint firstItem="Dg5-qj-4rT" firstAttribute="leading" secondItem="loW-VD-WqT" secondAttribute="trailing" id="urv-cm-ObR"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="loW-VD-WqT" firstAttribute="bottom" secondItem="ZXa-Om-ncX" secondAttribute="bottom" id="18c-ih-HuX"/>
                                     <constraint firstItem="UNN-vS-fT3" firstAttribute="width" secondItem="ZXa-Om-ncX" secondAttribute="width" id="8Gd-Om-rg1"/>
-                                    <constraint firstItem="loW-VD-WqT" firstAttribute="height" secondItem="ZXa-Om-ncX" secondAttribute="height" multiplier="1:5" id="APy-Yf-CjY"/>
-                                    <constraint firstItem="loW-VD-WqT" firstAttribute="centerX" secondItem="ZXa-Om-ncX" secondAttribute="centerX" id="BtB-GR-P3M"/>
                                     <constraint firstItem="UNN-vS-fT3" firstAttribute="centerY" secondItem="ZXa-Om-ncX" secondAttribute="centerY" id="FR5-c5-QC9"/>
-                                    <constraint firstItem="loW-VD-WqT" firstAttribute="width" secondItem="ZXa-Om-ncX" secondAttribute="width" id="G5O-fo-eVg"/>
                                     <constraint firstItem="UNN-vS-fT3" firstAttribute="height" secondItem="ZXa-Om-ncX" secondAttribute="height" id="Hvb-ll-FZZ"/>
+                                    <constraint firstItem="J6S-5z-VWU" firstAttribute="centerX" secondItem="ZXa-Om-ncX" secondAttribute="centerX" id="L55-Zd-M3H"/>
+                                    <constraint firstItem="J6S-5z-VWU" firstAttribute="width" secondItem="ZXa-Om-ncX" secondAttribute="width" id="LR7-3C-bIT"/>
+                                    <constraint firstAttribute="bottom" secondItem="J6S-5z-VWU" secondAttribute="bottom" id="Phh-yM-cw9"/>
                                     <constraint firstItem="UNN-vS-fT3" firstAttribute="centerX" secondItem="ZXa-Om-ncX" secondAttribute="centerX" id="WJx-du-vHC"/>
+                                    <constraint firstItem="J6S-5z-VWU" firstAttribute="height" secondItem="ZXa-Om-ncX" secondAttribute="height" multiplier="1:5" id="yp5-DV-Paz"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="imageCell" destination="UNN-vS-fT3" id="Wp4-Fm-juN"/>
@@ -1186,6 +1206,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ca8-aX-QSL"/>
+        <segue reference="uDm-0q-eKI"/>
     </inferredMetricsTieBreakers>
 </document>
