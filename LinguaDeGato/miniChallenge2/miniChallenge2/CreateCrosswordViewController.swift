@@ -524,6 +524,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                         animationFinished in
                         if (self.animationBackgroundView.frame.origin.x == 0){
                             self.trashImageImgView.hidden = false
+                            //self.arrow.frame.origin.x = self.audioImageImgView.frame.origin.x
                             self.arrow.hidden = false
                         }
                     }
@@ -535,7 +536,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
             case UIGestureRecognizerState.Ended:
                 self.arrowAnimationTimer.invalidate()
-                self.trashImageImgView.hidden = true
                 resetAnimationViewPosition()
                 hideElementsAfterAnimation()
                 break
@@ -564,7 +564,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                         sender.enabled = true
                         self.hideElementsAfterAnimation()
                         self.resetAnimationViewPosition()
-                        self.audioImageImgView.hidden = true
+                        self.hideSlideView()
                     }
                 )
                 break
@@ -643,15 +643,14 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         UIView.animateWithDuration(1,
             //arrow slide to trash
             animations: {
-                self.arrow.transform = CGAffineTransformMakeTranslation(-self.animationBackgroundView.bounds.width + self.trashImageImgView.bounds.size.width + self.audioImageImgView.bounds.size.width, 0)
+                self.arrow.hidden = false
+                self.arrow.frame.origin.x = 0
             },
             //arrow backs to right edge of animationBackgroundView
             completion: { (flag) -> Void in
                 self.arrow.hidden = true
-                self.arrow.transform = CGAffineTransformIdentity
-                self.arrow.frame.origin.x = self.audioImageImgView.center.x
+                self.arrow.frame.origin.x = self.audioImageImgView.frame.origin.x
                 self.arrow.setNeedsDisplay()
-                self.arrow.hidden = false
             }
         )
     }
@@ -700,7 +699,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         self.animationBackgroundView.frame.origin.x = self.removeAudioView.frame.width
         self.animationBackgroundView.frame.size.width = 0
         
-        self.audioImageImgView.center.x = self.removeAudioView.frame.width - self.audioImageImgView.frame.width/2
+        self.audioImageImgView.frame.origin.x = self.removeAudioView.frame.width - self.audioImageImgView.frame.width
     }
     
     //MARK: - FILE MANAGER RELATED METHODS
