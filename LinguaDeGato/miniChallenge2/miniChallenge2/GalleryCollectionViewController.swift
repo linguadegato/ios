@@ -37,7 +37,7 @@ class GalleryCollectionViewController : UICollectionViewController{
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        let cellSizeForGallery = collectionView.bounds.size.width/3.2
+        let cellSizeForGallery = collectionView.bounds.size.width/5
         return CGSizeMake(cellSizeForGallery, cellSizeForGallery)
         
     }

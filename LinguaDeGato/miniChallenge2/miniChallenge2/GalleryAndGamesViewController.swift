@@ -20,15 +20,11 @@ class GalleryAndGamesViewController: UIViewController {
     @IBOutlet weak var muteMusicButton: UIButton!
     @IBOutlet weak var galleryView: UIView!
     @IBOutlet weak var gamesView: UIView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
 
     override func viewWillAppear(animated: Bool) {
-        
-        //Set border to collection views
-//        self.gamesView.layer.borderColor = UIColor.greenPalete().CGColor
-//        self.gamesView.layer.borderWidth = 2
-//        self.galleryView.layer.borderColor = UIColor.greenPalete().CGColor
-//        self.galleryView.layer.borderWidth = 2
+        self.indexChanged(self.segmentedControl)
         
         //Set image of mute button
         if MusicSingleton.sharedMusic().isMusicMute {
@@ -66,4 +62,22 @@ class GalleryAndGamesViewController: UIViewController {
         }
     }
 
+    // MARK: - Segmented Control action
+    @IBAction func indexChanged(sender: AnyObject) {
+        switch segmentedControl.selectedSegmentIndex{
+        case 0:
+            UIView.animateWithDuration(0.5, animations: {
+                self.galleryView.alpha = 1
+                self.gamesView.alpha = 0
+            })
+        case 1:
+            UIView.animateWithDuration(0.5, animations: {
+                self.galleryView.alpha = 0
+                self.gamesView.alpha = 1
+            })
+        default:
+            break; 
+        }
+    }
+    
 }
