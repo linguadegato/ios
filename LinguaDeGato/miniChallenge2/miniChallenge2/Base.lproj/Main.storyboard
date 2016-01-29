@@ -438,6 +438,7 @@
                         <outlet property="newImageImgView" destination="HqU-dF-wwX" id="dLN-CQ-sCp"/>
                         <outlet property="newWordTxtField" destination="mQc-ZF-1gt" id="sGL-WN-o0H"/>
                         <outlet property="removeAudioView" destination="X5J-Xa-xim" id="qhg-RE-zh2"/>
+                        <outlet property="saveGameButton" destination="G7F-d6-yNo" id="z90-Jd-UL5"/>
                         <outlet property="takePhotoButton" destination="Xfs-vm-kQE" id="aqm-Sd-WbM"/>
                         <outlet property="trashImageImgView" destination="XiI-TA-MYn" id="AOj-DH-bLI"/>
                         <outlet property="wordsAddedCollectionView" destination="oXI-ep-K2E" id="gkc-AF-jLK"/>

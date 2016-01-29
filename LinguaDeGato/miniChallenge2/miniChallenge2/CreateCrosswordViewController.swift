@@ -25,7 +25,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var generateButton: UIButton!
     @IBOutlet weak var muteMusicButton: UIButton!
-
+    @IBOutlet weak var saveGameButton: UIButton!
     
     //MARK: Views
     @IBOutlet weak var newImageImgView: UIImageView!
@@ -114,6 +114,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private var audioPath: String?
     private var audio: AVAudioPlayer!
 
+    // back button
     private var backButton : UIBarButtonItem!
 
     let limitLength = BoardView.maxSquaresInCol
@@ -389,6 +390,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 audioButton.enabled = false
             }
             
+            disableSaveButton(false)
+            
             // Show lower container (collection view and play button)
             lowerContainer.hidden = false
         }
@@ -400,6 +403,18 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         self.presentViewController(savedGame, animated: true, completion: {
         })
+    }
+    
+    func disableSaveButton(disable: Bool){
+        NSOperationQueue.mainQueue().addOperationWithBlock {
+            if disable {
+                self.saveGameButton.alpha = 0.5
+                self.saveGameButton.userInteractionEnabled = false
+            } else {
+                self.saveGameButton.alpha = 1
+                self.saveGameButton.userInteractionEnabled = true
+            }
+        }
     }
     
     @IBAction func playGame(sender: AnyObject) {
@@ -426,6 +441,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 let newGame = Game(gameName: alertTextField.text!, wordsAndClue: self.newWords)
                 GameServices.saveGame(newGame, completion: {success in
                     if success {
+                        self.disableSaveButton(true)
                         self.savedGameAlert()
                     }
                     else{
@@ -721,13 +737,15 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         overwriteAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: {_ in
             GameServices.overwriteGame(aGame)
+            self.disableSaveButton(true)
             self.savedGameAlert()
+        }))
         
         overwriteAlert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Default, handler: {_ in
             self.saveGame(self)
         }))
         
-        }))
+
         self.presentViewController(overwriteAlert, animated: true, completion: nil)
     }
     
