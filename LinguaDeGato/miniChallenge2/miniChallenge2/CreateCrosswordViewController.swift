@@ -236,18 +236,17 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             
             let alert = UIAlertController(title: "Deseja realmente sair?", message: "As palavras criadas serão perdidas.", preferredStyle: UIAlertControllerStyle.Alert)
             
-            alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler:nil))
+            alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Default, handler:nil))
             
             alert.addAction(UIAlertAction(
                 title: "Sair",
-                style: UIAlertActionStyle.Default,
+                style: UIAlertActionStyle.Cancel,
                 handler:
                 {(UIAlertAction)in
                     self.goBack()                }
                 ))
             
             self.presentViewController(alert, animated: true, completion: {
-                print("completion block")
             })
             
         }else{
@@ -395,6 +394,14 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         }
     }
     
+    func savedGameAlert(){
+        let savedGame = UIAlertController(title: "Jogo salvo com sucesso!", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        savedGame.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+        
+        self.presentViewController(savedGame, animated: true, completion: {
+        })
+    }
+    
     @IBAction func playGame(sender: AnyObject) {
         
         self.performSegueWithIdentifier("GenerateCrossword", sender: self)
@@ -410,17 +417,16 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         })
         let alertTextField = saveAlert.textFields![0]
         
-        saveAlert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ _ in
+        saveAlert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Default, handler:nil))
+        
+        saveAlert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Cancel, handler:{ _ in
             
             if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
                 
                 let newGame = Game(gameName: alertTextField.text!, wordsAndClue: self.newWords)
                 GameServices.saveGame(newGame, completion: {success in
                     if success {
-                        let operation = NSBlockOperation(block: { () -> Void in
-                            self.performSegueWithIdentifier("GenerateCrossword", sender: self)
-                        })
-                        NSOperationQueue.mainQueue().addOperation(operation)
+                        self.savedGameAlert()
                     }
                     else{
                         NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
@@ -433,9 +439,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 print("empty text field!")
             }
         }))
-        
-        saveAlert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler:nil))
-        
+
         self.presentViewController(saveAlert, animated: true, completion: {
         })
     }
@@ -715,15 +719,15 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private func overwriteGame(aGame: Game) {
         let overwriteAlert = UIAlertController(title: "Sobreescrever jogo?", message: "Já existe um jogo salvo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", preferredStyle: UIAlertControllerStyle.Alert)
         
-        overwriteAlert.addAction(UIAlertAction(title: "SIM", style: UIAlertActionStyle.Default, handler: {_ in
+        overwriteAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: {_ in
             GameServices.overwriteGame(aGame)
-            self.performSegueWithIdentifier("GenerateCrossword", sender: nil)
-        }))
+            self.savedGameAlert()
         
-        overwriteAlert.addAction(UIAlertAction(title: "NÃO", style: UIAlertActionStyle.Default, handler: {_ in
+        overwriteAlert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Default, handler: {_ in
             self.saveGame(self)
         }))
         
+        }))
         self.presentViewController(overwriteAlert, animated: true, completion: nil)
     }
     
@@ -950,15 +954,15 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         )
         
         let cancelAction = UIAlertAction(
-            title: "Não",
+            title: "Cancelar",
             style: UIAlertActionStyle.Default
         ) { (action) in
         }
 
         
         let confirmAction = UIAlertAction(
-            title: "Sim",
-            style: UIAlertActionStyle.Default
+            title: "Apagar",
+            style: UIAlertActionStyle.Cancel
         ) { (action) in
             self.removeCell(index)
         }
