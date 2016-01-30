@@ -11,8 +11,8 @@ import UIKit
 
 class GalleryAndGamesViewController: UIViewController {
     
-    private var allGames = [Game]()
-    private var gallery = [WordAndClue]()
+//    private var allGames = [Game]()
+//    private var gallery = [WordAndClue]()
     private var backButton : UIBarButtonItem!
     private let muteMusicOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
     private let muteMusicOffImage = UIImage(named: "btnMuteMusicOffLightBlue")

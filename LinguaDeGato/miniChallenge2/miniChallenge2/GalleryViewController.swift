@@ -1,8 +1,8 @@
 //
-//  GalleryCollectionViewController.swift
+//  GalleryViewController.swift
 //  LinguaDeGato
 //
-//  Created by Kobayashi on 1/15/16.
+//  Created by Kobayashi on 1/30/16.
 //  Copyright © 2016 Kobayashi. All rights reserved.
 //
 
@@ -10,59 +10,59 @@ import Foundation
 import UIKit
 import Photos
 
-class GalleryCollectionViewController : UICollectionViewController{
+class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     
-    @IBOutlet var galleryCollectionView: UICollectionView!
+    @IBOutlet weak var galleryCollectionView: UICollectionView!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var playTextButton: UIButton!
     
-    var gallery = [WordAndClue]()
-    var selectedWords = [WordAndClue]()
     
+    
+    private var gallery = [WordAndClue]()
+    private var selectedWords = [WordAndClue]()
     private let gameViewControler = GamePlayViewController()
     private let maximumNumberOfWords = 6
     private let reuseIdentifier = "ClueCell"
     private let collectionTitle = "Palavras Salvas"
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         galleryCollectionView.allowsMultipleSelection = true
         WordAndClueServices.retriveAllWordAndClues({result in
-            
             self.gallery = result
             self.galleryCollectionView.reloadData()
         })
-
+        
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        let cellSizeForGallery = collectionView.bounds.size.width/5
+        let cellSizeForGallery = collectionView.bounds.size.height/3.1
         return CGSizeMake(cellSizeForGallery, cellSizeForGallery)
         
     }
     
-    //MARK: - DATASOURCE
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return gallery.count
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GalleryCollectionViewCell
-        let clueWord = gallery[indexPath.row].word
-        let imageID = gallery[indexPath.row].clue.imageID
-        let audioClue = gallery[indexPath.row].clue.audioPath
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        //set image
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GalleryCollectionViewCell
+        let clueWord = self.gallery[indexPath.row].word
+        let imageID = self.gallery[indexPath.row].clue.imageID
+        let audioClue = self.gallery[indexPath.row].clue.audioPath
+        
         if imageID != nil {
             let results = PHAsset.fetchAssetsWithLocalIdentifiers([imageID!], options: nil)
             
             if results.firstObject != nil {
-            
+                
                 PHImageManager.defaultManager().requestImageForAsset(results.firstObject as! PHAsset, targetSize: CGSize(width: 1024,height: 1024), contentMode: .AspectFit, options: nil, resultHandler:
                     { (aImage, _) -> Void in
                         cell.imageCell.image = aImage
@@ -84,13 +84,15 @@ class GalleryCollectionViewController : UICollectionViewController{
         }
         
         //set layout if the cell is selected
-        cell.selected = (selectedWords.contains(gallery[indexPath.row])) ? true : false
+        cell.selected = (self.selectedWords.contains(self.gallery[indexPath.row])) ? true : false
         if cell.selected {
             cell.layer.borderWidth = 3
             cell.layer.borderColor = UIColor.greenPalete().CGColor
             cell.selectImage.hidden = false
             
-//            self.header.playButton.hidden = false
+            self.playButton.hidden = false
+            self.playTextButton.hidden = false
+            
             galleryCollectionView.reloadInputViews()
         }
         else {
@@ -98,10 +100,10 @@ class GalleryCollectionViewController : UICollectionViewController{
             cell.layer.borderColor = UIColor.greenPalete().CGColor
             cell.selectImage.hidden = true
             
-            if (selectedWords.isEmpty){
-//                if header != nil {
-//                    header.playButton.hidden = true
-//                }
+            if (self.selectedWords.isEmpty){
+                self.playButton.hidden = true
+                self.playTextButton.hidden = true
+                
                 galleryCollectionView.reloadInputViews()
             }
         }
@@ -110,7 +112,7 @@ class GalleryCollectionViewController : UICollectionViewController{
     }
     
     // MARK: Selection and deselection of a celll
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if (selectedWords.count < maximumNumberOfWords){
             selectedWords.append(gallery[indexPath.row])
             selectCell(indexPath)
@@ -121,7 +123,7 @@ class GalleryCollectionViewController : UICollectionViewController{
         }
     }
     
-    override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         
         let wordToRemove = gallery[indexPath.row].word
         let imageToRemove = gallery[indexPath.row].clue.imageID
@@ -143,25 +145,29 @@ class GalleryCollectionViewController : UICollectionViewController{
     private func selectCell(indexPath: NSIndexPath){
         
         let selectedCell = galleryCollectionView.cellForItemAtIndexPath(indexPath) as! GalleryCollectionViewCell
-
+        
         selectedCell.layer.borderWidth = 3
         selectedCell.layer.borderColor = UIColor.greenPalete().CGColor
         selectedCell.selectImage.hidden = false
         
-//        self.header.playButton.hidden = false
+        self.playButton.hidden = false
+        self.playTextButton.hidden = false
+        
         galleryCollectionView.reloadInputViews()
     }
     
     private func deselectCell(indexPath: NSIndexPath){
         
         let selectedCell = galleryCollectionView.cellForItemAtIndexPath(indexPath) as! GalleryCollectionViewCell
-
+        
         selectedCell.layer.borderWidth = 0
         selectedCell.layer.borderColor = UIColor.greenPalete().CGColor
         selectedCell.selectImage.hidden = true
         
         if (selectedWords.isEmpty){
-//            header.playButton.hidden = true
+            self.playButton.hidden = true
+            self.playTextButton.hidden = true
+            
             galleryCollectionView.reloadInputViews()
         }
     }
@@ -169,7 +175,7 @@ class GalleryCollectionViewController : UICollectionViewController{
     private func deselectAllCells(){
         
         selectedWords = []
-
+        
     }
     
     private func opaqueCells(){
@@ -199,18 +205,6 @@ class GalleryCollectionViewController : UICollectionViewController{
             if (cell?.alpha == 0.5){
                 cell?.alpha = 1
             }
-        }
-    }
-    
-    // MARK: For debug
-    private func printSelecteWords(){
-        if (selectedWords.count > 0){
-            for count in 0...selectedWords.count-1{
-                print("pos\(count): \(selectedWords[count].word)")
-            }
-            print("-----")
-        }else{
-            print("nenhuma palavra selecionada")
         }
     }
     
@@ -248,13 +242,13 @@ class GalleryCollectionViewController : UICollectionViewController{
                     print("empty text field!")
                 }
             }
-        ))
+            ))
         
         saveAlert.addAction(UIAlertAction(
             title: "Não",
             style: UIAlertActionStyle.Cancel,
             handler: {_ in self.performSegueWithIdentifier("CreateGameFromGallery", sender: nil)}
-        ))
+            ))
         
         self.presentViewController(saveAlert, animated: true, completion: {
         })

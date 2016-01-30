@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -458,10 +458,10 @@
                         <viewControllerLayoutGuide type="bottom" id="B9L-XC-Vs3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PGi-CJ-GlE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-3h-t5z">
@@ -804,7 +804,7 @@
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMr-Hp-p2V" userLabel="Gallery Container View">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                         <connections>
-                                            <segue destination="Pfu-8O-Vpi" kind="embed" identifier="GallerySegue" id="bQV-Fq-AFz"/>
+                                            <segue destination="Nsy-js-WgB" kind="embed" identifier="GallerySegue" id="19r-Dk-5cV"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
@@ -871,7 +871,7 @@
                             </barButtonItem>
                         </leftBarButtonItems>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Iim-Tv-S3O">
-                            <rect key="frame" x="119" y="8" width="415" height="29"/>
+                            <rect key="frame" x="119" y="7.5" width="415" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Palavras "/>
@@ -903,12 +903,164 @@
             </objects>
             <point key="canvasLocation" x="-1578" y="1150"/>
         </scene>
+        <!--Gallery View Controller-->
+        <scene sceneID="8dp-lI-cDT">
+            <objects>
+                <viewController id="Nsy-js-WgB" userLabel="Gallery View Controller" customClass="GalleryViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lk6-b7-aIK"/>
+                        <viewControllerLayoutGuide type="bottom" id="FRz-Me-RnD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vGR-iG-sG9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Epm-Oo-0ch" userLabel="Gallery Collection View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="436"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0jA-XB-1eA">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClueCell" id="q7V-np-2ao" customClass="GalleryCollectionViewCell" customModule="LinguaDeGato" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageDefault" translatesAutoresizingMaskIntoConstraints="NO" id="V2l-f2-QN9" userLabel="Image Cell">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPawGreen" translatesAutoresizingMaskIntoConstraints="NO" id="y2n-YS-YfA" userLabel="Selected Image">
+                                                    <rect key="frame" x="40" y="0.0" width="10" height="10"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="y2n-YS-YfA" secondAttribute="height" multiplier="1:1" id="wR8-ns-HSF"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="njs-6W-bDB" userLabel="Subtitle View">
+                                                    <rect key="frame" x="0.0" y="40" width="50" height="10"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="labelCell" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHb-cw-9Vs" userLabel="Label Cell">
+                                                            <rect key="frame" x="8" y="0.0" width="32" height="10"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPlayAudioBlackTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="cNl-lD-h7p" userLabel="Audio Image View">
+                                                            <rect key="frame" x="40" y="0.0" width="10" height="10"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="cNl-lD-h7p" secondAttribute="height" multiplier="1:1" id="BNo-hN-wao"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="qHb-cw-9Vs" secondAttribute="bottom" id="7X9-La-VKh"/>
+                                                        <constraint firstItem="cNl-lD-h7p" firstAttribute="height" secondItem="njs-6W-bDB" secondAttribute="height" id="BTF-PB-ceZ"/>
+                                                        <constraint firstItem="cNl-lD-h7p" firstAttribute="leading" secondItem="qHb-cw-9Vs" secondAttribute="trailing" id="CC4-Pd-ecI"/>
+                                                        <constraint firstAttribute="bottom" secondItem="cNl-lD-h7p" secondAttribute="bottom" id="K7P-HL-uW1"/>
+                                                        <constraint firstAttribute="trailing" secondItem="cNl-lD-h7p" secondAttribute="trailing" id="LwN-qw-fnb"/>
+                                                        <constraint firstItem="qHb-cw-9Vs" firstAttribute="height" secondItem="njs-6W-bDB" secondAttribute="height" id="iT4-Dm-ouK"/>
+                                                        <constraint firstItem="qHb-cw-9Vs" firstAttribute="leading" secondItem="njs-6W-bDB" secondAttribute="leadingMargin" id="tYC-01-d1x"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="njs-6W-bDB" firstAttribute="centerX" secondItem="q7V-np-2ao" secondAttribute="centerX" id="0OB-Q0-C3D"/>
+                                            <constraint firstItem="y2n-YS-YfA" firstAttribute="width" secondItem="q7V-np-2ao" secondAttribute="width" multiplier="1:5" id="86L-Su-HT5"/>
+                                            <constraint firstItem="njs-6W-bDB" firstAttribute="height" secondItem="q7V-np-2ao" secondAttribute="height" multiplier="1:5" id="BDu-gT-21S"/>
+                                            <constraint firstAttribute="bottom" secondItem="njs-6W-bDB" secondAttribute="bottom" id="GqB-vY-9TO"/>
+                                            <constraint firstItem="njs-6W-bDB" firstAttribute="width" secondItem="q7V-np-2ao" secondAttribute="width" id="Kbs-Zc-pXV"/>
+                                            <constraint firstItem="y2n-YS-YfA" firstAttribute="top" secondItem="q7V-np-2ao" secondAttribute="top" id="U2b-JC-6RZ"/>
+                                            <constraint firstItem="V2l-f2-QN9" firstAttribute="centerY" secondItem="q7V-np-2ao" secondAttribute="centerY" id="WIk-ge-hzV"/>
+                                            <constraint firstAttribute="trailing" secondItem="y2n-YS-YfA" secondAttribute="trailing" id="Wky-ca-mE0"/>
+                                            <constraint firstItem="V2l-f2-QN9" firstAttribute="centerX" secondItem="q7V-np-2ao" secondAttribute="centerX" id="ev8-xE-Als"/>
+                                            <constraint firstItem="V2l-f2-QN9" firstAttribute="height" secondItem="q7V-np-2ao" secondAttribute="height" id="nhg-lb-1oh"/>
+                                            <constraint firstItem="V2l-f2-QN9" firstAttribute="width" secondItem="q7V-np-2ao" secondAttribute="width" id="nwb-oC-DtY"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="audioImage" destination="cNl-lD-h7p" id="gQD-MW-adP"/>
+                                            <outlet property="imageCell" destination="V2l-f2-QN9" id="KNx-aU-LGP"/>
+                                            <outlet property="labelCell" destination="qHb-cw-9Vs" id="ADz-fX-tcE"/>
+                                            <outlet property="selectImage" destination="y2n-YS-YfA" id="zgh-vc-aE7"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Nsy-js-WgB" id="8Ro-I7-zNW"/>
+                                    <outlet property="delegate" destination="Nsy-js-WgB" id="Ko6-ma-N7r"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXD-8S-a7r" userLabel="Botton View">
+                                <rect key="frame" x="0.0" y="436" width="600" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEl-hi-gw4" userLabel="Play Button">
+                                        <rect key="frame" x="510" y="15" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="8hI-Vm-7bw"/>
+                                            <constraint firstAttribute="width" secondItem="UEl-hi-gw4" secondAttribute="height" multiplier="1:1" id="lds-kB-Hen"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="iconPlayOrange"/>
+                                        <connections>
+                                            <action selector="createNewGame:" destination="Nsy-js-WgB" eventType="touchUpInside" id="vHr-lx-ZE5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byQ-VA-4IM" userLabel="Play Text Button">
+                                        <rect key="frame" x="439" y="32" width="51" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Jogar">
+                                            <color key="titleColor" red="0.96862745100000003" green="0.66274509800000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="createNewGame:" destination="Nsy-js-WgB" eventType="touchUpInside" id="kf3-NT-hGa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="7fv-C2-BVx"/>
+                                    <constraint firstAttribute="trailing" secondItem="UEl-hi-gw4" secondAttribute="trailing" constant="20" id="9VS-bo-KQq"/>
+                                    <constraint firstItem="UEl-hi-gw4" firstAttribute="leading" secondItem="byQ-VA-4IM" secondAttribute="trailing" constant="20" id="cvY-BX-fXv"/>
+                                    <constraint firstItem="byQ-VA-4IM" firstAttribute="centerY" secondItem="yXD-8S-a7r" secondAttribute="centerY" id="cwg-5E-oop"/>
+                                    <constraint firstItem="UEl-hi-gw4" firstAttribute="centerY" secondItem="yXD-8S-a7r" secondAttribute="centerY" id="pQ1-Q3-g33"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Epm-Oo-0ch" firstAttribute="width" secondItem="vGR-iG-sG9" secondAttribute="width" id="0te-nJ-ZX9"/>
+                            <constraint firstItem="yXD-8S-a7r" firstAttribute="top" secondItem="Epm-Oo-0ch" secondAttribute="bottom" id="QnH-2p-vez"/>
+                            <constraint firstItem="yXD-8S-a7r" firstAttribute="width" secondItem="vGR-iG-sG9" secondAttribute="width" id="Tan-lv-x9k"/>
+                            <constraint firstItem="Epm-Oo-0ch" firstAttribute="centerX" secondItem="vGR-iG-sG9" secondAttribute="centerX" id="VpD-MQ-Jsg"/>
+                            <constraint firstItem="FRz-Me-RnD" firstAttribute="top" secondItem="yXD-8S-a7r" secondAttribute="bottom" id="aqj-fc-PCS"/>
+                            <constraint firstItem="yXD-8S-a7r" firstAttribute="centerX" secondItem="vGR-iG-sG9" secondAttribute="centerX" id="ezc-uk-xFd"/>
+                            <constraint firstItem="Epm-Oo-0ch" firstAttribute="top" secondItem="Lk6-b7-aIK" secondAttribute="bottom" id="suG-9Q-1tN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="galleryCollectionView" destination="Epm-Oo-0ch" id="syB-lh-n3Z"/>
+                        <outlet property="playButton" destination="UEl-hi-gw4" id="K4M-lT-UWH"/>
+                        <outlet property="playTextButton" destination="byQ-VA-4IM" id="Cod-fc-ZxG"/>
+                        <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromGallery" id="wxU-Rh-3lg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dBZ-f2-9nh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2467" y="1849"/>
+        </scene>
         <!--Gallery Collection View Controller-->
         <scene sceneID="Q2W-iT-GmQ">
             <objects>
                 <collectionViewController id="Pfu-8O-Vpi" customClass="GalleryCollectionViewController" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="1QJ-kp-tw4">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sSI-HL-LWq">
@@ -998,7 +1150,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ou-ti-iGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1578" y="2165"/>
+            <point key="canvasLocation" x="-2075" y="2699"/>
         </scene>
         <!--Games Collection View Controller-->
         <scene sceneID="urz-UZ-jxE">
@@ -1163,6 +1315,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MqY-2r-mQO"/>
+        <segue reference="uDm-0q-eKI"/>
     </inferredMetricsTieBreakers>
 </document>
