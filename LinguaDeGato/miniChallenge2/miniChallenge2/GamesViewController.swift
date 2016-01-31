@@ -97,6 +97,11 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
             headerView.title.text = allGames[indexPath.section].name
             return headerView
             
+        
+        case UICollectionElementKindSectionFooter:
+            let footerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "AllGamesFooter",forIndexPath: indexPath) 
+            return footerView
+
         default:
             assert(false, "Unexpected element kind")
         }
