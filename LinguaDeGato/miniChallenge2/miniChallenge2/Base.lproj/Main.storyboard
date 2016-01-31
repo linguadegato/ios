@@ -107,10 +107,10 @@
                                             <constraint firstAttribute="width" secondItem="HqU-dF-wwX" secondAttribute="height" id="KbK-Ed-A1K"/>
                                         </constraints>
                                     </imageView>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5J-Xa-xim" userLabel="Remove Audio View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5J-Xa-xim" userLabel="Remove Audio View">
                                         <rect key="frame" x="0.0" y="166" width="200" height="34"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slideOrange" translatesAutoresizingMaskIntoConstraints="NO" id="e3s-6e-d3i" userLabel="Slide Arrow">
+                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slideOrange" translatesAutoresizingMaskIntoConstraints="NO" id="e3s-6e-d3i" userLabel="Slide Arrow">
                                                 <rect key="frame" x="183" y="0.0" width="17" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="e3s-6e-d3i" secondAttribute="height" multiplier="1:2" id="JSm-sO-4hB"/>
@@ -1534,6 +1534,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SyW-KV-GTV"/>
+        <segue reference="wxU-Rh-3lg"/>
     </inferredMetricsTieBreakers>
 </document>

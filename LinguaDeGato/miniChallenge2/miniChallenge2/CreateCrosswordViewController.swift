@@ -646,6 +646,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         audioButton.setBackgroundImage(audioButtonReadyToUseImage, forState: .Normal)
         audioButton.layer.removeAllAnimations()
+        audioImageImgView.layer.removeAllAnimations()
         
         audioRecorder.stop()
         audioRecorder = nil
@@ -686,6 +687,10 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         pulseAnimation.repeatCount = FLT_MAX
         
         audioButton.layer.addAnimation(pulseAnimation, forKey: nil)
+
+        self.removeAudioView.hidden = false
+        self.audioImageImgView.hidden = false
+        self.audioImageImgView.layer.addAnimation(pulseAnimation, forKey: nil)
 
     }
     
