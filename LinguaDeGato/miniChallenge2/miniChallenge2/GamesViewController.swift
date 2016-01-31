@@ -1,8 +1,8 @@
 //
-//  SavedGamesViewController.swift
+//  GamesViewController.swift
 //  LinguaDeGato
 //
-//  Created by Kobayashi on 1/7/16.
+//  Created by Kobayashi on 1/31/16.
 //  Copyright © 2016 Kobayashi. All rights reserved.
 //
 
@@ -10,39 +10,51 @@ import UIKit
 import AVFoundation
 import Photos
 
-class GamesCollectionViewController : UICollectionViewController{
+class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
+
+    @IBOutlet weak var gamesCollectionView: UICollectionView!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var playTextButton: UIButton!
+    @IBOutlet weak var scrollArrowButton: UIButton!
     
-    @IBOutlet var gamesCollectionView: UICollectionView!
-    
-    var allGames = [Game]()
-    
+    private var allGames = [Game]()
     private let reuseIdentifier = "ClueCell"
     private var selectedSection : Int?
+    private let numberOfVisibleSections = 5
     
     static let onlyAudioImage = UIImage(named: "imageDefaultAudio")
-        
+    
     //MARK: - LIFECYCLE METHODS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.scrollArrowButton.hidden = true
+        self.gamesCollectionView.allowsMultipleSelection = false
+        
         GameServices.retrieveAllGames({ result in
-            
             self.allGames = result
             self.gamesCollectionView.reloadData()
+            
+            if (self.allGames.count > self.numberOfVisibleSections){
+                self.scrollArrowButton.hidden = false
+            }
         })
+        
+        
     }
     
     //MARK: - DATASOURCE
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         
         return allGames.count
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allGames[section].wordsAndClueArray.count
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GameCollectionViewCell
         let clueWord = allGames[indexPath.section].wordsAndClueArray[indexPath.row].word
         let imageID = allGames[indexPath.section].wordsAndClueArray[indexPath.row].clue.imageID
@@ -54,10 +66,10 @@ class GamesCollectionViewController : UICollectionViewController{
             let results = PHAsset.fetchAssetsWithLocalIdentifiers([imageID!], options: nil)
             
             if results.firstObject != nil {
-            
+                
                 PHImageManager.defaultManager().requestImageForAsset(results.firstObject as! PHAsset, targetSize: CGSize(width: 1024,height: 1024), contentMode: .AspectFit, options: nil, resultHandler:
                     { (aImage, _) -> Void in
-                            cell.imageCell.image = aImage
+                        cell.imageCell.image = aImage
                 })
             }
             else{
@@ -77,19 +89,19 @@ class GamesCollectionViewController : UICollectionViewController{
         return cell
     }
     
-//    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-//        switch kind {
-//        case UICollectionElementKindSectionHeader:
-//            
-//            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "AllGamesHeader",forIndexPath: indexPath) as! GamesHeaderView
-//            headerView.title.text = allGames[indexPath.section].name
-//            headerView.playButton.setTitle("\(indexPath.section)", forState: UIControlState.Selected)
-//            return headerView
-//
-//        default:
-//            assert(false, "Unexpected element kind")
-//        }
-//    }
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            
+            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "AllGamesHeader",forIndexPath: indexPath) as! GamesHeaderView
+            headerView.title.text = allGames[indexPath.section].name
+            self.playButton.setTitle("\(indexPath.section)", forState: UIControlState.Selected)
+            return headerView
+            
+        default:
+            assert(false, "Unexpected element kind")
+        }
+    }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
@@ -102,7 +114,7 @@ class GamesCollectionViewController : UICollectionViewController{
     @IBAction func playGame(sender: UIButton) {
         let buttonTitle = sender.titleForState(UIControlState.Selected)
         selectedSection = Int(buttonTitle!)
-
+        
         self.performSegueWithIdentifier("CreateGameFromSelectedGame", sender: nil)
     }
     
@@ -121,5 +133,4 @@ class GamesCollectionViewController : UICollectionViewController{
         }
         
     }
-    
 }
