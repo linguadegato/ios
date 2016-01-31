@@ -20,7 +20,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     private var allGames = [Game]()
     private let reuseIdentifier = "ClueCell"
     private var selectedSection : Int?
-    private let numberOfVisibleSections = 5
+    private let numberOfVisibleSections = 2
     
     static let onlyAudioImage = UIImage(named: "imageDefaultAudio")
     
@@ -95,7 +95,6 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
             
             let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "AllGamesHeader",forIndexPath: indexPath) as! GamesHeaderView
             headerView.title.text = allGames[indexPath.section].name
-            self.playButton.setTitle("\(indexPath.section)", forState: UIControlState.Selected)
             return headerView
             
         default:
@@ -110,14 +109,75 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         
     }
     
-    //MARK: - NAVIGATION
-    @IBAction func playGame(sender: UIButton) {
-        let buttonTitle = sender.titleForState(UIControlState.Selected)
-        selectedSection = Int(buttonTitle!)
+    // MARK: Selection and deselection of a celll
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        self.performSegueWithIdentifier("CreateGameFromSelectedGame", sender: nil)
+        if (indexPath.section != self.selectedSection){
+            self.selectedSection = indexPath.section
+            let numberOfItemsInSection = self.gamesCollectionView.numberOfItemsInSection(self.selectedSection!)
+            
+            for count in 0...numberOfItemsInSection-1{
+                let cellIndexPath = NSIndexPath(forItem: count, inSection: self.selectedSection!)
+                selectCell(cellIndexPath)
+            }
+        }else{
+            if (indexPath.section == self.selectedSection){
+                self.deselectSectionOfCell(indexPath)
+                self.gamesCollectionView.deselectItemAtIndexPath(indexPath, animated: false)
+            }
+        }
+        
     }
     
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        self.deselectSectionOfCell(indexPath)
+    }
+    
+    // MARK: - Behavior when select and deselect cells
+    private func selectCell(indexPath: NSIndexPath){
+        
+        let selectedCell = self.gamesCollectionView.cellForItemAtIndexPath(indexPath) as! GameCollectionViewCell
+        
+        selectedCell.layer.borderWidth = 3
+        selectedCell.layer.borderColor = UIColor.greenPalete().CGColor
+        
+        self.playButton.hidden = false
+        self.playTextButton.hidden = false
+        
+        self.gamesCollectionView.reloadInputViews()
+    }
+    
+    private func deselectCell(indexPath: NSIndexPath){
+        
+        let selectedCell = self.gamesCollectionView.cellForItemAtIndexPath(indexPath) as! GameCollectionViewCell
+        
+        selectedCell.layer.borderWidth = 0
+        selectedCell.layer.borderColor = UIColor.greenPalete().CGColor
+        
+        self.playButton.hidden = true
+        self.playTextButton.hidden = true
+            
+        self.gamesCollectionView.reloadInputViews()
+    }
+    
+    private func deselectSectionOfCell(indexPath: NSIndexPath){
+        let clickedCell = self.gamesCollectionView.cellForItemAtIndexPath(indexPath)
+        let visibleCells = self.gamesCollectionView.visibleCells()
+        
+        if visibleCells.contains(clickedCell!){
+            let clickedSection = indexPath.section
+            let numberOfItemsInSection = self.gamesCollectionView.numberOfItemsInSection(clickedSection)
+            
+            for count in 0...numberOfItemsInSection-1{
+                let cellIndexPath = NSIndexPath(forItem: count, inSection: clickedSection)
+                deselectCell(cellIndexPath)
+            }
+        }
+        
+        self.selectedSection = nil
+    }
+    
+    //MARK: - NAVIGATION
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //MARK: HARRY-TODO: ACTIVITY INDICATOR
         if (selectedSection != nil){

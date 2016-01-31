@@ -917,7 +917,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EWF-lc-t3Z" userLabel="Games Collection View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="436"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="oRS-sT-3CC">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="50" height="70"/>
@@ -939,7 +939,7 @@
                                                     <rect key="frame" x="0.0" y="40" width="50" height="10"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSx-Ji-4un">
-                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="10"/>
+                                                            <rect key="frame" x="8" y="0.0" width="32" height="10"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -959,7 +959,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="VSx-Ji-4un" secondAttribute="bottom" id="NOZ-dJ-ZuV"/>
                                                         <constraint firstAttribute="bottom" secondItem="TdY-Wo-Yg7" secondAttribute="bottom" id="QRB-Zi-xrF"/>
                                                         <constraint firstItem="TdY-Wo-Yg7" firstAttribute="height" secondItem="qOp-yX-LUc" secondAttribute="height" id="U5a-t5-LSg"/>
-                                                        <constraint firstItem="VSx-Ji-4un" firstAttribute="leading" secondItem="qOp-yX-LUc" secondAttribute="leading" id="rrB-TN-zo4"/>
+                                                        <constraint firstItem="VSx-Ji-4un" firstAttribute="leading" secondItem="qOp-yX-LUc" secondAttribute="leadingMargin" id="rrB-TN-zo4"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -1037,7 +1037,7 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="iconPlayOrange"/>
                                         <connections>
-                                            <action selector="playGame:" destination="RHV-tO-T4t" eventType="touchUpInside" id="wPd-L1-0yn"/>
+                                            <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromSelectedGame" id="SyW-KV-GTV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gnx-6K-PFq" userLabel="Play Text Button">
@@ -1084,7 +1084,6 @@
                         <outlet property="playButton" destination="4bL-aY-gwN" id="Eo1-Ld-Qho"/>
                         <outlet property="playTextButton" destination="Gnx-6K-PFq" id="XWW-dq-SOl"/>
                         <outlet property="scrollArrowButton" destination="mAh-Zn-das" id="YCY-TL-SdR"/>
-                        <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromSelectedGame" id="v1d-IP-xXE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyN-r6-F5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1519,6 +1518,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="v1d-IP-xXE"/>
+        <segue reference="SyW-KV-GTV"/>
     </inferredMetricsTieBreakers>
 </document>
