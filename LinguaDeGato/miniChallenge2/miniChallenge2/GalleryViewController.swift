@@ -16,22 +16,33 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var playTextButton: UIButton!
     
-    
+    @IBOutlet weak var scrollArrowButton: UIButton!
     
     private var gallery = [WordAndClue]()
     private var selectedWords = [WordAndClue]()
     private let gameViewControler = GamePlayViewController()
     private let maximumNumberOfWords = 6
+    private let numberOfVisibleColumns = 4
+    private let numberOfVisibleLines = 3
     private let reuseIdentifier = "ClueCell"
     private let collectionTitle = "Palavras Salvas"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        galleryCollectionView.allowsMultipleSelection = true
+        self.scrollArrowButton.hidden = true
+        self.galleryCollectionView.allowsMultipleSelection = true
+        self.galleryCollectionView.flashScrollIndicators()
+        
         WordAndClueServices.retriveAllWordAndClues({result in
             self.gallery = result
             self.galleryCollectionView.reloadData()
+            
+            let numberOfVisibleCells = self.numberOfVisibleColumns * self.numberOfVisibleLines
+            if (self.gallery.count > numberOfVisibleCells){
+                self.scrollArrowButton.hidden = false
+            }
+
         })
         
     }
@@ -267,6 +278,15 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         }))
         
         self.presentViewController(overwriteAlert, animated: true, completion: nil)
+    }
+    
+    //MARK: - SCROLL BUTOON
+    
+    @IBAction func scrollButton(sender: AnyObject) {
+        let visibleItens = self.galleryCollectionView.indexPathsForVisibleItems()
+        let firstCellVisible = visibleItens[self.numberOfVisibleColumns]
+        let firstPosition = UICollectionViewScrollPosition.Top
+        self.galleryCollectionView.scrollToItemAtIndexPath(firstCellVisible, atScrollPosition: firstPosition, animated: true)
     }
     
     //MARK: - NAVIGATION
