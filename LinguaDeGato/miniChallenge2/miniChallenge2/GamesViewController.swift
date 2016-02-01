@@ -25,7 +25,6 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     static let onlyAudioImage = UIImage(named: "imageDefaultAudio")
     
     //MARK: - LIFECYCLE METHODS
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +44,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     }
     
     //MARK: - DATASOURCE
+    
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         
         return allGames.count
@@ -55,12 +55,13 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GameCollectionViewCell
         let clueWord = allGames[indexPath.section].wordsAndClueArray[indexPath.row].word
         let imageID = allGames[indexPath.section].wordsAndClueArray[indexPath.row].clue.imageID
         let audioPath = allGames[indexPath.section].wordsAndClueArray[indexPath.row].clue.audioPath
         
-        //set image
+        // Clue Image
         if imageID != nil {
             
             let results = PHAsset.fetchAssetsWithLocalIdentifiers([imageID!], options: nil)
@@ -80,10 +81,20 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
             cell.imageCell.image = AppImages.onlyAudioImage
         }
         
+        // Word
         cell.labelCell.text = clueWord
         
+        // Clue audio
         if (audioPath != nil){
             cell.audioImage.hidden = false
+        }
+        
+        // Selection design to the cell (green border or not)
+        cell.layer.borderColor = UIColor.greenPalete().CGColor
+        if (self.selectedSection != nil) && (indexPath.section == self.selectedSection){
+            cell.layer.borderWidth = 3
+        }else{
+            cell.layer.borderWidth = 0
         }
         
         return cell
@@ -99,6 +110,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
             
         
         case UICollectionElementKindSectionFooter:
+            
             let footerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "AllGamesFooter",forIndexPath: indexPath) 
             return footerView
 
@@ -107,6 +119,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         }
     }
     
+    // MARK: - DELEGATE
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
         let cellSizeForGame = collectionView.bounds.size.width/6.8
@@ -114,72 +127,26 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         
     }
     
-    // MARK: Selection and deselection of a celll
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        if (indexPath.section != self.selectedSection){
+        if (self.selectedSection == nil) || (indexPath.section != self.selectedSection){
             self.selectedSection = indexPath.section
-            let numberOfItemsInSection = self.gamesCollectionView.numberOfItemsInSection(self.selectedSection!)
-            
-            for count in 0...numberOfItemsInSection-1{
-                let cellIndexPath = NSIndexPath(forItem: count, inSection: self.selectedSection!)
-                selectCell(cellIndexPath)
-            }
+            self.gamesCollectionView.reloadData()
         }else{
             if (indexPath.section == self.selectedSection){
-                self.deselectSectionOfCell(indexPath)
-                self.gamesCollectionView.deselectItemAtIndexPath(indexPath, animated: false)
+                self.selectedSection =  nil
+                self.gamesCollectionView.reloadData()
             }
         }
         
-    }
-    
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        self.deselectSectionOfCell(indexPath)
-    }
-    
-    // MARK: - Behavior when select and deselect cells
-    private func selectCell(indexPath: NSIndexPath){
-        
-        let selectedCell = self.gamesCollectionView.cellForItemAtIndexPath(indexPath) as! GameCollectionViewCell
-        
-        selectedCell.layer.borderWidth = 3
-        selectedCell.layer.borderColor = UIColor.greenPalete().CGColor
-        
-        self.playButton.hidden = false
-        self.playTextButton.hidden = false
-        
-        self.gamesCollectionView.reloadInputViews()
-    }
-    
-    private func deselectCell(indexPath: NSIndexPath){
-        
-        let selectedCell = self.gamesCollectionView.cellForItemAtIndexPath(indexPath) as! GameCollectionViewCell
-        
-        selectedCell.layer.borderWidth = 0
-        selectedCell.layer.borderColor = UIColor.greenPalete().CGColor
-        
-        self.playButton.hidden = true
-        self.playTextButton.hidden = true
-            
-        self.gamesCollectionView.reloadInputViews()
-    }
-    
-    private func deselectSectionOfCell(indexPath: NSIndexPath){
-        let clickedCell = self.gamesCollectionView.cellForItemAtIndexPath(indexPath)
-        let visibleCells = self.gamesCollectionView.visibleCells()
-        
-        if visibleCells.contains(clickedCell!){
-            let clickedSection = indexPath.section
-            let numberOfItemsInSection = self.gamesCollectionView.numberOfItemsInSection(clickedSection)
-            
-            for count in 0...numberOfItemsInSection-1{
-                let cellIndexPath = NSIndexPath(forItem: count, inSection: clickedSection)
-                deselectCell(cellIndexPath)
-            }
+        if (self.selectedSection != nil){
+            self.playButton.hidden = false
+            self.playTextButton.hidden = false
+        }else{
+            self.playButton.hidden = true
+            self.playTextButton.hidden = true
         }
         
-        self.selectedSection = nil
     }
     
     //MARK: - NAVIGATION
@@ -198,4 +165,5 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         }
         
     }
+    
 }
