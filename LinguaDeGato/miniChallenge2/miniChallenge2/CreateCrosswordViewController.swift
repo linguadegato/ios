@@ -8,7 +8,6 @@
 //MARK: HARRY-TODO: Create a function for a aPathCompletion, not persist already persisted images
 import UIKit
 import MobileCoreServices
-import AVFoundation
 import Photos
 
 class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegate,
@@ -169,6 +168,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         audioButton.enabled = false
         recordingSession = AVAudioSession.sharedInstance()
         
+        
+        // MARK - TODO: fix bug mute caused by the first try
         do {
             try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
             try recordingSession.setActive(true)
