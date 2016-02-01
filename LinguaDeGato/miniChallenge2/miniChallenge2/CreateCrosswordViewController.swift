@@ -171,8 +171,28 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         audioImageView.addGestureRecognizer(createGestureTapImageToPlayRecord())
         
         //MARK: request permission to use microfone
-        audioButton.enabled = true
-
+        audioButton.enabled = false
+        recordingSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try recordingSession.setActive(true)
+            recordingSession.requestRecordPermission() { [unowned self] (allowed: Bool) -> Void in
+                dispatch_async(dispatch_get_main_queue()) {
+                    if allowed {
+                        // Enable audio button
+                        self.audioButton.enabled = true
+                        
+                    } else {
+                        //MARK: TODO: [audio] error message
+                        // failed to record!
+                    }
+                }
+            }
+        } catch {
+            //MARK: TODO: [audio] error message
+            // failed to record!
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -315,30 +335,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     @IBAction func recordAudio(sender: AnyObject) {
-        
-        recordingSession = AVAudioSession.sharedInstance()
-        
-        do {
-            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try recordingSession.setActive(true)
-            recordingSession.requestRecordPermission() { [unowned self] (allowed: Bool) -> Void in
-                dispatch_async(dispatch_get_main_queue()) {
-                    if allowed {
-                        // Enable audio button
-                        self.audioButton.enabled = true
-                        
-                    } else {
-                        //MARK: TODO: [audio] error message
-                        // failed to record!
-                    }
-                }
-            }
-        } catch {
-            //MARK: TODO: [audio] error message
-            // failed to record!
-        }
-
-        
         if audioRecorder == nil {
             MusicSingleton.sharedMusic().playBackgroundAudio(false)
             startRecording()
