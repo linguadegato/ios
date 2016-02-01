@@ -32,7 +32,7 @@ class ClueView: BoardCellView, UIGestureRecognizerDelegate {
     // MARK: visual properties
     let imageViewBackgroundColor = UIColor.whiteColor()
     let imageViewContentMode = UIViewContentMode.ScaleAspectFit
-    let imageViewBorderColor = UIColor.orangePalete()
+    let imageViewBorderColor = UIColor.greenWaterPalete()
     let imageViewBorderSize: CGFloat = 1.0
     
     static let downArrowImage = UIImage(named:"arrowDownOrange")
