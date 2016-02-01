@@ -32,7 +32,7 @@ class CluePopupView: UIView {
     var replayButton: UIButton!
 
     //MARK: Colors
-    let popupFrameColor = UIColor.orangePalete()
+    let popupFrameColor = UIColor.greenWaterPalete()
     
     //MARK: Images
     let closeButtonImage = UIImage(named: "btnDelete")
