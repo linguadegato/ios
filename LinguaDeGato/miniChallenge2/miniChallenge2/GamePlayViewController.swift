@@ -158,21 +158,29 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
             finishGamePlayAudio.play()
         }
         
+        /*
         let alertController = UIAlertController(title: "PARABÉNS", message:
             "Você concluiu o jogo! \u{1F431}", preferredStyle: UIAlertControllerStyle.Alert)
 
         
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: backByWinningFromAlertAction))
+        */
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        performSegueWithIdentifier("GameEnded", sender: nil)
     }
     
     
     // MARK: - TODO: NAVIGATION (porque voce tem que conseguir sair, neh?)
 
-    func backByWinningFromAlertAction (action: UIAlertAction) {
+    func backByWinning () {
         finishGamePlayAudio.stop()
-        self.navigationController!.popViewControllerAnimated(true)
+        self.navigationController!.popToRootViewControllerAnimated(true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "GameEnded" {
+            (segue.destinationViewController as! GameEndPopupVC).previousViewController = self
+        }
     }
 }
 
