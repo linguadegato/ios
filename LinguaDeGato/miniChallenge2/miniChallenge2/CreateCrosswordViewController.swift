@@ -113,6 +113,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
 
     let limitLength = BoardView.maxSquaresInCol
     
+    // Last saved game name
+    private var savedGameName : String = ""
+    
     //MARK: - VIEW LIFECYCLE METHODS
     
     override func viewDidLoad() {
@@ -438,42 +441,55 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     @IBAction func saveGame(sender: AnyObject) {
         
-        let saveAlert = UIAlertController(title: "Dê um nome ao jogo:", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-
-        saveAlert.addTextFieldWithConfigurationHandler({ alertTextField in
-            alertTextField.placeholder = "Nome do jogo"
-        })
-        
-        let alertTextField = saveAlert.textFields![0]
-        
-        alertTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
-
-        saveAlert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Default, handler:nil))
-        
-        saveAlert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ _ in
+        if (self.savedGameName.isEmpty){
             
-            if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
+            let saveAlert = UIAlertController(title: "Dê um nome ao jogo:", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            saveAlert.addTextFieldWithConfigurationHandler({ alertTextField in
+                alertTextField.placeholder = "Nome do jogo"
+            })
+            
+            let alertTextField = saveAlert.textFields![0]
+            
+            alertTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
+            
+            saveAlert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Default, handler:nil))
+            
+            saveAlert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ _ in
                 
-                let newGame = Game(gameName: alertTextField.text!, wordsAndClue: self.newWords)
-                GameServices.saveGame(newGame, completion: {success in
-                    if success {
-                        self.disableSaveButton(true)
-                        self.savedGameAlert()
-                    }
-                    else{
-                        NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
-                            self.overwriteGame(newGame)
-                        }))
-                    }
-                })
-            }
-            else {
-                print("empty text field!")
-            }
-        }))
-        
-        self.presentViewController(saveAlert, animated: true, completion: {
-        })
+                if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
+                    
+                    self.savedGameName = alertTextField.text!
+                    let newGame = Game(gameName: self.savedGameName, wordsAndClue: self.newWords)
+                    GameServices.saveGame(newGame, completion: {success in
+                        if success {
+                            self.disableSaveButton(true)
+                            self.savedGameAlert()
+                        }
+                        else{
+                            NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
+                                self.overwriteGame(newGame)
+                            }))
+                        }
+                    })
+                }
+                else {
+                    print("empty text field!")
+                }
+            }))
+            
+            self.presentViewController(saveAlert, animated: true, completion: {
+            })
+            
+        }else{
+            
+            let newGame = Game(gameName: self.savedGameName, wordsAndClue: self.newWords)
+            
+            GameServices.overwriteGame(newGame)
+            self.disableSaveButton(true)
+            self.savedGameAlert()
+            
+        }
     }
     
     // MARK: - ALERTS
