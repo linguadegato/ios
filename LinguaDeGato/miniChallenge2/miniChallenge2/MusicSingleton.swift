@@ -46,5 +46,6 @@ class MusicSingleton: NSObject {
             backgroundMusicPlay.stop()
         }
         
+        
     }
 }

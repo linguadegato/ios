@@ -46,7 +46,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // - Audio Button to delete record
     private let audioButtonReadyToUseImage = (UIImage(named: "btnAudio"))
-    private let audioButtonRecordingImage = (UIImage(named: "btnAudioBlue"))
+    private let audioButtonRecordingImage = (UIImage(named: "btnAudioRed"))
     
     // - Add new clue
     private let addButtonImageOn = (UIImage(named: "iconAddWord"))
