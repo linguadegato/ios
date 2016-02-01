@@ -120,6 +120,9 @@
                                             <constraint firstAttribute="width" secondItem="HNB-87-mME" secondAttribute="height" multiplier="1:1" id="ZmW-4X-pj1"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="btnDelete"/>
+                                        <connections>
+                                            <action selector="deleteNewClue:" destination="poN-pE-e0p" eventType="touchUpInside" id="qXW-U8-xAp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

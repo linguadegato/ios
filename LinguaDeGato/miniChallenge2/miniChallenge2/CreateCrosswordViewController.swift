@@ -219,6 +219,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     // MARK: - BUTTON ACTIONS
+    
+    // MARK: NAVIGATION
     @IBAction func goBackPopup(sender: AnyObject) {
         
         if (wordsAddedCollectionView.numberOfItemsInSection(0) > 0){
@@ -256,7 +258,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         }
     }
 
-    // "mute" button
+    // MARK: SOUNDS OF THE APP
     @IBAction func muteMusicButton(sender: AnyObject) {
         if MusicSingleton.sharedMusic().isMusicMute {
             // music will play
@@ -271,7 +273,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         }
     }
     
-    //"camera" button (new photo)
+    // MARK: NEW CLUE ELEMENTS
+    
     @IBAction func useCamera(sender: AnyObject) {
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
@@ -310,7 +313,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         }
     }
     
-    //"camera roll" button (stored photo)
     @IBAction func useCameraRoll(sender: AnyObject) {
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
@@ -327,7 +329,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         }
     }
     
-    // Record audio button
     @IBAction func recordAudio(sender: AnyObject) {
         if audioRecorder == nil {
             MusicSingleton.sharedMusic().playBackgroundAudio(false)
@@ -339,8 +340,31 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             }
         }
     }
-    
-    // Add new word button
+
+    // MARK: DELETE NEW WORD AND CLUE ELEMENT
+    @IBAction func deleteNewClue(sender: AnyObject) {
+        
+        // Clear audio variables
+        self.audioPath = nil
+        self.audioRecorder = nil
+        self.recordingSession = nil
+        
+        // Clear image variables
+        self.newImageImgView.image = self.defaultImage
+        self.imageID = ""
+        
+        // Clear text variable
+        self.newWordTxtField.text = ""
+        
+        // Hide elements
+        self.audioImageView.hidden = true
+        self.removeNewClueButton.hidden = true
+        
+        self.hasClue = false
+        
+    }
+
+    // MARK: ADD NEW CLUE
     @IBAction func addNewWord() {
         
         generateButton.enabled = true
@@ -364,11 +388,12 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             wordsAddedCollectionView.reloadData()
             
             // Hide elements (image view and new word text field)
-            hideSlideView()
+            self.audioImageView.hidden = true
             newImageImgView.image = defaultImage
             hasClue = false
             self.newWordTxtField.text = ""
             hasWord = false
+            removeNewClueButton.hidden = true
             
             
             if newWords.count >= 6 {
@@ -385,30 +410,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         }
     }
     
-    func savedGameAlert(){
-        let savedGame = UIAlertController(title: "Jogo salvo com sucesso!", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-        savedGame.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
-        
-        self.presentViewController(savedGame, animated: true, completion: {
-        })
-    }
-    
-    func disableSaveButton(disable: Bool){
-        NSOperationQueue.mainQueue().addOperationWithBlock {
-            if disable {
-                self.saveGameButton.alpha = 0.5
-                self.saveGameButton.userInteractionEnabled = false
-            } else {
-                self.saveGameButton.alpha = 1
-                self.saveGameButton.userInteractionEnabled = true
-            }
-        }
-    }
-    
+    // MARK: COLLECTION VIEW BUTTONS (PLAY AND SAVE)
     @IBAction func playGame(sender: AnyObject) {
-        
         self.performSegueWithIdentifier("GenerateCrossword", sender: self)
-        
     }
     
     @IBAction func saveGame(sender: AnyObject) {
@@ -448,9 +452,65 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         })
     }
     
-    // MARK: Button state management
+    // MARK: - ALERTS
+    private func savedGameAlert(){
+        let savedGame = UIAlertController(title: "Jogo salvo com sucesso!", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        savedGame.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+        
+        self.presentViewController(savedGame, animated: true, completion: {
+        })
+    }
     
-    //disable addButton if there's no clue, or no word, or if there's already 6 words
+    private func overwriteGame(aGame: Game) {
+        let overwriteAlert = UIAlertController(title: "Sobreescrever jogo?", message: "Já existe um jogo salvo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        overwriteAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: {_ in
+            GameServices.overwriteGame(aGame)
+            self.disableSaveButton(true)
+            self.savedGameAlert()
+        }))
+        
+        overwriteAlert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Default, handler: {_ in
+            self.saveGame(self)
+        }))
+        
+        
+        self.presentViewController(overwriteAlert, animated: true, completion: nil)
+    }
+    
+    func cellAlert(index: Int) {
+        
+        let alertController = UIAlertController(
+            title: "",
+            message: "Deseja apagar essa palavra?",
+            preferredStyle: .Alert
+        )
+        
+        let cancelAction = UIAlertAction(
+            title: "Cancelar",
+            style: UIAlertActionStyle.Default
+            ) { (action) in
+        }
+        
+        
+        let confirmAction = UIAlertAction(
+            title: "Apagar",
+            style: UIAlertActionStyle.Cancel
+            ) { (action) in
+                self.removeCell(index)
+        }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
+    
+    // MARK: - BUTTONS STATES
+    
+    // Disable addButton if there's no clue, or no word, or if there's already 6 words
     private func setAddButtonState() {
         if hasClue && hasWord && !wordsLimitReached {
             addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(1))
@@ -458,6 +518,18 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         } else {
             addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(0.5))
             addButton.userInteractionEnabled = false
+        }
+    }
+    
+    private func disableSaveButton(disable: Bool){
+        NSOperationQueue.mainQueue().addOperationWithBlock {
+            if disable {
+                self.saveGameButton.alpha = 0.5
+                self.saveGameButton.userInteractionEnabled = false
+            } else {
+                self.saveGameButton.alpha = 1
+                self.saveGameButton.userInteractionEnabled = true
+            }
         }
     }
     
@@ -470,140 +542,38 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         return newLength <= limitLength
     }
     
-    //MARK: - GESTURE RECOGNIZERS GENERATORS
+    //MARK: - GESTURE RECOGNIZERS
     
-    //Returns a tapGestureRecognizers to play recorded audio
+    // MARK: GENERATORS
     private func createGestureTapImageToPlayRecord() -> UITapGestureRecognizer{
         let tapGesture = UITapGestureRecognizer(target:self, action:Selector("tapAndPlayRecord:"))
         
         return tapGesture
     }
     
-    //Returns a longPressRecognizer to erase audio
-//    private func createGestureLongPressDeleteRecord() -> UILongPressGestureRecognizer{
-//        let longPressGesture = UILongPressGestureRecognizer(target:self, action:Selector("longPressAction:"))
-//        let longPressDistance = self.removeAudioView.frame.width
-//        
-//        longPressGesture.minimumPressDuration = 0.3
-//        longPressGesture.allowableMovement.advancedBy(longPressDistance)
-//        
-//        return longPressGesture
-//    }
-//    
-    //MARK: - GESTURE RECOGNIZERS ACTIONS
-    
+    //MARK: ACTIONS
     func tapAndPlayRecord(sender: UITapGestureRecognizer){
         if self.audioPath != nil {
             let audioURL = NSURL(fileURLWithPath: self.audioPath!)
-//            var audioPlayerTimer = NSTimer()
-            
+
             do {
                 try self.audio = AVAudioPlayer(contentsOfURL: audioURL)
                 MusicSingleton.sharedMusic().playBackgroundAudio(false)
                 self.audio.play()
                 
-//                audioPlayerTimer = NSTimer.scheduledTimerWithTimeInterval(audio.duration, target: self, selector: "playMusicAfterPlayClue", userInfo: nil, repeats: false)
             } catch {
                 //MARK: TODO: [audio] error message
             }
         }
     }
     
-    func playMusicAfterPlayClue(){
+    private func playMusicAfterPlayClue(){
         if !MusicSingleton.sharedMusic().isMusicMute {
-        MusicSingleton.sharedMusic().playBackgroundAudio(true)
+            MusicSingleton.sharedMusic().playBackgroundAudio(true)
         }
     }
     
-//    // MARK: Long Press and show trash animation
-//    func longPressAction(sender: UILongPressGestureRecognizer){
-//        
-//        switch sender.state{
-//            
-//            case UIGestureRecognizerState.Began:
-//                self.animationBackgroundView.hidden = false
-//                UIView.animateWithDuration(
-//                    0.3,
-//                    animations: {
-//                        self.animationBackgroundView.frame.size.width = self.removeAudioView.frame.size.width
-//                        self.animationBackgroundView.frame.origin.x = 0
-//                    },
-//                    completion: {
-//                        animationFinished in
-//                        if (self.animationBackgroundView.frame.origin.x == 0){
-//                            self.trashImageImgView.hidden = false
-//                            //self.arrow.frame.origin.x = self.audioImageImgView.frame.origin.x
-//                            self.arrow.hidden = false
-//                        }
-//                    }
-//                )
-//                self.arrowAnimationTimer = NSTimer.scheduledTimerWithTimeInterval(1.2, target: self, selector: "slideAnimation" , userInfo: nil, repeats: true)
-//                self.arrowAnimationTimer.fire()
-//
-//                break
-//        
-//            case UIGestureRecognizerState.Ended:
-//                self.arrowAnimationTimer.invalidate()
-//                resetAnimationViewPosition()
-//                hideElementsAfterAnimation()
-//                break
-//
-//            case UIGestureRecognizerState.Cancelled:
-//                self.arrowAnimationTimer.invalidate()
-//                UIView.animateWithDuration(
-//                    0.3,
-//                    animations: {
-//                        self.animationBackgroundView.frame.size.width = 0
-//                        self.audioImageImgView.center.x = self.audioImageImgView.frame.width/2
-//                    },
-//                    completion: {
-//                        (finished:Bool) in
-//                        
-//                        // Clear audioPath variable
-//                        self.audioPath = nil
-//                        self.audioRecorder = nil
-//                        self.recordingSession = nil
-//                        if (self.newImageImgView.image == self.audioImage) {
-//                            self.newImageImgView.image = self.defaultImage
-//                            self.hasClue = false
-//                        }
-//        
-//                        // Make Gesture Recognizer avaiable and hide elements
-//                        sender.enabled = true
-//                        self.hideElementsAfterAnimation()
-//                        self.resetAnimationViewPosition()
-//                        self.hideSlideView()
-//                    }
-//                )
-//                break
-//
-//            case UIGestureRecognizerState.Changed:
-//                let location = sender.locationInView(removeAudioView)
-//                let limitRectangle = self.removeAudioView.bounds
-//                let deltaWidth = self.audioImageImgView.frame.width/2
-//                let limitXToDelete = self.removeAudioView.frame.width/2
-//                
-//                if CGRectContainsPoint(limitRectangle, location){
-//                    if ((location.x >= deltaWidth) && (location.x <= self.removeAudioView.frame.width - deltaWidth)){
-//                    
-//                        if (location.x <= limitXToDelete){
-//                            self.trashImageImgView.hidden = true
-//                            sender.enabled = false
-//                        }else{
-//                            self.animationBackgroundView.frame.size.width = location.x + deltaWidth
-//                            self.audioImageImgView.center.x = location.x
-//                        }
-//                    }
-//                }
-//                break
-//            
-//            default:
-//                break
-//        }
-//    }
-//
-//    // MARK: - RECORD AUDIO METHODS
-    
+    // MARK: - RECORD AUDIO METHODS
     private func startRecording() {
         
         audioButton.setBackgroundImage(audioButtonRecordingImage, forState: .Normal)
@@ -641,79 +611,27 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
 
         if success {
             hasClue = true
+            removeNewClueButton.hidden = false
         } else {
             //TODO: notificate the failure somehow
         }
     }
     
-    //MARK: - ANIMATIONS
-//    func slideAnimation() {
-//        print("fired")
-//        UIView.animateWithDuration(1,
-//            //arrow slide to trash
-//            animations: {
-//                self.arrow.hidden = false
-//                self.arrow.frame.origin.x = 0
-//            },
-//            //arrow backs to right edge of animationBackgroundView
-//            completion: { (flag) -> Void in
-//                self.arrow.hidden = true
-//                self.arrow.frame.origin.x = self.audioImageImgView.frame.origin.x
-//                self.arrow.setNeedsDisplay()
-//            }
-//        )
-//    }
-    
-    //audioButton animation
+    // MARK: RECORD AUDIO ANIMATION
     private func recordAnimation(){
         let pulseAnimation = CABasicAnimation(keyPath: "opacity")
         pulseAnimation.duration = 0.5
         pulseAnimation.fromValue = 0
         pulseAnimation.toValue = 1
-//        pulseAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         pulseAnimation.autoreverses = true
         pulseAnimation.repeatCount = FLT_MAX
         
         audioButton.layer.addAnimation(pulseAnimation, forKey: nil)
 
-//        self.removeAudioView.hidden = false
         self.audioImageView.hidden = false
         self.audioImageView.layer.addAnimation(pulseAnimation, forKey: nil)
 
     }
-    
-    //hide animationBackground view
-    private func hideSlideView(){
-        self.audioImageView.hidden = true
-//        self.removeAudioView.hidden = true
-//        self.trashImageImgView.hidden = true
-//        self.arrow.hidden = true
-//        self.animationBackgroundView.hidden = true
-    }
-    
-    //shows animationBackground view
-    private func showSlideView(){
-        self.audioImageView.hidden = false
-//        self.removeAudioView.hidden = false
-//        self.trashImageImgView.hidden = true
-//        self.arrow.hidden = true
-//        self.animationBackgroundView.hidden = true
-    }
-    
-    //hides animationBackground view
-//    private func hideElementsAfterAnimation(){
-//        self.trashImageImgView.hidden = true
-//        self.arrow.hidden = true
-//        self.animationBackgroundView.hidden = true
-//    }
-//    
-//    //resets animationBackground view
-//    private func resetAnimationViewPosition(){
-//        self.animationBackgroundView.frame.origin.x = self.removeAudioView.frame.width
-//        self.animationBackgroundView.frame.size.width = 0
-//        
-//        self.audioImageView.frame.origin.x = self.removeAudioView.frame.width - self.audioImageView.frame.width
-//    }
     
     //MARK: - FILE MANAGER RELATED METHODS
     //MARK: HARRY-TODO: DO NOT SAVE DEFAULT IMAGE
@@ -725,26 +643,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         aFileManager.createFileAtPath(atPath, contents: imageData, attributes: nil)
     }
     
-    private func overwriteGame(aGame: Game) {
-        let overwriteAlert = UIAlertController(title: "Sobreescrever jogo?", message: "Já existe um jogo salvo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", preferredStyle: UIAlertControllerStyle.Alert)
-        
-        overwriteAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: {_ in
-            GameServices.overwriteGame(aGame)
-            self.disableSaveButton(true)
-            self.savedGameAlert()
-        }))
-        
-        overwriteAlert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Default, handler: {_ in
-            self.saveGame(self)
-        }))
-        
-
-        self.presentViewController(overwriteAlert, animated: true, completion: nil)
-    }
-    
     // MARK: - DELEGATES AND DATASOURCES METHDOS
+    
     // MARK: UIImagePickerControllerDelegate Methods
-
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         let mediaType = info[UIImagePickerControllerMediaType] as! String
@@ -787,8 +688,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             newImageImgView.image = image
             hasClue = true
             
-            // Show hidden elements (image view and new word text field)
-            //showElements()
+            // Show delete button
+            removeNewClueButton.hidden = false
             
             // persist media in library, if it's a new media
             if (newMedia == true) {
@@ -873,7 +774,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             newImageImgView.image = audioImage
         }
         
-        showSlideView()
+        self.audioImageView.hidden = false
     }
 
     //MARK: Collection View Delegate and Datasource Methods
@@ -955,36 +856,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     //auxiliar methods called by NewWordCollectionViewCell
-    
-    func cellAlert(index: Int) {
-        
-        let alertController = UIAlertController(
-            title: "",
-            message: "Deseja apagar essa palavra?",
-            preferredStyle: .Alert
-        )
-        
-        let cancelAction = UIAlertAction(
-            title: "Cancelar",
-            style: UIAlertActionStyle.Default
-        ) { (action) in
-        }
-
-        
-        let confirmAction = UIAlertAction(
-            title: "Apagar",
-            style: UIAlertActionStyle.Cancel
-        ) { (action) in
-            self.removeCell(index)
-        }
-        
-        alertController.addAction(confirmAction)
-        alertController.addAction(cancelAction)
-        
-        presentViewController(alertController, animated: true, completion: nil)
-
-    }
-    
     func removeCell(index: Int){
         newWords.removeAtIndex(index)
         
@@ -1099,21 +970,13 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             self.newImageImgView.image = defaultImage
             
             self.hasClue = false
+            self.removeNewClueButton.hidden = true
             
             self.newWordTxtField.text = ""
             self.hasWord = false
             
             self.newWords = []
             self.wordsLimitReached = false
-            
-            /* None of this is necessary
-            //buttons reset
-            self.addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(0.5))
-            self.addButton.userInteractionEnabled = false
-            self.takePhotoButton.enabled = true
-            self.cameraRollButton.enabled = true
-            self.audioButton.enabled = true
-            */
             
             //collectionView reset
             self.wordsAddedCollectionView.reloadData()
