@@ -344,6 +344,23 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     // MARK: DELETE NEW WORD AND CLUE ELEMENT
     @IBAction func deleteNewClue(sender: AnyObject) {
         
+        let deleteNewClueAlert = UIAlertController(title: "Apagar essa dica?", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        deleteNewClueAlert.addAction(UIAlertAction(
+            title: "Sim", style: UIAlertActionStyle.Default, handler: {_ in
+                self.clearNewClue()
+            }
+        ))
+        
+        deleteNewClueAlert.addAction(UIAlertAction(
+            title: "Não", style: UIAlertActionStyle.Cancel, handler: {_ in
+            }
+        ))
+        
+        self.presentViewController(deleteNewClueAlert, animated: true, completion: nil)
+    }
+    
+    private func clearNewClue(){
         // Clear audio variables
         self.audioPath = nil
         self.audioRecorder = nil
@@ -361,7 +378,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         self.removeNewClueButton.hidden = true
         
         self.hasClue = false
-        
     }
 
     // MARK: ADD NEW CLUE
