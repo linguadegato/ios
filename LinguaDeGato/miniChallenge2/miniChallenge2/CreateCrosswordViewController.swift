@@ -26,17 +26,15 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     @IBOutlet weak var generateButton: UIButton!
     @IBOutlet weak var muteMusicButton: UIButton!
     @IBOutlet weak var saveGameButton: UIButton!
+    @IBOutlet weak var removeNewClueButton: UIButton!
+    
     
     //MARK: Views
     @IBOutlet weak var newImageImgView: UIImageView!
     @IBOutlet weak var newWordTxtField: UITextField!
     @IBOutlet weak var wordsAddedCollectionView: UICollectionView!
     @IBOutlet weak var lowerContainer: UIView!
-    @IBOutlet weak var audioImageImgView: UIImageView!
-    @IBOutlet weak var trashImageImgView: UIImageView!
-    @IBOutlet weak var removeAudioView: UIView!
-    @IBOutlet weak var animationBackgroundView: UIView!
-    @IBOutlet weak var arrow: UIImageView!
+    @IBOutlet weak var audioImageView: UIImageView!
 
     //MARK: Colors and apearance
     
@@ -63,11 +61,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private let newImageBorderWidth: CGFloat = 1.0
     
     //slide view
-    private let slideViewBorderRadius : CGFloat = 30.0
-    
-    //animation 
-    private var playAudioImgViewOriginalPosition : CGPoint?
-    
+    private let audioImageBorderRadius : CGFloat = 30.0
+
     //mute button images
     private let muteMusicOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
     private let muteMusicOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
@@ -75,8 +70,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     //MARK: Keyboard variable
     private var isKeyboardLifted: Bool = false
     
-    //MARK: Animations Variables
-    private var arrowAnimationTimer: NSTimer!
     
     //MARK: Crossword Creation related variables
     private var gameName: String!
@@ -144,13 +137,13 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         newImageImgView.layer.borderColor = newImageBorderColor
         newImageImgView.layer.borderWidth = newImageBorderWidth
         
-        audioImageImgView.layer.cornerRadius = slideViewBorderRadius
+        audioImageView.layer.cornerRadius = audioImageBorderRadius
 
-        animationBackgroundView.layer.cornerRadius = slideViewBorderRadius
-        
         addButton.setImage(addButtonImageOn, forState: UIControlState.Normal)
         addButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
         setAddButtonState()
+        
+        removeNewClueButton.hidden = true
         
         //MARK: interaction settings
         
@@ -167,12 +160,10 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         //gesture recognizers in main image
         newImageImgView.userInteractionEnabled = true
         newImageImgView.addGestureRecognizer(createGestureTapImageToPlayRecord())
-        removeAudioView.addGestureRecognizer(createGestureTapImageToPlayRecord())
         
         //audio image gesture reconizers
-        playAudioImgViewOriginalPosition = audioImageImgView.frame.origin
-        audioImageImgView.userInteractionEnabled = true
-        audioImageImgView.addGestureRecognizer(createGestureLongPressDeleteRecord())
+        audioImageView.userInteractionEnabled = true
+        audioImageView.addGestureRecognizer(createGestureTapImageToPlayRecord())
         
         //MARK: request permission to use microfone
         audioButton.enabled = false
@@ -218,9 +209,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         let center: NSNotificationCenter = NSNotificationCenter.defaultCenter()
         center.addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         center.addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
-        
-        // Prepare animation to delete audio
-        resetAnimationViewPosition()
         
     }
     
@@ -347,7 +335,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         } else {
             finishRecording(success: true)
             if !MusicSingleton.sharedMusic().isMusicMute {
-            MusicSingleton.sharedMusic().playBackgroundAudio(true)
+                MusicSingleton.sharedMusic().playBackgroundAudio(true)
             }
         }
     }
@@ -492,29 +480,29 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     //Returns a longPressRecognizer to erase audio
-    private func createGestureLongPressDeleteRecord() -> UILongPressGestureRecognizer{
-        let longPressGesture = UILongPressGestureRecognizer(target:self, action:Selector("longPressAction:"))
-        let longPressDistance = self.removeAudioView.frame.width
-        
-        longPressGesture.minimumPressDuration = 0.3
-        longPressGesture.allowableMovement.advancedBy(longPressDistance)
-        
-        return longPressGesture
-    }
-    
+//    private func createGestureLongPressDeleteRecord() -> UILongPressGestureRecognizer{
+//        let longPressGesture = UILongPressGestureRecognizer(target:self, action:Selector("longPressAction:"))
+//        let longPressDistance = self.removeAudioView.frame.width
+//        
+//        longPressGesture.minimumPressDuration = 0.3
+//        longPressGesture.allowableMovement.advancedBy(longPressDistance)
+//        
+//        return longPressGesture
+//    }
+//    
     //MARK: - GESTURE RECOGNIZERS ACTIONS
     
     func tapAndPlayRecord(sender: UITapGestureRecognizer){
         if self.audioPath != nil {
             let audioURL = NSURL(fileURLWithPath: self.audioPath!)
-            var audioPlayerTimer = NSTimer()
+//            var audioPlayerTimer = NSTimer()
             
             do {
                 try self.audio = AVAudioPlayer(contentsOfURL: audioURL)
                 MusicSingleton.sharedMusic().playBackgroundAudio(false)
                 self.audio.play()
                 
-                audioPlayerTimer = NSTimer.scheduledTimerWithTimeInterval(audio.duration, target: self, selector: "playMusicAfterPlayClue", userInfo: nil, repeats: false)
+//                audioPlayerTimer = NSTimer.scheduledTimerWithTimeInterval(audio.duration, target: self, selector: "playMusicAfterPlayClue", userInfo: nil, repeats: false)
             } catch {
                 //MARK: TODO: [audio] error message
             }
@@ -527,94 +515,94 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         }
     }
     
-    // MARK: Long Press and show trash animation
-    func longPressAction(sender: UILongPressGestureRecognizer){
-        
-        switch sender.state{
-            
-            case UIGestureRecognizerState.Began:
-                self.animationBackgroundView.hidden = false
-                UIView.animateWithDuration(
-                    0.3,
-                    animations: {
-                        self.animationBackgroundView.frame.size.width = self.removeAudioView.frame.size.width
-                        self.animationBackgroundView.frame.origin.x = 0
-                    },
-                    completion: {
-                        animationFinished in
-                        if (self.animationBackgroundView.frame.origin.x == 0){
-                            self.trashImageImgView.hidden = false
-                            //self.arrow.frame.origin.x = self.audioImageImgView.frame.origin.x
-                            self.arrow.hidden = false
-                        }
-                    }
-                )
-                self.arrowAnimationTimer = NSTimer.scheduledTimerWithTimeInterval(1.2, target: self, selector: "slideAnimation" , userInfo: nil, repeats: true)
-                self.arrowAnimationTimer.fire()
-
-                break
-        
-            case UIGestureRecognizerState.Ended:
-                self.arrowAnimationTimer.invalidate()
-                resetAnimationViewPosition()
-                hideElementsAfterAnimation()
-                break
-
-            case UIGestureRecognizerState.Cancelled:
-                self.arrowAnimationTimer.invalidate()
-                UIView.animateWithDuration(
-                    0.3,
-                    animations: {
-                        self.animationBackgroundView.frame.size.width = 0
-                        self.audioImageImgView.center.x = self.audioImageImgView.frame.width/2
-                    },
-                    completion: {
-                        (finished:Bool) in
-                        
-                        // Clear audioPath variable
-                        self.audioPath = nil
-                        self.audioRecorder = nil
-                        self.recordingSession = nil
-                        if (self.newImageImgView.image == self.audioImage) {
-                            self.newImageImgView.image = self.defaultImage
-                            self.hasClue = false
-                        }
-        
-                        // Make Gesture Recognizer avaiable and hide elements
-                        sender.enabled = true
-                        self.hideElementsAfterAnimation()
-                        self.resetAnimationViewPosition()
-                        self.hideSlideView()
-                    }
-                )
-                break
-
-            case UIGestureRecognizerState.Changed:
-                let location = sender.locationInView(removeAudioView)
-                let limitRectangle = self.removeAudioView.bounds
-                let deltaWidth = self.audioImageImgView.frame.width/2
-                let limitXToDelete = self.removeAudioView.frame.width/2
-                
-                if CGRectContainsPoint(limitRectangle, location){
-                    if ((location.x >= deltaWidth) && (location.x <= self.removeAudioView.frame.width - deltaWidth)){
-                    
-                        if (location.x <= limitXToDelete){
-                            self.trashImageImgView.hidden = true
-                            sender.enabled = false
-                        }else{
-                            self.animationBackgroundView.frame.size.width = location.x + deltaWidth
-                            self.audioImageImgView.center.x = location.x
-                        }
-                    }
-                }
-                break
-            
-            default:
-                break
-        }
-    }
-
-    // MARK: - RECORD AUDIO METHODS
+//    // MARK: Long Press and show trash animation
+//    func longPressAction(sender: UILongPressGestureRecognizer){
+//        
+//        switch sender.state{
+//            
+//            case UIGestureRecognizerState.Began:
+//                self.animationBackgroundView.hidden = false
+//                UIView.animateWithDuration(
+//                    0.3,
+//                    animations: {
+//                        self.animationBackgroundView.frame.size.width = self.removeAudioView.frame.size.width
+//                        self.animationBackgroundView.frame.origin.x = 0
+//                    },
+//                    completion: {
+//                        animationFinished in
+//                        if (self.animationBackgroundView.frame.origin.x == 0){
+//                            self.trashImageImgView.hidden = false
+//                            //self.arrow.frame.origin.x = self.audioImageImgView.frame.origin.x
+//                            self.arrow.hidden = false
+//                        }
+//                    }
+//                )
+//                self.arrowAnimationTimer = NSTimer.scheduledTimerWithTimeInterval(1.2, target: self, selector: "slideAnimation" , userInfo: nil, repeats: true)
+//                self.arrowAnimationTimer.fire()
+//
+//                break
+//        
+//            case UIGestureRecognizerState.Ended:
+//                self.arrowAnimationTimer.invalidate()
+//                resetAnimationViewPosition()
+//                hideElementsAfterAnimation()
+//                break
+//
+//            case UIGestureRecognizerState.Cancelled:
+//                self.arrowAnimationTimer.invalidate()
+//                UIView.animateWithDuration(
+//                    0.3,
+//                    animations: {
+//                        self.animationBackgroundView.frame.size.width = 0
+//                        self.audioImageImgView.center.x = self.audioImageImgView.frame.width/2
+//                    },
+//                    completion: {
+//                        (finished:Bool) in
+//                        
+//                        // Clear audioPath variable
+//                        self.audioPath = nil
+//                        self.audioRecorder = nil
+//                        self.recordingSession = nil
+//                        if (self.newImageImgView.image == self.audioImage) {
+//                            self.newImageImgView.image = self.defaultImage
+//                            self.hasClue = false
+//                        }
+//        
+//                        // Make Gesture Recognizer avaiable and hide elements
+//                        sender.enabled = true
+//                        self.hideElementsAfterAnimation()
+//                        self.resetAnimationViewPosition()
+//                        self.hideSlideView()
+//                    }
+//                )
+//                break
+//
+//            case UIGestureRecognizerState.Changed:
+//                let location = sender.locationInView(removeAudioView)
+//                let limitRectangle = self.removeAudioView.bounds
+//                let deltaWidth = self.audioImageImgView.frame.width/2
+//                let limitXToDelete = self.removeAudioView.frame.width/2
+//                
+//                if CGRectContainsPoint(limitRectangle, location){
+//                    if ((location.x >= deltaWidth) && (location.x <= self.removeAudioView.frame.width - deltaWidth)){
+//                    
+//                        if (location.x <= limitXToDelete){
+//                            self.trashImageImgView.hidden = true
+//                            sender.enabled = false
+//                        }else{
+//                            self.animationBackgroundView.frame.size.width = location.x + deltaWidth
+//                            self.audioImageImgView.center.x = location.x
+//                        }
+//                    }
+//                }
+//                break
+//            
+//            default:
+//                break
+//        }
+//    }
+//
+//    // MARK: - RECORD AUDIO METHODS
     
     private func startRecording() {
         
@@ -646,7 +634,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         audioButton.setBackgroundImage(audioButtonReadyToUseImage, forState: .Normal)
         audioButton.layer.removeAllAnimations()
-        audioImageImgView.layer.removeAllAnimations()
+        audioImageView.layer.removeAllAnimations()
         
         audioRecorder.stop()
         audioRecorder = nil
@@ -659,22 +647,22 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     //MARK: - ANIMATIONS
-    func slideAnimation() {
-        print("fired")
-        UIView.animateWithDuration(1,
-            //arrow slide to trash
-            animations: {
-                self.arrow.hidden = false
-                self.arrow.frame.origin.x = 0
-            },
-            //arrow backs to right edge of animationBackgroundView
-            completion: { (flag) -> Void in
-                self.arrow.hidden = true
-                self.arrow.frame.origin.x = self.audioImageImgView.frame.origin.x
-                self.arrow.setNeedsDisplay()
-            }
-        )
-    }
+//    func slideAnimation() {
+//        print("fired")
+//        UIView.animateWithDuration(1,
+//            //arrow slide to trash
+//            animations: {
+//                self.arrow.hidden = false
+//                self.arrow.frame.origin.x = 0
+//            },
+//            //arrow backs to right edge of animationBackgroundView
+//            completion: { (flag) -> Void in
+//                self.arrow.hidden = true
+//                self.arrow.frame.origin.x = self.audioImageImgView.frame.origin.x
+//                self.arrow.setNeedsDisplay()
+//            }
+//        )
+//    }
     
     //audioButton animation
     private func recordAnimation(){
@@ -688,44 +676,44 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         audioButton.layer.addAnimation(pulseAnimation, forKey: nil)
 
-        self.removeAudioView.hidden = false
-        self.audioImageImgView.hidden = false
-        self.audioImageImgView.layer.addAnimation(pulseAnimation, forKey: nil)
+//        self.removeAudioView.hidden = false
+        self.audioImageView.hidden = false
+        self.audioImageView.layer.addAnimation(pulseAnimation, forKey: nil)
 
     }
     
     //hide animationBackground view
     private func hideSlideView(){
-        self.audioImageImgView.hidden = true
-        self.removeAudioView.hidden = true
-        self.trashImageImgView.hidden = true
-        self.arrow.hidden = true
-        self.animationBackgroundView.hidden = true
+        self.audioImageView.hidden = true
+//        self.removeAudioView.hidden = true
+//        self.trashImageImgView.hidden = true
+//        self.arrow.hidden = true
+//        self.animationBackgroundView.hidden = true
     }
     
     //shows animationBackground view
     private func showSlideView(){
-        self.audioImageImgView.hidden = false
-        self.removeAudioView.hidden = false
-        self.trashImageImgView.hidden = true
-        self.arrow.hidden = true
-        self.animationBackgroundView.hidden = true
+        self.audioImageView.hidden = false
+//        self.removeAudioView.hidden = false
+//        self.trashImageImgView.hidden = true
+//        self.arrow.hidden = true
+//        self.animationBackgroundView.hidden = true
     }
     
     //hides animationBackground view
-    private func hideElementsAfterAnimation(){
-        self.trashImageImgView.hidden = true
-        self.arrow.hidden = true
-        self.animationBackgroundView.hidden = true
-    }
-    
-    //resets animationBackground view
-    private func resetAnimationViewPosition(){
-        self.animationBackgroundView.frame.origin.x = self.removeAudioView.frame.width
-        self.animationBackgroundView.frame.size.width = 0
-        
-        self.audioImageImgView.frame.origin.x = self.removeAudioView.frame.width - self.audioImageImgView.frame.width
-    }
+//    private func hideElementsAfterAnimation(){
+//        self.trashImageImgView.hidden = true
+//        self.arrow.hidden = true
+//        self.animationBackgroundView.hidden = true
+//    }
+//    
+//    //resets animationBackground view
+//    private func resetAnimationViewPosition(){
+//        self.animationBackgroundView.frame.origin.x = self.removeAudioView.frame.width
+//        self.animationBackgroundView.frame.size.width = 0
+//        
+//        self.audioImageView.frame.origin.x = self.removeAudioView.frame.width - self.audioImageView.frame.width
+//    }
     
     //MARK: - FILE MANAGER RELATED METHODS
     //MARK: HARRY-TODO: DO NOT SAVE DEFAULT IMAGE
