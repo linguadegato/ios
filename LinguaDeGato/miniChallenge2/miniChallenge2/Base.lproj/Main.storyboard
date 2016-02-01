@@ -61,7 +61,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xl-u6-9Xk">
                                         <rect key="frame" x="208" y="67" width="67" height="67"/>
-                                        <color key="backgroundColor" red="0.38823529410000002" green="0.69411764710000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.96862745100000003" green="0.66274509800000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="9xl-u6-9Xk" secondAttribute="height" id="v4A-sb-MSd"/>
                                         </constraints>
@@ -72,7 +72,7 @@
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wrg-Y3-HR3" userLabel="Audio Button Background Image">
                                         <rect key="frame" x="208" y="134" width="67" height="67"/>
-                                        <color key="backgroundColor" red="0.95294117647058818" green="0.59999999999999998" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.38823529410000002" green="0.69411764710000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n00-fW-Tt7">
                                         <rect key="frame" x="208" y="134" width="67" height="67"/>
@@ -263,7 +263,7 @@
                                                     <constraint firstAttribute="width" constant="70" id="nvP-XO-Rkc"/>
                                                     <constraint firstAttribute="height" constant="70" id="qzR-al-YoV"/>
                                                 </constraints>
-                                                <state key="normal" title="Salvar" image="btnPlayBlue"/>
+                                                <state key="normal" title="Salvar" image="iconPlayOrangeWhite"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="CAT-0m-zCv"/>
@@ -286,7 +286,7 @@
                                                     <constraint firstAttribute="width" constant="45" id="dVT-V0-x5A"/>
                                                     <constraint firstAttribute="width" constant="70" id="kJv-d4-2sz"/>
                                                 </constraints>
-                                                <state key="normal" image="iconBoxBlue"/>
+                                                <state key="normal" image="iconBoxGreen"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="Ebp-IN-2dN"/>
@@ -629,7 +629,7 @@
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                         <inset key="titleEdgeInsets" minX="-125" minY="66" maxX="0.0" maxY="0.0"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="33"/>
-                                                                        <state key="normal" backgroundImage="iconPlayOrange">
+                                                                        <state key="normal" backgroundImage="iconPlayOrangeWhite">
                                                                             <color key="titleColor" red="0.95294117647058818" green="0.59999999999999998" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                                                                         </state>
                                                                         <connections>
@@ -663,7 +663,7 @@
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                         <inset key="titleEdgeInsets" minX="-125" minY="75" maxX="0.0" maxY="0.0"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="33"/>
-                                                                        <state key="normal" backgroundImage="iconGamePink">
+                                                                        <state key="normal" backgroundImage="iconGamePinkWhite">
                                                                             <color key="titleColor" red="0.88627450980392153" green="0.20784313725490197" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
                                                                         </state>
                                                                         <connections>
@@ -887,7 +887,7 @@
                             </barButtonItem>
                         </leftBarButtonItems>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Iim-Tv-S3O">
-                            <rect key="frame" x="119" y="7.5" width="415" height="29"/>
+                            <rect key="frame" x="119" y="8" width="415" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Palavras "/>
@@ -1059,7 +1059,7 @@
                                             <constraint firstAttribute="height" constant="70" id="W2r-Kt-njQ"/>
                                             <constraint firstAttribute="width" secondItem="4bL-aY-gwN" secondAttribute="height" multiplier="1:1" id="efs-5u-L3Z"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="iconPlayOrange"/>
+                                        <state key="normal" title="Button" image="iconPlayOrangeWhite"/>
                                         <connections>
                                             <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromSelectedGame" id="SyW-KV-GTV"/>
                                         </connections>
@@ -1225,7 +1225,7 @@
                                             <constraint firstAttribute="height" constant="70" id="8hI-Vm-7bw"/>
                                             <constraint firstAttribute="width" secondItem="UEl-hi-gw4" secondAttribute="height" multiplier="1:1" id="lds-kB-Hen"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="iconPlayOrange"/>
+                                        <state key="normal" image="iconPlayOrangeWhite"/>
                                         <connections>
                                             <action selector="createNewGame:" destination="Nsy-js-WgB" eventType="touchUpInside" id="vHr-lx-ZE5"/>
                                         </connections>
@@ -1264,7 +1264,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Epm-Oo-0ch" firstAttribute="width" secondItem="vGR-iG-sG9" secondAttribute="width" id="0te-nJ-ZX9"/>
                             <constraint firstItem="k8y-aC-gzB" firstAttribute="centerY" secondItem="vGR-iG-sG9" secondAttribute="centerY" id="E6W-UZ-xqa"/>
@@ -1302,16 +1302,14 @@
         <image name="btnGalleryGreen" width="267" height="257"/>
         <image name="btnMuteAudioOffLightBlue" width="351" height="351"/>
         <image name="btnMuteMusicOffLightBlue" width="351" height="351"/>
-        <image name="btnPlayBlue" width="130" height="130"/>
         <image name="iconAddWord" width="70" height="70"/>
-        <image name="iconBoxBlue" width="306" height="306"/>
         <image name="iconBoxGreen" width="306" height="306"/>
         <image name="iconCatTransparent" width="699" height="669"/>
-        <image name="iconGamePink" width="128" height="128"/>
+        <image name="iconGamePinkWhite" width="132" height="132"/>
         <image name="iconPawGreen" width="284" height="285"/>
         <image name="iconPlayAudioBlackTransparent" width="134" height="134"/>
         <image name="iconPlayAudioOrangeTransparent" width="134" height="134"/>
-        <image name="iconPlayOrange" width="128" height="128"/>
+        <image name="iconPlayOrangeWhite" width="132" height="132"/>
         <image name="imageDefault" width="683" height="499"/>
         <image name="slideBlue" width="78" height="78"/>
         <image name="textLinguaDeGato" width="3175" height="408"/>

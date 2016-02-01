@@ -46,7 +46,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // - Audio Button to delete record
     private let audioButtonReadyToUseImage = (UIImage(named: "btnAudio"))
-    private let audioButtonRecordingImage = (UIImage(named: "btnAudioBlue"))
+    private let audioButtonRecordingImage = (UIImage(named: "btnAudioRed"))
     
     // - Add new clue
     private let addButtonImageOn = (UIImage(named: "iconAddWord"))
@@ -102,6 +102,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private var imageID: String?
     
     // Audio session to manage recording and an audio recorder to handle the actual reading and saving of data
+    private var recordingAudio: Bool = false
     private var recordingSession: AVAudioSession!
     private var audioRecorder: AVAudioRecorder!
     private var audioPath: String?
@@ -146,6 +147,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         removeNewClueButton.hidden = true
         
         //MARK: interaction settings
+        
+        self.recordingAudio = false
         
         //buttons
         generateButton.enabled = false
@@ -339,6 +342,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 MusicSingleton.sharedMusic().playBackgroundAudio(true)
             }
         }
+        
+        setAddButtonState()
     }
 
     // MARK: DELETE NEW WORD AND CLUE ELEMENT
@@ -528,7 +533,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // Disable addButton if there's no clue, or no word, or if there's already 6 words
     private func setAddButtonState() {
-        if hasClue && hasWord && !wordsLimitReached {
+        if hasClue && hasWord && !wordsLimitReached && (recordingAudio == false){
             addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(1))
             addButton.userInteractionEnabled = true
         } else {
@@ -576,7 +581,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 try self.audio = AVAudioPlayer(contentsOfURL: audioURL)
                 MusicSingleton.sharedMusic().playBackgroundAudio(false)
                 self.audio.play()
-                
             } catch {
                 //MARK: TODO: [audio] error message
             }
@@ -591,6 +595,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // MARK: - RECORD AUDIO METHODS
     private func startRecording() {
+        self.recordingAudio = true
         
         audioButton.setBackgroundImage(audioButtonRecordingImage, forState: .Normal)
         
@@ -617,6 +622,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     private func finishRecording(success success: Bool) {
+        self.recordingAudio = false
         
         audioButton.setBackgroundImage(audioButtonReadyToUseImage, forState: .Normal)
         audioButton.layer.removeAllAnimations()
