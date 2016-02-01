@@ -87,6 +87,8 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         // Clue audio
         if (audioPath != nil){
             cell.audioImage.hidden = false
+        }else{
+            cell.audioImage.hidden = true
         }
         
         // Selection design to the cell (green border or not)

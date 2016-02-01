@@ -27,6 +27,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
     private let reuseIdentifier = "ClueCell"
     private let collectionTitle = "Palavras Salvas"
 
+    //MARK: - LIFECYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +48,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
     }
     
+    //MARK: - DATASOURCE
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
         let cellSizeForGallery = collectionView.bounds.size.height/3.1
@@ -92,6 +94,8 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         //set audio button or not
         if (audioClue != nil) {
             cell.audioImage.hidden = false
+        }else{
+            cell.audioImage.hidden = true
         }
         
         //set layout if the cell is selected
@@ -122,7 +126,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         return cell
     }
     
-    // MARK: Selection and deselection of a celll
+    // MARK: - DELEGATE
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if (selectedWords.count < maximumNumberOfWords){
             selectedWords.append(gallery[indexPath.row])
