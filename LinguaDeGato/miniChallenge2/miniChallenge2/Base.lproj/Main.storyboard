@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -115,7 +116,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNB-87-mME" userLabel="Delete Image Button">
-                                        <rect key="frame" x="166" y="2" width="34" height="34"/>
+                                        <rect key="frame" x="183" y="2" width="17" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="HNB-87-mME" secondAttribute="height" multiplier="1:1" id="ZmW-4X-pj1"/>
                                         </constraints>
@@ -138,7 +139,6 @@
                                     <constraint firstItem="n00-fW-Tt7" firstAttribute="top" secondItem="9xl-u6-9Xk" secondAttribute="bottom" id="Fxs-JV-df3"/>
                                     <constraint firstItem="HqU-dF-wwX" firstAttribute="width" secondItem="pFx-lX-yzd" secondAttribute="width" multiplier="3:4" id="K0C-xZ-caW"/>
                                     <constraint firstItem="z5E-ym-D8p" firstAttribute="bottom" secondItem="HqU-dF-wwX" secondAttribute="bottom" id="Mj2-nz-j5u"/>
-                                    <constraint firstAttribute="bottom" secondItem="z5E-ym-D8p" secondAttribute="bottom" constant="5" id="Mz1-Vk-fZQ"/>
                                     <constraint firstItem="HNB-87-mME" firstAttribute="trailing" secondItem="HqU-dF-wwX" secondAttribute="trailing" id="Nqq-5u-XEv"/>
                                     <constraint firstItem="HqU-dF-wwX" firstAttribute="top" secondItem="pFx-lX-yzd" secondAttribute="top" id="Pfh-M7-ZAM"/>
                                     <constraint firstItem="CB4-Gq-Y70" firstAttribute="top" secondItem="n00-fW-Tt7" secondAttribute="bottom" constant="2" id="QnU-Fj-Qtw"/>
@@ -150,7 +150,7 @@
                                     <constraint firstItem="9xl-u6-9Xk" firstAttribute="width" secondItem="HqU-dF-wwX" secondAttribute="width" multiplier="1:3" id="lb8-Kp-pDd"/>
                                     <constraint firstItem="CB4-Gq-Y70" firstAttribute="width" secondItem="n00-fW-Tt7" secondAttribute="width" id="ndh-e7-ZHP"/>
                                     <constraint firstItem="z5E-ym-D8p" firstAttribute="height" secondItem="n00-fW-Tt7" secondAttribute="height" multiplier="1:2" id="oXU-QQ-Tru"/>
-                                    <constraint firstItem="HNB-87-mME" firstAttribute="height" secondItem="z5E-ym-D8p" secondAttribute="height" id="pgp-LP-swX"/>
+                                    <constraint firstItem="HNB-87-mME" firstAttribute="height" secondItem="z5E-ym-D8p" secondAttribute="height" multiplier="1:2" id="pgp-LP-swX"/>
                                     <constraint firstItem="Wrg-Y3-HR3" firstAttribute="height" secondItem="n00-fW-Tt7" secondAttribute="height" id="rGg-PF-LJv"/>
                                     <constraint firstItem="Xfs-vm-kQE" firstAttribute="width" secondItem="HqU-dF-wwX" secondAttribute="width" multiplier="1:3" id="t8T-KQ-1Fj"/>
                                     <constraint firstItem="CB4-Gq-Y70" firstAttribute="height" secondItem="n00-fW-Tt7" secondAttribute="height" multiplier="1:2" id="vO3-8U-bhv"/>
@@ -158,11 +158,6 @@
                                     <constraint firstItem="Wrg-Y3-HR3" firstAttribute="width" secondItem="n00-fW-Tt7" secondAttribute="width" id="xaG-d8-Wrj"/>
                                     <constraint firstItem="9xl-u6-9Xk" firstAttribute="leading" secondItem="Xfs-vm-kQE" secondAttribute="leading" id="ySk-fu-Msc"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Mz1-Vk-fZQ"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="07X-lJ-afV" userLabel="LowerContainer">
                                 <rect key="frame" x="0.0" y="446" width="600" height="146"/>
@@ -514,11 +509,56 @@
                         <outlet property="boardView" destination="nER-cG-Zd8" id="2Sj-Iv-b49"/>
                         <outlet property="muteAudioButton" destination="NZz-lp-d3c" id="GEW-H2-0iW"/>
                         <outlet property="muteMusicButton" destination="qiF-gD-ctR" id="dht-8i-Dhf"/>
+                        <segue destination="vK8-Qp-WDY" kind="presentation" identifier="GameEnded" animates="NO" modalPresentationStyle="overCurrentContext" id="uvu-z8-EXW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOf-ag-Lri" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="536" y="1150"/>
+        </scene>
+        <!--Game End PopupVC-->
+        <scene sceneID="LqL-Rc-vG7">
+            <objects>
+                <viewController id="vK8-Qp-WDY" customClass="GameEndPopupVC" customModule="LinguaDeGato" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LR0-CD-06b"/>
+                        <viewControllerLayoutGuide type="bottom" id="RpJ-sr-afs"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" id="Kne-J5-yX3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GameEndPopupBRA" translatesAutoresizingMaskIntoConstraints="NO" id="Wew-hY-LdF">
+                                <rect key="frame" x="75" y="137" width="450" height="327"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Wew-hY-LdF" secondAttribute="height" multiplier="2048:1489" id="9c4-Sc-35b"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ozY-Dt-A7x">
+                                <rect key="frame" x="503" y="115" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="q1o-Gu-KaO"/>
+                                    <constraint firstAttribute="height" constant="44" id="tCS-Bv-8Iq"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="btnDelete"/>
+                                <connections>
+                                    <action selector="dissmissPopup" destination="vK8-Qp-WDY" eventType="touchUpInside" id="7eY-Al-5Vo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ozY-Dt-A7x" firstAttribute="centerX" secondItem="Wew-hY-LdF" secondAttribute="trailing" id="Rq4-hW-GcZ"/>
+                            <constraint firstItem="Wew-hY-LdF" firstAttribute="centerX" secondItem="Kne-J5-yX3" secondAttribute="centerX" id="TXC-FC-wMH"/>
+                            <constraint firstItem="Wew-hY-LdF" firstAttribute="top" secondItem="ozY-Dt-A7x" secondAttribute="centerY" id="f1u-qI-0v8"/>
+                            <constraint firstItem="Wew-hY-LdF" firstAttribute="width" secondItem="Kne-J5-yX3" secondAttribute="width" multiplier="0.75" id="tGb-3F-NEE"/>
+                            <constraint firstItem="Wew-hY-LdF" firstAttribute="centerY" secondItem="Kne-J5-yX3" secondAttribute="centerY" id="tdi-CL-JXe"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="djB-gk-qH6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="536" y="1909"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="0g3-yJ-IvD">
@@ -1218,7 +1258,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Epm-Oo-0ch" firstAttribute="width" secondItem="vGR-iG-sG9" secondAttribute="width" id="0te-nJ-ZX9"/>
                             <constraint firstItem="k8y-aC-gzB" firstAttribute="centerY" secondItem="vGR-iG-sG9" secondAttribute="centerY" id="E6W-UZ-xqa"/>
@@ -1247,6 +1287,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="GameEndPopupBRA" width="2048" height="1489"/>
         <image name="arrowDownOrange" width="78" height="78"/>
         <image name="background" width="2002" height="1403"/>
         <image name="bntCameraPink" width="267" height="257"/>

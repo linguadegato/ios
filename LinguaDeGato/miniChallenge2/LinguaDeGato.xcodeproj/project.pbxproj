@@ -32,6 +32,7 @@
 		EFB0BE4C1BECD331000981C1 /* LGCrosswordGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB0BE4B1BECD331000981C1 /* LGCrosswordGenerator.swift */; };
 		EFB828691BF65B2E0017CF35 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB828681BF65B2E0017CF35 /* UINavigationControllerExtension.swift */; };
 		EFBF8B351BDFDEBC00784B94 /* CrosswordCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBF8B341BDFDEBC00784B94 /* CrosswordCoordinate.swift */; };
+		EFC1DAC21C5FBE5F004D4E11 /* GameEndPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1DAC01C5FBE5F004D4E11 /* GameEndPopupVC.swift */; };
 		EFCC8B671BF10DC700F6851F /* BoardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC8B661BF10DC700F6851F /* BoardCellView.swift */; };
 		EFCC8B691BF11DE600F6851F /* WordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC8B681BF11DE600F6851F /* WordManager.swift */; };
 		EFDD44B71B862A460078C141 /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDD44B61B862A460078C141 /* SquareView.swift */; };
@@ -101,6 +102,7 @@
 		EFB0BE4B1BECD331000981C1 /* LGCrosswordGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGCrosswordGenerator.swift; sourceTree = "<group>"; };
 		EFB828681BF65B2E0017CF35 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		EFBF8B341BDFDEBC00784B94 /* CrosswordCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrosswordCoordinate.swift; sourceTree = "<group>"; };
+		EFC1DAC01C5FBE5F004D4E11 /* GameEndPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEndPopupVC.swift; sourceTree = "<group>"; };
 		EFCC8B661BF10DC700F6851F /* BoardCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCellView.swift; sourceTree = "<group>"; };
 		EFCC8B681BF11DE600F6851F /* WordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordManager.swift; sourceTree = "<group>"; };
 		EFDD44B61B862A460078C141 /* SquareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				EFE6D07B1B85F4B700CCC802 /* GamePlayViewController.swift */,
+				EFC1DAC01C5FBE5F004D4E11 /* GameEndPopupVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -421,7 +424,7 @@
 				TargetAttributes = {
 					FA96DE921B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = ZR6H5N286L;
+						DevelopmentTeam = X4P55MVJ74;
 					};
 					FA96DEAB1B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -493,6 +496,7 @@
 				7786A6221C46B4930011C32A /* MusicSingleton.swift in Sources */,
 				FA96DE991B29C0CE00149113 /* AppDelegate.swift in Sources */,
 				EF5313D61C5272E500B2FEC3 /* LGCDGame.swift in Sources */,
+				EFC1DAC21C5FBE5F004D4E11 /* GameEndPopupVC.swift in Sources */,
 				FAFAB86C1C161DA100CBC16B /* UIColorExtension.swift in Sources */,
 				EF5313CE1C5271F900B2FEC3 /* GameDAO.swift in Sources */,
 				FAC71AC11C49637100F67F8C /* GalleryCollectionViewCell.swift in Sources */,

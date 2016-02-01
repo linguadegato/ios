@@ -101,6 +101,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private var imageID: String?
     
     // Audio session to manage recording and an audio recorder to handle the actual reading and saving of data
+    private var recordingAudio: Bool = false
     private var recordingSession: AVAudioSession!
     private var audioRecorder: AVAudioRecorder!
     private var audioPath: String?
@@ -110,6 +111,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private var backButton : UIBarButtonItem!
 
     let limitLength = BoardView.maxSquaresInCol
+    
+    // Last saved game name
+    private var savedGameName : String = ""
     
     //MARK: - VIEW LIFECYCLE METHODS
     
@@ -145,6 +149,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         removeNewClueButton.hidden = true
         
         //MARK: interaction settings
+        
+        self.recordingAudio = false
         
         //buttons
         generateButton.enabled = false
@@ -340,6 +346,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 MusicSingleton.sharedMusic().playBackgroundAudio(true)
             }
         }
+        
+        setAddButtonState()
     }
 
     // MARK: DELETE NEW WORD AND CLUE ELEMENT
@@ -434,39 +442,55 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     @IBAction func saveGame(sender: AnyObject) {
         
-        let saveAlert = UIAlertController(title: "Dê um nome ao jogo:", message: "É preciso inserir um nome para salvar", preferredStyle: UIAlertControllerStyle.Alert)
-
-        saveAlert.addTextFieldWithConfigurationHandler({ alertTextField in
-            alertTextField.placeholder = "Nome do jogo"
-        })
-        let alertTextField = saveAlert.textFields![0]
-        
-        saveAlert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Default, handler:nil))
-        
-        saveAlert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Cancel, handler:{ _ in
+        if (self.savedGameName.isEmpty){
             
-            if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
+            let saveAlert = UIAlertController(title: "Dê um nome ao jogo:", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            saveAlert.addTextFieldWithConfigurationHandler({ alertTextField in
+                alertTextField.placeholder = "Nome do jogo"
+            })
+            
+            let alertTextField = saveAlert.textFields![0]
+            
+            alertTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
+            
+            saveAlert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Default, handler:nil))
+            
+            saveAlert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ _ in
                 
-                let newGame = Game(gameName: alertTextField.text!, wordsAndClue: self.newWords)
-                GameServices.saveGame(newGame, completion: {success in
-                    if success {
-                        self.disableSaveButton(true)
-                        self.savedGameAlert()
-                    }
-                    else{
-                        NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
-                            self.overwriteGame(newGame)
-                        }))
-                    }
-                })
-            }
-            else {
-                print("empty text field!")
-            }
-        }))
-
-        self.presentViewController(saveAlert, animated: true, completion: {
-        })
+                if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
+                    
+                    self.savedGameName = alertTextField.text!
+                    let newGame = Game(gameName: self.savedGameName, wordsAndClue: self.newWords)
+                    GameServices.saveGame(newGame, completion: {success in
+                        if success {
+                            self.disableSaveButton(true)
+                            self.savedGameAlert()
+                        }
+                        else{
+                            NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
+                                self.overwriteGame(newGame)
+                            }))
+                        }
+                    })
+                }
+                else {
+                    print("empty text field!")
+                }
+            }))
+            
+            self.presentViewController(saveAlert, animated: true, completion: {
+            })
+            
+        }else{
+            
+            let newGame = Game(gameName: self.savedGameName, wordsAndClue: self.newWords)
+            
+            GameServices.overwriteGame(newGame)
+            self.disableSaveButton(true)
+            self.savedGameAlert()
+            
+        }
     }
     
     // MARK: - ALERTS
@@ -479,15 +503,15 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     private func overwriteGame(aGame: Game) {
-        let overwriteAlert = UIAlertController(title: "Sobreescrever jogo?", message: "Já existe um jogo salvo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", preferredStyle: UIAlertControllerStyle.Alert)
+        let overwriteAlert = UIAlertController(title: "Sobreescrever jogo?", message: "Já existe um jogo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", preferredStyle: UIAlertControllerStyle.Alert)
         
-        overwriteAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: {_ in
+        overwriteAlert.addAction(UIAlertAction(title: "Sim", style: UIAlertActionStyle.Default, handler: {_ in
             GameServices.overwriteGame(aGame)
             self.disableSaveButton(true)
             self.savedGameAlert()
         }))
         
-        overwriteAlert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Default, handler: {_ in
+        overwriteAlert.addAction(UIAlertAction(title: "Não", style: UIAlertActionStyle.Cancel, handler: {_ in
             self.saveGame(self)
         }))
         
@@ -505,15 +529,14 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         let cancelAction = UIAlertAction(
             title: "Cancelar",
-            style: UIAlertActionStyle.Default
-            ) { (action) in
-        }
+            style: UIAlertActionStyle.Cancel
+        ) { (action) in }
         
         
         let confirmAction = UIAlertAction(
             title: "Apagar",
-            style: UIAlertActionStyle.Cancel
-            ) { (action) in
+            style: UIAlertActionStyle.Default
+        ) { (action) in
                 self.removeCell(index)
         }
         
@@ -529,7 +552,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // Disable addButton if there's no clue, or no word, or if there's already 6 words
     private func setAddButtonState() {
-        if hasClue && hasWord && !wordsLimitReached {
+        if hasClue && hasWord && !wordsLimitReached && (recordingAudio == false){
             addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(1))
             addButton.userInteractionEnabled = true
         } else {
@@ -577,7 +600,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 try self.audio = AVAudioPlayer(contentsOfURL: audioURL)
                 MusicSingleton.sharedMusic().playBackgroundAudio(false)
                 self.audio.play()
-                
             } catch {
                 //MARK: TODO: [audio] error message
             }
@@ -592,6 +614,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // MARK: - RECORD AUDIO METHODS
     private func startRecording() {
+        self.recordingAudio = true
         
         audioButton.setBackgroundImage(audioButtonRecordingImage, forState: .Normal)
         
@@ -618,6 +641,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     private func finishRecording(success success: Bool) {
+        self.recordingAudio = false
         
         audioButton.setBackgroundImage(audioButtonReadyToUseImage, forState: .Normal)
         audioButton.layer.removeAllAnimations()
@@ -738,8 +762,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         if error != nil {
         
             let alert = UIAlertController(
-                title: "Save Failed",
-                message: "Failed to save image",
+                title: "Jogo não salvo",
+                message: "Ops.. Houve um erro. \nEntre em contato conosco.",
                 preferredStyle: UIAlertControllerStyle.Alert)
         
             let cancelAction = UIAlertAction(
