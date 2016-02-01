@@ -34,6 +34,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     @IBOutlet weak var wordsAddedCollectionView: UICollectionView!
     @IBOutlet weak var lowerContainer: UIView!
     @IBOutlet weak var audioImageView: UIImageView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
 
     //MARK: Colors and apearance
     
@@ -435,6 +438,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // MARK: COLLECTION VIEW BUTTONS (PLAY AND SAVE)
     @IBAction func playGame(sender: AnyObject) {
+        self.activityIndicator.startAnimating()
         self.performSegueWithIdentifier("GenerateCrossword", sender: self)
     }
     
@@ -457,6 +461,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             saveAlert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ _ in
                 
                 if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
+                    self.activityIndicator.startAnimating()
                     
                     self.savedGameName = alertTextField.text!
                     let newGame = Game(gameName: self.savedGameName, wordsAndClue: self.newWords)
@@ -471,6 +476,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                             }))
                         }
                     })
+                    
+                    self.activityIndicator.stopAnimating()
                 }
                 else {
                     print("empty text field!")
@@ -489,6 +496,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             self.savedGameAlert()
             
         }
+    
     }
     
     // MARK: - ALERTS

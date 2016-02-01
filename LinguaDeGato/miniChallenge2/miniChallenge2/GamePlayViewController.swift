@@ -15,6 +15,8 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     //will be used to change the background color in a new game
     static var backgroundColor = 0
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     // MARK: - VIEWS
     @IBOutlet weak var boardView: BoardView!
     @IBOutlet weak var muteMusicButton: UIButton!
@@ -54,9 +56,13 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
             // Error handling
         }
         
+        self.activityIndicator.stopAnimating()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.activityIndicator.startAnimating()
+        
         //set image of mute music button
         if MusicSingleton.sharedMusic().isMusicMute {
             muteMusicButton.setImage(muteMusicOnImage, forState: .Normal)

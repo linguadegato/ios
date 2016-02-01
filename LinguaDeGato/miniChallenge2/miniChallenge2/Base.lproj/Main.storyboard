@@ -339,13 +339,21 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Lzc-mk-uDE" userLabel="Activity Indicator">
+                                <rect key="frame" x="267" y="267" width="67" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Lzc-mk-uDE" secondAttribute="height" multiplier="1:1" id="Odt-xi-ofd"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="kIP-fa-tc1" firstAttribute="top" secondItem="uAm-yU-xHW" secondAttribute="bottom" id="8Zc-yk-AMg"/>
+                            <constraint firstItem="Lzc-mk-uDE" firstAttribute="height" secondItem="Xfs-vm-kQE" secondAttribute="height" id="8rk-GL-oRS"/>
                             <constraint firstAttribute="trailing" secondItem="pFx-lX-yzd" secondAttribute="trailing" id="8tX-SS-1xS"/>
                             <constraint firstItem="07X-lJ-afV" firstAttribute="top" secondItem="mQc-ZF-1gt" secondAttribute="bottom" id="BOP-6k-BoR"/>
                             <constraint firstItem="07X-lJ-afV" firstAttribute="top" secondItem="pFx-lX-yzd" secondAttribute="bottom" constant="-8" id="CaR-U4-DW9"/>
+                            <constraint firstItem="Lzc-mk-uDE" firstAttribute="centerX" secondItem="53x-dE-byk" secondAttribute="centerX" id="GUS-3H-1Lc"/>
                             <constraint firstItem="07X-lJ-afV" firstAttribute="centerX" secondItem="53x-dE-byk" secondAttribute="centerX" id="QJK-9b-5Bm"/>
                             <constraint firstItem="pFx-lX-yzd" firstAttribute="centerX" secondItem="53x-dE-byk" secondAttribute="centerX" id="Rgh-gw-TGg"/>
                             <constraint firstItem="07X-lJ-afV" firstAttribute="width" secondItem="53x-dE-byk" secondAttribute="width" id="UNk-DF-U4d"/>
@@ -355,13 +363,16 @@
                             <constraint firstItem="pFx-lX-yzd" firstAttribute="height" secondItem="53x-dE-byk" secondAttribute="height" multiplier="0.65" id="YrS-ht-oEG"/>
                             <constraint firstAttribute="trailing" secondItem="uAm-yU-xHW" secondAttribute="trailing" id="apW-31-v84"/>
                             <constraint firstItem="kIP-fa-tc1" firstAttribute="top" secondItem="07X-lJ-afV" secondAttribute="bottom" constant="8" id="b3C-ap-cCI"/>
+                            <constraint firstItem="Lzc-mk-uDE" firstAttribute="height" secondItem="z5E-ym-D8p" secondAttribute="height" id="ci8-gd-og4"/>
                             <constraint firstItem="pFx-lX-yzd" firstAttribute="width" secondItem="53x-dE-byk" secondAttribute="width" multiplier="4:9" id="jU6-ku-UIc"/>
                             <constraint firstItem="uAm-yU-xHW" firstAttribute="leading" secondItem="53x-dE-byk" secondAttribute="leading" id="lB4-1T-bAh"/>
+                            <constraint firstItem="Lzc-mk-uDE" firstAttribute="centerY" secondItem="53x-dE-byk" secondAttribute="centerY" id="nnp-3e-jpY"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="8tX-SS-1xS"/>
                                 <exclude reference="WxS-A8-cwG"/>
+                                <exclude reference="ci8-gd-og4"/>
                                 <exclude reference="BOP-6k-BoR"/>
                             </mask>
                         </variation>
@@ -396,6 +407,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="Lzc-mk-uDE" id="DqY-2N-S3p"/>
                         <outlet property="addButton" destination="CB4-Gq-Y70" id="sRx-Ik-OLi"/>
                         <outlet property="audioButton" destination="n00-fW-Tt7" id="YBp-By-zeC"/>
                         <outlet property="audioImageView" destination="z5E-ym-D8p" id="lHc-9n-5lg"/>
@@ -428,6 +440,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kN5-DI-xyd" userLabel="Activity Indicator">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
@@ -458,6 +473,8 @@
                             <constraint firstItem="nER-cG-Zd8" firstAttribute="top" secondItem="b4d-cD-jcb" secondAttribute="bottom" id="456-rK-g2u"/>
                             <constraint firstAttribute="trailing" secondItem="nER-cG-Zd8" secondAttribute="trailing" id="Gs7-SY-7MC"/>
                             <constraint firstItem="B9L-XC-Vs3" firstAttribute="top" secondItem="nER-cG-Zd8" secondAttribute="bottom" id="JGS-fD-ZAJ"/>
+                            <constraint firstItem="kN5-DI-xyd" firstAttribute="centerX" secondItem="PGi-CJ-GlE" secondAttribute="centerX" id="MIP-gK-J1O"/>
+                            <constraint firstItem="kN5-DI-xyd" firstAttribute="centerY" secondItem="PGi-CJ-GlE" secondAttribute="centerY" id="fgz-d6-YQz"/>
                             <constraint firstItem="nER-cG-Zd8" firstAttribute="leading" secondItem="PGi-CJ-GlE" secondAttribute="leading" id="ifi-vl-NW7"/>
                         </constraints>
                     </view>
@@ -506,6 +523,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="kN5-DI-xyd" id="Zcf-7r-e0w"/>
                         <outlet property="boardView" destination="nER-cG-Zd8" id="2Sj-Iv-b49"/>
                         <outlet property="muteAudioButton" destination="NZz-lp-d3c" id="GEW-H2-0iW"/>
                         <outlet property="muteMusicButton" destination="qiF-gD-ctR" id="dht-8i-Dhf"/>
@@ -1297,7 +1315,7 @@
         <image name="btnMuteAudioOffLightBlue" width="351" height="351"/>
         <image name="btnMuteMusicOffLightBlue" width="351" height="351"/>
         <image name="iconAddWord" width="70" height="70"/>
-        <image name="iconBoxGreen" width="306" height="306"/>
+        <image name="iconBoxGreen" width="132" height="132"/>
         <image name="iconCatTransparent" width="699" height="669"/>
         <image name="iconGamePinkWhite" width="132" height="132"/>
         <image name="iconPawGreen" width="284" height="285"/>
@@ -1309,6 +1327,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jFj-O3-2OQ"/>
+        <segue reference="MqY-2r-mQO"/>
     </inferredMetricsTieBreakers>
 </document>
