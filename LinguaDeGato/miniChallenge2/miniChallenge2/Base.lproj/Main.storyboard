@@ -116,7 +116,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNB-87-mME" userLabel="Delete Image Button">
-                                        <rect key="frame" x="166" y="2" width="34" height="34"/>
+                                        <rect key="frame" x="183" y="2" width="17" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="HNB-87-mME" secondAttribute="height" multiplier="1:1" id="ZmW-4X-pj1"/>
                                         </constraints>
@@ -139,7 +139,6 @@
                                     <constraint firstItem="n00-fW-Tt7" firstAttribute="top" secondItem="9xl-u6-9Xk" secondAttribute="bottom" id="Fxs-JV-df3"/>
                                     <constraint firstItem="HqU-dF-wwX" firstAttribute="width" secondItem="pFx-lX-yzd" secondAttribute="width" multiplier="3:4" id="K0C-xZ-caW"/>
                                     <constraint firstItem="z5E-ym-D8p" firstAttribute="bottom" secondItem="HqU-dF-wwX" secondAttribute="bottom" id="Mj2-nz-j5u"/>
-                                    <constraint firstAttribute="bottom" secondItem="z5E-ym-D8p" secondAttribute="bottom" constant="5" id="Mz1-Vk-fZQ"/>
                                     <constraint firstItem="HNB-87-mME" firstAttribute="trailing" secondItem="HqU-dF-wwX" secondAttribute="trailing" id="Nqq-5u-XEv"/>
                                     <constraint firstItem="HqU-dF-wwX" firstAttribute="top" secondItem="pFx-lX-yzd" secondAttribute="top" id="Pfh-M7-ZAM"/>
                                     <constraint firstItem="CB4-Gq-Y70" firstAttribute="top" secondItem="n00-fW-Tt7" secondAttribute="bottom" constant="2" id="QnU-Fj-Qtw"/>
@@ -151,7 +150,7 @@
                                     <constraint firstItem="9xl-u6-9Xk" firstAttribute="width" secondItem="HqU-dF-wwX" secondAttribute="width" multiplier="1:3" id="lb8-Kp-pDd"/>
                                     <constraint firstItem="CB4-Gq-Y70" firstAttribute="width" secondItem="n00-fW-Tt7" secondAttribute="width" id="ndh-e7-ZHP"/>
                                     <constraint firstItem="z5E-ym-D8p" firstAttribute="height" secondItem="n00-fW-Tt7" secondAttribute="height" multiplier="1:2" id="oXU-QQ-Tru"/>
-                                    <constraint firstItem="HNB-87-mME" firstAttribute="height" secondItem="z5E-ym-D8p" secondAttribute="height" id="pgp-LP-swX"/>
+                                    <constraint firstItem="HNB-87-mME" firstAttribute="height" secondItem="z5E-ym-D8p" secondAttribute="height" multiplier="1:2" id="pgp-LP-swX"/>
                                     <constraint firstItem="Wrg-Y3-HR3" firstAttribute="height" secondItem="n00-fW-Tt7" secondAttribute="height" id="rGg-PF-LJv"/>
                                     <constraint firstItem="Xfs-vm-kQE" firstAttribute="width" secondItem="HqU-dF-wwX" secondAttribute="width" multiplier="1:3" id="t8T-KQ-1Fj"/>
                                     <constraint firstItem="CB4-Gq-Y70" firstAttribute="height" secondItem="n00-fW-Tt7" secondAttribute="height" multiplier="1:2" id="vO3-8U-bhv"/>
@@ -159,11 +158,6 @@
                                     <constraint firstItem="Wrg-Y3-HR3" firstAttribute="width" secondItem="n00-fW-Tt7" secondAttribute="width" id="xaG-d8-Wrj"/>
                                     <constraint firstItem="9xl-u6-9Xk" firstAttribute="leading" secondItem="Xfs-vm-kQE" secondAttribute="leading" id="ySk-fu-Msc"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Mz1-Vk-fZQ"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="07X-lJ-afV" userLabel="LowerContainer">
                                 <rect key="frame" x="0.0" y="446" width="600" height="146"/>
@@ -431,10 +425,10 @@
                         <viewControllerLayoutGuide type="bottom" id="B9L-XC-Vs3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PGi-CJ-GlE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-3h-t5z">
@@ -1315,6 +1309,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wxU-Rh-3lg"/>
+        <segue reference="MqY-2r-mQO"/>
     </inferredMetricsTieBreakers>
 </document>
