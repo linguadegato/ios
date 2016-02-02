@@ -273,7 +273,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         let overwriteAlert = UIAlertController(title: "Sobreescrever jogo?", message: "Já existe um jogo salvo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", preferredStyle: UIAlertControllerStyle.Alert)
         
         overwriteAlert.addAction(UIAlertAction(title: "SIM", style: UIAlertActionStyle.Default, handler: {_ in
-            GameServices.overwriteGame(aGame)
+            GameServices.overwriteGame(aGame, completion: {})
             self.performSegueWithIdentifier("GenerateCrossword", sender: nil)
         }))
         

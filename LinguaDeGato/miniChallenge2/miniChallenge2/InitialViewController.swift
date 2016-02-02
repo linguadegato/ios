@@ -48,6 +48,11 @@ class InitialViewController: StatusBarViewController {
     // MARK - BUTTON ACTIONS
 
     @IBAction func randomGame(sender: AnyObject) {
+        
+        let indicator = LGStandarts.standartLGActivityIndicator(self.view)
+        
+        self.view.addSubview(indicator)
+        indicator.startAnimating()
 
         WordAndClueServices.retriveAllWordAndClues( { words in
             
@@ -74,9 +79,9 @@ class InitialViewController: StatusBarViewController {
                     //generate a crossword
                     // I dont know why cols and rows are interchanged... will not fix it right now
                     self.aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: randomWords)
-                    
                     self.aGenerator.computeCrossword(3, spins: 4)
                     
+                    indicator.removeFromSuperview()
                     self.performSegueWithIdentifier("randomGame", sender: nil)
                 }
             })
@@ -86,12 +91,18 @@ class InitialViewController: StatusBarViewController {
     }
 
     @IBAction func savedGame(sender: AnyObject) {
-        //MARK: FIX-ME: NEEDS A ACTIVITY INDICATOR
+        
+        let indicator = LGStandarts.standartLGActivityIndicator(self.view)
+        
+        self.view.addSubview(indicator)
+        indicator.startAnimating()
+        
         WordAndClueServices.retriveAllWordAndClues({ words in
             
             let operation = NSBlockOperation(block: {
+                indicator.removeFromSuperview()
                 if words.isEmpty {
-                    self.noWordsAlert()
+                    indicator.removeFromSuperview()
                 }
                 else {
                     self.performSegueWithIdentifier("toGallery", sender: nil)

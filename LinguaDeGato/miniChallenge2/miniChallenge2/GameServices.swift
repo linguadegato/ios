@@ -34,18 +34,19 @@ class GameServices {
     
     //if there's already a game with it's name, this function remove from DB, than
     //creates a LGCDGame and save it (calling saveGame)
-    static func overwriteGame(newGame: Game) {
+    static func overwriteGame(newGame: Game, completion: () -> Void) {
         
         let operation = NSBlockOperation(block: {
             if let oldGame = GameDAO.retrieveGameByName(newGame.name) {
                 GameDAO.delete(oldGame)
             }
             GameDAO.insert(newGame)
+            completion()
         })
         
         //call DAO's method asyncronaly
         DatabaseManager.sharedInstance.databaseQueue.addOperation(operation)
-
+        
     }
     
     static func retrieveGameByName(aName: String, completion: (Game?) -> Void) {

@@ -35,9 +35,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     @IBOutlet weak var lowerContainer: UIView!
     @IBOutlet weak var audioImageView: UIImageView!
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-
     //MARK: Colors and apearance
     
     //Images
@@ -438,7 +435,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // MARK: COLLECTION VIEW BUTTONS (PLAY AND SAVE)
     @IBAction func playGame(sender: AnyObject) {
-        self.activityIndicator.startAnimating()
+        
         self.performSegueWithIdentifier("GenerateCrossword", sender: self)
     }
     
@@ -455,29 +452,32 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             let alertTextField = saveAlert.textFields![0]
             
             alertTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
-            
             saveAlert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Default, handler:nil))
-            
             saveAlert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ _ in
                 
                 if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
-                    self.activityIndicator.startAnimating()
                     
                     self.savedGameName = alertTextField.text!
                     let newGame = Game(gameName: self.savedGameName, wordsAndClue: self.newWords)
-                    GameServices.saveGame(newGame, completion: {success in
-                        if success {
-                            self.disableSaveButton(true)
-                            self.savedGameAlert()
-                        }
-                        else{
-                            NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
-                                self.overwriteGame(newGame)
-                            }))
-                        }
-                    })
                     
-                    self.activityIndicator.stopAnimating()
+                    let indicator = LGStandarts.standartLGActivityIndicator(self.view)
+                    
+                    self.view.addSubview(indicator)
+                    indicator.startAnimating()
+                    
+                    GameServices.saveGame(newGame, completion: {success in
+                        
+                        NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
+                            indicator.removeFromSuperview()
+                            if success {
+                                self.savedGameAlert()
+                            }
+                            else{
+                                self.overwriteGame(newGame)
+                            }
+                        }))
+                    })
+                    self.disableSaveButton(true)
                 }
                 else {
                     print("empty text field!")
@@ -487,16 +487,22 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             self.presentViewController(saveAlert, animated: true, completion: {
             })
             
-        }else{
-            
+        }
+        else{
             let newGame = Game(gameName: self.savedGameName, wordsAndClue: self.newWords)
             
-            GameServices.overwriteGame(newGame)
-            self.disableSaveButton(true)
-            self.savedGameAlert()
+            let indicator = LGStandarts.standartLGActivityIndicator(self.view)
+            self.view.addSubview(indicator)
             
+            indicator.startAnimating()
+            GameServices.overwriteGame(newGame, completion: {
+                NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
+                    indicator.removeFromSuperview()
+                    self.savedGameAlert()
+                }))
+            })
+            self.disableSaveButton(true)
         }
-    
     }
     
     // MARK: - ALERTS
@@ -512,15 +518,23 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         let overwriteAlert = UIAlertController(title: "Sobreescrever jogo?", message: "Já existe um jogo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", preferredStyle: UIAlertControllerStyle.Alert)
         
         overwriteAlert.addAction(UIAlertAction(title: "Sim", style: UIAlertActionStyle.Default, handler: {_ in
-            GameServices.overwriteGame(aGame)
+            
+            let indicator = LGStandarts.standartLGActivityIndicator(self.view)
+            self.view.addSubview(indicator)
+            
+            indicator.startAnimating()
+            GameServices.overwriteGame(aGame, completion: {
+                NSOperationQueue.mainQueue().addOperation(NSBlockOperation{
+                    indicator.removeFromSuperview()
+                    self.savedGameAlert()
+                })
+            })
             self.disableSaveButton(true)
-            self.savedGameAlert()
         }))
         
         overwriteAlert.addAction(UIAlertAction(title: "Não", style: UIAlertActionStyle.Cancel, handler: {_ in
             self.saveGame(self)
         }))
-        
         
         self.presentViewController(overwriteAlert, animated: true, completion: nil)
     }
@@ -984,10 +998,15 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //MARK: HARRY-TODO: ACTIVITY INDICATOR
         
         if (segue.identifier == "GenerateCrossword" && newWords.count > 0) {
             
+            //Generate Crossword
+            
+            let indicator = LGStandarts.standartLGActivityIndicator(self.view)
+            self.view.addSubview(indicator)
+            
+            indicator.startAnimating()
             //moves audio files to a word related URL
             for word in newWords {
                 if word.clue.audioPath != nil {
@@ -997,7 +1016,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                     
                     audioData!.writeToURL(NSURL(fileURLWithPath: newPath), atomically: true)
                     word.clue.audioPath = newPath
-
                 }
             }
             
@@ -1009,31 +1027,32 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             (segue.destinationViewController as! GamePlayViewController).crosswordMatrix = aGenerator.grid
             (segue.destinationViewController as! GamePlayViewController).words = aGenerator.currentWordlist
             
-            //resets createCrosswordViewController
-            
-            //clues variables and its flags reset
-            self.recordingSession = nil
-            self.audioRecorder = nil
-            self.audioPath = nil
-            
-            self.newMedia = false
-            self.imageID = nil
-            self.newImageImgView.image = defaultImage
-            
-            self.hasClue = false
-            self.removeNewClueButton.hidden = true
-            
-            self.newWordTxtField.text = ""
-            self.hasWord = false
-            
-            self.newWords = []
-            self.wordsLimitReached = false
-            
-            //collectionView reset
-            self.wordsAddedCollectionView.reloadData()
-            self.lowerContainer.hidden = true
-            
+            indicator.removeFromSuperview()
         }
+    
+        //resets createCrosswordViewController
+        
+        //clues variables and its flags reset
+        self.recordingSession = nil
+        self.audioRecorder = nil
+        self.audioPath = nil
+        
+        self.newMedia = false
+        self.imageID = nil
+        self.newImageImgView.image = defaultImage
+        
+        self.hasClue = false
+        self.removeNewClueButton.hidden = true
+        
+        self.newWordTxtField.text = ""
+        self.hasWord = false
+        
+        self.newWords = []
+        self.wordsLimitReached = false
+        
+        //collectionView reset
+        self.wordsAddedCollectionView.reloadData()
+        self.lowerContainer.hidden = true
     }
 }
 
