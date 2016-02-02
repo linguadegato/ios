@@ -37,7 +37,7 @@ class ClueView: BoardCellView, UIGestureRecognizerDelegate {
     
     static let downArrowImage = UIImage(named:"arrowDownOrange")
     static let rightArrowImage = UIImage(named:"arrowRightOrange")
-    static let audioIconImage = UIImage(named: "iconPlayAudioBlackTransparent")
+    static let audioIconImage = UIImage(named: "IconPlayAudioGreenTransparent")
     
     static let defaultImage = UIImage(named: "imageDefaultAudio")
     
