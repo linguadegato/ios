@@ -45,10 +45,10 @@ class LGCrosswordGenerator {
         //flag to asure at least one spin to run completely
         var oneCompleteSpin = false
         
-        //let start = NSTimeIntervalSince1970
+        let start = NSTimeIntervalSince1970
         
         //compute at least one crossword, and compute more while time is not over
-        while (oneCompleteSpin == false) {
+        while (oneCompleteSpin == false && NSTimeIntervalSince1970 - start < timePermitted) {
             
             self.copy = LGCrosswordGenerator(rows: self.rows, cols: self.cols, maxloops: self.maxloops, avaiableWords: self.avaiableWords)
             

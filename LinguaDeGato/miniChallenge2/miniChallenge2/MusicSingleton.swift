@@ -18,7 +18,7 @@ class MusicSingleton: NSObject {
     
     private static var instance:MusicSingleton = MusicSingleton()
     
-    internal  static func  sharedMusic() -> MusicSingleton {
+    internal static func sharedMusic() -> MusicSingleton {
         return instance
     }
 
@@ -27,11 +27,11 @@ class MusicSingleton: NSObject {
         
         do {
             try backgroundMusicPlay = AVAudioPlayer(contentsOfURL: backgroundMusic)
+            
         }
         catch _ {
             // Error handling
         }
-        
     }
     
     //plays the background music
@@ -41,11 +41,9 @@ class MusicSingleton: NSObject {
         backgroundMusicPlay.numberOfLoops = (-1) // always repeat music
         
         if playAudio{
-            backgroundMusicPlay.play()
+            //backgroundMusicPlay.play()
         } else {
             backgroundMusicPlay.stop()
         }
-        
-        
     }
 }

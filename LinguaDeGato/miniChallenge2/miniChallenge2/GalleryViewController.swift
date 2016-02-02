@@ -315,7 +315,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         indicator.startAnimating()
         
         let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: selectedWords)
-        aGenerator.computeCrossword(2, spins: 4)
+        aGenerator.computeCrossword(3, spins: 6)
         
         if (segue.identifier == "CreateGameFromGallery" ) {
             
