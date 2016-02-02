@@ -19,7 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // NavigationBar can have dark colors and light colors
         // when dark is true, the content of StatusBar is white
+        
         UINavigationBar.appearance().barStyle = .Black
+        
+        if let _ = NSUserDefaults.standardUserDefaults().valueForKey("firstTime") {
+            //do nothing
+        } else {
+            NSUserDefaults.standardUserDefaults().setValue(true, forKey: "firstTime")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        
         return true
     }
 
