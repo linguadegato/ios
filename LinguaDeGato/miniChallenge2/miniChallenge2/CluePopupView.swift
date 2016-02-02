@@ -36,7 +36,7 @@ class CluePopupView: UIView {
     
     //MARK: Images
     let closeButtonImage = UIImage(named: "btnDelete")
-    let replayButtonImage = UIImage(named: "IconPlayAudioWhiteOrange")
+    let replayButtonImage = UIImage(named: "IconPlayAudioWhiteGreen")
     
     //MARK: - INITIALIZERS
     init(frame: CGRect, aImage: UIImage?, anAudio: AVAudioPlayer?){
