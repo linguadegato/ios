@@ -927,6 +927,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         wordsAddedCollectionView.reloadData()
         
         //re-enable buttons, if they were unenabled
+        disableSaveButton(false)
+        
         if newWords.count == 5 {
             
             wordsLimitReached = false
