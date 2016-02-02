@@ -28,7 +28,22 @@ class InitialViewController: StatusBarViewController {
         // Do any additional setup after loading the view.
         
         //starts the background music
-        //MusicSingleton.sharedMusic().playBackgroundAudio(true)
+        MusicSingleton.sharedMusic().playBackgroundAudio(true)
+        
+        
+        //shows an alert in the first time app is open
+        if (NSUserDefaults.standardUserDefaults().valueForKey("firstTime") as? Bool == true) {
+            
+            let firstAlert = UIAlertController(title: "ATENÇÃO", message: "Todo conteúdo criado dentro da aplicação é de total responsabilidade de seus usuários.", preferredStyle: UIAlertControllerStyle.Alert)
+            firstAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            
+            self.presentViewController(firstAlert, animated: true, completion: nil)
+            
+            NSUserDefaults.standardUserDefaults().setValue(false, forKey: "firstTime")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        } else {
+            //do nothing
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
