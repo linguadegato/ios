@@ -153,8 +153,13 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     
     //MARK: - NAVIGATION
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //MARK: HARRY-TODO: ACTIVITY INDICATOR
+        
         if (selectedSection != nil){
+            
+            let indicator = LGStandarts.standartLGActivityIndicator(self.view)
+            self.view.addSubview(indicator)
+            indicator.startAnimating()
+            
             let selectedGame = allGames[selectedSection!].wordsAndClueArray
             
             let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: selectedGame)
@@ -164,6 +169,8 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
                 (segue.destinationViewController as! GamePlayViewController).crosswordMatrix = aGenerator.grid
                 (segue.destinationViewController as! GamePlayViewController).words = aGenerator.currentWordlist
             }
+            
+            indicator.removeFromSuperview()
         }
         
     }

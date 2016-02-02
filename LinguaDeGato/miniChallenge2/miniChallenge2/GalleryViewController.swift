@@ -240,18 +240,21 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
                 _ in
                 if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
                     let newGame = Game(gameName: alertTextField.text!, wordsAndClue: self.selectedWords)
-                    GameServices.saveGame(newGame, completion: {
-                        success in
-                        if success {
-                            let operation = NSBlockOperation(block: {
-                                () -> Void in self.performSegueWithIdentifier("CreateGameFromGallery", sender: nil)
-                            })
-                            NSOperationQueue.mainQueue().addOperation(operation)
-                        }else{
-                            NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
+                    
+                    let indicator = LGStandarts.standartLGActivityIndicator(self.view)
+                    self.view.addSubview(indicator)
+                    indicator.startAnimating()
+                    
+                    GameServices.saveGame(newGame, completion: { success in
+                        NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
+                            indicator.removeFromSuperview()
+                            if success {
+                               self.performSegueWithIdentifier("CreateGameFromGallery", sender: nil)
+                            }else{
                                 self.overwriteGame(newGame)
-                            }))
-                        }
+                                
+                            }
+                        }))
                     })
                 }else {
                     print("empty text field!")
@@ -273,8 +276,18 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         let overwriteAlert = UIAlertController(title: "Sobreescrever jogo?", message: "Já existe um jogo salvo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", preferredStyle: UIAlertControllerStyle.Alert)
         
         overwriteAlert.addAction(UIAlertAction(title: "SIM", style: UIAlertActionStyle.Default, handler: {_ in
-            GameServices.overwriteGame(aGame, completion: {})
-            self.performSegueWithIdentifier("GenerateCrossword", sender: nil)
+            
+            let indicator = LGStandarts.standartLGActivityIndicator(self.view)
+            self.view.addSubview(indicator)
+            indicator.startAnimating()
+            
+            GameServices.overwriteGame(aGame, completion: {
+                NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
+                    indicator.removeFromSuperview()
+                }))
+            
+            })
+            self.performSegueWithIdentifier("CreateGameFromGallery", sender: nil)
         }))
         
         overwriteAlert.addAction(UIAlertAction(title: "NÃO", style: UIAlertActionStyle.Default, handler: {_ in
@@ -296,7 +309,11 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
     //MARK: - NAVIGATION
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //MARK: HARRY-TODO: ACTIVITY INDICATOR
+        
+        let indicator = LGStandarts.standartLGActivityIndicator(self.view)
+        self.view.addSubview(indicator)
+        indicator.startAnimating()
+        
         let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: selectedWords)
         aGenerator.computeCrossword(2, spins: 4)
         
@@ -309,6 +326,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
             selectedWords = []
         }
         
+        indicator.removeFromSuperview()
     }
     
 }
