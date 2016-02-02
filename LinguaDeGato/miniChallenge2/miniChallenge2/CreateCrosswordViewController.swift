@@ -375,7 +375,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         // Clear image variables
         self.newImageImgView.image = self.defaultImage
-        self.imageID = ""
+        self.imageID = nil
         
         // Clear text variable
         self.newWordTxtField.text = ""
