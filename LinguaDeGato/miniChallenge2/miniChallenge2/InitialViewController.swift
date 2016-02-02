@@ -28,7 +28,7 @@ class InitialViewController: StatusBarViewController {
         // Do any additional setup after loading the view.
         
         //starts the background music
-        MusicSingleton.sharedMusic().playBackgroundAudio(true)
+        //MusicSingleton.sharedMusic().playBackgroundAudio(true)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -79,7 +79,7 @@ class InitialViewController: StatusBarViewController {
                     //generate a crossword
                     // I dont know why cols and rows are interchanged... will not fix it right now
                     self.aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: randomWords)
-                    self.aGenerator.computeCrossword(3, spins: 4)
+                    self.aGenerator.computeCrossword(3, spins: 6)
                     
                     indicator.removeFromSuperview()
                     self.performSegueWithIdentifier("randomGame", sender: nil)

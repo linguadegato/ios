@@ -172,8 +172,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         //MARK: request permission to use microfone
         audioButton.enabled = false
-        recordingSession = AVAudioSession.sharedInstance()
         
+        recordingSession = AVAudioSession.sharedInstance()
         do {
             try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
             try recordingSession.setActive(true)
@@ -1023,7 +1023,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             
             // I dont know why cols and rows are interchanged... will not fix it right now
             let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: newWords)
-            aGenerator.computeCrossword(3, spins: 4)
+            aGenerator.computeCrossword(3, spins: 6)
             
             //atribute it to GamePlayViewController
             (segue.destinationViewController as! GamePlayViewController).crosswordMatrix = aGenerator.grid

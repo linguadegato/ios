@@ -163,7 +163,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
             let selectedGame = allGames[selectedSection!].wordsAndClueArray
             
             let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: selectedGame)
-            aGenerator.computeCrossword(2, spins: 4)
+            aGenerator.computeCrossword(3, spins: 6)
             
             if (segue.identifier == "CreateGameFromSelectedGame" ) {
                 (segue.destinationViewController as! GamePlayViewController).crosswordMatrix = aGenerator.grid
