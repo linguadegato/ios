@@ -515,7 +515,7 @@
                         <outlet property="boardView" destination="nER-cG-Zd8" id="2Sj-Iv-b49"/>
                         <outlet property="muteAudioButton" destination="NZz-lp-d3c" id="GEW-H2-0iW"/>
                         <outlet property="muteMusicButton" destination="qiF-gD-ctR" id="dht-8i-Dhf"/>
-                        <segue destination="vK8-Qp-WDY" kind="presentation" identifier="GameEnded" animates="NO" modalPresentationStyle="overCurrentContext" id="uvu-z8-EXW"/>
+                        <segue destination="vK8-Qp-WDY" kind="presentation" identifier="GameEnded" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="uvu-z8-EXW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOf-ag-Lri" userLabel="First Responder" sceneMemberID="firstResponder"/>
