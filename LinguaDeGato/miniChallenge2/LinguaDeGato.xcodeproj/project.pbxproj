@@ -662,7 +662,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = miniChallenge2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.kobayashi;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.linguadegatoapp;
 				PRODUCT_NAME = "Lingua de Gato";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -678,7 +678,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = miniChallenge2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.kobayashi;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.linguadegatoapp;
 				PRODUCT_NAME = "Lingua de Gato";
 				PROVISIONING_PROFILE = "";
 			};

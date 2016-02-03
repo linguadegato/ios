@@ -103,6 +103,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
         switch kind {
         case UICollectionElementKindSectionHeader:
             
@@ -119,6 +120,8 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         default:
             assert(false, "Unexpected element kind")
         }
+        
+        return UICollectionReusableView()
     }
     
     // MARK: - DELEGATE
