@@ -624,7 +624,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     func tapAndPlayRecord(sender: UITapGestureRecognizer){
         if self.audioPath != nil {
             let audioURL = NSURL(fileURLWithPath: LGStandarts.pathForAudioWithFileName(self.audioPath!))
-            var audioPlayerTimer = NSTimer()
+//            var audioPlayerTimer = NSTimer()
             
             do {
                 try self.audio = AVAudioPlayer(contentsOfURL: audioURL)
