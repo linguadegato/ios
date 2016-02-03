@@ -70,7 +70,7 @@ class ClueView: BoardCellView, UIGestureRecognizerDelegate {
         //set audio
         if anAudioPath != nil {
             do{
-                try self.audio = AVAudioPlayer(contentsOfURL: NSURL.fileURLWithPath(anAudioPath!))
+                try self.audio = AVAudioPlayer(contentsOfURL: NSURL.fileURLWithPath(LGStandarts.pathForAudioWithFileName(anAudioPath!)))
             } catch{
                 print("Doent have a sound")
             }

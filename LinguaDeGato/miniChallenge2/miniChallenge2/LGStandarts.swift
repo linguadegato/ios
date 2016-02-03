@@ -14,6 +14,10 @@ class LGStandarts {
     
     //path for save audios
     static let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+    
+    static func pathForAudioWithFileName (fileName: String) -> String {
+        return "\(paths)/\(fileName).m4a"
+    }
 
     //returns a standart Activity indcator for Língua de Gato
     //Centrilized in screen.

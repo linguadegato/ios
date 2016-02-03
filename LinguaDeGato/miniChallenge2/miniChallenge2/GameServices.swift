@@ -21,12 +21,12 @@ class GameServices {
             for word in game.wordsAndClueArray {
                 if word.clue.audioPath != nil {
                     
-                    let audioData = NSData(contentsOfURL: NSURL(fileURLWithPath: word.clue.audioPath!))
+                    let audioData = NSData(contentsOfURL: NSURL(fileURLWithPath: LGStandarts.pathForAudioWithFileName(word.clue.audioPath!)))
                     
-                    let newPath = "\(LGStandarts.paths)/audio\(word.word).m4a"
+                    let newPath = LGStandarts.pathForAudioWithFileName(word.word)
                     
                     audioData!.writeToURL(NSURL(fileURLWithPath: newPath), atomically: true)
-                    word.clue.audioPath = newPath
+                    word.clue.audioPath = word.word
                 }
             }
             

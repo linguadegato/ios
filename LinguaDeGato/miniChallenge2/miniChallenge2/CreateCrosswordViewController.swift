@@ -623,7 +623,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     //MARK: ACTIONS
     func tapAndPlayRecord(sender: UITapGestureRecognizer){
         if self.audioPath != nil {
-            let audioURL = NSURL(fileURLWithPath: self.audioPath!)
+            let audioURL = NSURL(fileURLWithPath: LGStandarts.pathForAudioWithFileName(self.audioPath!))
             var audioPlayerTimer = NSTimer()
             
             do {
@@ -657,9 +657,10 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         //"audio4", "audio5" and "audio6".
         
         //we can fix by macGayverism or implment an EasterEgg.
-        self.audioPath = paths+"/audio\(newWords.count).m4a"
         
-        let audioURL = NSURL(fileURLWithPath: self.audioPath!)
+        self.audioPath = "audio\(newWords.count)"
+        
+        let audioURL = NSURL(fileURLWithPath: LGStandarts.pathForAudioWithFileName(audioPath!))
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),

@@ -133,6 +133,16 @@ class CluePopupView: UIView {
     }
     */
     
+    //MARK: - Button actions
+    
+    func closePopup() {
+        if audio != nil {
+            self.audio!.stop()
+            self.audio!.currentTime = 0
+        }
+        self.removeFromSuperview()
+    }
+    
     //MARK: - Gesture Handler
     func tapped(sender: UITapGestureRecognizer){
         
@@ -147,6 +157,10 @@ class CluePopupView: UIView {
         else {
             if !MusicSingleton.sharedMusic().isMusicMute{
                 MusicSingleton.sharedMusic().playBackgroundAudio(true)
+            }
+            if audio != nil {
+                audio!.stop()
+                audio!.currentTime = 0
             }
             self.removeFromSuperview()
         }
