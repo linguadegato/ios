@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -368,7 +368,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="xpP-l2-P9N">
                         <leftBarButtonItems>
-                            <barButtonItem style="plain" id="L1N-nk-cNJ" userLabel="Back Bar Button Item">
+                            <barButtonItem id="L1N-nk-cNJ" userLabel="Back Bar Button Item">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="S7D-Vq-8a9">
                                     <rect key="frame" x="20" y="2" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -384,7 +384,7 @@
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="WOX-OI-wWH">
+                        <barButtonItem key="rightBarButtonItem" id="WOX-OI-wWH">
                             <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kJl-t4-65j" userLabel="Mute Music Button">
                                 <rect key="frame" x="540" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -431,8 +431,8 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kN5-DI-xyd" userLabel="Activity Indicator">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                             </activityIndicatorView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="LinguaDeGato" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-3h-t5z">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
@@ -469,7 +469,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Kr8-gs-dXO">
                         <leftBarButtonItems>
-                            <barButtonItem style="plain" id="rI3-lt-PPJ" userLabel="Home Bar Button Item">
+                            <barButtonItem id="rI3-lt-PPJ" userLabel="Home Bar Button Item">
                                 <button key="customView" opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jJM-hW-N37" userLabel="Home Button">
                                     <rect key="frame" x="20" y="2" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -486,7 +486,7 @@
                             </barButtonItem>
                         </leftBarButtonItems>
                         <rightBarButtonItems>
-                            <barButtonItem style="plain" id="bwa-h0-5ih">
+                            <barButtonItem id="bwa-h0-5ih">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NZz-lp-d3c">
                                     <rect key="frame" x="540" y="2" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -496,7 +496,7 @@
                                     </connections>
                                 </button>
                             </barButtonItem>
-                            <barButtonItem style="plain" id="h5C-oq-K2b">
+                            <barButtonItem id="h5C-oq-K2b">
                                 <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qiF-gD-ctR" userLabel="Mute Music Button">
                                     <rect key="frame" x="492" y="2" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -778,7 +778,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5AI-fL-QIF">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="ygy-iG-ns7">
+                        <barButtonItem key="rightBarButtonItem" id="ygy-iG-ns7">
                             <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sA2-xq-6gI" userLabel="Mute Music Button">
                                 <rect key="frame" x="540" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -870,7 +870,7 @@
                     <navigationItem key="navigationItem" id="Ul9-kY-6Pv">
                         <nil key="title"/>
                         <leftBarButtonItems>
-                            <barButtonItem style="plain" id="aZT-z6-tlI" userLabel="Back Bar Button Item">
+                            <barButtonItem id="aZT-z6-tlI" userLabel="Back Bar Button Item">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="51Z-MB-cws" userLabel="Back Button">
                                     <rect key="frame" x="20" y="2" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -887,7 +887,7 @@
                             </barButtonItem>
                         </leftBarButtonItems>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Iim-Tv-S3O">
-                            <rect key="frame" x="119" y="8" width="415" height="29"/>
+                            <rect key="frame" x="119" y="7.5" width="415" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Palavras "/>
@@ -897,7 +897,7 @@
                                 <action selector="indexChanged:" destination="Ztr-Cm-8Zd" eventType="valueChanged" id="uV9-5V-BVp"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="po5-v3-nIJ">
+                        <barButtonItem key="rightBarButtonItem" id="po5-v3-nIJ">
                             <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZTl-oC-rd0" userLabel="Mute Music Button">
                                 <rect key="frame" x="540" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

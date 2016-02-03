@@ -624,14 +624,14 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     func tapAndPlayRecord(sender: UITapGestureRecognizer){
         if self.audioPath != nil {
             let audioURL = NSURL(fileURLWithPath: self.audioPath!)
-            var audioPlayerTimer = NSTimer()
+//            var audioPlayerTimer = NSTimer()
             
             do {
                 try self.audio = AVAudioPlayer(contentsOfURL: audioURL)
                 MusicSingleton.sharedMusic().playBackgroundAudio(false)
                 self.audio.play()
                 
-                audioPlayerTimer = NSTimer.scheduledTimerWithTimeInterval(audio.duration, target: self, selector: "playMusicAfterPlayClue", userInfo: nil, repeats: false)
+//                audioPlayerTimer = NSTimer.scheduledTimerWithTimeInterval(audio.duration, target: self, selector: "playMusicAfterPlayClue", userInfo: nil, repeats: false)
             } catch {
                 //MARK: TODO: [audio] error message
             }
