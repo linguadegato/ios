@@ -435,8 +435,17 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // MARK: COLLECTION VIEW BUTTONS (PLAY AND SAVE)
     @IBAction func playGame(sender: AnyObject) {
-        
-        self.performSegueWithIdentifier("GenerateCrossword", sender: self)
+        if hasClue {
+            let alert = UIAlertController(title: "Você não terminou de adicionar a dica", message: "Ela não será incluída no jogo.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Jogar mesmo assim", style: .Default, handler: { _ in
+                self.performSegueWithIdentifier("GenerateCrossword", sender: self)
+            }))
+            alert.addAction(UIAlertAction(title: "Terminar de adicionar", style: .Cancel, handler: nil))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else {
+            self.performSegueWithIdentifier("GenerateCrossword", sender: self)
+        }
     }
     
     @IBAction func saveGame(sender: AnyObject) {
