@@ -11,6 +11,10 @@ import UIKit
 
 class LGStandarts {
     
+    
+    //path for save audios
+    static let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+
     //returns a standart Activity indcator for Língua de Gato
     //Centrilized in screen.
     //Grey background with white large whell

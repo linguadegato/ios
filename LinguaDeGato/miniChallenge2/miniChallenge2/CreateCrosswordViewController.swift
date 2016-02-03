@@ -642,6 +642,12 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         audioButton.setBackgroundImage(audioButtonRecordingImage, forState: .Normal)
         
+        //MARK: this is a fragile line, and can cause bugs
+        
+        //user will never get to save the words "audio1", "audio2", "audio3",
+        //"audio4", "audio5" and "audio6".
+        
+        //we can fix by macGayverism or implment an EasterEgg.
         self.audioPath = paths+"/audio\(newWords.count).m4a"
         
         let audioURL = NSURL(fileURLWithPath: self.audioPath!)
@@ -1009,17 +1015,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             self.view.addSubview(indicator)
             
             indicator.startAnimating()
-            //moves audio files to a word related URL
-            for word in newWords {
-                if word.clue.audioPath != nil {
-                    
-                    let audioData = NSData(contentsOfURL: NSURL(fileURLWithPath: word.clue.audioPath!))
-                    let newPath = "\(paths)/audio\(word.word).m4a"
-                    
-                    audioData!.writeToURL(NSURL(fileURLWithPath: newPath), atomically: true)
-                    word.clue.audioPath = newPath
-                }
-            }
             
             // I dont know why cols and rows are interchanged... will not fix it right now
             let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: newWords)

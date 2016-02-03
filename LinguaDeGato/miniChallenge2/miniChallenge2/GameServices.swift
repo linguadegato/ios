@@ -17,6 +17,19 @@ class GameServices {
         
         let operation = NSBlockOperation(block: {
             
+            //moves audio files to a word-related URL
+            for word in game.wordsAndClueArray {
+                if word.clue.audioPath != nil {
+                    
+                    let audioData = NSData(contentsOfURL: NSURL(fileURLWithPath: word.clue.audioPath!))
+                    
+                    let newPath = "\(LGStandarts.paths)/audio\(word.word).m4a"
+                    
+                    audioData!.writeToURL(NSURL(fileURLWithPath: newPath), atomically: true)
+                    word.clue.audioPath = newPath
+                }
+            }
+            
             let savedGame = GameDAO.retrieveGameByName(game.name)
             if savedGame == nil {
                 GameDAO.insert(game)
