@@ -232,6 +232,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
             alertTextField.placeholder = "Nome do jogo"
         })
         let alertTextField = saveAlert.textFields![0]
+        alertTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
         
         saveAlert.addAction(UIAlertAction(
             title: "Salvar",

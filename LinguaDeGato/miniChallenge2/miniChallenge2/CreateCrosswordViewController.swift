@@ -631,7 +631,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 MusicSingleton.sharedMusic().playBackgroundAudio(false)
                 self.audio.play()
                 
-                audioPlayerTimer = NSTimer.scheduledTimerWithTimeInterval(audio.duration, target: self, selector: "playMusicAfterPlayClue", userInfo: nil, repeats: false)
+//                audioPlayerTimer = NSTimer.scheduledTimerWithTimeInterval(audio.duration, target: self, selector: "playMusicAfterPlayClue", userInfo: nil, repeats: false)
             } catch {
                 //MARK: TODO: [audio] error message
             }
