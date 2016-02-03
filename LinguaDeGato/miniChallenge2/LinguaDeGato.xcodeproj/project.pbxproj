@@ -118,13 +118,13 @@
 		FA1E0EF51C495BB000596D44 /* GalleryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewController.swift; sourceTree = "<group>"; };
 		FA588A3A1C5E4C960014EE3B /* GamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
 		FA8D2D921C3F2F2B004F0375 /* GameCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCollectionViewCell.swift; sourceTree = "<group>"; };
-		FA96DE931B29C0CE00149113 /* LinguaDeGato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinguaDeGato.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA96DE931B29C0CE00149113 /* Lingua de Gato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lingua de Gato.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA96DE971B29C0CE00149113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA96DE981B29C0CE00149113 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA96DEA11B29C0CE00149113 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA96DEA31B29C0CE00149113 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FA96DEA61B29C0CE00149113 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		FA96DEAC1B29C0CE00149113 /* LinguaDeGato.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinguaDeGato.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA96DEAC1B29C0CE00149113 /* Lingua de Gato.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lingua de Gato.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA96DEB11B29C0CE00149113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA96DEB21B29C0CE00149113 /* miniChallenge2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = miniChallenge2Tests.swift; sourceTree = "<group>"; };
 		FAAB7EF61C3F19A9004561EF /* GamesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesCollectionViewController.swift; sourceTree = "<group>"; };
@@ -309,8 +309,8 @@
 		FA96DE941B29C0CE00149113 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA96DE931B29C0CE00149113 /* LinguaDeGato.app */,
-				FA96DEAC1B29C0CE00149113 /* LinguaDeGato.xctest */,
+				FA96DE931B29C0CE00149113 /* Lingua de Gato.app */,
+				FA96DEAC1B29C0CE00149113 /* Lingua de Gato.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -391,7 +391,7 @@
 			);
 			name = LinguaDeGato;
 			productName = miniChallenge2;
-			productReference = FA96DE931B29C0CE00149113 /* LinguaDeGato.app */;
+			productReference = FA96DE931B29C0CE00149113 /* Lingua de Gato.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FA96DEAB1B29C0CE00149113 /* LinguaDeGatoTests */ = {
@@ -409,7 +409,7 @@
 			);
 			name = LinguaDeGatoTests;
 			productName = miniChallenge2Tests;
-			productReference = FA96DEAC1B29C0CE00149113 /* LinguaDeGato.xctest */;
+			productReference = FA96DEAC1B29C0CE00149113 /* Lingua de Gato.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -663,7 +663,7 @@
 				INFOPLIST_FILE = miniChallenge2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.kobayashi;
-				PRODUCT_NAME = LinguaDeGato;
+				PRODUCT_NAME = "Lingua de Gato";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -679,7 +679,7 @@
 				INFOPLIST_FILE = miniChallenge2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.kobayashi;
-				PRODUCT_NAME = LinguaDeGato;
+				PRODUCT_NAME = "Lingua de Gato";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -699,7 +699,7 @@
 				INFOPLIST_FILE = miniChallenge2Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "kobayashi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = LinguaDeGato;
+				PRODUCT_NAME = "Lingua de Gato";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LinguaDeGato.app/LinguaDeGato";
 			};
 			name = Debug;
@@ -715,7 +715,7 @@
 				INFOPLIST_FILE = miniChallenge2Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "kobayashi.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = LinguaDeGato;
+				PRODUCT_NAME = "Lingua de Gato";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LinguaDeGato.app/LinguaDeGato";
 			};
 			name = Release;
