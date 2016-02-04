@@ -5,6 +5,7 @@
 //  Created by Andre Scherma Soleo on 04/02/16.
 //  Copyright © 2016 Kobayashi. All rights reserved.
 //
+//  This class manages recording and retrieving of clue's audio files.
 
 import Foundation
 import AVKit
