@@ -652,15 +652,13 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         audioButton.setBackgroundImage(audioButtonRecordingImage, forState: .Normal)
         
         //MARK: this is a fragile line, and can cause bugs
-        
-        //user will never get to save the words "audio1", "audio2", "audio3",
-        //"audio4", "audio5" and "audio6".
-        
+        //user will never get to save the words "audio0" ,"audio1", "audio2", "audio3",
+        //"audio4" and "audio5".
         //we can fix by macGayverism or implment an EasterEgg.
         
         self.audioPath = "audio\(newWords.count)"
         
-        let audioURL = NSURL(fileURLWithPath: LGStandarts.pathForAudioWithFileName(audioPath!))
+        let audioURL = AudioFilesManager.URLForAudioWithFileName("audio\(newWords.count)")
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
