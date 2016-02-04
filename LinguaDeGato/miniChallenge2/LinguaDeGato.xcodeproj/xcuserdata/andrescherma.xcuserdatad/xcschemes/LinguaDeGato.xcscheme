@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FA96DE921B29C0CE00149113"
-               BuildableName = "LinguaDeGato.app"
+               BuildableName = "Lingua de Gato.app"
                BlueprintName = "LinguaDeGato"
                ReferencedContainer = "container:LinguaDeGato.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA96DE921B29C0CE00149113"
-            BuildableName = "LinguaDeGato.app"
+            BuildableName = "Lingua de Gato.app"
             BlueprintName = "LinguaDeGato"
             ReferencedContainer = "container:LinguaDeGato.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA96DE921B29C0CE00149113"
-            BuildableName = "LinguaDeGato.app"
+            BuildableName = "Lingua de Gato.app"
             BlueprintName = "LinguaDeGato"
             ReferencedContainer = "container:LinguaDeGato.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA96DE921B29C0CE00149113"
-            BuildableName = "LinguaDeGato.app"
+            BuildableName = "Lingua de Gato.app"
             BlueprintName = "LinguaDeGato"
             ReferencedContainer = "container:LinguaDeGato.xcodeproj">
          </BuildableReference>

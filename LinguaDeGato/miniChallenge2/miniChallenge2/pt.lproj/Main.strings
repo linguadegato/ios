@@ -1,0 +1,69 @@
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "4bL-aY-gwN"; */
+"4bL-aY-gwN.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "51Z-MB-cws"; */
+"51Z-MB-cws.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Jogar"; ObjectID = "Gnx-6K-PFq"; */
+"Gnx-6K-PFq.normalTitle" = "Jogar";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "HNB-87-mME"; */
+"HNB-87-mME.normalTitle" = "Button";
+
+/* Class = "UIBarButtonItem"; title = "Sair"; ObjectID = "IIZ-54-lW2"; */
+"IIZ-54-lW2.title" = "Sair";
+
+/* Class = "UISegmentedControl"; Iim-Tv-S3O.segmentTitles[0] = "Palavras "; ObjectID = "Iim-Tv-S3O"; */
+"Iim-Tv-S3O.segmentTitles[0]" = "Palavras ";
+
+/* Class = "UISegmentedControl"; Iim-Tv-S3O.segmentTitles[1] = "Jogos "; ObjectID = "Iim-Tv-S3O"; */
+"Iim-Tv-S3O.segmentTitles[1]" = "Jogos ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "KPJ-Am-6C3"; */
+"KPJ-Am-6C3.normalTitle" = "Button";
+
+/* Class = "UIBarButtonItem"; title = "Voltar"; ObjectID = "KgB-fe-SdX"; */
+"KgB-fe-SdX.title" = "Voltar";
+
+/* Class = "UILabel"; text = "Jogo"; ObjectID = "LbO-5U-mMX"; */
+"LbO-5U-mMX.text" = "Jogo";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "S7D-Vq-8a9"; */
+"S7D-Vq-8a9.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "VSx-Ji-4un"; */
+"VSx-Ji-4un.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "aNw-FW-VCJ"; */
+"aNw-FW-VCJ.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Salvar"; ObjectID = "bvD-Qe-Pt1"; */
+"bvD-Qe-Pt1.normalTitle" = "Salvar";
+
+/* Class = "UIButton"; normalTitle = "Jogar"; ObjectID = "byQ-VA-4IM"; */
+"byQ-VA-4IM.normalTitle" = "Jogar";
+
+/* Class = "UIBarButtonItem"; title = "Voltar"; ObjectID = "dWO-wH-Yks"; */
+"dWO-wH-Yks.title" = "Voltar";
+
+/* Class = "UILabel"; text = "Jogar"; ObjectID = "ga0-yN-LU7"; */
+"ga0-yN-LU7.text" = "Jogar";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mAh-Zn-das"; */
+"mAh-Zn-das.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Digite a palavra..."; ObjectID = "mQc-ZF-1gt"; */
+"mQc-ZF-1gt.placeholder" = "Digite a palavra...";
+
+/* Class = "UILabel"; text = "Salvos"; ObjectID = "oXe-f9-4lT"; */
+"oXe-f9-4lT.text" = "Salvos";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ozY-Dt-A7x"; */
+"ozY-Dt-A7x.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qHb-cw-9Vs"; */
+"qHb-cw-9Vs.text" = "Label";
+
+/* Class = "UILabel"; text = "Criar jogo"; ObjectID = "t5f-RW-Unw"; */
+"t5f-RW-Unw.text" = "Criar jogo";
