@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +29,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSUserDefaults.standardUserDefaults().setValue(true, forKey: "firstTime")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
+        
+        
+        //set audio session
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord, withOptions: .MixWithOthers)
+            try audioSession.setActive(true)
+        }
+        catch {
+            print(error)
+        }
+        
         
         return true
     }
