@@ -77,6 +77,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private var hasClue = false {
         didSet {
             setAddButtonState()
+            removeNewClueButton.hidden = !hasClue
         }
     }
     private var hasWord = false {
@@ -101,7 +102,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private var imageID: String?
     
     // Audio session to manage recording and an audio recorder to handle the actual reading and saving of data
-    private var recordingAudio: Bool = false
+    var recordingAudio: Bool = false
     private var recordingSession: AVAudioSession!
     private var audioRecorder: AVAudioRecorder!
     private var audioPath: String?
@@ -342,7 +343,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             MusicSingleton.sharedMusic().playBackgroundAudio(false)
             startRecording()
         } else {
-            finishRecording(success: true)
+            finishRecording(true)
             if !MusicSingleton.sharedMusic().isMusicMute {
                 MusicSingleton.sharedMusic().playBackgroundAudio(true)
             }
@@ -676,11 +677,11 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             
             recordAnimation()
         } catch {
-            finishRecording(success: false)
+            finishRecording(false)
         }
     }
     
-    private func finishRecording(success success: Bool) {
+    func finishRecording(success: Bool) {
         self.recordingAudio = false
         
         audioButton.setBackgroundImage(audioButtonReadyToUseImage, forState: .Normal)
@@ -692,9 +693,21 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
 
         if success {
             hasClue = true
-            removeNewClueButton.hidden = false
+            
+            if ((newImageImgView.image == nil) || (newImageImgView.image == defaultImage)){
+                newImageImgView.image = audioImage
+            }
+            self.audioImageView.hidden = false
+            
         } else {
             //TODO: notificate the failure somehow
+            audioPath = nil
+            self.audioImageView.hidden = true
+            
+            if ((newImageImgView.image == nil) || (newImageImgView.image == audioImage)){
+                newImageImgView.image = defaultImage
+                removeNewClueButton.hidden = true
+            }
         }
     }
     
@@ -848,14 +861,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
 
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         if !flag {
-            finishRecording(success: false)
+            finishRecording(false)
         }
-        
-        if ((newImageImgView.image == nil) || (newImageImgView.image == defaultImage)){
-            newImageImgView.image = audioImage
-        }
-        
-        self.audioImageView.hidden = false
     }
 
     //MARK: Collection View Delegate and Datasource Methods
