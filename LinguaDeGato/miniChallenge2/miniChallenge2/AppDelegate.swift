@@ -30,19 +30,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSUserDefaults.standardUserDefaults().synchronize()
         }
         
-        
         //set audio session
         
         let audioSession = AVAudioSession.sharedInstance()
         
         do {
             try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try audioSession.setActive(true)
+            //try audioSession.setActive(true)
         }
         catch {
             print(error)
         }
-        
         
         return true
     }
@@ -64,6 +62,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 if creationController.recordingAudio {
                     creationController.finishRecording(false)
+                    do {
+                        //try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+                        try AVAudioSession.sharedInstance().setActive(false)
+                    }
+                    catch {
+                        //error handling
+                    }
                 }
             }
         }

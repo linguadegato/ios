@@ -16,6 +16,7 @@
 		77D94CB91C401F5A00E28B84 /* wrongSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CB81C401F5A00E28B84 /* wrongSound.wav */; };
 		77D94CBD1C402CD600E28B84 /* finishGame.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CBC1C402CD600E28B84 /* finishGame.wav */; };
 		EF35E9111B88F6CE00540031 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35E9101B88F6CE00540031 /* BoardView.swift */; };
+		EF3D5E5E1C6BA08B00CF54C5 /* AudioCluePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D5E5D1C6BA08B00CF54C5 /* AudioCluePlayer.swift */; };
 		EF41DCBA1BDAA584008D72CE /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41DCB91BDAA584008D72CE /* Clue.swift */; };
 		EF5313C91C5271ED00B2FEC3 /* WordAndClueServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5313C71C5271ED00B2FEC3 /* WordAndClueServices.swift */; };
 		EF5313CA1C5271ED00B2FEC3 /* GameServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5313C81C5271ED00B2FEC3 /* GameServices.swift */; };
@@ -86,6 +87,7 @@
 		77D94CB81C401F5A00E28B84 /* wrongSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrongSound.wav; sourceTree = "<group>"; };
 		77D94CBC1C402CD600E28B84 /* finishGame.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = finishGame.wav; sourceTree = "<group>"; };
 		EF35E9101B88F6CE00540031 /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		EF3D5E5D1C6BA08B00CF54C5 /* AudioCluePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioCluePlayer.swift; sourceTree = "<group>"; };
 		EF41DCB71BDAA50A008D72CE /* WordAndClue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordAndClue.swift; sourceTree = "<group>"; };
 		EF41DCB91BDAA584008D72CE /* Clue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
 		EF5313C71C5271ED00B2FEC3 /* WordAndClueServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordAndClueServices.swift; sourceTree = "<group>"; };
@@ -230,7 +232,6 @@
 				FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */,
 				EFB828681BF65B2E0017CF35 /* UINavigationControllerExtension.swift */,
 				77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */,
-				7786A6211C46B4930011C32A /* MusicSingleton.swift */,
 				FA1E0EF51C495BB000596D44 /* GalleryCollectionViewController.swift */,
 				FAAB7EF61C3F19A9004561EF /* GamesCollectionViewController.swift */,
 				77BCE0481C5153FF004CA31B /* GalleryAndGamesViewController.swift */,
@@ -339,6 +340,8 @@
 				EFE420541C56961D00E4B1CE /* AppImages.swift */,
 				EFE393D01C60CDC30038333D /* LGStandarts.swift */,
 				EFAB039F1C63A48200336D1D /* AudioFilesManager.swift */,
+				EF3D5E5D1C6BA08B00CF54C5 /* AudioCluePlayer.swift */,
+				7786A6211C46B4930011C32A /* MusicSingleton.swift */,
 				77D94CB11C401B6700E28B84 /* sounds */,
 				FA96DE971B29C0CE00149113 /* Info.plist */,
 			);
@@ -492,6 +495,7 @@
 				EFE480BA1BCD4EEB002F15FC /* ClueView.swift in Sources */,
 				FAD621531B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift in Sources */,
 				EFE680871BC80E0600EE755F /* CrosswordClue.swift in Sources */,
+				EF3D5E5E1C6BA08B00CF54C5 /* AudioCluePlayer.swift in Sources */,
 				EFB828691BF65B2E0017CF35 /* UINavigationControllerExtension.swift in Sources */,
 				EFA0932B1BCD3524008525F1 /* CrosswordElement.swift in Sources */,
 				EFBF8B351BDFDEBC00784B94 /* CrosswordCoordinate.swift in Sources */,

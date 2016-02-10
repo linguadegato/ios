@@ -16,7 +16,7 @@ class MusicSingleton: NSObject {
     var isMusicMute: Bool = false
     var isAudioMute: Bool = false
     
-    private static var instance:MusicSingleton = MusicSingleton()
+    private static var instance: MusicSingleton = MusicSingleton()
     
     internal static func sharedMusic() -> MusicSingleton {
         return instance
@@ -27,7 +27,6 @@ class MusicSingleton: NSObject {
         
         do {
             try backgroundMusicPlay = AVAudioPlayer(contentsOfURL: backgroundMusic)
-            
         }
         catch _ {
             // Error handling

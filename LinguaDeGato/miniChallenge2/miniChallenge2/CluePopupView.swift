@@ -112,12 +112,10 @@ class CluePopupView: UIView {
             replayButton.setImage(replayButtonImage, forState: .Normal)
             replayButton.layer.cornerRadius = replayButton.bounds.height / 2
             
-            replayButton.addTarget(audio, action: "play", forControlEvents: .TouchUpInside)
+            replayButton.addTarget(self, action: "playAudio", forControlEvents: .TouchUpInside)
             
-            MusicSingleton.sharedMusic().playBackgroundAudio(false)
-            
-            //Play audio
-            audio!.play()
+            //play audio
+            self.playAudio()
         }
     }
 
@@ -136,10 +134,6 @@ class CluePopupView: UIView {
     //MARK: - Button actions
     
     func closePopup() {
-        if audio != nil {
-            self.audio!.stop()
-            self.audio!.currentTime = 0
-        }
         self.removeFromSuperview()
     }
     
@@ -147,22 +141,18 @@ class CluePopupView: UIView {
     func tapped(sender: UITapGestureRecognizer){
         
         if imageView.pointInside(sender.locationOfTouch(0, inView: frameView), withEvent: nil) {
-            if audio != nil {
-                if !MusicSingleton.sharedMusic().isMusicMute {
-                    MusicSingleton.sharedMusic().playBackgroundAudio(false)
-                }
-                audio!.play()
-            }
+            self.playAudio()
         }
         else {
-            if !MusicSingleton.sharedMusic().isMusicMute{
-                MusicSingleton.sharedMusic().playBackgroundAudio(true)
-            }
-            if audio != nil {
-                audio!.stop()
-                audio!.currentTime = 0
-            }
-            self.removeFromSuperview()
+            self.closePopup()
+        }
+    }
+    
+    //MARK: - Audio control
+    func playAudio() {
+        
+        if self.audio != nil {
+            AudioCluePlayer.playAudio(audio!)
         }
     }
 }

@@ -626,30 +626,47 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     //MARK: ACTIONS
     func tapAndPlayRecord(sender: UITapGestureRecognizer){
+        
         if self.audioPath != nil {
-//            var audioPlayerTimer = NSTimer()
-            
             do {
                 try self.audio = AVAudioPlayer(contentsOfURL: AudioFilesManager.URLForAudioWithFileName(audioPath!))
-                MusicSingleton.sharedMusic().playBackgroundAudio(false)
-                self.audio.play()
-                
-//                audioPlayerTimer = NSTimer.scheduledTimerWithTimeInterval(audio.duration, target: self, selector: "playMusicAfterPlayClue", userInfo: nil, repeats: false)
             } catch {
                 //MARK: TODO: [audio] error message
             }
+            
+            if self.audio != nil {
+                AudioCluePlayer.playAudio(audio)
+            }
         }
-
     }
     
     func playMusicAfterPlayClue(){
+        
+        /*
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+        }
+        catch {
+            //error handling
+        }
+        
         if !MusicSingleton.sharedMusic().isMusicMute {
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
         }
+        */
     }
     
     // MARK: - RECORD AUDIO METHODS
     private func startRecording() {
+        
+        do{
+            //try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try AVAudioSession.sharedInstance().setActive(true)
+        }
+        catch{
+            //error handling
+        }
+        
         self.recordingAudio = true
         
         audioButton.setBackgroundImage(audioButtonRecordingImage, forState: .Normal)
@@ -682,6 +699,15 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     func finishRecording(success: Bool) {
+        
+        do{
+            try AVAudioSession.sharedInstance().setActive(false)
+        }
+        catch{
+            //error handling
+        }
+        
+        
         self.recordingAudio = false
         
         audioButton.setBackgroundImage(audioButtonReadyToUseImage, forState: .Normal)
