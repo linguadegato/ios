@@ -72,8 +72,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         do {
-            //try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
-            try AVAudioSession.sharedInstance().setActive(false)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, withOptions: AVAudioSessionCategoryOptions.MixWithOthers)
+            try AVAudioSession.sharedInstance().setActive(false, withOptions: AVAudioSessionSetActiveOptions.NotifyOthersOnDeactivation)
         }
         catch {
             //error handling
@@ -91,6 +91,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         catch {
             print(error)
+        }
+        
+        if !MusicSingleton.sharedMusic().isMusicMute {
+            MusicSingleton.sharedMusic().playBackgroundAudio(true)
         }
         
     }

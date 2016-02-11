@@ -31,8 +31,7 @@ class AudioCluePlayer {
         
         var audioPlayerTimer: NSTimer
         
-        //Music not properly implemented
-        //MusicSingleton.sharedMusic().playBackgroundAudio(false)
+        MusicSingleton.sharedMusic().playBackgroundAudio(false)
         
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
@@ -63,12 +62,10 @@ class AudioCluePlayer {
                 //error handling
             }
             
-            //Music not properly implemented
-            /*
+
             if !MusicSingleton.sharedMusic().isMusicMute {
                 MusicSingleton.sharedMusic().playBackgroundAudio(true)
             }
-            */
         }
     }
     

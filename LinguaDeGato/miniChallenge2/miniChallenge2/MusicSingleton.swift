@@ -40,7 +40,7 @@ class MusicSingleton: NSObject {
         backgroundMusicPlay.numberOfLoops = (-1) // always repeat music
         
         if playAudio{
-            //backgroundMusicPlay.play()
+            backgroundMusicPlay.play()
         } else {
             backgroundMusicPlay.stop()
         }

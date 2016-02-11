@@ -666,6 +666,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             //error handling
         }
         
+        MusicSingleton.sharedMusic().playBackgroundAudio(false)
+        
         self.recordingAudio = true
         audioButton.setBackgroundImage(audioButtonRecordingImage, forState: .Normal)
         
@@ -733,6 +735,10 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 newImageImgView.image = defaultImage
                 removeNewClueButton.hidden = true
             }
+        }
+        
+        if !MusicSingleton.sharedMusic().isMusicMute {
+            MusicSingleton.sharedMusic().playBackgroundAudio(true)
         }
     }
     
