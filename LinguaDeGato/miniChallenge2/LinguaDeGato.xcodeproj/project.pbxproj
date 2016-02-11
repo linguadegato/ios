@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7708F5111C64FCD500832989 /* TutorialContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7708F5101C64FCD500832989 /* TutorialContentViewController.swift */; };
+		7708F5131C6504B900832989 /* TutorialCurrentPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7708F5121C6504B900832989 /* TutorialCurrentPageVC.swift */; };
 		7786A6171C4573600011C32A /* backgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7786A6161C4573600011C32A /* backgroundMusic.wav */; };
 		7786A6221C46B4930011C32A /* MusicSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786A6211C46B4930011C32A /* MusicSingleton.swift */; };
 		77BCE0491C5153FF004CA31B /* GalleryAndGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BCE0481C5153FF004CA31B /* GalleryAndGamesViewController.swift */; };
@@ -78,6 +80,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7708F5101C64FCD500832989 /* TutorialContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialContentViewController.swift; sourceTree = "<group>"; };
+		7708F5121C6504B900832989 /* TutorialCurrentPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialCurrentPageVC.swift; sourceTree = "<group>"; };
 		7786A6161C4573600011C32A /* backgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundMusic.wav; sourceTree = "<group>"; };
 		7786A6211C46B4930011C32A /* MusicSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicSingleton.swift; sourceTree = "<group>"; };
 		77BCE0481C5153FF004CA31B /* GalleryAndGamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryAndGamesViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +241,8 @@
 				77BCE0481C5153FF004CA31B /* GalleryAndGamesViewController.swift */,
 				FAD50B961C5CE986002C8B37 /* GalleryViewController.swift */,
 				FA588A3A1C5E4C960014EE3B /* GamesViewController.swift */,
+				7708F5101C64FCD500832989 /* TutorialContentViewController.swift */,
+				7708F5121C6504B900832989 /* TutorialCurrentPageVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -432,7 +438,7 @@
 				TargetAttributes = {
 					FA96DE921B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 7KYC4PVA26;
+						DevelopmentTeam = ZR6H5N286L;
 					};
 					FA96DEAB1B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -494,6 +500,7 @@
 				FA8D2D931C3F2F2B004F0375 /* GameCollectionViewCell.swift in Sources */,
 				EFE480BA1BCD4EEB002F15FC /* ClueView.swift in Sources */,
 				FAD621531B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift in Sources */,
+				7708F5131C6504B900832989 /* TutorialCurrentPageVC.swift in Sources */,
 				EFE680871BC80E0600EE755F /* CrosswordClue.swift in Sources */,
 				EF3D5E5E1C6BA08B00CF54C5 /* AudioCluePlayer.swift in Sources */,
 				EFB828691BF65B2E0017CF35 /* UINavigationControllerExtension.swift in Sources */,
@@ -532,6 +539,7 @@
 				EF5313CA1C5271ED00B2FEC3 /* GameServices.swift in Sources */,
 				FA0681901B2B1491008A5C9F /* CreateCrosswordViewController.swift in Sources */,
 				EF5313D51C5272E500B2FEC3 /* LGCDGame+CoreDataProperties.swift in Sources */,
+				7708F5111C64FCD500832989 /* TutorialContentViewController.swift in Sources */,
 				EFE73AF21BFE2C6C007A8C13 /* CrosswordCluePlaceholder.swift in Sources */,
 				EFFB40CA1C46A5D10099BA6F /* DatabaseManager.swift in Sources */,
 				EFE30C3D1C4E637A0093984B /* WordAndClue.swift in Sources */,

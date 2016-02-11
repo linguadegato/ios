@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -565,6 +565,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="djB-gk-qH6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-268" y="1967"/>
+        </scene>
+        <!--Tutorial Content View Controller-->
+        <scene sceneID="0rI-Vc-kdv">
+            <objects>
+                <viewController storyboardIdentifier="TutorialContentViewController" id="Upv-yV-OUS" customClass="TutorialContentViewController" customModule="Lingua_de_Gato" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mfM-Jt-RjU"/>
+                        <viewControllerLayoutGuide type="bottom" id="VGq-iq-jQ0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b0v-mv-ERf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XqM-QZ-qtv">
+                                <rect key="frame" x="20" y="66" width="560" height="514"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYD-nd-s1G">
+                                <rect key="frame" x="196" y="37" width="189" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="189" id="bwM-Ts-4bC"/>
+                                    <constraint firstAttribute="height" constant="21" id="u13-Vg-6aC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XqM-QZ-qtv" firstAttribute="top" secondItem="CYD-nd-s1G" secondAttribute="bottom" constant="8" symbolic="YES" id="4v4-6h-YEa"/>
+                            <constraint firstItem="XqM-QZ-qtv" firstAttribute="trailing" secondItem="b0v-mv-ERf" secondAttribute="trailingMargin" id="8UP-4L-kbO"/>
+                            <constraint firstItem="XqM-QZ-qtv" firstAttribute="leading" secondItem="b0v-mv-ERf" secondAttribute="leadingMargin" id="Hcx-Zb-aBn"/>
+                            <constraint firstItem="CYD-nd-s1G" firstAttribute="top" secondItem="mfM-Jt-RjU" secondAttribute="bottom" constant="17" id="Tn4-Ao-6oT"/>
+                            <constraint firstItem="CYD-nd-s1G" firstAttribute="leading" secondItem="b0v-mv-ERf" secondAttribute="leading" constant="196" id="as3-hc-Oze"/>
+                            <constraint firstAttribute="bottom" secondItem="XqM-QZ-qtv" secondAttribute="bottom" constant="20" symbolic="YES" id="uND-Cr-7gx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tutorialImageView" destination="XqM-QZ-qtv" id="X4v-Jz-1Y9"/>
+                        <outlet property="tutorialTitleLabel" destination="CYD-nd-s1G" id="uHq-hG-zoT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vh6-Vh-eZP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-408" y="2735"/>
+        </scene>
+        <!--Tutorial Current PageVC-->
+        <scene sceneID="SYs-2I-Tw5">
+            <objects>
+                <viewController id="Bag-jM-lnz" customClass="TutorialCurrentPageVC" customModule="Lingua_de_Gato" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iUp-Fd-XEb"/>
+                        <viewControllerLayoutGuide type="bottom" id="Usu-Fq-g44"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U4f-Pa-zkK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U29-JU-87B">
+                                <rect key="frame" x="20" y="20" width="64" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="2qK-f9-zJc"/>
+                                    <constraint firstAttribute="height" constant="30" id="b1n-V8-YXs"/>
+                                </constraints>
+                                <state key="normal" title="Início">
+                                    <color key="titleColor" red="0.23921568630000001" green="0.68627450980000004" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="restartAction:" destination="Bag-jM-lnz" eventType="touchUpInside" id="clc-Xz-50W"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="U29-JU-87B" firstAttribute="top" secondItem="iUp-Fd-XEb" secondAttribute="bottom" id="o29-vN-BRv"/>
+                            <constraint firstItem="U29-JU-87B" firstAttribute="leading" secondItem="U4f-Pa-zkK" secondAttribute="leadingMargin" id="put-6m-oL8"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkM-uz-xVS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="303" y="2735"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="0g3-yJ-IvD">
@@ -1290,6 +1372,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBZ-f2-9nh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2011" y="1921"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="nMn-gg-5qO">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="yN9-xc-QdE" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bdr-gH-AWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1219" y="2735"/>
         </scene>
     </scenes>
     <resources>
