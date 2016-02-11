@@ -15,6 +15,10 @@ class InitialViewController: StatusBarViewController {
     @IBOutlet weak var createCrosswordButton: UIButton!
     @IBOutlet weak var playRandomGameButton: UIButton!
     @IBOutlet weak var muteMusicButton: UIButton!
+    
+    @IBOutlet weak var privacyPolicyView: UITextView!
+    
+    @IBOutlet weak var closePrivacyPolicyButton: UIButton!
 
     
     private let muteMusicOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
@@ -143,6 +147,16 @@ class InitialViewController: StatusBarViewController {
         }
     }
     
+    @IBAction func openPrivacyPolicy() {
+        privacyPolicyView.hidden = false
+        closePrivacyPolicyButton.hidden = false
+    }
+
+    @IBAction func closePrivacyPolicy() {
+        privacyPolicyView.hidden = true
+        closePrivacyPolicyButton.hidden = true
+    }
+
     //MARK: - ALERTS
     private func noWordsAlert() {
         

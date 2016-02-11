@@ -838,11 +838,222 @@
                                             <constraint firstItem="RnB-ZL-gxM" firstAttribute="leading" secondItem="1jD-Ie-TNP" secondAttribute="leading" id="oyc-QL-5T3"/>
                                         </constraints>
                                     </view>
+                                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="27P-Na-rgE">
+                                        <rect key="frame" x="90" y="80.5" width="420" height="375"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">Política de Privacidade:
+</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                    <real key="NSKern" value="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" minimumLineHeight="16" defaultTabInterval="36">
+                                                        <tabStops/>
+                                                    </paragraphStyle>
+                                                    <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">Este aplicativo foi projetado para menores de 13 anos.
+Todo conteúdo criado através do aplicativo é de total responsabilidade de seus usuários.
+</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                    <real key="NSKern" value="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="16" defaultTabInterval="36">
+                                                        <tabStops/>
+                                                    </paragraphStyle>
+                                                    <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+Coleta de dados: 
+</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                    <real key="NSKern" value="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" minimumLineHeight="16" defaultTabInterval="36">
+                                                        <tabStops/>
+                                                    </paragraphStyle>
+                                                    <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">Coletamos fotos e utilizamos o microfone para gravação de áudio como objetivo cumprir a funcionalidade principal da aplicação.
+</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                    <real key="NSKern" value="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="16" defaultTabInterval="36">
+                                                        <tabStops/>
+                                                    </paragraphStyle>
+                                                    <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+Segurança: 
+</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                    <real key="NSKern" value="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" minimumLineHeight="16" defaultTabInterval="36">
+                                                        <tabStops/>
+                                                    </paragraphStyle>
+                                                    <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">Utilizamos os protocolos de segurança internos padrão para que suas informações pessoais não sejam acessadas ou alteradas.
+</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                    <real key="NSKern" value="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="16" defaultTabInterval="36">
+                                                        <tabStops/>
+                                                    </paragraphStyle>
+                                                    <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+Controle do usuário: 
+</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                    <real key="NSKern" value="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" minimumLineHeight="16" defaultTabInterval="36">
+                                                        <tabStops/>
+                                                    </paragraphStyle>
+                                                    <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">O aplicativo permite ao usuário acessar, alterar e/ou apagar seus dados.
+</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                    <real key="NSKern" value="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="16" defaultTabInterval="36">
+                                                        <tabStops/>
+                                                    </paragraphStyle>
+                                                    <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+Localização: 
+</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                    <real key="NSKern" value="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" minimumLineHeight="16" defaultTabInterval="36">
+                                                        <tabStops/>
+                                                    </paragraphStyle>
+                                                    <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">Nós não registramos ou compartilhamos a sua localização.
+</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                    <real key="NSKern" value="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="16" defaultTabInterval="36">
+                                                        <tabStops/>
+                                                    </paragraphStyle>
+                                                    <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
+Este aplicativo não possui: 
+</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                    <real key="NSKern" value="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" minimumLineHeight="16" defaultTabInterval="36">
+                                                        <tabStops/>
+                                                    </paragraphStyle>
+                                                    <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">Propaganda
+Analytics
+</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                    <real key="NSKern" value="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="16" defaultTabInterval="36">
+                                                        <tabStops/>
+                                                    </paragraphStyle>
+                                                    <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                    <real key="NSKern" value="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" minimumLineHeight="16" defaultTabInterval="36">
+                                                        <tabStops/>
+                                                    </paragraphStyle>
+                                                    <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="Para mais informações, entre em contato conosco: contato@linguadegatoapp.com.br">
+                                                <attributes>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                    <real key="NSKern" value="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="16" defaultTabInterval="36">
+                                                        <tabStops/>
+                                                    </paragraphStyle>
+                                                    <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRn-8z-HkB">
+                                        <rect key="frame" x="8" y="498" width="180" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="c6U-EK-YDx"/>
+                                            <constraint firstAttribute="width" constant="180" id="dTe-g5-Cbp"/>
+                                        </constraints>
+                                        <state key="normal" title="Polítca de Privacidade"/>
+                                        <connections>
+                                            <action selector="openPrivacyPolicy" destination="Yba-oo-O4l" eventType="touchUpInside" id="YUm-EK-LIv"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuQ-r5-mwW">
+                                        <rect key="frame" x="488" y="59" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="hul-Ey-nTN"/>
+                                            <constraint firstAttribute="width" constant="44" id="lqL-Gn-vQm"/>
+                                        </constraints>
+                                        <state key="normal" image="btnDelete"/>
+                                        <connections>
+                                            <action selector="closePrivacyPolicy" destination="Yba-oo-O4l" eventType="touchUpInside" id="e2X-6a-AJs"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="iRn-8z-HkB" secondAttribute="bottom" constant="8" id="0w0-rJ-UR6"/>
+                                    <constraint firstItem="tuQ-r5-mwW" firstAttribute="centerX" secondItem="27P-Na-rgE" secondAttribute="trailing" id="3M6-Nr-Qoy"/>
                                     <constraint firstItem="1jD-Ie-TNP" firstAttribute="width" secondItem="J7r-m5-fLP" secondAttribute="width" id="CuI-AB-nzi"/>
                                     <constraint firstItem="1jD-Ie-TNP" firstAttribute="centerY" secondItem="J7r-m5-fLP" secondAttribute="centerY" id="MbS-L5-Usg"/>
+                                    <constraint firstItem="27P-Na-rgE" firstAttribute="width" secondItem="1jD-Ie-TNP" secondAttribute="width" multiplier="0.7" id="MeR-cj-1LM"/>
                                     <constraint firstItem="1jD-Ie-TNP" firstAttribute="centerX" secondItem="J7r-m5-fLP" secondAttribute="centerX" id="Y8g-3p-0Cu"/>
+                                    <constraint firstItem="27P-Na-rgE" firstAttribute="top" secondItem="tuQ-r5-mwW" secondAttribute="centerY" id="ZZ2-jJ-kbr"/>
+                                    <constraint firstItem="27P-Na-rgE" firstAttribute="height" secondItem="1jD-Ie-TNP" secondAttribute="height" id="aQj-wX-Qpc"/>
+                                    <constraint firstItem="27P-Na-rgE" firstAttribute="centerX" secondItem="J7r-m5-fLP" secondAttribute="centerX" id="bDR-l8-Eq1"/>
+                                    <constraint firstItem="iRn-8z-HkB" firstAttribute="leading" secondItem="J7r-m5-fLP" secondAttribute="leading" constant="8" id="hgx-pP-2sE"/>
+                                    <constraint firstItem="27P-Na-rgE" firstAttribute="centerY" secondItem="J7r-m5-fLP" secondAttribute="centerY" id="ika-fq-CtQ"/>
                                     <constraint firstItem="1jD-Ie-TNP" firstAttribute="height" secondItem="J7r-m5-fLP" secondAttribute="height" multiplier="0.7" id="xW2-T5-jkL"/>
                                 </constraints>
                             </view>
@@ -872,9 +1083,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="closePrivacyPolicyButton" destination="tuQ-r5-mwW" id="5Kv-PV-h34"/>
                         <outlet property="createCrosswordButton" destination="i1h-AD-wNb" id="Kvg-RR-uWk"/>
                         <outlet property="muteMusicButton" destination="sA2-xq-6gI" id="ptV-3u-AjG"/>
                         <outlet property="playRandomGameButton" destination="zMZ-68-6Ji" id="roW-gk-W55"/>
+                        <outlet property="privacyPolicyView" destination="27P-Na-rgE" id="RhC-d8-4la"/>
                         <segue destination="epj-fT-bue" kind="show" identifier="randomGame" id="jFj-O3-2OQ"/>
                         <segue destination="Ztr-Cm-8Zd" kind="show" identifier="toGallery" id="Aad-ZQ-bYD"/>
                     </connections>
@@ -969,7 +1182,7 @@
                             </barButtonItem>
                         </leftBarButtonItems>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Iim-Tv-S3O">
-                            <rect key="frame" x="119" y="8" width="415" height="29"/>
+                            <rect key="frame" x="119" y="7.5" width="415" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Palavras "/>
