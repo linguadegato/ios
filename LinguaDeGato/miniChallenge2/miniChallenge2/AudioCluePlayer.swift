@@ -5,25 +5,42 @@
 //  Created by Andre Scherma Soleo on 10/02/16.
 //  Copyright © 2016 Kobayashi. All rights reserved.
 //
+//  This class centralizes the processes of play recorded (clues) audios,
+//  allowing not shatter audio session configuration code througt project.
+
 
 import Foundation
 import AVFoundation
 
 class AudioCluePlayer {
     
+    private static var instance = AudioCluePlayer()
+    
     private static var audio: AVAudioPlayer?
     
-    class func playAudio(anAudio: AVAudioPlayer) {
-        var audioPlayerTimer = NSTimer()
+    private init(){
         
-        MusicSingleton.sharedMusic().playBackgroundAudio(false)
+    }
+    
+    class func sharedPlayer() -> AudioCluePlayer {
+        
+        return instance
+    }
+    
+    class func playAudio(anAudio: AVAudioPlayer) {
+        
+        var audioPlayerTimer: NSTimer
+        
+        //Music not properly implemented
+        //MusicSingleton.sharedMusic().playBackgroundAudio(false)
+        
         do {
             //try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
             try AVAudioSession.sharedInstance().setActive(true)
             
             audio = anAudio
             audio!.play()
-            audioPlayerTimer = NSTimer.scheduledTimerWithTimeInterval(audio!.duration, target: AudioCluePlayer, selector: "stopAudio", userInfo: nil, repeats: false)
+            audioPlayerTimer = NSTimer.scheduledTimerWithTimeInterval(audio!.duration, target: AudioCluePlayer.sharedPlayer(), selector: "stopAudioAfterTimer:", userInfo: nil, repeats: false)
             
         } catch {
             //MARK: TODO: [audio] error message
@@ -35,6 +52,7 @@ class AudioCluePlayer {
         if audio != nil {
             audio!.stop()
             audio!.currentTime = 0
+            audio = nil
             
             do {
                 //try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
@@ -45,11 +63,18 @@ class AudioCluePlayer {
                 //error handling
             }
             
+            //Music not properly implemented
+            /*
             if !MusicSingleton.sharedMusic().isMusicMute {
                 MusicSingleton.sharedMusic().playBackgroundAudio(true)
             }
+            */
         }
     }
     
-    
+    //A little macGayverism, so timer can call stopAudio
+    @objc func stopAudioAfterTimer(timer: NSTimer) {
+        
+        AudioCluePlayer.stopAudio()
+    }
 }

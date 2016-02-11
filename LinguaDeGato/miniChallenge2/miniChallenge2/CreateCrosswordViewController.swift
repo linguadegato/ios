@@ -668,7 +668,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         }
         
         self.recordingAudio = true
-        
         audioButton.setBackgroundImage(audioButtonRecordingImage, forState: .Normal)
         
         //MARK: this is a fragile line, and can cause bugs
@@ -677,7 +676,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         //we can fix by macGayverism or implment an EasterEgg.
         
         self.audioPath = "audio\(newWords.count)"
-        
         let audioURL = AudioFilesManager.URLForAudioWithFileName("audio\(newWords.count)")
         
         let settings = [
@@ -700,6 +698,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     func finishRecording(success: Bool) {
         
+        self.audioRecorder.stop()
+        
         do{
             try AVAudioSession.sharedInstance().setActive(false)
         }
@@ -707,16 +707,14 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             //error handling
         }
         
-        
+        self.audioRecorder = nil
         self.recordingAudio = false
         
         audioButton.setBackgroundImage(audioButtonReadyToUseImage, forState: .Normal)
         audioButton.layer.removeAllAnimations()
         audioImageView.layer.removeAllAnimations()
         
-        audioRecorder.stop()
-        audioRecorder = nil
-
+        
         if success {
             hasClue = true
             

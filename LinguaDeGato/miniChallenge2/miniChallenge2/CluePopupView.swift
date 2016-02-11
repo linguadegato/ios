@@ -134,6 +134,7 @@ class CluePopupView: UIView {
     //MARK: - Button actions
     
     func closePopup() {
+        AudioCluePlayer.stopAudio()
         self.removeFromSuperview()
     }
     
