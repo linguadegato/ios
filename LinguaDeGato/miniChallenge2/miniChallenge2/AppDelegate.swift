@@ -71,8 +71,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        AudioCluePlayer.stopAudio()
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, withOptions: AVAudioSessionCategoryOptions.MixWithOthers)
+            //try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, withOptions: AVAudioSessionCategoryOptions.MixWithOthers)
             try AVAudioSession.sharedInstance().setActive(false, withOptions: AVAudioSessionSetActiveOptions.NotifyOthersOnDeactivation)
         }
         catch {
