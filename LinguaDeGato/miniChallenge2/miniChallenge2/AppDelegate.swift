@@ -40,8 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let audioSession = AVAudioSession.sharedInstance()
         
         do {
-            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            //try audioSession.setActive(true)
+            try audioSession.setCategory(AVAudioSessionCategoryAmbient, withOptions: AVAudioSessionCategoryOptions.MixWithOthers)
+            try audioSession.setActive(true)
         }
         catch {
             print(error)
@@ -67,20 +67,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 if creationController.recordingAudio {
                     creationController.finishRecording(false)
-                    do {
-                        //try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
-                        try AVAudioSession.sharedInstance().setActive(false)
-                    }
-                    catch {
-                        //error handling
-                    }
                 }
             }
+        }
+        
+        do {
+            //try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+            try AVAudioSession.sharedInstance().setActive(false)
+        }
+        catch {
+            //error handling
         }
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryAmbient, withOptions: AVAudioSessionCategoryOptions.MixWithOthers)
+            try audioSession.setActive(true)
+        }
+        catch {
+            print(error)
+        }
+        
     }
 
     func applicationDidBecomeActive(application: UIApplication) {

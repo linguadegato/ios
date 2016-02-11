@@ -660,8 +660,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     private func startRecording() {
         
         do{
-            //try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try AVAudioSession.sharedInstance().setActive(true)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
         }
         catch{
             //error handling
@@ -701,7 +700,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         self.audioRecorder.stop()
         
         do{
-            try AVAudioSession.sharedInstance().setActive(false)
+            try AVAudioSession.sharedInstance().setActive(false, withOptions: AVAudioSessionSetActiveOptions.NotifyOthersOnDeactivation)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, withOptions: .MixWithOthers)
+            try AVAudioSession.sharedInstance().setActive(true)
         }
         catch{
             //error handling

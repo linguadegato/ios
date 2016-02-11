@@ -35,8 +35,8 @@ class AudioCluePlayer {
         //MusicSingleton.sharedMusic().playBackgroundAudio(false)
         
         do {
-            //try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try AVAudioSession.sharedInstance().setActive(true)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
+            //try AVAudioSession.sharedInstance().setActive(true)
             
             audio = anAudio
             audio!.play()
@@ -55,9 +55,9 @@ class AudioCluePlayer {
             audio = nil
             
             do {
-                //try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
-                try AVAudioSession.sharedInstance().setActive(false)
-
+                try AVAudioSession.sharedInstance().setActive(false, withOptions: AVAudioSessionSetActiveOptions.NotifyOthersOnDeactivation)
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, withOptions: .MixWithOthers)
+                try AVAudioSession.sharedInstance().setActive(true)
             }
             catch {
                 //error handling
