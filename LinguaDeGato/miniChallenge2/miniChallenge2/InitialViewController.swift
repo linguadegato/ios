@@ -17,10 +17,8 @@ class InitialViewController: StatusBarViewController {
     @IBOutlet weak var muteMusicButton: UIButton!
     
     @IBOutlet weak var privacyPolicyView: UITextView!
-    
     @IBOutlet weak var closePrivacyPolicyButton: UIButton!
 
-    
     private let muteMusicOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
     private let muteMusicOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
     
@@ -48,6 +46,8 @@ class InitialViewController: StatusBarViewController {
         } else {
             //do nothing
         }
+        
+        privacyPolicyView.contentOffset = CGPointZero
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -155,6 +155,7 @@ class InitialViewController: StatusBarViewController {
     @IBAction func closePrivacyPolicy() {
         privacyPolicyView.hidden = true
         closePrivacyPolicyButton.hidden = true
+        privacyPolicyView.contentOffset = CGPointZero
     }
 
     //MARK: - ALERTS
