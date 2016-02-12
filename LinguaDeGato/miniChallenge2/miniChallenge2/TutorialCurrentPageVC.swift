@@ -14,11 +14,13 @@ class TutorialCurrentPageVC: UIViewController, UIPageViewControllerDataSource {
     var pageTitles: NSArray!
     var pageImages: NSArray!
     
+    @IBOutlet weak var buttonPlayGame: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.pageTitles = NSArray(objects: "Hair 1", "Hair 2")
-        self.pageImages = NSArray(objects: "hair1", "hair2")
+        
+        self.pageTitles = NSArray(objects: "Página 1", "Página 2", "Página 3", "Página 4", "Página 5")
+        self.pageImages = NSArray(objects: "tutorialPage1", "tutorialPage2", "tutorialPage3", "tutorialPage4", "tutorialPage5")
         
         
         self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
@@ -42,14 +44,14 @@ class TutorialCurrentPageVC: UIViewController, UIPageViewControllerDataSource {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func restartAction(sender: AnyObject) {
-        let startVC = self.viewControllerAtIndex(0) as TutorialContentViewController
-        let viewControllers = NSArray(object: startVC)
-        
-        self.pageViewController.setViewControllers((viewControllers as! [UIViewController]), direction: .Forward, animated: true, completion: nil)
-        
-    }
+    // button to go to first page of tutorial:
+//    @IBAction func restartAction(sender: AnyObject) {
+//        let startVC = self.viewControllerAtIndex(0) as TutorialContentViewController
+//        let viewControllers = NSArray(object: startVC)
+//        
+//        self.pageViewController.setViewControllers((viewControllers as! [UIViewController]), direction: .Forward, animated: true, completion: nil)
+//        
+//    }
     
     func viewControllerAtIndex(index: Int) -> TutorialContentViewController {
         if ((self.pageTitles.count == 0) || (index >= self.pageTitles.count)) {
@@ -62,6 +64,12 @@ class TutorialCurrentPageVC: UIViewController, UIPageViewControllerDataSource {
         aViewController.titleText = self.pageTitles[index]as! String
         aViewController.pageIndex = index
         
+        if (aViewController.pageIndex < (self.pageImages.count - 1)){
+            self.buttonPlayGame.hidden = true
+        } else {
+            self.buttonPlayGame.hidden = false
+            print("exibe botão")
+        }
         
         return aViewController
     }

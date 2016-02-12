@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o8m-ff-fjo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -578,9 +578,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XqM-QZ-qtv">
-                                <rect key="frame" x="20" y="66" width="560" height="514"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYD-nd-s1G">
                                 <rect key="frame" x="196" y="37" width="189" height="21"/>
                                 <constraints>
@@ -591,6 +588,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XqM-QZ-qtv">
+                                <rect key="frame" x="20" y="66" width="560" height="353"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -599,7 +599,7 @@
                             <constraint firstItem="XqM-QZ-qtv" firstAttribute="leading" secondItem="b0v-mv-ERf" secondAttribute="leadingMargin" id="Hcx-Zb-aBn"/>
                             <constraint firstItem="CYD-nd-s1G" firstAttribute="top" secondItem="mfM-Jt-RjU" secondAttribute="bottom" constant="17" id="Tn4-Ao-6oT"/>
                             <constraint firstItem="CYD-nd-s1G" firstAttribute="leading" secondItem="b0v-mv-ERf" secondAttribute="leading" constant="196" id="as3-hc-Oze"/>
-                            <constraint firstAttribute="bottom" secondItem="XqM-QZ-qtv" secondAttribute="bottom" constant="20" symbolic="YES" id="uND-Cr-7gx"/>
+                            <constraint firstAttribute="bottom" secondItem="XqM-QZ-qtv" secondAttribute="bottom" constant="181" id="uND-Cr-7gx"/>
                         </constraints>
                     </view>
                     <connections>
@@ -609,7 +609,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vh6-Vh-eZP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-408" y="2735"/>
+            <point key="canvasLocation" x="-1308" y="2735"/>
         </scene>
         <!--Tutorial Current PageVC-->
         <scene sceneID="SYs-2I-Tw5">
@@ -623,30 +623,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U29-JU-87B">
-                                <rect key="frame" x="20" y="20" width="64" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fb8-y9-uvZ">
+                                <rect key="frame" x="34" y="86" width="46" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="2qK-f9-zJc"/>
-                                    <constraint firstAttribute="height" constant="30" id="b1n-V8-YXs"/>
+                                    <constraint firstAttribute="height" constant="30" id="7o9-fj-6NB"/>
+                                    <constraint firstAttribute="width" constant="46" id="jLt-kF-ZUe"/>
                                 </constraints>
-                                <state key="normal" title="Início">
+                                <state key="normal" title="Jogar!">
                                     <color key="titleColor" red="0.23921568630000001" green="0.68627450980000004" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="restartAction:" destination="Bag-jM-lnz" eventType="touchUpInside" id="clc-Xz-50W"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="U29-JU-87B" firstAttribute="top" secondItem="iUp-Fd-XEb" secondAttribute="bottom" id="o29-vN-BRv"/>
-                            <constraint firstItem="U29-JU-87B" firstAttribute="leading" secondItem="U4f-Pa-zkK" secondAttribute="leadingMargin" id="put-6m-oL8"/>
+                            <constraint firstItem="Fb8-y9-uvZ" firstAttribute="top" secondItem="iUp-Fd-XEb" secondAttribute="bottom" constant="22" id="DSh-VS-tGE"/>
+                            <constraint firstItem="Fb8-y9-uvZ" firstAttribute="leading" secondItem="U4f-Pa-zkK" secondAttribute="leadingMargin" constant="14" id="d3t-Uw-ZKh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="buttonPlayGame" destination="Fb8-y9-uvZ" id="3Ok-96-p9O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkM-uz-xVS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="303" y="2735"/>
+            <point key="canvasLocation" x="-2049" y="2735"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="0g3-yJ-IvD">
@@ -1165,6 +1165,7 @@ Cg
                         <outlet property="privacyPolicyView" destination="27P-Na-rgE" id="RhC-d8-4la"/>
                         <segue destination="epj-fT-bue" kind="show" identifier="randomGame" id="jFj-O3-2OQ"/>
                         <segue destination="Ztr-Cm-8Zd" kind="show" identifier="toGallery" id="Aad-ZQ-bYD"/>
+                        <segue destination="Bag-jM-lnz" kind="show" identifier="tutorial" id="gI3-Fm-e4C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgn-Gy-cpt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1257,7 +1258,7 @@ Cg
                             </barButtonItem>
                         </leftBarButtonItems>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Iim-Tv-S3O">
-                            <rect key="frame" x="119" y="7.5" width="415" height="29"/>
+                            <rect key="frame" x="119" y="8" width="415" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Palavras "/>
@@ -1667,7 +1668,7 @@ Cg
                 <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="yN9-xc-QdE" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bdr-gH-AWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1219" y="2735"/>
+            <point key="canvasLocation" x="-559" y="2735"/>
         </scene>
     </scenes>
     <resources>
