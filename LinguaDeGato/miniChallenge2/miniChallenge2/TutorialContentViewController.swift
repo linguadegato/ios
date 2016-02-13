@@ -24,7 +24,11 @@ class TutorialContentViewController: UIViewController {
         self.tutorialTitleLabel.text = self.titleText
         
     }
-
+    
+    @IBAction func skipTutorial(sender: AnyObject) {
+        navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

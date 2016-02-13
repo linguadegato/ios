@@ -14,7 +14,7 @@ class TutorialCurrentPageVC: UIViewController, UIPageViewControllerDataSource {
     var pageTitles: NSArray!
     var pageImages: NSArray!
     
-    @IBOutlet weak var buttonPlayGame: UIButton!
+    //MARK: BUTTONS
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,13 +63,6 @@ class TutorialCurrentPageVC: UIViewController, UIPageViewControllerDataSource {
         aViewController.imageFile = self.pageImages[index]as! String
         aViewController.titleText = self.pageTitles[index]as! String
         aViewController.pageIndex = index
-        
-        if (aViewController.pageIndex < (self.pageImages.count - 1)){
-            self.buttonPlayGame.hidden = true
-        } else {
-            self.buttonPlayGame.hidden = false
-            print("exibe botão")
-        }
         
         return aViewController
     }

@@ -34,7 +34,7 @@ class InitialViewController: StatusBarViewController {
         
         
         //shows an alert in the first time app is open (false to use in test)
-        if (NSUserDefaults.standardUserDefaults().valueForKey("firstTime") as? Bool == false) {
+        if (NSUserDefaults.standardUserDefaults().valueForKey("firstTime") as? Bool == true) {
             
             let firstAlert = UIAlertController(title: "ATENÇÃO", message: "Todo conteúdo criado dentro da aplicação é de total responsabilidade de seus usuários.", preferredStyle: UIAlertControllerStyle.Alert)
             firstAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { _ in
