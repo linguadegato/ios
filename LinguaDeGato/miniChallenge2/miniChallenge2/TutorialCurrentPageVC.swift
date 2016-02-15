@@ -19,7 +19,7 @@ class TutorialCurrentPageVC: UIViewController, UIPageViewControllerDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.pageTitles = NSArray(objects: "TUTORIAL: Criando palavras", "TUTORIAL: Entendendo as dicas", "TUTORIAL: Salvando o jogo", "TUTORIAL: Jogando")
+        self.pageTitles = NSArray(objects: "TUTORIAL: Criando palavras", "Entendendo as dicas", "Salvando o jogo", "Jogando")
         self.pageImages = NSArray(objects: "tutorialPage1", "tutorialPage2", "tutorialPage3", "tutorialPage4")
         
         
