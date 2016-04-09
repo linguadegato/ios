@@ -33,7 +33,7 @@ class WordManager {
     
     //a tile was placed in the right square
     func increaseCounter() {
-        counter++
+        counter += 1
         
         if counter == word.lenght - 3 {
             allCorrect()
@@ -42,7 +42,7 @@ class WordManager {
     
     //a tile was taken of the right square
     func decreaseCounter() {
-        counter--
+        counter -= 1
         
         //(clue size minus 1 - cause it WAS all correct, but isn't anymore)
         if counter == (word.lenght - 4) {
@@ -66,7 +66,7 @@ class WordManager {
             }
         }
         
-        board.correctWords++
+        board.correctWords += 1
     }
     
     //a tile was taken from a correct filled word
@@ -88,6 +88,6 @@ class WordManager {
             }
         }
         
-        board.correctWords--
+        board.correctWords -= 1
     }
 }

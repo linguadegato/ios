@@ -237,12 +237,12 @@ class TileView: UIView, UIGestureRecognizerDelegate {
     }
     
     func visualFeedbackIfWordIsCorrect(){
-        inCorrectWordsCounter++
+        inCorrectWordsCounter += 1
         prepareToRedraw()
     }
     
     func decreaseCorrectWordCounter() {
-        inCorrectWordsCounter--
+        inCorrectWordsCounter -= 1
         prepareToRedraw()
     }
     

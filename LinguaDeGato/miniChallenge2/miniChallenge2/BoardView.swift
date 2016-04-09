@@ -138,11 +138,11 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
             var auxMatrix = [[BoardCellView?]]()
             
             //iterate rows (always exist)
-            for (var rowIdx=0; rowIdx < crosswordRowNumber; rowIdx++) {
+            for (var rowIdx=0; rowIdx < crosswordRowNumber; rowIdx += 1) {
                 var matrixLine = [BoardCellView?]()
                 
                 //iterate columns
-                for (var colIdx=0; colIdx < crosswordColNumber; colIdx++) {
+                for (var colIdx=0; colIdx < crosswordColNumber; colIdx += 1) {
                     
                     //just a warranty against ragged arrays, in case of LGCrosswordGenerator has been modified
                     if (colIdx < inputMatrix![rowIdx].count){

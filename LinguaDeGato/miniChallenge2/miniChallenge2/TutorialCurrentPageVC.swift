@@ -78,7 +78,7 @@ class TutorialCurrentPageVC: UIViewController, UIPageViewControllerDataSource {
             return nil
         }
         
-        index--
+        index -= 1
         return self.viewControllerAtIndex(index)
     }
     
@@ -91,7 +91,7 @@ class TutorialCurrentPageVC: UIViewController, UIPageViewControllerDataSource {
             return nil
         }
         
-        index++
+        index += 1
         
         if (index == self.pageTitles.count) {
             return nil

@@ -69,7 +69,7 @@ class LGCrosswordGenerator {
                     }
                 }
                 forceCross = crossInSpin
-                spinCount++
+                spinCount += 1
             }
             
             if self.copy!.currentWordlist.count > self.currentWordlist.count {
@@ -129,11 +129,11 @@ class LGCrosswordGenerator {
                             }
                         }
                     }
-                    colIndex++
+                    colIndex += 1
                 }
-                rowIndex++
+                rowIndex += 1
             }
-            letterIndex++
+            letterIndex += 1
         }
         coordList = sortCoordlist(word, coordlist: coordList)
         return coordList
@@ -194,7 +194,7 @@ class LGCrosswordGenerator {
                     }
                 }
             }
-            counter++
+            counter += 1
         }
         return hasCrossed
     }
@@ -273,7 +273,7 @@ class LGCrosswordGenerator {
                 if (aCell as! CrosswordChar).theChar == letter {
                     //it's a cross!
                     isCross = true
-                    score++
+                    score += 1
                 } else {
                     //it's a collision!
                     //print("2.a score = 0")
@@ -321,7 +321,7 @@ class LGCrosswordGenerator {
                         return 0
                     }
                 }
-                rowIndex++
+                rowIndex += 1
             }
                 
             //horizontal
@@ -355,9 +355,9 @@ class LGCrosswordGenerator {
                         return 0
                     }
                 }
-                colIndex++
+                colIndex += 1
             }
-            squareCounter++
+            squareCounter += 1
         }
         //print("score = \(score)")
         return score
@@ -522,10 +522,10 @@ class LGCrosswordGenerator {
             }
         
             if word.coordinate!.vertical {
-                row++
+                row += 1
             }
             else {
-                col++
+                col += 1
             }
         }
     }
