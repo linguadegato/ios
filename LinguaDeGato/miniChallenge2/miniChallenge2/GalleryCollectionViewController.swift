@@ -217,7 +217,7 @@ class GalleryCollectionViewController : UICollectionViewController{
     //MARK: - CREATE GAME BUTTON
     @IBAction func createNewGame(sender: AnyObject) {
         
-        let saveAlert = UIAlertController(title: "Deseja salvar esse jogo?", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        let saveAlert = UIAlertController(title: "Deseja salvar esse jogo?", message: "Dê um nome ao jogo para que possa ser salvo", preferredStyle: UIAlertControllerStyle.Alert)
         
         saveAlert.addTextFieldWithConfigurationHandler({ alertTextField in
             alertTextField.placeholder = "Nome do jogo"
@@ -226,7 +226,7 @@ class GalleryCollectionViewController : UICollectionViewController{
         
         saveAlert.addAction(UIAlertAction(
             title: "Salvar",
-            style: UIAlertActionStyle.Default,
+            style: UIAlertActionStyle.Cancel,
             handler:{
                 _ in
                 if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
@@ -252,7 +252,7 @@ class GalleryCollectionViewController : UICollectionViewController{
         
         saveAlert.addAction(UIAlertAction(
             title: "Não",
-            style: UIAlertActionStyle.Cancel,
+            style: UIAlertActionStyle.Default,
             handler: {_ in self.performSegueWithIdentifier("CreateGameFromGallery", sender: nil)}
         ))
         
@@ -263,12 +263,12 @@ class GalleryCollectionViewController : UICollectionViewController{
     private func overwriteGame(aGame: Game) {
         let overwriteAlert = UIAlertController(title: "Sobreescrever jogo?", message: "Já existe um jogo salvo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", preferredStyle: UIAlertControllerStyle.Alert)
         
-        overwriteAlert.addAction(UIAlertAction(title: "SIM", style: UIAlertActionStyle.Default, handler: {_ in
+        overwriteAlert.addAction(UIAlertAction(title: "Sim", style: UIAlertActionStyle.Default, handler: {_ in
             GameServices.overwriteGame(aGame, completion: {})
             self.performSegueWithIdentifier("GenerateCrossword", sender: nil)
         }))
         
-        overwriteAlert.addAction(UIAlertAction(title: "NÃO", style: UIAlertActionStyle.Default, handler: {_ in
+        overwriteAlert.addAction(UIAlertAction(title: "Não", style: UIAlertActionStyle.Cancel, handler: {_ in
             self.createNewGame(self)
         }))
         
