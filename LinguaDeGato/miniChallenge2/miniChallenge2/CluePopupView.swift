@@ -77,7 +77,7 @@ class CluePopupView: UIView {
         imageView.center = frameView.convertPoint(frameView.center, fromView: frameView.superview!)
         
         //set gesture recognizer
-        let aGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapped:")
+        let aGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CluePopupView.tapped(_:)))
         self.addGestureRecognizer(aGestureRecognizer)
         
         //add closeButton
@@ -95,7 +95,7 @@ class CluePopupView: UIView {
         closeButton.layer.cornerRadius = closeButton.bounds.height / 2
         
         //set closeButton Action
-        closeButton.addTarget(self, action: "removeFromSuperview", forControlEvents: .TouchUpInside)
+        closeButton.addTarget(self, action: #selector(UIView.removeFromSuperview), forControlEvents: .TouchUpInside)
 
         if audio != nil {
             //add replayButton
@@ -112,7 +112,7 @@ class CluePopupView: UIView {
             replayButton.setImage(replayButtonImage, forState: .Normal)
             replayButton.layer.cornerRadius = replayButton.bounds.height / 2
             
-            replayButton.addTarget(self, action: "playAudio", forControlEvents: .TouchUpInside)
+            replayButton.addTarget(self, action: #selector(CluePopupView.playAudio), forControlEvents: .TouchUpInside)
             
             //play audio
             self.playAudio()

@@ -160,7 +160,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         //MARK: Set gesture recognizers
         //gesture recognizer to dismiss keyboard
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreateCrosswordViewController.dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         
         //gesture recognizers in main image
@@ -216,8 +216,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         // Keyboard:
         super.viewWillAppear(animated)
         let center: NSNotificationCenter = NSNotificationCenter.defaultCenter()
-        center.addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        center.addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        center.addObserver(self, selector: #selector(CreateCrosswordViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        center.addObserver(self, selector: #selector(CreateCrosswordViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
     }
     
@@ -619,7 +619,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // MARK: GENERATORS
     private func createGestureTapImageToPlayRecord() -> UITapGestureRecognizer{
-        let tapGesture = UITapGestureRecognizer(target:self, action:Selector("tapAndPlayRecord:"))
+        let tapGesture = UITapGestureRecognizer(target:self, action:#selector(CreateCrosswordViewController.tapAndPlayRecord(_:)))
         
         return tapGesture
     }

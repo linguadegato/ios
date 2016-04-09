@@ -102,7 +102,7 @@ class ClueView: BoardCellView, UIGestureRecognizerDelegate {
         imageView.image = self.image
         
         //set and add gesture recognizer
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: "handleTapGesture")
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ClueView.handleTapGesture))
         gestureRecognizer.delegate = self
         gestureRecognizer.delaysTouchesEnded = true
         

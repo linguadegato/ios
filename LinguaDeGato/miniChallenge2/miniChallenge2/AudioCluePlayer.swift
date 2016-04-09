@@ -39,7 +39,7 @@ class AudioCluePlayer {
             
             audio = anAudio
             audio!.play()
-            audioPlayerTimer = NSTimer.scheduledTimerWithTimeInterval(audio!.duration, target: AudioCluePlayer.sharedPlayer(), selector: "stopAudioAfterTimer:", userInfo: nil, repeats: false)
+            audioPlayerTimer = NSTimer.scheduledTimerWithTimeInterval(audio!.duration, target: AudioCluePlayer.sharedPlayer(), selector: #selector(AudioCluePlayer.stopAudioAfterTimer(_:)), userInfo: nil, repeats: false)
             
         } catch {
             //MARK: TODO: [audio] error message

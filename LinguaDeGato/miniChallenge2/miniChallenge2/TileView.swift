@@ -71,7 +71,7 @@ class TileView: UIView, UIGestureRecognizerDelegate {
         self.letter = char
         self.delegate = aDelegate
         
-        self.gestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture")
+        self.gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(TileView.handlePanGesture))
         gestureRecognizer.delegate = self
         gestureRecognizer.maximumNumberOfTouches = 1
         gestureRecognizer.delaysTouchesEnded = true
