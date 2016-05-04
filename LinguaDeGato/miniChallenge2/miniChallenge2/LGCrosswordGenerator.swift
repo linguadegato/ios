@@ -387,22 +387,22 @@ class LGCrosswordGenerator {
     }
     
     //give each coordinate a score, then, in newCoordlist, randomize and sort
-    private func sortCoordlist(word: WordAndClue, var coordlist: [CrosswordCoordinate]) -> [CrosswordCoordinate] {
+    private func sortCoordlist(word: WordAndClue, coordlist: [CrosswordCoordinate]) -> [CrosswordCoordinate] {
         
+        var tempCoordlist = coordlist
         var newCoordlist = [CrosswordCoordinate]()
         
         //give score
-        for coord in coordlist {
+        for coord in tempCoordlist {
             coord.score = checkFitScore(word, coord: coord)
         }
         
-        //transfer coordinates randomicaly from coordlist to newCoordlist
-        let elements = coordlist.count
+        //transfer coordinates randomicaly from tempCoordlist to newCoordlist
+        let elements = tempCoordlist.count
         while newCoordlist.count < elements{
-            let aIndex = random() % coordlist.count
-            newCoordlist.append(coordlist[aIndex])
-            //IRRESPONSABLE use of class property as auxiliar variable
-            coordlist.removeAtIndex(aIndex)
+            let aIndex = random() % tempCoordlist.count
+            newCoordlist.append(tempCoordlist[aIndex])
+            tempCoordlist.removeAtIndex(aIndex)
         }
         
         //sort newCoordilist, bigger scores first
