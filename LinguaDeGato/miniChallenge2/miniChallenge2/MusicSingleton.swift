@@ -11,22 +11,22 @@ import AVFoundation
 
 class MusicSingleton: NSObject {
     
-    var backgroundMusic = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("backgroundMusic", ofType: "wav")!)
+    var backgroundMusic = URL(fileURLWithPath: Bundle.main.path(forResource: "backgroundMusic", ofType: "wav")!)
     var backgroundMusicPlay:AVAudioPlayer!
     var isMusicMute: Bool = false
     var isAudioMute: Bool = false
     
-    private static var instance: MusicSingleton = MusicSingleton()
+    fileprivate static var instance: MusicSingleton = MusicSingleton()
     
     internal static func sharedMusic() -> MusicSingleton {
         return instance
     }
 
-    private override init() {
+    fileprivate override init() {
         super.init()
         
         do {
-            try backgroundMusicPlay = AVAudioPlayer(contentsOfURL: backgroundMusic)
+            try backgroundMusicPlay = AVAudioPlayer(contentsOf: backgroundMusic)
         }
         catch _ {
             // Error handling
@@ -34,7 +34,7 @@ class MusicSingleton: NSObject {
     }
     
     //plays the background music
-    func playBackgroundAudio(playAudio: Bool) {
+    func playBackgroundAudio(_ playAudio: Bool) {
         
         backgroundMusicPlay.volume = 0.2
         backgroundMusicPlay.numberOfLoops = (-1) // always repeat music

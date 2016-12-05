@@ -11,7 +11,7 @@ import CoreData
 
 class GameDAO {
     
-    static func insert(game: Game) -> LGCDGame {
+    static func insert(_ game: Game) -> LGCDGame {
         
         //adding wordAndClues
         var wordsList: [LGCDWordAndClue] = []
@@ -33,8 +33,8 @@ class GameDAO {
         return newGame
     }
     
-    static func delete(game: LGCDGame) {
-        DatabaseManager.sharedInstance.managedObjectContext?.deleteObject(game)
+    static func delete(_ game: LGCDGame) {
+        DatabaseManager.sharedInstance.managedObjectContext?.delete(game)
         do {
             try DatabaseManager.sharedInstance.managedObjectContext?.save()
         }
@@ -43,9 +43,9 @@ class GameDAO {
         }
     }
     
-    static func retrieveGameByName(name: String) -> LGCDGame? {
+    static func retrieveGameByName(_ name: String) -> LGCDGame? {
         //create request
-        let request = NSFetchRequest(entityName: "LGCDGame")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "LGCDGame")
         
         request.predicate = NSPredicate(format: "name == %@", name)
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
@@ -55,7 +55,7 @@ class GameDAO {
         var results: [LGCDGame]? = nil
         
         do {
-            results = try DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request) as? [LGCDGame]
+            results = try DatabaseManager.sharedInstance.managedObjectContext?.fetch(request) as? [LGCDGame]
         }
         catch {
             print("error executing request - retrieveGameByName(name: String) -> LGCDGame?")
@@ -72,13 +72,13 @@ class GameDAO {
     
     static func retrieveAllGames() -> [LGCDGame] {
 
-        let request = NSFetchRequest(entityName: "LGCDGame")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "LGCDGame")
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
         var results: [LGCDGame] = []
         
         do {
-            results = try DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request) as! [LGCDGame]
+            results = try DatabaseManager.sharedInstance.managedObjectContext?.fetch(request) as! [LGCDGame]
         }
         catch{
             print("error executing request - retrieveAllGames()")

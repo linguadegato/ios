@@ -13,9 +13,9 @@ class GalleryAndGamesViewController: UIViewController {
     
 //    private var allGames = [Game]()
 //    private var gallery = [WordAndClue]()
-    private var backButton : UIBarButtonItem!
-    private let muteMusicOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
-    private let muteMusicOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
+    fileprivate var backButton : UIBarButtonItem!
+    fileprivate let muteMusicOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
+    fileprivate let muteMusicOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
     
     @IBOutlet weak var muteMusicButton: UIButton!
     @IBOutlet weak var galleryView: UIView!
@@ -23,37 +23,37 @@ class GalleryAndGamesViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.indexChanged(self.segmentedControl)
         
         //Set image of mute button
         if MusicSingleton.sharedMusic().isMusicMute {
-            muteMusicButton.setImage(muteMusicOnImage, forState: .Normal)
+            muteMusicButton.setImage(muteMusicOnImage, for: UIControlState())
         } else {
-            muteMusicButton.setImage(muteMusicOffImage, forState: .Normal)
+            muteMusicButton.setImage(muteMusicOffImage, for: UIControlState())
         }
     }
     
     // MARK: - Button Actions
-    @IBAction func muteMusicButton(sender: AnyObject) {
+    @IBAction func muteMusicButton(_ sender: AnyObject) {
         if MusicSingleton.sharedMusic().isMusicMute {
             // music will play
-            muteMusicButton.setImage(muteMusicOffImage, forState: .Normal)
+            muteMusicButton.setImage(muteMusicOffImage, for: UIControlState())
             MusicSingleton.sharedMusic().isMusicMute = false
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
         } else {
             // music will stop
-            muteMusicButton.setImage(muteMusicOnImage, forState: .Normal)
+            muteMusicButton.setImage(muteMusicOnImage, for: UIControlState())
             MusicSingleton.sharedMusic().isMusicMute = true
             MusicSingleton.sharedMusic().playBackgroundAudio(false)
         }
     }
     
-    @IBAction func goBack(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func goBack(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: true)
         
         // Don't forget to re-enable the interactive gesture
-        self.navigationController?.interactivePopGestureRecognizer!.enabled = true
+        self.navigationController?.interactivePopGestureRecognizer!.isEnabled = true
         
         // if the back button is pressed when a clue audio is recording or playing, the music status is stoped
         // so we need to play when exit to another screen
@@ -63,15 +63,15 @@ class GalleryAndGamesViewController: UIViewController {
     }
 
     // MARK: - Segmented Control action
-    @IBAction func indexChanged(sender: AnyObject) {
+    @IBAction func indexChanged(_ sender: AnyObject) {
         switch segmentedControl.selectedSegmentIndex{
         case 0:
-            UIView.animateWithDuration(0.5, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 self.galleryView.alpha = 1
                 self.gamesView.alpha = 0
             })
         case 1:
-            UIView.animateWithDuration(0.5, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 self.galleryView.alpha = 0
                 self.gamesView.alpha = 1
             })

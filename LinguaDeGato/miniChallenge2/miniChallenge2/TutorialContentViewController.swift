@@ -25,8 +25,8 @@ class TutorialContentViewController: UIViewController {
         
     }
     
-    @IBAction func skipTutorial(sender: AnyObject) {
-        navigationController?.popToRootViewControllerAnimated(true)
+    @IBAction func skipTutorial(_ sender: AnyObject) {
+        navigationController?.popToRootViewController(animated: true)
     }
     
     override func didReceiveMemoryWarning() {

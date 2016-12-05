@@ -18,10 +18,10 @@ class LGCDWordAndClue: NSManagedObject {
         let context: NSManagedObjectContext = DatabaseManager.sharedInstance.managedObjectContext!
         
         // create entity description
-        let entityDescription: NSEntityDescription? = NSEntityDescription.entityForName("LGCDWordAndClue", inManagedObjectContext: context)
+        let entityDescription: NSEntityDescription? = NSEntityDescription.entity(forEntityName: "LGCDWordAndClue", in: context)
         
         //call super using
-        super.init(entity: entityDescription!, insertIntoManagedObjectContext: context)
+        super.init(entity: entityDescription!, insertInto: context)
         
         //set properties and relationships
         self.word = aWord
@@ -29,15 +29,15 @@ class LGCDWordAndClue: NSManagedObject {
         self.imageID = anImageID
     }
     
-    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
         
         // get context
         let context: NSManagedObjectContext = DatabaseManager.sharedInstance.managedObjectContext!
         
         // create entity description
-        let entityDescription: NSEntityDescription? = NSEntityDescription.entityForName("LGCDWordAndClue", inManagedObjectContext: context)
+        let entityDescription: NSEntityDescription? = NSEntityDescription.entity(forEntityName: "LGCDWordAndClue", in: context)
         
         //call super using
-        super.init(entity: entityDescription!, insertIntoManagedObjectContext: context)
+        super.init(entity: entityDescription!, insertInto: context)
     }
 }

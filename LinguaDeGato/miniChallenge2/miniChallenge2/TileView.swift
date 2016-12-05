@@ -31,10 +31,10 @@ class TileView: UIView, UIGestureRecognizerDelegate {
     var isCorrect: Bool?
     var inCorrectWordsCounter: Int = 0
     
-    var correctFeedbackAudioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("correctSound", ofType: "wav")!)
+    var correctFeedbackAudioURL = URL(fileURLWithPath: Bundle.main.path(forResource: "correctSound", ofType: "wav")!)
     
     // plays an audio when tile is put in wrong square
-    var wrongFeedbackAudioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("wrongSound", ofType: "wav")!)
+    var wrongFeedbackAudioURL = URL(fileURLWithPath: Bundle.main.path(forResource: "wrongSound", ofType: "wav")!)
     var wrongFeedbackPlay = AVAudioPlayer()
     var correctFeedbackPlay = AVAudioPlayer()
     
@@ -44,23 +44,23 @@ class TileView: UIView, UIGestureRecognizerDelegate {
     let tileBorderWidth = CGFloat(2)
     
     // Default tile
-    let tileBackgroundColorDefault = UIColor.whiteColor()
+    let tileBackgroundColorDefault = UIColor.white
     let tileTextColorDefault = UIColor.bluePalete()
     let tileBorderColorDefault = UIColor.bluePalete()
 
     // Tile in the right place on the crossword
-    let tileBackgroundColorRightLetter = UIColor.whiteColor()
+    let tileBackgroundColorRightLetter = UIColor.white
     let tileTextColorRightLetter = UIColor.greenPalete()
     let tileBorderColorRightLetter = UIColor.bluePalete()
     
     // Tile in the wrong place on the crossword
-    let tileBackgroundColorWrongLetter = UIColor.whiteColor()
-    let tileTextColorColorWrongLetter = UIColor.redColor()
+    let tileBackgroundColorWrongLetter = UIColor.white
+    let tileTextColorColorWrongLetter = UIColor.red
     let tileBorderColorColorWrongLetter = UIColor.bluePalete()
     
     // When finish a right word
     let tileBackgroundColorFinishedWord = UIColor.greenPalete()
-    let tileTextColorFinishedWord = UIColor.whiteColor()
+    let tileTextColorFinishedWord = UIColor.white
     let tileBorderColorFinishedWord = UIColor.greenPalete()
     
     //MARK: - INITIALIZERS
@@ -94,13 +94,13 @@ class TileView: UIView, UIGestureRecognizerDelegate {
     // An empty implementation adversely affects performance during animation.
     //MARK: TODO: Style the Tile
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
         let text = "\(letter)"
         
-        let textStyle : NSMutableParagraphStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
-        textStyle.alignment = .Center
-        textStyle.lineBreakMode = .ByClipping
+        let textStyle : NSMutableParagraphStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+        textStyle.alignment = .center
+        textStyle.lineBreakMode = .byClipping
         
         //centralizes the letter in tile
         let fontSize: CGFloat = frame.width / 1.2
@@ -112,9 +112,9 @@ class TileView: UIView, UIGestureRecognizerDelegate {
         //tile not placed in any square
         if isCorrect == nil {
             textFontAttributes = [
-                NSFontAttributeName: UIFont.boldSystemFontOfSize(fontSize),
+                NSFontAttributeName: UIFont.boldSystemFont(ofSize: fontSize),
                 NSForegroundColorAttributeName: tileTextColorDefault,
-                NSBaselineOffsetAttributeName: 0,
+                NSBaselineOffsetAttributeName: 0 as AnyObject,
                 NSParagraphStyleAttributeName: textStyle
             ]
         }
@@ -125,18 +125,18 @@ class TileView: UIView, UIGestureRecognizerDelegate {
             if isCorrect! {
                 if inCorrectWordsCounter == 0 {
                     textFontAttributes = [
-                        NSFontAttributeName: UIFont.boldSystemFontOfSize(fontSize),
+                        NSFontAttributeName: UIFont.boldSystemFont(ofSize: fontSize),
                         NSForegroundColorAttributeName: tileTextColorRightLetter,
-                        NSBaselineOffsetAttributeName: 0,
+                        NSBaselineOffsetAttributeName: 0 as AnyObject,
                         NSParagraphStyleAttributeName: textStyle
                     ]
                 }
                 //if the whole word is correct
                 else {
                     textFontAttributes = [
-                        NSFontAttributeName: UIFont.boldSystemFontOfSize(fontSize),
+                        NSFontAttributeName: UIFont.boldSystemFont(ofSize: fontSize),
                         NSForegroundColorAttributeName: tileTextColorFinishedWord,
-                        NSBaselineOffsetAttributeName: 0,
+                        NSBaselineOffsetAttributeName: 0 as AnyObject,
                         NSParagraphStyleAttributeName: textStyle
                     ]
                 }
@@ -144,22 +144,22 @@ class TileView: UIView, UIGestureRecognizerDelegate {
             //if tile is placed in the wrong square
             else {
                 textFontAttributes = [
-                    NSFontAttributeName: UIFont.boldSystemFontOfSize(fontSize),
+                    NSFontAttributeName: UIFont.boldSystemFont(ofSize: fontSize),
                     NSForegroundColorAttributeName: tileTextColorColorWrongLetter,
-                    NSBaselineOffsetAttributeName: 0,
+                    NSBaselineOffsetAttributeName: 0 as AnyObject,
                     NSParagraphStyleAttributeName: textStyle
                 ]
             }
         }
-        text.drawInRect(self.bounds, withAttributes: textFontAttributes)
+        text.draw(in: self.bounds, withAttributes: textFontAttributes)
     }
     
     
-    private func prepareToRedraw(){
+    fileprivate func prepareToRedraw(){
         
         //tile not placed in any square
         if isCorrect == nil {
-            self.layer.borderColor = tileBorderColorDefault.CGColor
+            self.layer.borderColor = tileBorderColorDefault.cgColor
             self.backgroundColor = tileBackgroundColorDefault
         }
             
@@ -169,20 +169,20 @@ class TileView: UIView, UIGestureRecognizerDelegate {
             //if it's correct
             if isCorrect! {
                 if inCorrectWordsCounter == 0 {
-                    self.layer.borderColor = tileBorderColorRightLetter.CGColor
+                    self.layer.borderColor = tileBorderColorRightLetter.cgColor
                     self.backgroundColor = tileBackgroundColorRightLetter
                 }
                 
                 //if the whole word is correct
                 else {
-                    self.layer.borderColor = tileBorderColorFinishedWord.CGColor
+                    self.layer.borderColor = tileBorderColorFinishedWord.cgColor
                     self.backgroundColor = tileBackgroundColorFinishedWord
                 }
             }
                 
             //if tile is placed in the wrong square
             else {
-                self.layer.borderColor = tileBorderColorColorWrongLetter.CGColor
+                self.layer.borderColor = tileBorderColorColorWrongLetter.cgColor
                 self.backgroundColor = tileBackgroundColorWrongLetter
             }
         }
@@ -194,7 +194,7 @@ class TileView: UIView, UIGestureRecognizerDelegate {
         isCorrect = true
         
         do {
-            try correctFeedbackPlay = AVAudioPlayer(contentsOfURL: correctFeedbackAudioURL)
+            try correctFeedbackPlay = AVAudioPlayer(contentsOf: correctFeedbackAudioURL)
         }
         catch _ {
             // Error handling
@@ -216,7 +216,7 @@ class TileView: UIView, UIGestureRecognizerDelegate {
         inCorrectWordsCounter = 0
 
         do {
-            try wrongFeedbackPlay = AVAudioPlayer(contentsOfURL: wrongFeedbackAudioURL)
+            try wrongFeedbackPlay = AVAudioPlayer(contentsOf: wrongFeedbackAudioURL)
         }
         catch _ {
             // Error handling
@@ -250,16 +250,16 @@ class TileView: UIView, UIGestureRecognizerDelegate {
     
     func handlePanGesture(){
         delegate.tileMoved(self)
-        if(self.gestureRecognizer.state == UIGestureRecognizerState.Ended){
+        if(self.gestureRecognizer.state == UIGestureRecognizerState.ended){
             delegate.tileReleased(self)
         }
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         delegate.tileGrabed(self)
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         delegate.tileReleased(self)
     }
 }
@@ -268,10 +268,10 @@ class TileView: UIView, UIGestureRecognizerDelegate {
 
 protocol TileViewDelegate {
     
-    func tileGrabed(tile: TileView)
+    func tileGrabed(_ tile: TileView)
     
-    func tileMoved(tile: TileView)
+    func tileMoved(_ tile: TileView)
     
-    func tileReleased(tile: TileView)
+    func tileReleased(_ tile: TileView)
     
 }

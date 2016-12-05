@@ -21,8 +21,8 @@ class SquareView: BoardCellView {
     var words: [WordAndClue]
     
     //MARK: - COLORS AND VISUAL ATTRIBUTES
-    let squareBackgroundColor = UIColor.whiteColor().CGColor
-    let squareBorderColor = UIColor.bluePalete().CGColor
+    let squareBackgroundColor = UIColor.white.cgColor
+    let squareBorderColor = UIColor.bluePalete().cgColor
     let squareBorderWidth = CGFloat(2)
     
     
@@ -58,7 +58,7 @@ class SquareView: BoardCellView {
     
     //MARK: - TOUCHING MANAGEMENT
     //prevent square of being hitting instead of a tile
-    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         return false
     }
 }

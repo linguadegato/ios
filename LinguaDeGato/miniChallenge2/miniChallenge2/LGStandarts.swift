@@ -14,15 +14,15 @@ class LGStandarts {
     //returns a standart Activity indcator for Língua de Gato
     //Centrilized in screen.
     //Grey background with white large whell
-    static func standartLGActivityIndicator (view: UIView) -> UIActivityIndicatorView {
+    static func standartLGActivityIndicator (_ view: UIView) -> UIActivityIndicatorView {
         
         let indicator = UIActivityIndicatorView()
         
         indicator.frame.size = CGSize(width: 60, height: 60)
         indicator.center = view.center
         
-        indicator.backgroundColor = UIColor.grayColor()
-        indicator.activityIndicatorViewStyle = .WhiteLarge
+        indicator.backgroundColor = UIColor.gray
+        indicator.activityIndicatorViewStyle = .whiteLarge
         indicator.layer.cornerRadius = 6
         
         return indicator

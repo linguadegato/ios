@@ -13,9 +13,9 @@ class GameServices {
     
     //creates a LGCDGame from Game and save it
     //return true if game was saved, false if there's already a game with that name
-    static func saveGame(game: Game, completion: (Bool) -> Void) {
+    static func saveGame(_ game: Game, completion: @escaping (Bool) -> Void) {
         
-        let operation = NSBlockOperation(block: {
+        let operation = BlockOperation(block: {
             
             //moves audio files to a word-related URL
             for word in game.wordsAndClueArray {
@@ -45,9 +45,9 @@ class GameServices {
     
     //if there's already a game with it's name, this function remove from DB, than
     //creates a LGCDGame and save it (calling saveGame)
-    static func overwriteGame(newGame: Game, completion: () -> Void) {
+    static func overwriteGame(_ newGame: Game, completion: @escaping () -> Void) {
         
-        let operation = NSBlockOperation(block: {
+        let operation = BlockOperation(block: {
             if let oldGame = GameDAO.retrieveGameByName(newGame.name) {
                 GameDAO.delete(oldGame)
             }
@@ -60,9 +60,9 @@ class GameServices {
         
     }
     
-    static func retrieveGameByName(aName: String, completion: (Game?) -> Void) {
+    static func retrieveGameByName(_ aName: String, completion: @escaping (Game?) -> Void) {
         
-        let operation = NSBlockOperation(block: {
+        let operation = BlockOperation(block: {
             let aPersistedGame = GameDAO.retrieveGameByName(aName)
             
             if aPersistedGame != nil {
@@ -78,9 +78,9 @@ class GameServices {
 
     }
     
-    static func retrieveAllGames(completion: ([Game] -> Void)) {
+    static func retrieveAllGames(_ completion: @escaping (([Game]) -> Void)) {
         
-        let operation = NSBlockOperation(block: {
+        let operation = BlockOperation(block: {
             var games: [Game] = []
             let dbGames = GameDAO.retrieveAllGames()
             
@@ -96,7 +96,7 @@ class GameServices {
     }
     
     //auxiliar method to create a Game from a LGCDGame
-    static func gameFromDataBase(persistedGame: LGCDGame) -> Game {
+    static func gameFromDataBase(_ persistedGame: LGCDGame) -> Game {
 
         var words: [WordAndClue] = []
         

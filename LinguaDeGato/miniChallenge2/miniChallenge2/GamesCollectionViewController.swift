@@ -16,8 +16,8 @@ class GamesCollectionViewController : UICollectionViewController{
     
     var allGames = [Game]()
     
-    private let reuseIdentifier = "ClueCell"
-    private var selectedSection : Int?
+    fileprivate let reuseIdentifier = "ClueCell"
+    fileprivate var selectedSection : Int?
     
     static let onlyAudioImage = UIImage(named: "imageDefaultAudio")
         
@@ -33,17 +33,17 @@ class GamesCollectionViewController : UICollectionViewController{
     }
     
     //MARK: - DATASOURCE
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         
         return allGames.count
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allGames[section].wordsAndClueArray.count
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GameCollectionViewCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GameCollectionViewCell
         let clueWord = allGames[indexPath.section].wordsAndClueArray[indexPath.row].word
         let imageID = allGames[indexPath.section].wordsAndClueArray[indexPath.row].clue.imageID
         let audioPath = allGames[indexPath.section].wordsAndClueArray[indexPath.row].clue.audioPath
@@ -51,11 +51,11 @@ class GamesCollectionViewController : UICollectionViewController{
         //set image
         if imageID != nil {
             
-            let results = PHAsset.fetchAssetsWithLocalIdentifiers([imageID!], options: nil)
+            let results = PHAsset.fetchAssets(withLocalIdentifiers: [imageID!], options: nil)
             
             if results.firstObject != nil {
             
-                PHImageManager.defaultManager().requestImageForAsset(results.firstObject as! PHAsset, targetSize: CGSize(width: 1024,height: 1024), contentMode: .AspectFit, options: nil, resultHandler:
+                PHImageManager.default().requestImage(for: results.firstObject!, targetSize: CGSize(width: 1024,height: 1024), contentMode: .aspectFit, options: nil, resultHandler:
                     { (aImage, _) -> Void in
                             cell.imageCell.image = aImage
                 })
@@ -71,7 +71,7 @@ class GamesCollectionViewController : UICollectionViewController{
         cell.labelCell.text = clueWord
         
         if (audioPath != nil){
-            cell.audioImage.hidden = false
+            cell.audioImage.isHidden = false
         }
         
         return cell
@@ -91,22 +91,22 @@ class GamesCollectionViewController : UICollectionViewController{
 //        }
 //    }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         
         let cellSizeForGame = collectionView.bounds.size.width/6.8
-        return CGSizeMake(cellSizeForGame, cellSizeForGame)
+        return CGSize(width: cellSizeForGame, height: cellSizeForGame)
         
     }
     
     //MARK: - NAVIGATION
-    @IBAction func playGame(sender: UIButton) {
-        let buttonTitle = sender.titleForState(UIControlState.Selected)
+    @IBAction func playGame(_ sender: UIButton) {
+        let buttonTitle = sender.title(for: UIControlState.selected)
         selectedSection = Int(buttonTitle!)
 
-        self.performSegueWithIdentifier("CreateGameFromSelectedGame", sender: nil)
+        self.performSegue(withIdentifier: "CreateGameFromSelectedGame", sender: nil)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //MARK: HARRY-TODO: ACTIVITY INDICATOR
         if (selectedSection != nil){
             let selectedGame = allGames[selectedSection!].wordsAndClueArray
@@ -115,8 +115,8 @@ class GamesCollectionViewController : UICollectionViewController{
             aGenerator.computeCrossword(2, spins: 4)
             
             if (segue.identifier == "CreateGameFromSelectedGame" ) {
-                (segue.destinationViewController as! GamePlayViewController).crosswordMatrix = aGenerator.grid
-                (segue.destinationViewController as! GamePlayViewController).words = aGenerator.currentWordlist
+                (segue.destination as! GamePlayViewController).crosswordMatrix = aGenerator.grid
+                (segue.destination as! GamePlayViewController).words = aGenerator.currentWordlist
             }
         }
         

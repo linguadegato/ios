@@ -63,7 +63,7 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
     //MARK: - DESIGN
     
     //I don't think it's realy a DRAW, but who cares, if it works well?
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
 
         // Drawing code
         
@@ -104,7 +104,7 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
     //MARK: - GAME GENERATION METHODS
     
     //generate center board
-    private func generateCenterBoard() {
+    fileprivate func generateCenterBoard() {
         
         
         //centerboards proportions can be modified just changing sizeMultiplier
@@ -117,11 +117,11 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
         self.centerBoard.frame.size.width = CGFloat(crosswordColNumber) * tileSize!
         self.centerBoard.frame.size.height = CGFloat(crosswordRowNumber) * tileSize!
         
-        centerBoard.center = superview!.convertPoint(superview!.center, toView: superview!)
+        centerBoard.center = superview!.convert(superview!.center, to: superview!)
         
         self.centerBoard.backgroundColor = nil
         self.centerBoard.layer.zPosition = -1
-        self.centerBoard.userInteractionEnabled = false
+        self.centerBoard.isUserInteractionEnabled = false
         //self.centerBoard.layer.borderColor = UIColor.blackColor().CGColor
         //self.centerBoard.layer.borderWidth = 0.5
         
@@ -129,7 +129,7 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
     }
 
     //generate the board's squares, clues and the crosswordMatrix
-    private func generateBoardSquares() {
+    fileprivate func generateBoardSquares() {
         
         let squareSize = CGSize(width: tileSize!, height: tileSize!)
         
@@ -169,7 +169,7 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
     }
     
     //generate the tiles
-    private func generateTiles() {
+    fileprivate func generateTiles() {
         if (inputMatrix != nil){
             
             let size = CGSize(width: tileSize!, height: tileSize!)
@@ -179,14 +179,14 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
                     if let element = element as? CrosswordChar {
                         
                         //create a random origin for the tile (outside the board
-                        let aXcoord = CGFloat(arc4random()) % (self.frame.width - tileSize!)
+                        let aXcoord = CGFloat(arc4random()).truncatingRemainder(dividingBy: (self.frame.width - tileSize!))
                         let aYcoord: CGFloat!
                         if (aXcoord < (centerBoard.frame.origin.x - tileSize!) ||
                             aXcoord > centerBoard.frame.origin.x + centerBoard.frame.width){
-                                aYcoord = CGFloat(arc4random()) % (self.frame.height - tileSize!)
+                                aYcoord = CGFloat(arc4random()).truncatingRemainder(dividingBy: (self.frame.height - tileSize!))
                         }
                         else{
-                            aYcoord = CGFloat(arc4random()) % (centerBoard.frame.origin.y - tileSize!)
+                            aYcoord = CGFloat(arc4random()).truncatingRemainder(dividingBy: (centerBoard.frame.origin.y - tileSize!))
                         }
                         
                         //create TileView
@@ -206,14 +206,14 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
     }
     
     //MARK:- TODO: GENERATORS AUXILIAR METHODS
-    private func determineTileSize(){
+    fileprivate func determineTileSize(){
         
         let maximumHeight = self.frame.height * centerBoardProportion
         
         tileSize = maximumHeight / CGFloat(BoardView.maxSquaresInCol)
     }
     
-    private func determineSquareSize(){
+    fileprivate func determineSquareSize(){
         
         let maximumHeight = self.frame.height * centerBoardProportion
         
@@ -221,7 +221,7 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
     }
     
     //MARK: - TILEVIEW DELEGATE
-    func tileGrabed(tile: TileView) {
+    func tileGrabed(_ tile: TileView) {
         
         //brings to front
         tile.layer.zPosition = 3
@@ -256,14 +256,14 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
         }
     }
     
-    func tileMoved(tile: TileView) {
+    func tileMoved(_ tile: TileView) {
         
-        let newPosition = tile.gestureRecognizer.translationInView(tile)
+        let newPosition = tile.gestureRecognizer.translation(in: tile)
         
         tile.frame.origin.x += newPosition.x
         tile.frame.origin.y += newPosition.y
         
-        tile.gestureRecognizer.setTranslation(CGPointZero, inView: tile)
+        tile.gestureRecognizer.setTranslation(CGPoint.zero, in: tile)
         
         //prevents tile from escape out off Crossword BoardView
         
@@ -288,7 +288,7 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
         tile.setNeedsDisplay()
     }
     
-    func tileReleased(tile: TileView){
+    func tileReleased(_ tile: TileView){
         
         //capture position
         let coordX = Int(floor(tile.center.x - centerBoard.frame.origin.x) / tileSize!) // capture col index
@@ -335,23 +335,23 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
     }
     
     //MARK: - CLUEVIEW DELEGATE
-    func handleClueTapGesture(aClue: ClueView) {
+    func handleClueTapGesture(_ aClue: ClueView) {
         
         let aFrame = self.superview!.frame
         let popup = CluePopupView(frame: aFrame, aImage: aClue.image, anAudio: aClue.audio)
         let animationTime = 0.5
         
         // animate the clue, with the pop-up effect
-        UIView.animateWithDuration(NSTimeInterval(animationTime), animations: {
-            popup.frameView.transform = CGAffineTransformMakeScale(0.9, 0.9)
-            popup.imageView.transform = CGAffineTransformMakeScale(0.9, 0.9)
+        UIView.animate(withDuration: TimeInterval(animationTime), animations: {
+            popup.frameView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            popup.imageView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
             
             self.addSubview(popup)
             
             },completion:{completion in
-                UIView.animateWithDuration(NSTimeInterval(animationTime), animations: { () -> Void in
-                    popup.frameView.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                    popup.imageView.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                UIView.animate(withDuration: TimeInterval(animationTime), animations: { () -> Void in
+                    popup.frameView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                    popup.imageView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                     
                     self.addSubview(popup)
                     
@@ -362,7 +362,7 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
 
     //MARK: - AUXILIAR METHODS
     
-    func getCell(row: Int, col: Int) -> BoardCellView? {
+    func getCell(_ row: Int, col: Int) -> BoardCellView? {
         if (row >= 0 && row < crosswordMatrix!.count){
             if (col >= 0 && col < crosswordMatrix![row].count){
                 let view = crosswordMatrix[row][col]

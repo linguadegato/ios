@@ -20,7 +20,7 @@ import UIKit
 class CrosswordElement {
 
     
-    func generateSquareView (squareSize: CGSize, elementCoordX: Int, elementCoordY: Int, board: BoardView) -> BoardCellView? {
+    func generateSquareView (_ squareSize: CGSize, elementCoordX: Int, elementCoordY: Int, board: BoardView) -> BoardCellView? {
         return nil
     }
 }

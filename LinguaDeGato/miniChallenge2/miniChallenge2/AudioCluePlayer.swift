@@ -14,11 +14,11 @@ import AVFoundation
 
 class AudioCluePlayer {
     
-    private static var instance = AudioCluePlayer()
+    fileprivate static var instance = AudioCluePlayer()
     
-    private static var audio: AVAudioPlayer?
+    fileprivate static var audio: AVAudioPlayer?
     
-    private init(){
+    fileprivate init(){
         
     }
     
@@ -27,9 +27,9 @@ class AudioCluePlayer {
         return instance
     }
     
-    class func playAudio(anAudio: AVAudioPlayer) {
+    class func playAudio(_ anAudio: AVAudioPlayer) {
         
-        var audioPlayerTimer: NSTimer
+        var audioPlayerTimer: Timer
         
         MusicSingleton.sharedMusic().playBackgroundAudio(false)
         
@@ -39,7 +39,7 @@ class AudioCluePlayer {
             
             audio = anAudio
             audio!.play()
-            audioPlayerTimer = NSTimer.scheduledTimerWithTimeInterval(audio!.duration, target: AudioCluePlayer.sharedPlayer(), selector: #selector(AudioCluePlayer.stopAudioAfterTimer(_:)), userInfo: nil, repeats: false)
+            audioPlayerTimer = Timer.scheduledTimer(timeInterval: audio!.duration, target: AudioCluePlayer.sharedPlayer(), selector: #selector(AudioCluePlayer.stopAudioAfterTimer(_:)), userInfo: nil, repeats: false)
             
         } catch {
             //MARK: TODO: [audio] error message
@@ -54,8 +54,8 @@ class AudioCluePlayer {
             audio = nil
             
             do {
-                try AVAudioSession.sharedInstance().setActive(false, withOptions: AVAudioSessionSetActiveOptions.NotifyOthersOnDeactivation)
-                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, withOptions: .MixWithOthers)
+                try AVAudioSession.sharedInstance().setActive(false, with: AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation)
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, with: .mixWithOthers)
                 try AVAudioSession.sharedInstance().setActive(true)
             }
             catch {
@@ -70,7 +70,7 @@ class AudioCluePlayer {
     }
     
     //A little macGayverism, so timer can call stopAudio
-    @objc func stopAudioAfterTimer(timer: NSTimer) {
+    @objc func stopAudioAfterTimer(_ timer: Timer) {
         
         AudioCluePlayer.stopAudio()
     }

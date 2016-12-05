@@ -40,7 +40,7 @@ class LGCrosswordGenerator {
     
     // MARK: Computional Methods
     
-    func computeCrossword(timePermitted: NSTimeInterval, spins: Int) {
+    func computeCrossword(_ timePermitted: TimeInterval, spins: Int) {
         
         //flag to asure at least one spin to run completely
         var oneCompleteSpin = false
@@ -82,7 +82,7 @@ class LGCrosswordGenerator {
     }
     
     //suggest coordinates on empty spaces and letters matchs, not applied to seed
-    private func suggestCoord(word: WordAndClue) -> [CrosswordCoordinate] {
+    fileprivate func suggestCoord(_ word: WordAndClue) -> [CrosswordCoordinate] {
        
         var coordList = [CrosswordCoordinate]()
         
@@ -140,7 +140,7 @@ class LGCrosswordGenerator {
     }
     
     //return True if the word added has crossed (or the first); False if just fits
-    private func fitAndAdd(word: WordAndClue, onlyAddInCross: Bool) -> Bool {
+    fileprivate func fitAndAdd(_ word: WordAndClue, onlyAddInCross: Bool) -> Bool {
         print("fit and Add: \(word.word), \(onlyAddInCross)")
         
         var fit = false
@@ -152,7 +152,8 @@ class LGCrosswordGenerator {
             
             //this is the first word, the seed
             if self.currentWordlist.count == 0 {
-                let isVert = (random() % 2 == 0)
+                let randomNum = arc4random()
+                let isVert = (randomNum % 2 == 0)
 
                 /*
                 //set seed coordinate to 1,1 to open space to crossed words'clue
@@ -201,7 +202,7 @@ class LGCrosswordGenerator {
     
     //Calculate a score to a coordinate. 0 means no fit, 1 means fit and 2+ means crosses
     //The more crosses the better
-    private func checkFitScore(word: WordAndClue, coord: CrosswordCoordinate) -> Int {
+    fileprivate func checkFitScore(_ word: WordAndClue, coord: CrosswordCoordinate) -> Int {
         //print("checkfitscore - \(word.word): [\(coord.row)][\(coord.col)]")
         
         //preliminary tests. Not realy necessary, since suggestCoord() already make this tests
@@ -365,29 +366,29 @@ class LGCrosswordGenerator {
     
     //MARK: Auxiliar computational methods
     
-    private func randomizeWordlist () {
+    fileprivate func randomizeWordlist () {
         
         //randomize avaiableWords
         var tempList = [WordAndClue]()
         let elements = avaiableWords.count
         
         while tempList.count < elements {
-            
-            let aIndex = random() % avaiableWords.count
+            let randomInt = Int(arc4random())
+            let aIndex = randomInt % avaiableWords.count
             tempList.append(avaiableWords[aIndex])
             //irresponsable use of class property as auxiliar variable
-            avaiableWords.removeAtIndex(aIndex)
+            avaiableWords.remove(at: aIndex)
         }
         
         //sort randomized list by word lenght (greater first)
-        tempList.sortInPlace({return ($0.lenght > $1.lenght)})
+        tempList.sort(by: {return ($0.lenght > $1.lenght)})
         
         //atribute the randomized and sorted list
         self.avaiableWords = tempList
     }
     
     //give each coordinate a score, then, in newCoordlist, randomize and sort
-    private func sortCoordlist(word: WordAndClue, coordlist: [CrosswordCoordinate]) -> [CrosswordCoordinate] {
+    fileprivate func sortCoordlist(_ word: WordAndClue, coordlist: [CrosswordCoordinate]) -> [CrosswordCoordinate] {
         
         var tempCoordlist = coordlist
         var newCoordlist = [CrosswordCoordinate]()
@@ -400,13 +401,14 @@ class LGCrosswordGenerator {
         //transfer coordinates randomicaly from tempCoordlist to newCoordlist
         let elements = tempCoordlist.count
         while newCoordlist.count < elements{
-            let aIndex = random() % tempCoordlist.count
+            let randomInt = Int(arc4random())
+            let aIndex = randomInt % tempCoordlist.count
             newCoordlist.append(tempCoordlist[aIndex])
-            tempCoordlist.removeAtIndex(aIndex)
+            tempCoordlist.remove(at: aIndex)
         }
         
         //sort newCoordilist, bigger scores first
-        newCoordlist.sortInPlace({
+        newCoordlist.sort(by: {
             //TODO: priorizes nearest to center
             //comparing non-crossing coordinates priorizes the nearest to matrix origin
             if $0.score == 1 && $1.score == 1 {
@@ -429,7 +431,7 @@ class LGCrosswordGenerator {
     
     //MARK: Auxiliar grid methods
     
-    private func clearGrid(){
+    fileprivate func clearGrid(){
         
         var aGrid = [[CrosswordElement?]]()
         
@@ -445,7 +447,7 @@ class LGCrosswordGenerator {
     }
     
     //trying get cell out of grid, returns nil
-    private func getCell(row: Int, col: Int) -> CrosswordElement? {
+    fileprivate func getCell(_ row: Int, col: Int) -> CrosswordElement? {
        
         if (row < 0 || row >= self.rows || col < 0 || col >= self.cols){
             return nil
@@ -456,7 +458,7 @@ class LGCrosswordGenerator {
     
     
     //set an CrosswordElement in a grid cell
-    private func setCell(row: Int, col: Int, element: CrosswordElement?) {
+    fileprivate func setCell(_ row: Int, col: Int, element: CrosswordElement?) {
 
         if (row >= 0 || row < self.rows || col >= 0 || col < self.cols){
             self.grid[row][col] = element
@@ -466,7 +468,7 @@ class LGCrosswordGenerator {
     // check if cell is clear.
     // If coordinate is out of matrix, returns true (not a SURROUNDING
     // obstruction)
-    private func checkIfCellClear(row: Int, col: Int) -> Bool {
+    fileprivate func checkIfCellClear(_ row: Int, col: Int) -> Bool {
         
         if (row < 0 || col < 0 || row >= self.rows || col >= self.cols){
             return true
@@ -478,7 +480,7 @@ class LGCrosswordGenerator {
     //Don't you ever dare to call this function without warranties
     //that word.cordinate != nil. You're an adult dev, I don't have
     //to take care of your fucking shit!
-    private func setWord(word: WordAndClue){
+    fileprivate func setWord(_ word: WordAndClue){
         
         var row = word.coordinate!.row
         var col = word.coordinate!.col
@@ -531,7 +533,7 @@ class LGCrosswordGenerator {
     }
     
     //clips external empty rows and columns
-    private func clipGrid() {
+    fileprivate func clipGrid() {
         
         var firstRow = 0
         var lastRow = self.rows - 1
@@ -621,7 +623,7 @@ class LGCrosswordGenerator {
     }
     
     //returns an array with clue's cell surrounding cells
-    func clueSurrondingCells(aRow: Int, aCol: Int, vert: Bool) -> [(row: Int, col: Int)] {
+    func clueSurrondingCells(_ aRow: Int, aCol: Int, vert: Bool) -> [(row: Int, col: Int)] {
         
         var cellIndexes = [(row: Int, col: Int)]()
         
@@ -682,7 +684,7 @@ class LGCrosswordGenerator {
                 //cell is empty
                 if cell == nil {
                     //I wanted to use .append, but it acused ambiguous use. I had to use gambiarra
-                    outStr.appendContentsOf(".")
+                    outStr.append(".")
                 }
                 else {
                     //cell has a character
@@ -691,14 +693,14 @@ class LGCrosswordGenerator {
                     }
                     //cell has another element, probably a clue
                     if cell is CrosswordClue {
-                        outStr.appendContentsOf("&")
+                        outStr.append("&")
                     }
                     if cell is CrosswordCluePlaceholder {
-                        outStr.appendContentsOf("*")
+                        outStr.append("*")
                     }
                 }
             }
-            outStr.appendContentsOf("\n")
+            outStr.append("\n")
         }
         print(outStr)
     }

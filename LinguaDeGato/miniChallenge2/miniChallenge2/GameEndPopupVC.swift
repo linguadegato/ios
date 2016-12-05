@@ -24,7 +24,7 @@ class GameEndPopupVC: UIViewController {
     }
 
     @IBAction func dissmissPopup() {
-        self.dismissViewControllerAnimated(true, completion: {
+        self.dismiss(animated: true, completion: {
             if self.previousViewController != nil {
                 self.previousViewController.backByWinning()
             }

@@ -11,7 +11,7 @@ import UIKit
 
 class CrosswordCluePlaceholder: CrosswordElement {
     
-    override func generateSquareView(squareSize: CGSize, elementCoordX: Int, elementCoordY: Int, board: BoardView) -> BoardCellView? {
+    override func generateSquareView(_ squareSize: CGSize, elementCoordX: Int, elementCoordY: Int, board: BoardView) -> BoardCellView? {
         return nil
     }
 }

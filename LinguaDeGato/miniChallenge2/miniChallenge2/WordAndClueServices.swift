@@ -10,9 +10,9 @@ import Foundation
 
 class WordAndClueServices {
     
-    static func retrieveWordAndClue(aWordAndClue: WordAndClue, completion: (WordAndClue? -> Void)) {
+    static func retrieveWordAndClue(_ aWordAndClue: WordAndClue, completion: @escaping ((WordAndClue?) -> Void)) {
         
-        let operation = NSBlockOperation(block: {
+        let operation = BlockOperation(block: {
             let aWord = WordAndClueDAO.retrieveWordAndClue(aWordAndClue)
             
             if aWord != nil {
@@ -27,9 +27,9 @@ class WordAndClueServices {
         DatabaseManager.sharedInstance.databaseQueue.addOperation(operation)
     }
     
-    static func retriveWordAndCluesWithWord(word: String, completion:([WordAndClue] -> Void)) {
+    static func retriveWordAndCluesWithWord(_ word: String, completion:@escaping (([WordAndClue]) -> Void)) {
         
-        let operation = NSBlockOperation(block: {
+        let operation = BlockOperation(block: {
                 var wordsList: [WordAndClue] = []
             
                 let persistedWords = WordAndClueDAO.retriveWordAndCluesWithWord(word)
@@ -45,10 +45,10 @@ class WordAndClueServices {
 
     }
     
-    static func retriveAllWordAndClues(completion: ([WordAndClue] -> Void)) {
+    static func retriveAllWordAndClues(_ completion: @escaping (([WordAndClue]) -> Void)) {
         
         
-        let operation = NSBlockOperation(block: {
+        let operation = BlockOperation(block: {
             var wordsList: [WordAndClue] = []
             let persistedWords = WordAndClueDAO.retriveAllWordAndClues()
             
@@ -64,9 +64,9 @@ class WordAndClueServices {
 
     }
     
-    static func saveWordAndClue(wordAndClue: WordAndClue) {
+    static func saveWordAndClue(_ wordAndClue: WordAndClue) {
         
-        let operation = NSBlockOperation(block: {
+        let operation = BlockOperation(block: {
             if WordAndClueDAO.retrieveWordAndClue(wordAndClue) == nil {
                 WordAndClueDAO.insert(wordAndClue)
             }
@@ -78,7 +78,7 @@ class WordAndClueServices {
     }
     
     //auxiliar method to create WordAndClue from LGCDWordAndClue
-    static func wordAndClueFromDataBase(word: LGCDWordAndClue) -> WordAndClue {
+    static func wordAndClueFromDataBase(_ word: LGCDWordAndClue) -> WordAndClue {
         
         let aClue = Clue(aImageID: word.imageID, anAudioPath: word.audioPath)
         return WordAndClue(aWord: word.word!, aClue: aClue)

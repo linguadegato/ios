@@ -30,8 +30,8 @@ class ClueView: BoardCellView, UIGestureRecognizerDelegate {
     //var arrowView: UIImageView!
     
     // MARK: visual properties
-    let imageViewBackgroundColor = UIColor.whiteColor()
-    let imageViewContentMode = UIViewContentMode.ScaleAspectFit
+    let imageViewBackgroundColor = UIColor.white
+    let imageViewContentMode = UIViewContentMode.scaleAspectFit
     let imageViewBorderColor = UIColor.greenWaterPalete()
     let imageViewBorderSize: CGFloat = 1.0
     
@@ -53,11 +53,11 @@ class ClueView: BoardCellView, UIGestureRecognizerDelegate {
         //set image
         if anImageID != nil {
             
-            let results = PHAsset.fetchAssetsWithLocalIdentifiers([anImageID!], options: nil)
+            let results = PHAsset.fetchAssets(withLocalIdentifiers: [anImageID!], options: nil)
             
             if results.firstObject != nil {
 
-                PHImageManager.defaultManager().requestImageForAsset(results.firstObject as! PHAsset, targetSize: CGSize(width: 1024,height: 1024), contentMode: .AspectFit, options: nil, resultHandler: { (aImage, _) -> Void in
+                PHImageManager.default().requestImage(for: results.firstObject!, targetSize: CGSize(width: 1024,height: 1024), contentMode: .aspectFit, options: nil, resultHandler: { (aImage, _) -> Void in
                     
                     self.image = aImage
                 })
@@ -70,7 +70,7 @@ class ClueView: BoardCellView, UIGestureRecognizerDelegate {
         //set audio
         if anAudioPath != nil {
             do{
-                try self.audio = AVAudioPlayer(contentsOfURL: AudioFilesManager.URLForAudioWithFileName(anAudioPath!))
+                try self.audio = AVAudioPlayer(contentsOf: AudioFilesManager.URLForAudioWithFileName(anAudioPath!))
                 //try self.audio = AVAudioPlayer(contentsOfURL: NSURL.fileURLWithPath(LGStandarts.pathForAudioWithFileName(anAudioPath!)))
             } catch{
                 print("Doent have a sound")
@@ -95,9 +95,9 @@ class ClueView: BoardCellView, UIGestureRecognizerDelegate {
         let imageViewRect = CGRect(origin: imageViewOrigin, size: imageViewSize)
         let imageView = UIImageView(frame: imageViewRect)
         
-        imageView.layer.backgroundColor = imageViewBackgroundColor.CGColor
+        imageView.layer.backgroundColor = imageViewBackgroundColor.cgColor
         imageView.contentMode = imageViewContentMode
-        imageView.layer.borderColor = imageViewBorderColor.CGColor
+        imageView.layer.borderColor = imageViewBorderColor.cgColor
         imageView.layer.borderWidth = imageViewBorderSize
         imageView.image = self.image
         
@@ -167,6 +167,6 @@ class ClueView: BoardCellView, UIGestureRecognizerDelegate {
 //MARK: - CLUEVIEW DELEGATE PROTOCOL
 protocol ClueViewDelegate{
     
-    func handleClueTapGesture(aClue: ClueView)
+    func handleClueTapGesture(_ aClue: ClueView)
 }
 

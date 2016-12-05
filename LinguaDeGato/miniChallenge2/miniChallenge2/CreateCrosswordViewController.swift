@@ -40,81 +40,81 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     //Images
     
     // - New image
-    private let defaultImage = UIImage(named: "imageDefault")
-    private let audioImage = UIImage(named: "imageDefaultAudio")
+    fileprivate let defaultImage = UIImage(named: "imageDefault")
+    fileprivate let audioImage = UIImage(named: "imageDefaultAudio")
     
     // - Audio Button to delete record
-    private let audioButtonReadyToUseImage = (UIImage(named: "btnAudio"))
-    private let audioButtonRecordingImage = (UIImage(named: "btnAudioRed"))
+    fileprivate let audioButtonReadyToUseImage = (UIImage(named: "btnAudio"))
+    fileprivate let audioButtonRecordingImage = (UIImage(named: "btnAudioRed"))
     
     // - Add new clue
-    private let addButtonImageOn = (UIImage(named: "iconAddWord"))
+    fileprivate let addButtonImageOn = (UIImage(named: "iconAddWord"))
     
     //textField
-    private let textFieldBorderColor = UIColor.bluePalete().CGColor
-    private let textFieldBorderWidth: CGFloat = 1.0
-    private let textFieldBorderRadius : CGFloat = 1.0
+    fileprivate let textFieldBorderColor = UIColor.bluePalete().cgColor
+    fileprivate let textFieldBorderWidth: CGFloat = 1.0
+    fileprivate let textFieldBorderRadius : CGFloat = 1.0
 
     //newImageImgView
-    private let newImageBorderColor = UIColor.bluePalete().CGColor
-    private let newImageBorderWidth: CGFloat = 1.0
+    fileprivate let newImageBorderColor = UIColor.bluePalete().cgColor
+    fileprivate let newImageBorderWidth: CGFloat = 1.0
     
     //slide view
-    private let audioImageBorderRadius : CGFloat = 30.0
+    fileprivate let audioImageBorderRadius : CGFloat = 30.0
 
     //mute button images
-    private let muteMusicOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
-    private let muteMusicOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
+    fileprivate let muteMusicOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
+    fileprivate let muteMusicOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
     
     //MARK: Keyboard variable
-    private var isKeyboardLifted: Bool = false
+    fileprivate var isKeyboardLifted: Bool = false
     
     
     //MARK: Crossword Creation related variables
-    private var gameName: String!
-    private var newMedia: Bool?
+    fileprivate var gameName: String!
+    fileprivate var newMedia: Bool?
     
-    private var hasClue = false {
+    fileprivate var hasClue = false {
         didSet {
             setAddButtonState()
-            removeNewClueButton.hidden = !hasClue
+            removeNewClueButton.isHidden = !hasClue
         }
     }
-    private var hasWord = false {
-        didSet {
-            setAddButtonState()
-        }
-    }
-    
-    private var wordsLimitReached = false {
+    fileprivate var hasWord = false {
         didSet {
             setAddButtonState()
         }
     }
     
-    private var newWords: [WordAndClue] = []
+    fileprivate var wordsLimitReached = false {
+        didSet {
+            setAddButtonState()
+        }
+    }
+    
+    fileprivate var newWords: [WordAndClue] = []
     
     //MARK: File related variables
-    private let aFileManager = NSFileManager.defaultManager()
-    private let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+    fileprivate let aFileManager = FileManager.default
+    fileprivate let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
     
     //path of the image in newImageImgView
-    private var imageID: String?
+    fileprivate var imageID: String?
     
     // Audio session to manage recording and an audio recorder to handle the actual reading and saving of data
     var recordingAudio: Bool = false
-    private var recordingSession: AVAudioSession!
-    private var audioRecorder: AVAudioRecorder!
-    private var audioPath: String?
-    private var audio: AVAudioPlayer!
+    fileprivate var recordingSession: AVAudioSession!
+    fileprivate var audioRecorder: AVAudioRecorder!
+    fileprivate var audioPath: String?
+    fileprivate var audio: AVAudioPlayer!
 
     // back button
-    private var backButton : UIBarButtonItem!
+    fileprivate var backButton : UIBarButtonItem!
 
     let limitLength = BoardView.maxSquaresInCol
     
     // Last saved game name
-    private var savedGameName : String = ""
+    fileprivate var savedGameName : String = ""
     
     //MARK: - VIEW LIFECYCLE METHODS
     
@@ -125,38 +125,38 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         newWordTxtField.delegate = self
         
         // Disable the swipe to make sure you get your chance to save
-        self.navigationController?.interactivePopGestureRecognizer?.enabled = false
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
         //MARK: appearance settings
         
-        lowerContainer.hidden = true
+        lowerContainer.isHidden = true
         
         newWordTxtField.layer.borderColor = textFieldBorderColor
         newWordTxtField.layer.borderWidth = textFieldBorderWidth
         newWordTxtField.layer.cornerRadius = textFieldBorderRadius
         
-        audioButton.setBackgroundImage(audioButtonReadyToUseImage, forState: .Normal)
-        audioButton.setBackgroundImage(audioButtonRecordingImage, forState: .Highlighted)
+        audioButton.setBackgroundImage(audioButtonReadyToUseImage, for: UIControlState())
+        audioButton.setBackgroundImage(audioButtonRecordingImage, for: .highlighted)
         
         newImageImgView.layer.borderColor = newImageBorderColor
         newImageImgView.layer.borderWidth = newImageBorderWidth
         
         audioImageView.layer.cornerRadius = audioImageBorderRadius
 
-        addButton.setImage(addButtonImageOn, forState: UIControlState.Normal)
-        addButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        addButton.setImage(addButtonImageOn, for: UIControlState())
+        addButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         setAddButtonState()
         
-        removeNewClueButton.hidden = true
+        removeNewClueButton.isHidden = true
         
         //MARK: interaction settings
         
         self.recordingAudio = false
         
         //buttons
-        generateButton.enabled = false
-        addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(0.5))
-        addButton.userInteractionEnabled = false
+        generateButton.isEnabled = false
+        addButton.backgroundColor = UIColor.greenPalete().withAlphaComponent(CGFloat(0.5))
+        addButton.isUserInteractionEnabled = false
         
         //MARK: Set gesture recognizers
         //gesture recognizer to dismiss keyboard
@@ -164,15 +164,15 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         self.view.addGestureRecognizer(tap)
         
         //gesture recognizers in main image
-        newImageImgView.userInteractionEnabled = true
+        newImageImgView.isUserInteractionEnabled = true
         newImageImgView.addGestureRecognizer(createGestureTapImageToPlayRecord())
         
         //audio image gesture reconizers
-        audioImageView.userInteractionEnabled = true
+        audioImageView.isUserInteractionEnabled = true
         audioImageView.addGestureRecognizer(createGestureTapImageToPlayRecord())
         
         //MARK: request permission to use microfone
-        audioButton.enabled = false
+        audioButton.isEnabled = false
         
         recordingSession = AVAudioSession.sharedInstance()
         /*
@@ -186,10 +186,10 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         }
         */
         recordingSession.requestRecordPermission() { [unowned self] (allowed: Bool) -> Void in
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 if allowed {
                     // Enable audio button
-                    self.audioButton.enabled = true
+                    self.audioButton.isEnabled = true
                     
                 } else {
                     //MARK: TODO: [audio] error message
@@ -204,49 +204,49 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
         //set image of mute button
         if MusicSingleton.sharedMusic().isMusicMute {
-            muteMusicButton.setImage(muteMusicOnImage, forState: .Normal)
+            muteMusicButton.setImage(muteMusicOnImage, for: UIControlState())
         } else {
-            muteMusicButton.setImage(muteMusicOffImage, forState: .Normal)
+            muteMusicButton.setImage(muteMusicOffImage, for: UIControlState())
         }
         
         // Keyboard:
         super.viewWillAppear(animated)
-        let center: NSNotificationCenter = NSNotificationCenter.defaultCenter()
-        center.addObserver(self, selector: #selector(CreateCrosswordViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        center.addObserver(self, selector: #selector(CreateCrosswordViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        let center: NotificationCenter = NotificationCenter.default
+        center.addObserver(self, selector: #selector(CreateCrosswordViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        center.addObserver(self, selector: #selector(CreateCrosswordViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        let center = NSNotificationCenter.defaultCenter()
-        center.removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-        center.removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    override func viewWillDisappear(_ animated: Bool) {
+        let center = NotificationCenter.default
+        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     // MARK: - BUTTON ACTIONS
     
     // MARK: NAVIGATION
-    @IBAction func goBackPopup(sender: AnyObject) {
+    @IBAction func goBackPopup(_ sender: AnyObject) {
         
-        if (wordsAddedCollectionView.numberOfItemsInSection(0) > 0){
+        if (wordsAddedCollectionView.numberOfItems(inSection: 0) > 0){
             
-            let alert = UIAlertController(title: "Deseja realmente sair?", message: "As palavras criadas serão perdidas.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Deseja realmente sair?", message: "As palavras criadas serão perdidas.", preferredStyle: UIAlertControllerStyle.alert)
             
-            alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Default, handler:nil))
+            alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler:nil))
             
             alert.addAction(UIAlertAction(
                 title: "Sair",
-                style: UIAlertActionStyle.Cancel,
+                style: UIAlertActionStyle.cancel,
                 handler:
                 {(UIAlertAction)in
                     self.goBack()                }
                 ))
             
-            self.presentViewController(alert, animated: true, completion: {
+            self.present(alert, animated: true, completion: {
             })
             
         }else{
@@ -254,11 +254,11 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         }
     }
     
-    private func goBack(){
-        self.navigationController?.popViewControllerAnimated(true)
+    fileprivate func goBack(){
+        self.navigationController?.popViewController(animated: true)
         
         // Don't forget to re-enable the interactive gesture
-        self.navigationController?.interactivePopGestureRecognizer!.enabled = true
+        self.navigationController?.interactivePopGestureRecognizer!.isEnabled = true
         
         // if the back button is pressed when a clue audio is recording or playing, the music status is stoped
         // so we need to play when exit to another screen
@@ -268,15 +268,15 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
 
     // MARK: SOUNDS OF THE APP
-    @IBAction func muteMusicButton(sender: AnyObject) {
+    @IBAction func muteMusicButton(_ sender: AnyObject) {
         if MusicSingleton.sharedMusic().isMusicMute {
             // music will play
-            muteMusicButton.setImage(muteMusicOffImage, forState: .Normal)
+            muteMusicButton.setImage(muteMusicOffImage, for: UIControlState())
             MusicSingleton.sharedMusic().isMusicMute = false
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
         } else {
             // music will stop
-            muteMusicButton.setImage(muteMusicOnImage, forState: .Normal)
+            muteMusicButton.setImage(muteMusicOnImage, for: UIControlState())
             MusicSingleton.sharedMusic().isMusicMute = true
             MusicSingleton.sharedMusic().playBackgroundAudio(false)
         }
@@ -284,9 +284,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // MARK: NEW CLUE ELEMENTS
     
-    @IBAction func useCamera(sender: AnyObject) {
+    @IBAction func useCamera(_ sender: AnyObject) {
         
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
             
             //add orientation observer
             //NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationChanged:", name: "UIDeviceOrientationDidChangeNotification", object: nil)
@@ -295,7 +295,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             let imagePicker = UIImagePickerController()
                 
             imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
             imagePicker.mediaTypes = [kUTTypeImage as String]
             imagePicker.allowsEditing = false
             
@@ -316,29 +316,29 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             imagePicker.view.addSubview(aView)
             */
             
-            self.presentViewController(imagePicker, animated: true, completion: nil)
+            self.present(imagePicker, animated: true, completion: nil)
             
             newMedia = true
         }
     }
     
-    @IBAction func useCameraRoll(sender: AnyObject) {
+    @IBAction func useCameraRoll(_ sender: AnyObject) {
         
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum) {
             
             let imagePicker = UIImagePickerController()
             
             imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
             imagePicker.mediaTypes = [kUTTypeImage as String]
             imagePicker.allowsEditing = false
             
-            self.presentViewController(imagePicker, animated: true, completion: nil)
+            self.present(imagePicker, animated: true, completion: nil)
             newMedia = false
         }
     }
     
-    @IBAction func recordAudio(sender: AnyObject) {
+    @IBAction func recordAudio(_ sender: AnyObject) {
         if audioRecorder == nil {
             MusicSingleton.sharedMusic().playBackgroundAudio(false)
             startRecording()
@@ -353,25 +353,25 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
 
     // MARK: DELETE NEW WORD AND CLUE ELEMENT
-    @IBAction func deleteNewClue(sender: AnyObject) {
+    @IBAction func deleteNewClue(_ sender: AnyObject) {
         
-        let deleteNewClueAlert = UIAlertController(title: "Apagar essa dica?", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        let deleteNewClueAlert = UIAlertController(title: "Apagar essa dica?", message: "", preferredStyle: UIAlertControllerStyle.alert)
         
         deleteNewClueAlert.addAction(UIAlertAction(
-            title: "Sim", style: UIAlertActionStyle.Default, handler: {_ in
+            title: "Sim", style: UIAlertActionStyle.default, handler: {_ in
                 self.clearNewClue()
             }
         ))
         
         deleteNewClueAlert.addAction(UIAlertAction(
-            title: "Não", style: UIAlertActionStyle.Cancel, handler: {_ in
+            title: "Não", style: UIAlertActionStyle.cancel, handler: {_ in
             }
         ))
         
-        self.presentViewController(deleteNewClueAlert, animated: true, completion: nil)
+        self.present(deleteNewClueAlert, animated: true, completion: nil)
     }
     
-    private func clearNewClue(){
+    fileprivate func clearNewClue(){
         // Clear audio variables
         self.audioPath = nil
         self.audioRecorder = nil
@@ -385,8 +385,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         self.newWordTxtField.text = ""
         
         // Hide elements
-        self.audioImageView.hidden = true
-        self.removeNewClueButton.hidden = true
+        self.audioImageView.isHidden = true
+        self.removeNewClueButton.isHidden = true
         
         self.hasClue = false
     }
@@ -394,11 +394,11 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     // MARK: ADD NEW CLUE
     @IBAction func addNewWord() {
         
-        generateButton.enabled = true
+        generateButton.isEnabled = true
 
         //removing black spaces
         let txtNewWord = newWordTxtField.text
-        let trimmedNewWordTxtField = txtNewWord!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        let trimmedNewWordTxtField = txtNewWord!.trimmingCharacters(in: CharacterSet.whitespaces)
         
         if !(trimmedNewWordTxtField.characters.count > BoardView.maxSquaresInCol) {
             
@@ -415,58 +415,58 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             wordsAddedCollectionView.reloadData()
             
             // Hide elements (image view and new word text field)
-            self.audioImageView.hidden = true
+            self.audioImageView.isHidden = true
             newImageImgView.image = defaultImage
             hasClue = false
             self.newWordTxtField.text = ""
             hasWord = false
-            removeNewClueButton.hidden = true
+            removeNewClueButton.isHidden = true
             
             
             if newWords.count >= 6 {
                 wordsLimitReached = true
-                takePhotoButton.enabled = false
-                cameraRollButton.enabled = false
-                audioButton.enabled = false
+                takePhotoButton.isEnabled = false
+                cameraRollButton.isEnabled = false
+                audioButton.isEnabled = false
             }
             
             disableSaveButton(false)
             
             // Show lower container (collection view and play button)
-            lowerContainer.hidden = false
+            lowerContainer.isHidden = false
         }
     }
     
     // MARK: COLLECTION VIEW BUTTONS (PLAY AND SAVE)
-    @IBAction func playGame(sender: AnyObject) {
+    @IBAction func playGame(_ sender: AnyObject) {
         if hasClue {
-            let alert = UIAlertController(title: "Você não terminou de adicionar a dica", message: "Ela não será incluída no jogo.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Jogar mesmo assim", style: .Default, handler: { _ in
-                self.performSegueWithIdentifier("GenerateCrossword", sender: self)
+            let alert = UIAlertController(title: "Você não terminou de adicionar a dica", message: "Ela não será incluída no jogo.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Jogar mesmo assim", style: .default, handler: { _ in
+                self.performSegue(withIdentifier: "GenerateCrossword", sender: self)
             }))
-            alert.addAction(UIAlertAction(title: "Terminar de adicionar", style: .Cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Terminar de adicionar", style: .cancel, handler: nil))
             
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
         } else {
-            self.performSegueWithIdentifier("GenerateCrossword", sender: self)
+            self.performSegue(withIdentifier: "GenerateCrossword", sender: self)
         }
     }
     
-    @IBAction func saveGame(sender: AnyObject) {
+    @IBAction func saveGame(_ sender: AnyObject) {
         
         if (self.savedGameName.isEmpty){
             
-            let saveAlert = UIAlertController(title: "Dê um nome ao jogo:", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+            let saveAlert = UIAlertController(title: "Dê um nome ao jogo:", message: "", preferredStyle: UIAlertControllerStyle.alert)
             
-            saveAlert.addTextFieldWithConfigurationHandler({ alertTextField in
+            saveAlert.addTextField(configurationHandler: { alertTextField in
                 alertTextField.placeholder = "Nome do jogo"
             })
             
             let alertTextField = saveAlert.textFields![0]
             
-            alertTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
-            saveAlert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Default, handler:nil))
-            saveAlert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.Default, handler:{ _ in
+            alertTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
+            saveAlert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler:nil))
+            saveAlert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.default, handler:{ _ in
                 
                 if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
                     
@@ -480,7 +480,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                     
                     GameServices.saveGame(newGame, completion: {success in
                         
-                        NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
+                        OperationQueue.main.addOperation(BlockOperation(block: {
                             indicator.removeFromSuperview()
                             if success {
                                 self.savedGameAlert()
@@ -497,7 +497,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 }
             }))
             
-            self.presentViewController(saveAlert, animated: true, completion: {
+            self.present(saveAlert, animated: true, completion: {
             })
             
         }
@@ -509,7 +509,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             
             indicator.startAnimating()
             GameServices.overwriteGame(newGame, completion: {
-                NSOperationQueue.mainQueue().addOperation(NSBlockOperation(block: {
+                OperationQueue.main.addOperation(BlockOperation(block: {
                     indicator.removeFromSuperview()
                     self.savedGameAlert()
                 }))
@@ -519,25 +519,25 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     // MARK: - ALERTS
-    private func savedGameAlert(){
-        let savedGame = UIAlertController(title: "Jogo salvo com sucesso!", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-        savedGame.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+    fileprivate func savedGameAlert(){
+        let savedGame = UIAlertController(title: "Jogo salvo com sucesso!", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        savedGame.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
         
-        self.presentViewController(savedGame, animated: true, completion: {
+        self.present(savedGame, animated: true, completion: {
         })
     }
     
-    private func overwriteGame(aGame: Game) {
-        let overwriteAlert = UIAlertController(title: "Sobreescrever jogo?", message: "Já existe um jogo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", preferredStyle: UIAlertControllerStyle.Alert)
+    fileprivate func overwriteGame(_ aGame: Game) {
+        let overwriteAlert = UIAlertController(title: "Sobreescrever jogo?", message: "Já existe um jogo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", preferredStyle: UIAlertControllerStyle.alert)
         
-        overwriteAlert.addAction(UIAlertAction(title: "Sim", style: UIAlertActionStyle.Default, handler: {_ in
+        overwriteAlert.addAction(UIAlertAction(title: "Sim", style: UIAlertActionStyle.default, handler: {_ in
             
             let indicator = LGStandarts.standartLGActivityIndicator(self.view)
             self.view.addSubview(indicator)
             
             indicator.startAnimating()
             GameServices.overwriteGame(aGame, completion: {
-                NSOperationQueue.mainQueue().addOperation(NSBlockOperation{
+                OperationQueue.main.addOperation(BlockOperation{
                     indicator.removeFromSuperview()
                     self.savedGameAlert()
                 })
@@ -545,30 +545,30 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             self.disableSaveButton(true)
         }))
         
-        overwriteAlert.addAction(UIAlertAction(title: "Não", style: UIAlertActionStyle.Cancel, handler: {_ in
+        overwriteAlert.addAction(UIAlertAction(title: "Não", style: UIAlertActionStyle.cancel, handler: {_ in
             self.saveGame(self)
         }))
         
-        self.presentViewController(overwriteAlert, animated: true, completion: nil)
+        self.present(overwriteAlert, animated: true, completion: nil)
     }
     
-    func cellAlert(index: Int) {
+    func cellAlert(_ index: Int) {
         
         let alertController = UIAlertController(
             title: "",
             message: "Deseja apagar essa palavra?",
-            preferredStyle: .Alert
+            preferredStyle: .alert
         )
         
         let cancelAction = UIAlertAction(
             title: "Cancelar",
-            style: UIAlertActionStyle.Cancel
+            style: UIAlertActionStyle.cancel
         ) { (action) in }
         
         
         let confirmAction = UIAlertAction(
             title: "Apagar",
-            style: UIAlertActionStyle.Default
+            style: UIAlertActionStyle.default
         ) { (action) in
                 self.removeCell(index)
         }
@@ -576,7 +576,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
         
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
         
     }
     
@@ -584,24 +584,24 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     // MARK: - BUTTONS STATES
     
     // Disable addButton if there's no clue, or no word, or if there's already 6 words
-    private func setAddButtonState() {
+    fileprivate func setAddButtonState() {
         if hasClue && hasWord && !wordsLimitReached && (recordingAudio == false){
-            addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(1))
-            addButton.userInteractionEnabled = true
+            addButton.backgroundColor = UIColor.greenPalete().withAlphaComponent(CGFloat(1))
+            addButton.isUserInteractionEnabled = true
         } else {
-            addButton.backgroundColor = UIColor.greenPalete().colorWithAlphaComponent(CGFloat(0.5))
-            addButton.userInteractionEnabled = false
+            addButton.backgroundColor = UIColor.greenPalete().withAlphaComponent(CGFloat(0.5))
+            addButton.isUserInteractionEnabled = false
         }
     }
     
-    private func disableSaveButton(disable: Bool){
-        NSOperationQueue.mainQueue().addOperationWithBlock {
+    fileprivate func disableSaveButton(_ disable: Bool){
+        OperationQueue.main.addOperation {
             if disable {
                 self.saveGameButton.alpha = 0.5
-                self.saveGameButton.userInteractionEnabled = false
+                self.saveGameButton.isUserInteractionEnabled = false
             } else {
                 self.saveGameButton.alpha = 1
-                self.saveGameButton.userInteractionEnabled = true
+                self.saveGameButton.isUserInteractionEnabled = true
             }
         }
     }
@@ -609,7 +609,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     //MARK: - TEXTFIELD PROPERTIES
     
     //limits the characters in newWordTxtField
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = newWordTxtField.text else { return true }
         let newLength = text.characters.count + string.characters.count - range.length
         return newLength <= limitLength
@@ -618,18 +618,18 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     //MARK: - GESTURE RECOGNIZERS
     
     // MARK: GENERATORS
-    private func createGestureTapImageToPlayRecord() -> UITapGestureRecognizer{
+    fileprivate func createGestureTapImageToPlayRecord() -> UITapGestureRecognizer{
         let tapGesture = UITapGestureRecognizer(target:self, action:#selector(CreateCrosswordViewController.tapAndPlayRecord(_:)))
         
         return tapGesture
     }
     
     //MARK: ACTIONS
-    func tapAndPlayRecord(sender: UITapGestureRecognizer){
+    func tapAndPlayRecord(_ sender: UITapGestureRecognizer){
         
         if self.audioPath != nil {
             do {
-                try self.audio = AVAudioPlayer(contentsOfURL: AudioFilesManager.URLForAudioWithFileName(audioPath!))
+                try self.audio = AVAudioPlayer(contentsOf: AudioFilesManager.URLForAudioWithFileName(audioPath!))
             } catch {
                 //MARK: TODO: [audio] error message
             }
@@ -657,7 +657,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     // MARK: - RECORD AUDIO METHODS
-    private func startRecording() {
+    fileprivate func startRecording() {
         
         do{
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
@@ -669,7 +669,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         MusicSingleton.sharedMusic().playBackgroundAudio(false)
         
         self.recordingAudio = true
-        audioButton.setBackgroundImage(audioButtonRecordingImage, forState: .Normal)
+        audioButton.setBackgroundImage(audioButtonRecordingImage, for: UIControlState())
         
         //MARK: this is a fragile line, and can cause bugs
         //user will never get to save the words "audio0" ,"audio1", "audio2", "audio3",
@@ -683,11 +683,11 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
             AVSampleRateKey: 12000.0,
             AVNumberOfChannelsKey: 1 as NSNumber,
-            AVEncoderAudioQualityKey: AVAudioQuality.High.rawValue
-        ]
+            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+        ] as [String : Any]
         
         do {
-            audioRecorder = try AVAudioRecorder(URL: audioURL, settings: settings)
+            audioRecorder = try AVAudioRecorder(url: audioURL, settings: settings)
             audioRecorder.delegate = self
             audioRecorder.record()
             
@@ -697,13 +697,13 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         }
     }
     
-    func finishRecording(success: Bool) {
+    func finishRecording(_ success: Bool) {
         
         self.audioRecorder.stop()
         
         do{
-            try AVAudioSession.sharedInstance().setActive(false, withOptions: AVAudioSessionSetActiveOptions.NotifyOthersOnDeactivation)
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, withOptions: .MixWithOthers)
+            try AVAudioSession.sharedInstance().setActive(false, with: AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, with: .mixWithOthers)
             try AVAudioSession.sharedInstance().setActive(true)
         }
         catch{
@@ -713,7 +713,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         self.audioRecorder = nil
         self.recordingAudio = false
         
-        audioButton.setBackgroundImage(audioButtonReadyToUseImage, forState: .Normal)
+        audioButton.setBackgroundImage(audioButtonReadyToUseImage, for: UIControlState())
         audioButton.layer.removeAllAnimations()
         audioImageView.layer.removeAllAnimations()
         
@@ -724,16 +724,16 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             if ((newImageImgView.image == nil) || (newImageImgView.image == defaultImage)){
                 newImageImgView.image = audioImage
             }
-            self.audioImageView.hidden = false
+            self.audioImageView.isHidden = false
             
         } else {
             //TODO: notificate the failure somehow
             audioPath = nil
-            self.audioImageView.hidden = true
+            self.audioImageView.isHidden = true
             
             if ((newImageImgView.image == nil) || (newImageImgView.image == audioImage)){
                 newImageImgView.image = defaultImage
-                removeNewClueButton.hidden = true
+                removeNewClueButton.isHidden = true
             }
         }
         
@@ -743,7 +743,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     // MARK: RECORD AUDIO ANIMATION
-    private func recordAnimation(){
+    fileprivate func recordAnimation(){
         let pulseAnimation = CABasicAnimation(keyPath: "opacity")
         pulseAnimation.duration = 0.5
         pulseAnimation.fromValue = 0
@@ -751,31 +751,31 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         pulseAnimation.autoreverses = true
         pulseAnimation.repeatCount = FLT_MAX
         
-        audioButton.layer.addAnimation(pulseAnimation, forKey: nil)
+        audioButton.layer.add(pulseAnimation, forKey: nil)
 
-        self.audioImageView.hidden = false
-        self.audioImageView.layer.addAnimation(pulseAnimation, forKey: nil)
+        self.audioImageView.isHidden = false
+        self.audioImageView.layer.add(pulseAnimation, forKey: nil)
 
     }
     
     //MARK: - FILE MANAGER RELATED METHODS
     //MARK: HARRY-TODO: DO NOT SAVE DEFAULT IMAGE
     //saves an image
-    private func saveImage(image: UIImage, atPath: String) {
+    fileprivate func saveImage(_ image: UIImage, atPath: String) {
         
-        let imageData: NSData = UIImagePNGRepresentation(image)!
+        let imageData: Data = UIImagePNGRepresentation(image)!
         
-        aFileManager.createFileAtPath(atPath, contents: imageData, attributes: nil)
+        aFileManager.createFile(atPath: atPath, contents: imageData, attributes: nil)
     }
     
     // MARK: - DELEGATES AND DATASOURCES METHDOS
     
     // MARK: UIImagePickerControllerDelegate Methods
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         let mediaType = info[UIImagePickerControllerMediaType] as! String
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
         
         //Image treatment
         if mediaType.isEqual(kUTTypeImage as String) {
@@ -785,7 +785,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             let orientation = image.imageOrientation
             
             //clip image to an square, if its possible
-            if (image.CGImage != nil){
+            if (image.cgImage != nil){
                 
                 var aRect: CGRect
                 if (image.size.height > image.size.width){
@@ -794,16 +794,16 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                     aRect = CGRect(x: 0, y: 0, width: image.size.height, height: image.size.height)
                 }
                 
-                image = UIImage(CGImage: CGImageCreateWithImageInRect(image.CGImage, aRect)!)
+                image = UIImage(cgImage: (image.cgImage?.cropping(to: aRect)!)!)
             }
             
             //rotate image
             switch(orientation){
-                case .Down:
+                case .down:
                     image = rotateImage(image, degrees: 180)
-                case .Left:
+                case .left:
                     image = rotateImage(image, degrees: -90)
-                case .Right:
+                case .right:
                     image = rotateImage(image, degrees: 90)
                 default:
                     image = rotateImage(image, degrees: 0)
@@ -814,15 +814,15 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             hasClue = true
             
             // Show delete button
-            removeNewClueButton.hidden = false
+            removeNewClueButton.isHidden = false
             
             // persist media in library, if it's a new media
             if (newMedia == true) {
                 
-                let photoRoll = PHPhotoLibrary.sharedPhotoLibrary()
+                let photoRoll = PHPhotoLibrary.shared()
                 
                 photoRoll.performChanges({
-                    let request = PHAssetChangeRequest.creationRequestForAssetFromImage(image)
+                    let request = PHAssetChangeRequest.creationRequestForAsset(from: image)
                     self.imageID = request.placeholderForCreatedAsset?.localIdentifier
                     },
                     completionHandler: { (succes, error) -> () in
@@ -833,41 +833,41 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 )
             }
             else {
-                let results = PHAsset.fetchAssetsWithALAssetURLs([info[UIImagePickerControllerReferenceURL] as! NSURL], options: nil)
-                let asset = results.firstObject as! PHAsset
+                let results = PHAsset.fetchAssets(withALAssetURLs: [info[UIImagePickerControllerReferenceURL] as! URL], options: nil)
+                let asset = results.firstObject!
                 
                 imageID = asset.localIdentifier
             }
         }
     }
     
-    func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafePointer<Void>) {
+    func image(_ image: UIImage, didFinishSavingWithError error: NSErrorPointer?, contextInfo:UnsafeRawPointer) {
     
         if error != nil {
         
             let alert = UIAlertController(
                 title: "Jogo não salvo",
                 message: "Ops.. Houve um erro. \nEntre em contato conosco.",
-                preferredStyle: UIAlertControllerStyle.Alert)
+                preferredStyle: UIAlertControllerStyle.alert)
         
             let cancelAction = UIAlertAction(
                 title: "OK",
-                style: .Cancel,
+                style: .cancel,
                 handler: nil)
         
             alert.addAction(cancelAction)
         
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
         }
     }
 
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     //auxiliar function to pickerView Delegate
     
-    private func rotateImage(image: UIImage, degrees: Float) -> UIImage {
+    fileprivate func rotateImage(_ image: UIImage, degrees: Float) -> UIImage {
         
         let rads = Float(M_PI) * degrees / 180
         let newSide = max(image.size.width, image.size.height)
@@ -876,21 +876,21 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         let context = UIGraphicsGetCurrentContext()
         
-        CGContextTranslateCTM(context, newSide/2, newSide/2)
-        CGContextRotateCTM(context, CGFloat(rads))
-        CGContextScaleCTM(context, 1, -1) //Gambiarra to fix the image flip around the context's X axis
+        context?.translateBy(x: newSide/2, y: newSide/2)
+        context?.rotate(by: CGFloat(rads))
+        context?.scaleBy(x: 1, y: -1) //Gambiarra to fix the image flip around the context's X axis
         
-        CGContextDrawImage(UIGraphicsGetCurrentContext(), CGRect(x: -image.size.width/2, y: -image.size.height/2, width: size.width, height: size.height), image.CGImage!)
+        UIGraphicsGetCurrentContext()?.draw(image.cgImage!, in: CGRect(x: -image.size.width/2, y: -image.size.height/2, width: size.width, height: size.height))
         
         let output = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return output
+        return output!
     }
     
     //MARK: AVaudioRecorder Delegate
 
-    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if !flag {
             finishRecording(false)
         }
@@ -898,14 +898,14 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
 
     //MARK: Collection View Delegate and Datasource Methods
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //return 6
         return newWords.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell: NewWordCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! NewWordCollectionViewCell
+        let cell: NewWordCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! NewWordCollectionViewCell
         
         if indexPath.row < newWords.count {
             
@@ -923,7 +923,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             //Limits the length of the word when show in label
             //Just if it has an audio
             if (wordLabel.length > 0 && aWord.clue.audioPath != nil) {
-                var wordLabelCut = wordLabel.substringWithRange(NSRange(location: 0, length: wordLabel.length > 9 ? 9 : wordLabel.length))
+                var wordLabelCut = wordLabel.substring(with: NSRange(location: 0, length: wordLabel.length > 9 ? 9 : wordLabel.length))
                 
                 if (wordLabel.length > 9) {
                     wordLabelCut = wordLabelCut + ("...")
@@ -934,17 +934,17 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             }
             
             if (aWord.clue.audioPath != nil){
-                cell.audioIcon.hidden = false
+                cell.audioIcon.isHidden = false
             }else{
-                cell.audioIcon.hidden = true
+                cell.audioIcon.isHidden = true
             }
             
             if aWord.clue.imageID != nil {
 
                 
-                let results = PHAsset.fetchAssetsWithLocalIdentifiers([aWord.clue.imageID!], options: nil)
+                let results = PHAsset.fetchAssets(withLocalIdentifiers: [aWord.clue.imageID!], options: nil)
                 
-                PHImageManager.defaultManager().requestImageForAsset(results.firstObject as! PHAsset, targetSize: CGSize(width: 1024,height: 1024), contentMode: .AspectFit, options: nil, resultHandler:
+                PHImageManager.default().requestImage(for: results.firstObject!, targetSize: CGSize(width: 1024,height: 1024), contentMode: .aspectFit, options: nil, resultHandler:
                     { (image, _) -> Void in
                     
                         cell.imageCell.image = image
@@ -960,14 +960,14 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 }
             }
             
-            cell.labelCell.hidden = false
-            cell.deleteButton.hidden = false
+            cell.labelCell.isHidden = false
+            cell.deleteButton.isHidden = false
         }
         
         //not called when collection view is setted to only create cells for added words
         else {
-            cell.labelCell.hidden = true
-            cell.deleteButton.hidden = true
+            cell.labelCell.isHidden = true
+            cell.deleteButton.isHidden = true
             cell.imageCell.image = defaultImage
         }
         
@@ -975,8 +975,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     //auxiliar methods called by NewWordCollectionViewCell
-    func removeCell(index: Int){
-        newWords.removeAtIndex(index)
+    func removeCell(_ index: Int){
+        newWords.remove(at: index)
         
         wordsAddedCollectionView.reloadData()
         
@@ -986,21 +986,21 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         if newWords.count == 5 {
             
             wordsLimitReached = false
-            takePhotoButton.enabled = true
-            cameraRollButton.enabled = true
-            audioButton.enabled = true
+            takePhotoButton.isEnabled = true
+            cameraRollButton.isEnabled = true
+            audioButton.isEnabled = true
         }
         
         if newWords.count == 0 {
-            generateButton.enabled = false
-            lowerContainer.hidden = true
+            generateButton.isEnabled = false
+            lowerContainer.isHidden = true
         }
     }
 
     
     //MARK: UITextFieldDelegate
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if let text = textField.text {
             hasWord = (text.characters.count > 0)
         } else {
@@ -1009,31 +1009,31 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     // Selector for keyboardWillShow
-    func keyboardWillShow(notification: NSNotification) {
-        let info: NSDictionary = notification.userInfo!
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
+    func keyboardWillShow(_ notification: Notification) {
+        let info: NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         let keyboardHeight: CGFloat = keyboardSize.height
         let collectionViewHeight = wordsAddedCollectionView.frame.height
         
         if (!isKeyboardLifted) {
             self.isKeyboardLifted = true
-            UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-                self.view.frame = CGRectMake(0, (self.view.frame.origin.y - keyboardHeight + collectionViewHeight), self.view.bounds.width, self.view.bounds.height)
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+                self.view.frame = CGRect(x: 0, y: (self.view.frame.origin.y - keyboardHeight + collectionViewHeight), width: self.view.bounds.width, height: self.view.bounds.height)
                 }, completion: nil)
         }
     }
     
     // Selector for keyboardWillHide
-    func keyboardWillHide(notification: NSNotification) {
-        let info: NSDictionary = notification.userInfo!
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
+    func keyboardWillHide(_ notification: Notification) {
+        let info: NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         let keyboardHeight: CGFloat = keyboardSize.height
         let collectionViewHeight = wordsAddedCollectionView.frame.height
         
         if (isKeyboardLifted) {
             self.isKeyboardLifted = false
-            UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-                self.view.frame = CGRectMake(0, (self.view.frame.origin.y + keyboardHeight - collectionViewHeight), self.view.bounds.width, self.view.bounds.height)
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+                self.view.frame = CGRect(x: 0, y: (self.view.frame.origin.y + keyboardHeight - collectionViewHeight), width: self.view.bounds.width, height: self.view.bounds.height)
                 }, completion: nil)
         }
     }
@@ -1045,7 +1045,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     //used by save game alert
     //Hide keyboard with return key
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
@@ -1053,7 +1053,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     // MARK: - NAVIGATION
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "GenerateCrossword" && newWords.count > 0) {
             
@@ -1069,8 +1069,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             aGenerator.computeCrossword(3, spins: 6)
             
             //atribute it to GamePlayViewController
-            (segue.destinationViewController as! GamePlayViewController).crosswordMatrix = aGenerator.grid
-            (segue.destinationViewController as! GamePlayViewController).words = aGenerator.currentWordlist
+            (segue.destination as! GamePlayViewController).crosswordMatrix = aGenerator.grid
+            (segue.destination as! GamePlayViewController).words = aGenerator.currentWordlist
             
             indicator.removeFromSuperview()
         }
@@ -1087,7 +1087,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         self.newImageImgView.image = defaultImage
         
         self.hasClue = false
-        self.removeNewClueButton.hidden = true
+        self.removeNewClueButton.isHidden = true
         
         self.newWordTxtField.text = ""
         self.hasWord = false
@@ -1097,7 +1097,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         //collectionView reset
         self.wordsAddedCollectionView.reloadData()
-        self.lowerContainer.hidden = true
+        self.lowerContainer.isHidden = true
     }
 }
 
@@ -1106,7 +1106,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
 // only works if Portrait are enaabled in the project
 extension UIImagePickerController
 {
-    public override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Landscape
+    open override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
     }
 }

@@ -17,10 +17,10 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     @IBOutlet weak var playTextButton: UIButton!
     @IBOutlet weak var scrollArrowButton: UIButton!
     
-    private var allGames = [Game]()
-    private let reuseIdentifier = "ClueCell"
-    private var selectedSection : Int?
-    private let numberOfVisibleSections = 2
+    fileprivate var allGames = [Game]()
+    fileprivate let reuseIdentifier = "ClueCell"
+    fileprivate var selectedSection : Int?
+    fileprivate let numberOfVisibleSections = 2
     
     static let onlyAudioImage = UIImage(named: "imageDefaultAudio")
     
@@ -28,7 +28,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.scrollArrowButton.hidden = true
+        self.scrollArrowButton.isHidden = true
         self.gamesCollectionView.allowsMultipleSelection = false
         
         GameServices.retrieveAllGames({ result in
@@ -36,7 +36,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
             self.gamesCollectionView.reloadData()
             
             if (self.allGames.count > self.numberOfVisibleSections){
-                self.scrollArrowButton.hidden = false
+                self.scrollArrowButton.isHidden = false
             }
         })
         
@@ -45,18 +45,18 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     
     //MARK: - DATASOURCE
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSectionsInCollectionView(_ collectionView: UICollectionView) -> Int {
         
         return allGames.count
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allGames[section].wordsAndClueArray.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GameCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GameCollectionViewCell
         let clueWord = allGames[indexPath.section].wordsAndClueArray[indexPath.row].word
         let imageID = allGames[indexPath.section].wordsAndClueArray[indexPath.row].clue.imageID
         let audioPath = allGames[indexPath.section].wordsAndClueArray[indexPath.row].clue.audioPath
@@ -64,11 +64,11 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         // Clue Image
         if imageID != nil {
             
-            let results = PHAsset.fetchAssetsWithLocalIdentifiers([imageID!], options: nil)
+            let results = PHAsset.fetchAssets(withLocalIdentifiers: [imageID!], options: nil)
             
             if results.firstObject != nil {
                 
-                PHImageManager.defaultManager().requestImageForAsset(results.firstObject as! PHAsset, targetSize: CGSize(width: 1024,height: 1024), contentMode: .AspectFit, options: nil, resultHandler:
+                PHImageManager.default().requestImage(for: results.firstObject!, targetSize: CGSize(width: 1024,height: 1024), contentMode: .aspectFit, options: nil, resultHandler:
                     { (aImage, _) -> Void in
                         cell.imageCell.image = aImage
                 })
@@ -86,13 +86,13 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         
         // Clue audio
         if (audioPath != nil){
-            cell.audioImage.hidden = false
+            cell.audioImage.isHidden = false
         }else{
-            cell.audioImage.hidden = true
+            cell.audioImage.isHidden = true
         }
         
         // Selection design to the cell (green border or not)
-        cell.layer.borderColor = UIColor.greenPalete().CGColor
+        cell.layer.borderColor = UIColor.greenPalete().cgColor
         if (self.selectedSection != nil) && (indexPath.section == self.selectedSection){
             cell.layer.borderWidth = 3
         }else{
@@ -102,19 +102,19 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: IndexPath) -> UICollectionReusableView {
         
         switch kind {
         case UICollectionElementKindSectionHeader:
             
-            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "AllGamesHeader",forIndexPath: indexPath) as! GamesHeaderView
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AllGamesHeader",for: indexPath) as! GamesHeaderView
             headerView.title.text = allGames[indexPath.section].name
             return headerView
             
         
         case UICollectionElementKindSectionFooter:
             
-            let footerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "AllGamesFooter",forIndexPath: indexPath) 
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AllGamesFooter",for: indexPath) 
             return footerView
 
         default:
@@ -125,14 +125,14 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     }
     
     // MARK: - DELEGATE
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let cellSizeForGame = collectionView.bounds.size.width/6.8
-        return CGSizeMake(cellSizeForGame, cellSizeForGame)
+        return CGSize(width: cellSizeForGame, height: cellSizeForGame)
         
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if (self.selectedSection == nil) || (indexPath.section != self.selectedSection){
             self.selectedSection = indexPath.section
@@ -145,17 +145,17 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         }
         
         if (self.selectedSection != nil){
-            self.playButton.hidden = false
-            self.playTextButton.hidden = false
+            self.playButton.isHidden = false
+            self.playTextButton.isHidden = false
         }else{
-            self.playButton.hidden = true
-            self.playTextButton.hidden = true
+            self.playButton.isHidden = true
+            self.playTextButton.isHidden = true
         }
         
     }
     
     //MARK: - NAVIGATION
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (selectedSection != nil){
             
@@ -169,8 +169,8 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
             aGenerator.computeCrossword(3, spins: 6)
             
             if (segue.identifier == "CreateGameFromSelectedGame" ) {
-                (segue.destinationViewController as! GamePlayViewController).crosswordMatrix = aGenerator.grid
-                (segue.destinationViewController as! GamePlayViewController).words = aGenerator.currentWordlist
+                (segue.destination as! GamePlayViewController).crosswordMatrix = aGenerator.grid
+                (segue.destination as! GamePlayViewController).words = aGenerator.currentWordlist
             }
             
             indicator.removeFromSuperview()

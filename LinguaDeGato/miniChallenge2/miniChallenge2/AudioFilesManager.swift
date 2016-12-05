@@ -12,25 +12,25 @@ import AVKit
 
 class AudioFilesManager {
     
-    static let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+    static let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
 
-    static func pathForAudioWithFileName (fileName: String) -> String {
+    static func pathForAudioWithFileName (_ fileName: String) -> String {
         
         return "\(paths)/\(fileName).m4a"
     }
     
-    static func URLForAudioWithFileName (fileName: String) -> NSURL {
+    static func URLForAudioWithFileName (_ fileName: String) -> URL {
         
-        return NSURL(fileURLWithPath: pathForAudioWithFileName(fileName))
+        return URL(fileURLWithPath: pathForAudioWithFileName(fileName))
     }
 
-    static func saveAudioDataWithFileName(data: NSData, fileName: String) {
+    static func saveAudioDataWithFileName(_ data: Data, fileName: String) {
         
-        data.writeToURL(URLForAudioWithFileName(fileName), atomically: true)
+        try? data.write(to: URLForAudioWithFileName(fileName), options: [.atomic])
     }
     
-    static func audioDataWithFileName(fileName: String) -> NSData? {
+    static func audioDataWithFileName(_ fileName: String) -> Data? {
         
-        return NSData(contentsOfURL: URLForAudioWithFileName(fileName))
+        return (try? Data(contentsOf: URLForAudioWithFileName(fileName)))
     }
 }

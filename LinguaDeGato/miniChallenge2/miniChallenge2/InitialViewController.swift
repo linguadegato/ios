@@ -19,10 +19,10 @@ class InitialViewController: StatusBarViewController {
     @IBOutlet weak var privacyPolicyView: UITextView!
     @IBOutlet weak var closePrivacyPolicyButton: UIButton!
 
-    private let muteMusicOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
-    private let muteMusicOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
+    fileprivate let muteMusicOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
+    fileprivate let muteMusicOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
     
-    private var aGenerator: LGCrosswordGenerator!
+    fileprivate var aGenerator: LGCrosswordGenerator!
     
     //Mark: - VIEWCONTROLLER LIFECYCLE METHODS
     override func viewDidLoad() {
@@ -34,31 +34,31 @@ class InitialViewController: StatusBarViewController {
         
         
         //shows an alert in the first time app is open (false to use in test)
-        if (NSUserDefaults.standardUserDefaults().valueForKey("firstTime") as? Bool == true) {
+        if (UserDefaults.standard.value(forKey: "firstTime") as? Bool == true) {
             
-            let firstAlert = UIAlertController(title: "ATENÇÃO", message: "Todo conteúdo criado dentro da aplicação é de total responsabilidade de seus usuários.", preferredStyle: UIAlertControllerStyle.Alert)
-            firstAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { _ in
-                self.performSegueWithIdentifier("tutorial", sender: nil)
+            let firstAlert = UIAlertController(title: "ATENÇÃO", message: "Todo conteúdo criado dentro da aplicação é de total responsabilidade de seus usuários.", preferredStyle: UIAlertControllerStyle.alert)
+            firstAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                self.performSegue(withIdentifier: "tutorial", sender: nil)
             }))
             
-            self.presentViewController(firstAlert, animated: true, completion: nil)
+            self.present(firstAlert, animated: true, completion: nil)
 
-            NSUserDefaults.standardUserDefaults().setValue(false, forKey: "firstTime")
+            UserDefaults.standard.setValue(false, forKey: "firstTime")
             
-            NSUserDefaults.standardUserDefaults().synchronize()
+            UserDefaults.standard.synchronize()
         } else {
             //do nothing
         }
         
-        privacyPolicyView.contentOffset = CGPointZero
+        privacyPolicyView.contentOffset = CGPoint.zero
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         //set image of mute music button
         if MusicSingleton.sharedMusic().isMusicMute {
-            muteMusicButton.setImage(muteMusicOnImage, forState: .Normal)
+            muteMusicButton.setImage(muteMusicOnImage, for: UIControlState())
         } else {
-            muteMusicButton.setImage(muteMusicOffImage, forState: .Normal)
+            muteMusicButton.setImage(muteMusicOffImage, for: UIControlState())
         }
     }
 
@@ -69,7 +69,7 @@ class InitialViewController: StatusBarViewController {
     
     // MARK - BUTTON ACTIONS
 
-    @IBAction func randomGame(sender: AnyObject) {
+    @IBAction func randomGame(_ sender: AnyObject) {
         
         let indicator = LGStandarts.standartLGActivityIndicator(self.view)
         
@@ -78,7 +78,7 @@ class InitialViewController: StatusBarViewController {
 
         WordAndClueServices.retriveAllWordAndClues( { words in
             
-            let operation = NSBlockOperation( block: {
+            let operation = BlockOperation( block: {
                 var avaiableWords = words
                 var randomWords: [WordAndClue] = []
                 
@@ -94,9 +94,10 @@ class InitialViewController: StatusBarViewController {
                     let wordsForRandom = min(6, avaiableWords.count)
                     
                     for _ in 1...wordsForRandom {
-                        let anIndex = random() % avaiableWords.count
+                        let randomInt = Int(arc4random())
+                        let anIndex = randomInt % avaiableWords.count
                         randomWords.append(avaiableWords[anIndex])
-                        avaiableWords.removeAtIndex(anIndex)
+                        avaiableWords.remove(at: anIndex)
                     }
                     
                     //generate a crossword
@@ -104,15 +105,15 @@ class InitialViewController: StatusBarViewController {
                     self.aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: randomWords)
                     self.aGenerator.computeCrossword(3, spins: 6)
                     
-                    self.performSegueWithIdentifier("randomGame", sender: nil)
+                    self.performSegue(withIdentifier: "randomGame", sender: nil)
                 }
             })
             
-            NSOperationQueue.mainQueue().addOperation(operation)
+            OperationQueue.main.addOperation(operation)
         })
     }
 
-    @IBAction func savedGame(sender: AnyObject) {
+    @IBAction func savedGame(_ sender: AnyObject) {
         
         let indicator = LGStandarts.standartLGActivityIndicator(self.view)
         
@@ -121,62 +122,62 @@ class InitialViewController: StatusBarViewController {
         
         WordAndClueServices.retriveAllWordAndClues({ words in
             
-            let operation = NSBlockOperation(block: {
+            let operation = BlockOperation(block: {
                 indicator.removeFromSuperview()
                 if words.isEmpty {
                     self.noWordsAlert()
                 }
                 else {
-                    self.performSegueWithIdentifier("toGallery", sender: nil)
+                    self.performSegue(withIdentifier: "toGallery", sender: nil)
                 }
             })
-            NSOperationQueue.mainQueue().addOperation(operation)
+            OperationQueue.main.addOperation(operation)
         })
     }
     
     // "mute music" button
-    @IBAction func muteMusicButton(sender: AnyObject) {
+    @IBAction func muteMusicButton(_ sender: AnyObject) {
         
         if MusicSingleton.sharedMusic().isMusicMute {
             // music will play
-            muteMusicButton.setImage(muteMusicOffImage, forState: .Normal)
+            muteMusicButton.setImage(muteMusicOffImage, for: UIControlState())
             MusicSingleton.sharedMusic().isMusicMute = false
             MusicSingleton.sharedMusic().playBackgroundAudio(true)
         } else {
             // music will stop
-            muteMusicButton.setImage(muteMusicOnImage, forState: .Normal)
+            muteMusicButton.setImage(muteMusicOnImage, for: UIControlState())
             MusicSingleton.sharedMusic().isMusicMute = true
             MusicSingleton.sharedMusic().playBackgroundAudio(false)
         }
     }
     
     @IBAction func openPrivacyPolicy() {
-        privacyPolicyView.hidden = false
-        closePrivacyPolicyButton.hidden = false
+        privacyPolicyView.isHidden = false
+        closePrivacyPolicyButton.isHidden = false
     }
 
     @IBAction func closePrivacyPolicy() {
-        privacyPolicyView.hidden = true
-        closePrivacyPolicyButton.hidden = true
-        privacyPolicyView.contentOffset = CGPointZero
+        privacyPolicyView.isHidden = true
+        closePrivacyPolicyButton.isHidden = true
+        privacyPolicyView.contentOffset = CGPoint.zero
     }
 
     //MARK: - ALERTS
-    private func noWordsAlert() {
+    fileprivate func noWordsAlert() {
         
-        let alert = UIAlertController(title: "Ainda não há palavras salvas", message: "Crie jogos para salvar palavras", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        let alert = UIAlertController(title: "Ainda não há palavras salvas", message: "Crie jogos para salvar palavras", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     
     //MARK: - NAVIGATION
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "randomGame" {
             
-            (segue.destinationViewController as! GamePlayViewController).crosswordMatrix = aGenerator.grid
-            (segue.destinationViewController as! GamePlayViewController).words = aGenerator.currentWordlist
+            (segue.destination as! GamePlayViewController).crosswordMatrix = aGenerator.grid
+            (segue.destination as! GamePlayViewController).words = aGenerator.currentWordlist
         }
     }
 }

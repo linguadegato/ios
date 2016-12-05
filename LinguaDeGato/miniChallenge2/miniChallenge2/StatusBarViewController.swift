@@ -14,14 +14,14 @@ class StatusBarViewController: UIViewController {
         super.viewDidLoad()
 
         //changes the background color of the status bar
-        let statusBarBackground = UIView(frame: CGRectMake(0, -40, (self.navigationController?.navigationBar.frame.width)!, 40))
+        let statusBarBackground = UIView(frame: CGRect(x: 0, y: -40, width: (self.navigationController?.navigationBar.frame.width)!, height: 40))
         statusBarBackground.backgroundColor = UIColor(red:0.18, green:0.69, blue:0.86, alpha:1.0)
         self.navigationController?.navigationBar.addSubview(statusBarBackground)
         
         self.navigationController?.navigationBar.tintColor = UIColor.bluePalete()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.backgroundColor = .None
+        self.navigationController?.navigationBar.backgroundColor = .none
     }
 
     override func didReceiveMemoryWarning() {

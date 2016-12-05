@@ -13,7 +13,7 @@ class WordAndClueDAO {
     
     // it's WordAndClueDAO responsability to avoid insertion of redundand objects
     // (same word, audioPath and imageID)
-    static func insert(wac: WordAndClue) -> LGCDWordAndClue {
+    static func insert(_ wac: WordAndClue) -> LGCDWordAndClue {
         
         var aPersistedClue = WordAndClueDAO.retrieveWordAndClue(wac)
         
@@ -31,10 +31,10 @@ class WordAndClueDAO {
         return aPersistedClue!
     }
     
-    static func retrieveWordAndClue(aWordAndClue: WordAndClue) -> LGCDWordAndClue? {
+    static func retrieveWordAndClue(_ aWordAndClue: WordAndClue) -> LGCDWordAndClue? {
         
         //create fetch request
-        let request = NSFetchRequest(entityName: "LGCDWordAndClue")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "LGCDWordAndClue")
         
         //assign predicates
         let aWord = aWordAndClue.word
@@ -42,16 +42,16 @@ class WordAndClueDAO {
         let anImageID = aWordAndClue.clue.imageID
         
         var formatString = "word == %@"
-        var arguments: [AnyObject] = [aWord]
+        var arguments: [AnyObject] = [aWord as AnyObject]
         
         if anAudioPath != nil {
             formatString += " AND audioPath == %@"
-            arguments.append(anAudioPath!)
+            arguments.append(anAudioPath! as AnyObject)
         }
         
         if anImageID != nil {
             formatString += " AND imageID == %@"
-            arguments.append(anImageID!)
+            arguments.append(anImageID! as AnyObject)
         }
         
         request.predicate = NSPredicate(format: formatString, argumentArray: arguments)
@@ -60,7 +60,7 @@ class WordAndClueDAO {
         
         // execute request
         do {
-            results = try DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request) as? [LGCDWordAndClue]
+            results = try DatabaseManager.sharedInstance.managedObjectContext?.fetch(request) as? [LGCDWordAndClue]
         }
         catch {
             print("error executing FetchRequest - retrieveWordAndClue(aWordAndClue: WordAndClue) -> LGCDWordAndClue?")
@@ -77,10 +77,10 @@ class WordAndClueDAO {
         }
     }
     
-    static func retriveWordAndCluesWithWord(word: String)  -> [LGCDWordAndClue] {
+    static func retriveWordAndCluesWithWord(_ word: String)  -> [LGCDWordAndClue] {
         
         // create fetch request
-        let request = NSFetchRequest(entityName: "LGCDWordAndClue")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "LGCDWordAndClue")
         request.predicate = NSPredicate(format: "word == %@", word)
         request.sortDescriptors = [NSSortDescriptor(key: "word", ascending: true)]
         
@@ -89,7 +89,7 @@ class WordAndClueDAO {
         var results: [LGCDWordAndClue]
         
         do {
-            results = try DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request) as! [LGCDWordAndClue]
+            results = try DatabaseManager.sharedInstance.managedObjectContext?.fetch(request) as! [LGCDWordAndClue]
             
         }
         catch {
@@ -101,13 +101,13 @@ class WordAndClueDAO {
     }
     
     static func retriveAllWordAndClues() -> [LGCDWordAndClue] {
-        let request = NSFetchRequest(entityName: "LGCDWordAndClue")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "LGCDWordAndClue")
         request.sortDescriptors = [NSSortDescriptor(key: "word", ascending: true)]
         
         var results: [LGCDWordAndClue]
         
         do {
-            results = try DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request) as! [LGCDWordAndClue]
+            results = try DatabaseManager.sharedInstance.managedObjectContext?.fetch(request) as! [LGCDWordAndClue]
         }
         catch {
             print("error executing FetchRequest - retrieveAllWordAndClues()")

@@ -13,15 +13,15 @@ import UIKit
 // should auto rotate is enabled
 extension UINavigationController {
     
-    override public func shouldAutorotate() -> Bool {
+    override open var shouldAutorotate : Bool {
         return true
     }
     
-    override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Landscape
+    override open var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
     }
     
-    override public func viewDidLoad() {
-        interactivePopGestureRecognizer!.enabled = false
+    override open func viewDidLoad() {
+        interactivePopGestureRecognizer!.isEnabled = false
     }
 }

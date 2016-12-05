@@ -52,7 +52,7 @@ class WordManager {
     
     
     //all square was correct filled
-    private func allCorrect() {
+    fileprivate func allCorrect() {
         
         if word.coordinate!.vertical {
             for i in 3...(word.lenght - 1) {
@@ -70,7 +70,7 @@ class WordManager {
     }
     
     //a tile was taken from a correct filled word
-    private func wasAllCorrect() {
+    fileprivate func wasAllCorrect() {
         
         if word.coordinate!.vertical {
             for i in 3...(word.lenght - 1) {
