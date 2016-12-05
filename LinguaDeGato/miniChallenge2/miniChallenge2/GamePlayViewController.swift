@@ -108,7 +108,7 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
             style: UIAlertActionStyle.default,
             handler:{ (UIAlertAction)in
                 
-                self.navigationController?.popToRootViewController(animated: true)
+                let _ = self.navigationController?.popToRootViewController(animated: true)
                 // Don't forget to re-enable the interactive gesture
                 self.navigationController?.interactivePopGestureRecognizer!.isEnabled = true
                 

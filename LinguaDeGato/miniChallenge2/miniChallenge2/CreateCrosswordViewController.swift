@@ -255,7 +255,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     fileprivate func goBack(){
-        self.navigationController?.popViewController(animated: true)
+        let _ = self.navigationController?.popViewController(animated: true)
         
         // Don't forget to re-enable the interactive gesture
         self.navigationController?.interactivePopGestureRecognizer!.isEnabled = true
