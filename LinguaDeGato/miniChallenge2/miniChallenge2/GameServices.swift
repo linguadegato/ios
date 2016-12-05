@@ -30,11 +30,11 @@ class GameServices {
             
             let savedGame = GameDAO.retrieveGameByName(game.name)
             if savedGame == nil {
-                GameDAO.insert(game)
+                let _ = GameDAO.insert(game)
                 completion(true)
             }
             else {
-                print(savedGame!.name)
+                print(savedGame!.name!)
                 completion(false)
             }
         })
@@ -51,7 +51,7 @@ class GameServices {
             if let oldGame = GameDAO.retrieveGameByName(newGame.name) {
                 GameDAO.delete(oldGame)
             }
-            GameDAO.insert(newGame)
+            let _ = GameDAO.insert(newGame)
             completion()
         })
         

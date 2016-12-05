@@ -68,7 +68,7 @@ class WordAndClueServices {
         
         let operation = BlockOperation(block: {
             if WordAndClueDAO.retrieveWordAndClue(wordAndClue) == nil {
-                WordAndClueDAO.insert(wordAndClue)
+                _ = WordAndClueDAO.insert(wordAndClue)
             }
         })
         
