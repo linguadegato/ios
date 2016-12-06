@@ -54,7 +54,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         return allGames[section].wordsAndClueArray.count
     }
     
-    private func collectionView(_ collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GameCollectionViewCell
         let clueWord = allGames[indexPath.section].wordsAndClueArray[indexPath.row].word

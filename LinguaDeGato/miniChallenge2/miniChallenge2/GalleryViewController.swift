@@ -64,7 +64,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         return gallery.count
     }
     
-    private func collectionView(_ collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GalleryCollectionViewCell
         let clueWord = self.gallery[indexPath.row].word

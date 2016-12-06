@@ -521,7 +521,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOf-ag-Lri" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="280" y="1421"/>
+            <point key="canvasLocation" x="279" y="1445"/>
         </scene>
         <!--Game End PopupVC-->
         <scene sceneID="LqL-Rc-vG7">
@@ -1482,7 +1482,7 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyN-r6-F5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1096" y="1421"/>
+            <point key="canvasLocation" x="-1545" y="1452"/>
         </scene>
         <!--Gallery View Controller-->
         <scene sceneID="8dp-lI-cDT">
