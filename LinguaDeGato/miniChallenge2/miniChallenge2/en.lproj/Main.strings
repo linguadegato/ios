@@ -5,6 +5,9 @@
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "51Z-MB-cws"; */
 "51Z-MB-cws.normalTitle" = "Button";
 
+/* Class = "UILabel"; text = "Tutorial"; ObjectID = "CYD-nd-s1G"; */
+"CYD-nd-s1G.text" = "Tutorial";
+
 /* Class = "UIButton"; normalTitle = "Jogar"; ObjectID = "Gnx-6K-PFq"; */
 "Gnx-6K-PFq.normalTitle" = "Jogar";
 
@@ -38,6 +41,9 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "aNw-FW-VCJ"; */
 "aNw-FW-VCJ.text" = "Label";
 
+/* Class = "UIButton"; normalTitle = "Ir para o jogo"; ObjectID = "bGG-Fq-BTM"; */
+"bGG-Fq-BTM.normalTitle" = "Ir para o jogo";
+
 /* Class = "UIButton"; normalTitle = "Salvar"; ObjectID = "bvD-Qe-Pt1"; */
 "bvD-Qe-Pt1.normalTitle" = "Salvar";
 
@@ -49,6 +55,9 @@
 
 /* Class = "UILabel"; text = "Jogar"; ObjectID = "ga0-yN-LU7"; */
 "ga0-yN-LU7.text" = "Jogar";
+
+/* Class = "UIButton"; normalTitle = "Política de Privacidade"; ObjectID = "iRn-8z-HkB"; */
+"iRn-8z-HkB.normalTitle" = "Política de Privacidade";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mAh-Zn-das"; */
 "mAh-Zn-das.normalTitle" = "Button";
