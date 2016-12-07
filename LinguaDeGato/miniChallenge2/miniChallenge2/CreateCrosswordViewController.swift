@@ -234,12 +234,20 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         if (wordsAddedCollectionView.numberOfItems(inSection: 0) > 0){
             
-            let alert = UIAlertController(title: "Deseja realmente sair?", message: "As palavras criadas serão perdidas.", preferredStyle: UIAlertControllerStyle.alert)
-            
-            alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler:nil))
+            let alert = UIAlertController(
+                title: NSLocalizedString("createCrossword.GoBackPopup.title", value:"Deseja realmente sair?", comment:"Ask the user if he wants to go back and cancel the creation of a new game."),
+                message: NSLocalizedString("createCrossword.GoBackPopup.message", value:"As palavras criadas serão perdidas.", comment:"Message informing the user that if he returns, he will lose the words added to this new game."),
+                preferredStyle: UIAlertControllerStyle.alert
+            )
             
             alert.addAction(UIAlertAction(
-                title: "Sair",
+                title: NSLocalizedString("createCrossword.goBackPopup.button.cancel", value:"Cancelar", comment:"Button to cancel the action of returning."),
+                style: UIAlertActionStyle.default,
+                handler:nil
+            ))
+            
+            alert.addAction(UIAlertAction(
+                title: NSLocalizedString("createCrossword.goBackPopup.button.continue", value:"Sair.", comment:"Button to continue the action of returning to home screen and cancel the creation of a new game."),
                 style: UIAlertActionStyle.cancel,
                 handler:
                 {(UIAlertAction)in
@@ -355,16 +363,20 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     // MARK: DELETE NEW WORD AND CLUE ELEMENT
     @IBAction func deleteNewClue(_ sender: AnyObject) {
         
-        let deleteNewClueAlert = UIAlertController(title: "Apagar essa dica?", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let deleteNewClueAlert = UIAlertController(title: NSLocalizedString("createCrossword.alert.deleteNewClue", value:"Apagar essa dica?", comment:"Asks if the user wants to delete new clue when he is creating a new game."), message: "", preferredStyle: UIAlertControllerStyle.alert)
         
         deleteNewClueAlert.addAction(UIAlertAction(
-            title: "Sim", style: UIAlertActionStyle.default, handler: {_ in
+            title: NSLocalizedString("createCrossword.alert.deleteNewClue.Confirm", value:"Sim", comment:"Respond positively if the user wants to delete new clue."),
+            style: UIAlertActionStyle.default,
+            handler: {_ in
                 self.clearNewClue()
             }
         ))
         
         deleteNewClueAlert.addAction(UIAlertAction(
-            title: "Não", style: UIAlertActionStyle.cancel, handler: {_ in
+            title: NSLocalizedString("createCrossword.alert.deleteNewClue.Cancel", value:"Não", comment:"Respond negatively if the user wants to delete new clue."),
+            style: UIAlertActionStyle.cancel,
+            handler: {_ in
             }
         ))
         
@@ -440,13 +452,28 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     // MARK: COLLECTION VIEW BUTTONS (PLAY AND SAVE)
     @IBAction func playGame(_ sender: AnyObject) {
         if hasClue {
-            let alert = UIAlertController(title: "Você não terminou de adicionar a dica", message: "Ela não será incluída no jogo.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Jogar mesmo assim", style: .default, handler: { _ in
-                self.performSegue(withIdentifier: "GenerateCrossword", sender: self)
-            }))
-            alert.addAction(UIAlertAction(title: "Terminar de adicionar", style: .cancel, handler: nil))
+            let alert = UIAlertController(
+                title: NSLocalizedString("createCrossword.btnPlayGame.alert.title", value:"Você não terminou de adicionar a dica", comment:"This is the alert title when the user is craeting a new game, click on Play button and there is a new clue to be added in the game."),
+                message: NSLocalizedString("createCrossword.btnPlayGame.alert.message", value:"Ela não será incluída no jogo.", comment:"This is the alert message when the user is craeting a new game, click on Play button and there is a new clue to be added in the game."),
+                preferredStyle: UIAlertControllerStyle.alert
+            )
+            
+            alert.addAction(UIAlertAction(
+                title: NSLocalizedString("createCrossword.btnPlayGame.alert.btnContinue", value:"Jogar mesmo assim", comment:"Alert answer to go to game even if it will cancel the insertion of a new clue to the new game."),
+                style: .default,
+                handler: { _ in
+                    self.performSegue(withIdentifier: "GenerateCrossword", sender: self)
+                }
+            ))
+            
+            alert.addAction(UIAlertAction(
+                title: NSLocalizedString("createCrossword.btnPlayGame.alert.btnCancel", value:"Terminar de adicionar",comment:"Continue the insertion of the new clue."),
+                style: .cancel,
+                handler: nil
+            ))
             
             self.present(alert, animated: true, completion: nil)
+            
         } else {
             self.performSegue(withIdentifier: "GenerateCrossword", sender: self)
         }
@@ -456,46 +483,59 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         if (self.savedGameName.isEmpty){
             
-            let saveAlert = UIAlertController(title: "Dê um nome ao jogo:", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            let saveAlert = UIAlertController(
+                title: NSLocalizedString("createCrossword.btnSaveGame.alert.title", value:"Dê um nome ao jogo:", comment: "Alert that appears when the user wants to save a new game and asks the user to give a name for this game."),
+                message: "",
+                preferredStyle: UIAlertControllerStyle.alert
+            )
             
             saveAlert.addTextField(configurationHandler: { alertTextField in
-                alertTextField.placeholder = "Nome do jogo"
+                alertTextField.placeholder = NSLocalizedString("createCrossword.btnSaveGame.alert.placeholderToNewGameNameTxtField", value: "Nome do jogo", comment: "Default text that will appear on the game name text field during alert popup when the user is saving a new game")
             })
             
             let alertTextField = saveAlert.textFields![0]
             
             alertTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
-            saveAlert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler:nil))
-            saveAlert.addAction(UIAlertAction(title: "Salvar", style: UIAlertActionStyle.default, handler:{ _ in
+            saveAlert.addAction(UIAlertAction(
+                title: NSLocalizedString("createCrossword.btnSaveGame.alert.btnCancel", value:"Cancelar", comment:"Cancel the action of saving the new game"),
+                style: UIAlertActionStyle.default,
+                handler:nil
+            ))
+            
+            saveAlert.addAction(UIAlertAction(
+                title: NSLocalizedString("createCrossword.btnSaveGame.alert.btnSave", value:"Salvar", comment:"Go to action and save the new game"),
+                style: UIAlertActionStyle.default,
+                handler:{ _ in
                 
-                if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
-                    
-                    self.savedGameName = alertTextField.text!
-                    let newGame = Game(gameName: self.savedGameName, wordsAndClue: self.newWords)
-                    
-                    let indicator = LGStandarts.standartLGActivityIndicator(self.view)
-                    
-                    self.view.addSubview(indicator)
-                    indicator.startAnimating()
-                    
-                    GameServices.saveGame(newGame, completion: {success in
+                    if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
                         
-                        OperationQueue.main.addOperation(BlockOperation(block: {
-                            indicator.removeFromSuperview()
-                            if success {
-                                self.savedGameAlert()
-                            }
-                            else{
-                                self.overwriteGame(newGame)
-                            }
-                        }))
-                    })
-                    self.disableSaveButton(true)
+                        self.savedGameName = alertTextField.text!
+                        let newGame = Game(gameName: self.savedGameName, wordsAndClue: self.newWords)
+                        
+                        let indicator = LGStandarts.standartLGActivityIndicator(self.view)
+                        
+                        self.view.addSubview(indicator)
+                        indicator.startAnimating()
+                        
+                        GameServices.saveGame(newGame, completion: {success in
+                            
+                            OperationQueue.main.addOperation(BlockOperation(block: {
+                                indicator.removeFromSuperview()
+                                if success {
+                                    self.savedGameAlert()
+                                }
+                                else{
+                                    self.overwriteGame(newGame)
+                                }
+                            }))
+                        })
+                        self.disableSaveButton(true)
+                    }
+                    else {
+                        print("empty text field!")
+                    }
                 }
-                else {
-                    print("empty text field!")
-                }
-            }))
+            ))
             
             self.present(saveAlert, animated: true, completion: {
             })
@@ -520,34 +560,55 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     // MARK: - ALERTS
     fileprivate func savedGameAlert(){
-        let savedGame = UIAlertController(title: "Jogo salvo com sucesso!", message: "", preferredStyle: UIAlertControllerStyle.alert)
-        savedGame.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+        let savedGame = UIAlertController(
+            title: NSLocalizedString("createCrossword.alert.gameSaved.title", value: "Jogo salvo com sucesso!",  comment: "Short message informing that the game was saved successfully."),
+            message: "",
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+        
+        savedGame.addAction(UIAlertAction(
+            title: NSLocalizedString("createCrossword.alert.gameSaved.ok", value: "Ok",  comment: "Ok and close popup."),
+            style: UIAlertActionStyle.cancel,
+            handler: nil)
+        )
         
         self.present(savedGame, animated: true, completion: {
         })
     }
     
     fileprivate func overwriteGame(_ aGame: Game) {
-        let overwriteAlert = UIAlertController(title: "Sobreescrever jogo?", message: "Já existe um jogo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", preferredStyle: UIAlertControllerStyle.alert)
         
-        overwriteAlert.addAction(UIAlertAction(title: "Sim", style: UIAlertActionStyle.default, handler: {_ in
-            
-            let indicator = LGStandarts.standartLGActivityIndicator(self.view)
-            self.view.addSubview(indicator)
-            
-            indicator.startAnimating()
-            GameServices.overwriteGame(aGame, completion: {
-                OperationQueue.main.addOperation(BlockOperation{
-                    indicator.removeFromSuperview()
-                    self.savedGameAlert()
+        let overwriteAlert = UIAlertController(
+            title: NSLocalizedString("createCrossword.alert.overwriteGame.title", value:"Sobreescrever jogo?", comment: "Short message asking the user if he wants to overwrite a game."),
+            message: NSLocalizedString("createCrossword.alert.overwriteGame.message", value:"Já existe um jogo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", comment: "Message informing the user that there is a game saved with the same name and asking if he whants to save the game anyway and overwrite the other game."),
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+        
+        overwriteAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("createCrossword.alert.overwriteGame.yes", value:"Sim", comment: "Responds positively to the question whether the user wants to overwrite the game that has the same name and continue the action of saving the new game."),
+            style: UIAlertActionStyle.default,
+            handler: {_ in
+                let indicator = LGStandarts.standartLGActivityIndicator(self.view)
+                self.view.addSubview(indicator)
+                
+                indicator.startAnimating()
+                GameServices.overwriteGame(aGame, completion: {
+                    OperationQueue.main.addOperation(BlockOperation{
+                        indicator.removeFromSuperview()
+                        self.savedGameAlert()
+                    })
                 })
-            })
-            self.disableSaveButton(true)
-        }))
+                self.disableSaveButton(true)
+        }
+        ))
         
-        overwriteAlert.addAction(UIAlertAction(title: "Não", style: UIAlertActionStyle.cancel, handler: {_ in
-            self.saveGame(self)
-        }))
+        overwriteAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("createCrossword.alert.overwriteGame.no", value:"Não", comment: "Responds negatively to the question whether the user wants to overwrite the game and cancel the action of saving the new game."),
+            style: UIAlertActionStyle.cancel,
+            handler: {_ in
+                self.saveGame(self)
+            }
+        ))
         
         self.present(overwriteAlert, animated: true, completion: nil)
     }
@@ -556,18 +617,18 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         let alertController = UIAlertController(
             title: "",
-            message: "Deseja apagar essa palavra?",
+            message: NSLocalizedString("createCrossword.alert.removeClueMessage", value: "Deseja apagar essa palavra?", comment: "Asks the user if he wants to delete a clue from the new game."),
             preferredStyle: .alert
         )
         
         let cancelAction = UIAlertAction(
-            title: "Cancelar",
+            title: NSLocalizedString("createCrossword.alert.removeClue.cancelAction", value: "Cancelar", comment: "Cancel action"),
             style: UIAlertActionStyle.cancel
         ) { (action) in }
         
         
         let confirmAction = UIAlertAction(
-            title: "Apagar",
+            title: NSLocalizedString("createCrossword.alert.removeClue.confirmAction", value: "Apagar", comment: "Continue action and delete the clue from the new game"),
             style: UIAlertActionStyle.default
         ) { (action) in
                 self.removeCell(index)
@@ -846,12 +907,12 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         if error != nil {
         
             let alert = UIAlertController(
-                title: "Jogo não salvo",
-                message: "Ops.. Houve um erro. \nEntre em contato conosco.",
+                title: NSLocalizedString("createCrossword.alert.errorSavingGame.title", value:"Jogo não salvo", comment: "Short messagem informing that there was a problem and the game was not saved"),
+                message: NSLocalizedString("createCrossword.alert.errorSavingGame.message", value:"Ops.. Houve um erro. \nEntre em contato conosco.", comment: "Messagem informing that there was a problem and saing the user to contact us"),
                 preferredStyle: UIAlertControllerStyle.alert)
         
             let cancelAction = UIAlertAction(
-                title: "OK",
+                title: NSLocalizedString("createCrossword.alert.errorSavingGame.bntOk", value:"OK", comment:"Button to close error message popup"),
                 style: .cancel,
                 handler: nil)
         
