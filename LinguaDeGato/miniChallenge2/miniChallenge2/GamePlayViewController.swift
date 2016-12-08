@@ -99,12 +99,20 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     
     
     @IBAction func goHome(_ sender: AnyObject) {
-        let alert = UIAlertController(title: "Deseja realmente sair?", message: "O jogo será interrompido.", preferredStyle: UIAlertControllerStyle.alert)
-        
-        alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.cancel, handler:nil))
+        let alert = UIAlertController(
+            title: NSLocalizedString("GamePlayViewController.GoBackPopup.title", value:"Deseja realmente sair?", comment:"Ask the user if he wants to go back and cancel the game."),
+            message: NSLocalizedString("GamePlayViewController.GoBackPopup.message", value:"O jogo será interrompido.", comment:"Message informing the user that if he returns, he will stop and cancel the game."),
+            preferredStyle: UIAlertControllerStyle.alert
+        )
         
         alert.addAction(UIAlertAction(
-            title: "Sair",
+            title: NSLocalizedString("GamePlayViewController.goBackPopup.button.cancel", value:"Cancelar", comment:"Button to cancel the action of returning."),
+            style: UIAlertActionStyle.cancel,
+            handler:nil
+        ))
+        
+        alert.addAction(UIAlertAction(
+            title: NSLocalizedString("GamePlayViewController.goBackPopup.button.continue", value:"Sair", comment:"Button to continue the action of returning to home screen and cancel the game."),
             style: UIAlertActionStyle.default,
             handler:{ (UIAlertAction)in
                 
@@ -121,8 +129,6 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
             ))
         
         self.present(alert, animated: true, completion: {})
-        
-        print("home")
     }
     
     // "mute music" button
