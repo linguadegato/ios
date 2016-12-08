@@ -523,13 +523,14 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                                 indicator.removeFromSuperview()
                                 if success {
                                     self.savedGameAlert()
+                                    self.disableSaveButton(true)
                                 }
                                 else{
                                     self.overwriteGame(newGame)
                                 }
                             }))
                         })
-                        self.disableSaveButton(true)
+
                     }
                     else {
                         print("empty text field!")
@@ -606,7 +607,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             title: NSLocalizedString("createCrossword.alert.overwriteGame.no", value:"Não", comment: "Responds negatively to the question whether the user wants to overwrite the game and cancel the action of saving the new game."),
             style: UIAlertActionStyle.cancel,
             handler: {_ in
-                self.saveGame(self)
+//                self.saveGame(self)
+                self.savedGameName = ""
+                self.disableSaveButton(false)
             }
         ))
         
