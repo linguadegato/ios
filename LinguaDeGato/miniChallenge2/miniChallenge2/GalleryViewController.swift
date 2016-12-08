@@ -25,7 +25,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
     fileprivate let numberOfVisibleColumns = 4
     fileprivate let numberOfVisibleLines = 3
     fileprivate let reuseIdentifier = "ClueCell"
-    fileprivate let collectionTitle = "Palavras Salvas"
+    fileprivate let collectionTitle = NSLocalizedString("GalleryViewController.collectionTitle", value: "Palavras Salvas", comment: "Collection view title to saved words")
 
     //MARK: - LIFECYCLE METHODS
     override func viewDidLoad() {
@@ -226,16 +226,21 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
     //MARK: - CREATE GAME BUTTON
     @IBAction func createNewGame(_ sender: AnyObject) {
         
-        let saveAlert = UIAlertController(title: "Deseja salvar esse jogo?", message: "Dê um nome ao jogo para que possa ser salvo", preferredStyle: UIAlertControllerStyle.alert)
+        let saveAlert = UIAlertController(
+            
+            title: NSLocalizedString("GalleryViewController.saveAlert.title", value: "Deseja salvar esse jogo?", comment: "Alert title asking if the user wants to save the new game"),
+            message: NSLocalizedString("GalleryViewController.saveAlert.message", value: "Dê um nome ao jogo para que possa ser salvo.", comment: "Alert message when is saving a new game saying the user to give a name to this game"),
+            preferredStyle: UIAlertControllerStyle.alert
+        )
         
         saveAlert.addTextField(configurationHandler: { alertTextField in
-            alertTextField.placeholder = "Nome do jogo"
+            alertTextField.placeholder = NSLocalizedString("GalleryViewController.saveAlert.placeholder", value: "Nome do jogo", comment: "TextField placeholder to the game name")
         })
         let alertTextField = saveAlert.textFields![0]
         alertTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
         
         saveAlert.addAction(UIAlertAction(
-            title: "Salvar",
+            title: NSLocalizedString("GalleryViewController.saveAlert.SaveBtn", value: "Salvar", comment: "Save button on alert popup that asks if the user wants to save a new game."),
             style: UIAlertActionStyle.cancel,
             handler:{
                 _ in
@@ -264,7 +269,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
             ))
         
         saveAlert.addAction(UIAlertAction(
-            title: "Não",
+            title: NSLocalizedString("GalleryViewController.saveAlert.CancelBtn", value: "Não", comment: "Cancel action button on alert popup that asks if the user wants to save a new game."),
             style: UIAlertActionStyle.default,
             handler: {_ in self.performSegue(withIdentifier: "CreateGameFromGallery", sender: nil)}
             ))
@@ -274,26 +279,39 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
     }
     
     fileprivate func overwriteGame(_ aGame: Game) {
-        let overwriteAlert = UIAlertController(title: "Sobreescrever jogo?", message: "Já existe um jogo salvo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", preferredStyle: UIAlertControllerStyle.alert)
         
-        overwriteAlert.addAction(UIAlertAction(title: "Sim", style: UIAlertActionStyle.default, handler: {_ in
+        let overwriteAlert = UIAlertController(
+            title: NSLocalizedString("GalleryViewController.overwriteGameAlert.title", value: "Sobreescrever jogo?", comment: "Alert title asking if the user wants to overwrite the game with the same name."),
             
-            let indicator = LGStandarts.standartLGActivityIndicator(self.view)
-            self.view.addSubview(indicator)
-            indicator.startAnimating()
-            
-            GameServices.overwriteGame(aGame, completion: {
-                OperationQueue.main.addOperation(BlockOperation(block: {
-                    indicator.removeFromSuperview()
-                }))
-            
-            })
+            message: NSLocalizedString("GalleryViewController.overwriteGameAlert.message", value: "Já existe um jogo salvo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", comment: "Alert message saying that there is game with the same name and asking if the user wants to overwrite it."),
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+        
+        overwriteAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("GalleryViewController.overwriteGameAlert.YesBtn", value: "Sim", comment: "Yes button on alert popup that save the game and overwrite the other with the same name."),
+            style: UIAlertActionStyle.default,
+            handler: {_ in
+                let indicator = LGStandarts.standartLGActivityIndicator(self.view)
+                self.view.addSubview(indicator)
+                indicator.startAnimating()
+                
+                GameServices.overwriteGame(aGame, completion: {
+                    OperationQueue.main.addOperation(BlockOperation(block: {
+                        indicator.removeFromSuperview()
+                    }))
+                    
+                })
             self.performSegue(withIdentifier: "CreateGameFromGallery", sender: nil)
-        }))
+            }
+        ))
         
-        overwriteAlert.addAction(UIAlertAction(title: "Não", style: UIAlertActionStyle.cancel, handler: {_ in
-            self.createNewGame(self)
-        }))
+        overwriteAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("GalleryViewController.overwriteGameAlert.NoBtn", value: "Não", comment: "No button on alert popup that cancel the saving process."),
+            style: UIAlertActionStyle.cancel,
+            handler: {_ in
+                self.createNewGame(self)
+            }
+        ))
         
         self.present(overwriteAlert, animated: true, completion: nil)
     }
