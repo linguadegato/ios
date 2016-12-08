@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="miniChallenge2/Base.lproj/LaunchScreen.xib" source-language="pt" datatype="plaintext" target-language="en">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.1" build-num="8B62"/>
+    </header>
+    <body>
+      <trans-unit id="8ie-xW-0ye.text">
+        <source>  Copyright (c) 2015 YinYang Team. All rights reserved.</source>
+        <target>  Copyright (c) 2015 YinYang Team. All rights reserved.</target>
+        <note>Class = "UILabel"; text = "  Copyright (c) 2015 YinYang Team. All rights reserved."; ObjectID = "8ie-xW-0ye";</note>
+      </trans-unit>
+      <trans-unit id="kId-c2-rCX.text">
+        <source>Língua de Gato</source>
+        <target>Língua de Gato</target>
+        <note>Class = "UILabel"; text = "Língua de Gato"; ObjectID = "kId-c2-rCX";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="miniChallenge2/Base.lproj/Main.storyboard" source-language="pt" datatype="plaintext" target-language="en">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.1" build-num="8B62"/>
+    </header>
+    <body>
+      <trans-unit id="4bL-aY-gwN.normalTitle">
+        <source>Button</source>
+        <target>Button</target>
+        <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "4bL-aY-gwN";</note>
+      </trans-unit>
+      <trans-unit id="51Z-MB-cws.normalTitle">
+        <source>Button</source>
+        <target>Button</target>
+        <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "51Z-MB-cws";</note>
+      </trans-unit>
+      <trans-unit id="CYD-nd-s1G.text">
+        <source>Tutorial</source>
+        <target>Tutorial</target>
+        <note>Class = "UILabel"; text = "Tutorial"; ObjectID = "CYD-nd-s1G";</note>
+      </trans-unit>
+      <trans-unit id="Gnx-6K-PFq.normalTitle">
+        <source>Jogar</source>
+        <target>Play</target>
+        <note>Class = "UIButton"; normalTitle = "Jogar"; ObjectID = "Gnx-6K-PFq";</note>
+      </trans-unit>
+      <trans-unit id="HNB-87-mME.normalTitle">
+        <source>Button</source>
+        <target>Button</target>
+        <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "HNB-87-mME";</note>
+      </trans-unit>
+      <trans-unit id="IIZ-54-lW2.title">
+        <source>Sair</source>
+        <target>Exit</target>
+        <note>Class = "UIBarButtonItem"; title = "Sair"; ObjectID = "IIZ-54-lW2";</note>
+      </trans-unit>
+      <trans-unit id="Iim-Tv-S3O.segmentTitles[0]">
+        <source>Palavras </source>
+        <target>Words </target>
+        <note>Class = "UISegmentedControl"; Iim-Tv-S3O.segmentTitles[0] = "Palavras "; ObjectID = "Iim-Tv-S3O";</note>
+      </trans-unit>
+      <trans-unit id="Iim-Tv-S3O.segmentTitles[1]">
+        <source>Jogos </source>
+        <target>Games</target>
+        <note>Class = "UISegmentedControl"; Iim-Tv-S3O.segmentTitles[1] = "Jogos "; ObjectID = "Iim-Tv-S3O";</note>
+      </trans-unit>
+      <trans-unit id="KPJ-Am-6C3.normalTitle">
+        <source>Button</source>
+        <target>Button</target>
+        <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "KPJ-Am-6C3";</note>
+      </trans-unit>
+      <trans-unit id="KgB-fe-SdX.title">
+        <source>Voltar</source>
+        <target>Back</target>
+        <note>Class = "UIBarButtonItem"; title = "Voltar"; ObjectID = "KgB-fe-SdX";</note>
+      </trans-unit>
+      <trans-unit id="LbO-5U-mMX.text">
+        <source>Jogo</source>
+        <target>Game</target>
+        <note>Class = "UILabel"; text = "Jogo"; ObjectID = "LbO-5U-mMX";</note>
+      </trans-unit>
+      <trans-unit id="S7D-Vq-8a9.normalTitle">
+        <source>Button</source>
+        <target>Button</target>
+        <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "S7D-Vq-8a9";</note>
+      </trans-unit>
+      <trans-unit id="VSx-Ji-4un.text">
+        <source>Label</source>
+        <target>Label</target>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "VSx-Ji-4un";</note>
+      </trans-unit>
+      <trans-unit id="aNw-FW-VCJ.text">
+        <source>Label</source>
+        <target>Label</target>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "aNw-FW-VCJ";</note>
+      </trans-unit>
+      <trans-unit id="bGG-Fq-BTM.normalTitle">
+        <source>Ir para o jogo</source>
+        <target>Play game</target>
+        <note>Class = "UIButton"; normalTitle = "Ir para o jogo"; ObjectID = "bGG-Fq-BTM";</note>
+      </trans-unit>
+      <trans-unit id="bvD-Qe-Pt1.normalTitle">
+        <source>Salvar</source>
+        <target>Save</target>
+        <note>Class = "UIButton"; normalTitle = "Salvar"; ObjectID = "bvD-Qe-Pt1";</note>
+      </trans-unit>
+      <trans-unit id="byQ-VA-4IM.normalTitle">
+        <source>Jogar</source>
+        <target>Play</target>
+        <note>Class = "UIButton"; normalTitle = "Jogar"; ObjectID = "byQ-VA-4IM";</note>
+      </trans-unit>
+      <trans-unit id="dWO-wH-Yks.title">
+        <source>Voltar</source>
+        <target>Back</target>
+        <note>Class = "UIBarButtonItem"; title = "Voltar"; ObjectID = "dWO-wH-Yks";</note>
+      </trans-unit>
+      <trans-unit id="ga0-yN-LU7.text">
+        <source>Jogar</source>
+        <target>Play</target>
+        <note>Class = "UILabel"; text = "Jogar"; ObjectID = "ga0-yN-LU7";</note>
+      </trans-unit>
+      <trans-unit id="iRn-8z-HkB.normalTitle">
+        <source>Política de Privacidade</source>
+        <target>Privacy Policy</target>
+        <note>Class = "UIButton"; normalTitle = "Política de Privacidade"; ObjectID = "iRn-8z-HkB";</note>
+      </trans-unit>
+      <trans-unit id="mAh-Zn-das.normalTitle">
+        <source>Button</source>
+        <target>Button</target>
+        <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "mAh-Zn-das";</note>
+      </trans-unit>
+      <trans-unit id="mQc-ZF-1gt.placeholder">
+        <source>Digite a palavra...</source>
+        <target>Type a word...</target>
+        <note>Class = "UITextField"; placeholder = "Digite a palavra..."; ObjectID = "mQc-ZF-1gt";</note>
+      </trans-unit>
+      <trans-unit id="oXe-f9-4lT.text">
+        <source>Salvos</source>
+        <target>Saved</target>
+        <note>Class = "UILabel"; text = "Salvos"; ObjectID = "oXe-f9-4lT";</note>
+      </trans-unit>
+      <trans-unit id="ozY-Dt-A7x.normalTitle">
+        <source>Button</source>
+        <target>Button</target>
+        <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "ozY-Dt-A7x";</note>
+      </trans-unit>
+      <trans-unit id="qHb-cw-9Vs.text">
+        <source>Label</source>
+        <target>Label</target>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "qHb-cw-9Vs";</note>
+      </trans-unit>
+      <trans-unit id="t5f-RW-Unw.text">
+        <source>Criar jogo</source>
+        <target>Create game</target>
+        <note>Class = "UILabel"; text = "Criar jogo"; ObjectID = "t5f-RW-Unw";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="miniChallenge2/Info.plist" source-language="pt" datatype="plaintext" target-language="en">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.1" build-num="8B62"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source><target>$(PRODUCT_NAME)</target>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1</source><target>1</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="miniChallenge2/Localizable.strings" source-language="pt" datatype="plaintext" target-language="en">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.1" build-num="8B62"/>
+    </header>
+    <body>
+      <trans-unit id="createCrossword.GoBackPopup.message">
+        <source>As palavras criadas serão perdidas.</source>
+        <note>Message informing the user that if he returns, he will lose the words added to this new game.</note><target>The new words will be lost.</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.GoBackPopup.title">
+        <source>Deseja realmente sair?</source>
+        <note>Ask the user if he wants to go back and cancel the creation of a new game.</note><target>Are you sure you want to go back?</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.alert.deleteNewClue">
+        <source>Apagar essa dica?</source>
+        <note>Asks if the user wants to delete new clue when he is creating a new game.</note><target>Delete this clue?</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.alert.deleteNewClue.Cancel">
+        <source>Não</source>
+        <note>Respond negatively if the user wants to delete new clue.</note><target>No</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.alert.deleteNewClue.Confirm">
+        <source>Sim</source>
+        <note>Respond positively if the user wants to delete new clue.</note><target>Yes</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.alert.errorSavingGame.bntOk">
+        <source>OK</source>
+        <note>Button to close error message popup</note><target>Ok</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.alert.errorSavingGame.message">
+        <source>Ops.. Houve um erro. 
+Entre em contato conosco.</source>
+        <note>Messagem informing that there was a problem and saing the user to contact us</note><target>Sorry, there as an error. Please, contact us.</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.alert.errorSavingGame.title">
+        <source>Jogo não salvo</source>
+        <note>Short messagem informing that there was a problem and the game was not saved</note><target>Game not saved</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.alert.gameSaved.ok">
+        <source>Ok</source>
+        <note>Ok and close popup.</note><target>Ok</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.alert.gameSaved.title">
+        <source>Jogo salvo com sucesso!</source>
+        <note>Short message informing that the game was saved successfully.</note><target>Game saved successfully</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.alert.overwriteGame.message">
+        <source>Já existe um jogo com o nome (aGame.name).
+Deseja sobreescrevê-lo?</source>
+        <note>Message informing the user that there is a game saved with the same name and asking if he whants to save the game anyway and overwrite the other game.</note><target>You already have a game with this name. Do you want to overwrite it?</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.alert.overwriteGame.no">
+        <source>Não</source>
+        <note>Responds negatively to the question whether the user wants to overwrite the game and cancel the action of saving the new game.</note><target>No</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.alert.overwriteGame.title">
+        <source>Sobreescrever jogo?</source>
+        <note>Short message asking the user if he wants to overwrite a game.</note><target>Overwrite game?</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.alert.overwriteGame.yes">
+        <source>Sim</source>
+        <note>Responds positively to the question whether the user wants to overwrite the game that has the same name and continue the action of saving the new game.</note><target>Yes</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.alert.removeClue.cancelAction">
+        <source>Cancelar</source>
+        <note>Cancel action</note><target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.alert.removeClue.confirmAction">
+        <source>Apagar</source>
+        <note>Continue action and delete the clue from the new game</note><target>Delete</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.alert.removeClueMessage">
+        <source>Deseja apagar essa palavra?</source>
+        <note>Asks the user if he wants to delete a clue from the new game.</note><target>Do you want to dele this word?</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.btnPlayGame.alert.btnCancel">
+        <source>Terminar de adicionar</source>
+        <note>Continue the insertion of the new clue.</note><target>Continue adding new clue</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.btnPlayGame.alert.btnContinue">
+        <source>Jogar mesmo assim</source>
+        <note>Alert answer to go to game even if it will cancel the insertion of a new clue to the new game.</note><target>Play anyway</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.btnPlayGame.alert.message">
+        <source>Ela não será incluída no jogo.</source>
+        <note>This is the alert message when the user is craeting a new game, click on Play button and there is a new clue to be added in the game.</note><target>The new clue will not be added in the game.</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.btnPlayGame.alert.title">
+        <source>Você não terminou de adicionar a dica</source>
+        <note>This is the alert title when the user is craeting a new game, click on Play button and there is a new clue to be added in the game.</note><target>You didn't finish adding the clue</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.btnSaveGame.alert.btnCancel">
+        <source>Cancelar</source>
+        <note>Cancel the action of saving the new game</note><target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.btnSaveGame.alert.btnSave">
+        <source>Salvar</source>
+        <note>Go to action and save the new game</note><target>Save</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.btnSaveGame.alert.placeholderToNewGameNameTxtField">
+        <source>Nome do jogo</source>
+        <note>Default text that will appear on the game name text field during alert popup when the user is saving a new game</note><target>Name of the game</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.btnSaveGame.alert.title">
+        <source>Dê um nome ao jogo:</source>
+        <note>Alert that appears when the user wants to save a new game and asks the user to give a name for this game.</note><target>Give a name for this game:</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.goBackPopup.button.cancel">
+        <source>Cancelar</source>
+        <note>Button to cancel the action of returning.</note><target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="createCrossword.goBackPopup.button.continue">
+        <source>Sair</source>
+        <note>Button to continue the action of returning to home screen and cancel the creation of a new game.</note><target>Go back</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="miniChallenge2Tests/Info.plist" source-language="pt" datatype="plaintext" target-language="en">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.1" build-num="8B62"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source><target>$(PRODUCT_NAME)</target>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source><target>1.0</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

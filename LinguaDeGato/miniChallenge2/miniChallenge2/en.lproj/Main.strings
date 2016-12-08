@@ -1,4 +1,3 @@
-
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "4bL-aY-gwN"; */
 "4bL-aY-gwN.normalTitle" = "Button";
 
@@ -9,28 +8,28 @@
 "CYD-nd-s1G.text" = "Tutorial";
 
 /* Class = "UIButton"; normalTitle = "Jogar"; ObjectID = "Gnx-6K-PFq"; */
-"Gnx-6K-PFq.normalTitle" = "Jogar";
+"Gnx-6K-PFq.normalTitle" = "Play";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "HNB-87-mME"; */
 "HNB-87-mME.normalTitle" = "Button";
 
 /* Class = "UIBarButtonItem"; title = "Sair"; ObjectID = "IIZ-54-lW2"; */
-"IIZ-54-lW2.title" = "Sair";
+"IIZ-54-lW2.title" = "Exit";
 
 /* Class = "UISegmentedControl"; Iim-Tv-S3O.segmentTitles[0] = "Palavras "; ObjectID = "Iim-Tv-S3O"; */
-"Iim-Tv-S3O.segmentTitles[0]" = "Palavras ";
+"Iim-Tv-S3O.segmentTitles[0]" = "Words ";
 
 /* Class = "UISegmentedControl"; Iim-Tv-S3O.segmentTitles[1] = "Jogos "; ObjectID = "Iim-Tv-S3O"; */
-"Iim-Tv-S3O.segmentTitles[1]" = "Jogos ";
+"Iim-Tv-S3O.segmentTitles[1]" = "Games";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "KPJ-Am-6C3"; */
 "KPJ-Am-6C3.normalTitle" = "Button";
 
 /* Class = "UIBarButtonItem"; title = "Voltar"; ObjectID = "KgB-fe-SdX"; */
-"KgB-fe-SdX.title" = "Voltar";
+"KgB-fe-SdX.title" = "Back";
 
 /* Class = "UILabel"; text = "Jogo"; ObjectID = "LbO-5U-mMX"; */
-"LbO-5U-mMX.text" = "Jogo";
+"LbO-5U-mMX.text" = "Game";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "S7D-Vq-8a9"; */
 "S7D-Vq-8a9.normalTitle" = "Button";
@@ -42,31 +41,31 @@
 "aNw-FW-VCJ.text" = "Label";
 
 /* Class = "UIButton"; normalTitle = "Ir para o jogo"; ObjectID = "bGG-Fq-BTM"; */
-"bGG-Fq-BTM.normalTitle" = "Ir para o jogo";
+"bGG-Fq-BTM.normalTitle" = "Play game";
 
 /* Class = "UIButton"; normalTitle = "Salvar"; ObjectID = "bvD-Qe-Pt1"; */
-"bvD-Qe-Pt1.normalTitle" = "Salvar";
+"bvD-Qe-Pt1.normalTitle" = "Save";
 
 /* Class = "UIButton"; normalTitle = "Jogar"; ObjectID = "byQ-VA-4IM"; */
-"byQ-VA-4IM.normalTitle" = "Jogar";
+"byQ-VA-4IM.normalTitle" = "Play";
 
 /* Class = "UIBarButtonItem"; title = "Voltar"; ObjectID = "dWO-wH-Yks"; */
-"dWO-wH-Yks.title" = "Voltar";
+"dWO-wH-Yks.title" = "Back";
 
 /* Class = "UILabel"; text = "Jogar"; ObjectID = "ga0-yN-LU7"; */
-"ga0-yN-LU7.text" = "Jogar";
+"ga0-yN-LU7.text" = "Play";
 
 /* Class = "UIButton"; normalTitle = "Política de Privacidade"; ObjectID = "iRn-8z-HkB"; */
-"iRn-8z-HkB.normalTitle" = "Política de Privacidade";
+"iRn-8z-HkB.normalTitle" = "Privacy Policy";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mAh-Zn-das"; */
 "mAh-Zn-das.normalTitle" = "Button";
 
 /* Class = "UITextField"; placeholder = "Digite a palavra..."; ObjectID = "mQc-ZF-1gt"; */
-"mQc-ZF-1gt.placeholder" = "Digite a palavra...";
+"mQc-ZF-1gt.placeholder" = "Type a word...";
 
 /* Class = "UILabel"; text = "Salvos"; ObjectID = "oXe-f9-4lT"; */
-"oXe-f9-4lT.text" = "Salvos";
+"oXe-f9-4lT.text" = "Saved";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ozY-Dt-A7x"; */
 "ozY-Dt-A7x.normalTitle" = "Button";
@@ -75,4 +74,5 @@
 "qHb-cw-9Vs.text" = "Label";
 
 /* Class = "UILabel"; text = "Criar jogo"; ObjectID = "t5f-RW-Unw"; */
-"t5f-RW-Unw.text" = "Criar jogo";
+"t5f-RW-Unw.text" = "Create game";
+

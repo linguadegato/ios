@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F7BB00C1DF9675E00161971 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F7BB00E1DF9675E00161971 /* InfoPlist.strings */; };
+		2F7BB0111DF9675F00161971 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F7BB0131DF9675F00161971 /* Localizable.strings */; };
+		2F7BB0161DF9676000161971 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F7BB0181DF9676000161971 /* InfoPlist.strings */; };
 		7708F5111C64FCD500832989 /* TutorialContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7708F5101C64FCD500832989 /* TutorialContentViewController.swift */; };
 		7708F5131C6504B900832989 /* TutorialCurrentPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7708F5121C6504B900832989 /* TutorialCurrentPageVC.swift */; };
 		7786A6171C4573600011C32A /* backgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7786A6161C4573600011C32A /* backgroundMusic.wav */; };
@@ -80,6 +83,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F7BB00D1DF9675E00161971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2F7BB0121DF9675F00161971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2F7BB0171DF9676000161971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2FE1172D1DF87C9A0046CBD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		2FE1172E1DF87C9B0046CBD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		7708F5101C64FCD500832989 /* TutorialContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialContentViewController.swift; sourceTree = "<group>"; };
@@ -342,6 +348,8 @@
 		FA96DE961B29C0CE00149113 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2F7BB0181DF9676000161971 /* InfoPlist.strings */,
+				2F7BB0131DF9675F00161971 /* Localizable.strings */,
 				FAFAB86B1C161DA100CBC16B /* UIColorExtension.swift */,
 				EFE420541C56961D00E4B1CE /* AppImages.swift */,
 				EFE393D01C60CDC30038333D /* LGStandarts.swift */,
@@ -366,6 +374,7 @@
 		FA96DEB01B29C0CE00149113 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2F7BB00E1DF9675E00161971 /* InfoPlist.strings */,
 				FA96DEB11B29C0CE00149113 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -478,7 +487,9 @@
 				77D94CB91C401F5A00E28B84 /* wrongSound.wav in Resources */,
 				77D94CBD1C402CD600E28B84 /* finishGame.wav in Resources */,
 				FA96DEA21B29C0CE00149113 /* Main.storyboard in Resources */,
+				2F7BB0111DF9675F00161971 /* Localizable.strings in Resources */,
 				77D94CB41C401B7100E28B84 /* correctSound.wav in Resources */,
+				2F7BB0161DF9676000161971 /* InfoPlist.strings in Resources */,
 				7786A6171C4573600011C32A /* backgroundMusic.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,6 +498,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F7BB00C1DF9675E00161971 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +582,30 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2F7BB00E1DF9675E00161971 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F7BB00D1DF9675E00161971 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2F7BB0131DF9675F00161971 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F7BB0121DF9675F00161971 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		2F7BB0181DF9676000161971 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F7BB0171DF9676000161971 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		FA96DEA01B29C0CE00149113 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

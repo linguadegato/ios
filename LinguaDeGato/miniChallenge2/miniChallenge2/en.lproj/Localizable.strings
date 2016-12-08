@@ -1,0 +1,81 @@
+/* Message informing the user that if he returns, he will lose the words added to this new game. */
+"createCrossword.GoBackPopup.message" = "The new words will be lost.";
+
+/* Ask the user if he wants to go back and cancel the creation of a new game. */
+"createCrossword.GoBackPopup.title" = "Are you sure you want to go back?";
+
+/* Asks if the user wants to delete new clue when he is creating a new game. */
+"createCrossword.alert.deleteNewClue" = "Delete this clue?";
+
+/* Respond negatively if the user wants to delete new clue. */
+"createCrossword.alert.deleteNewClue.Cancel" = "No";
+
+/* Respond positively if the user wants to delete new clue. */
+"createCrossword.alert.deleteNewClue.Confirm" = "Yes";
+
+/* Button to close error message popup */
+"createCrossword.alert.errorSavingGame.bntOk" = "Ok";
+
+/* Messagem informing that there was a problem and saing the user to contact us */
+"createCrossword.alert.errorSavingGame.message" = "Sorry, there as an error. Please, contact us.";
+
+/* Short messagem informing that there was a problem and the game was not saved */
+"createCrossword.alert.errorSavingGame.title" = "Game not saved";
+
+/* Ok and close popup. */
+"createCrossword.alert.gameSaved.ok" = "Ok";
+
+/* Short message informing that the game was saved successfully. */
+"createCrossword.alert.gameSaved.title" = "Game saved successfully";
+
+/* Message informing the user that there is a game saved with the same name and asking if he whants to save the game anyway and overwrite the other game. */
+"createCrossword.alert.overwriteGame.message" = "You already have a game with this name. Do you want to overwrite it?";
+
+/* Responds negatively to the question whether the user wants to overwrite the game and cancel the action of saving the new game. */
+"createCrossword.alert.overwriteGame.no" = "No";
+
+/* Short message asking the user if he wants to overwrite a game. */
+"createCrossword.alert.overwriteGame.title" = "Overwrite game?";
+
+/* Responds positively to the question whether the user wants to overwrite the game that has the same name and continue the action of saving the new game. */
+"createCrossword.alert.overwriteGame.yes" = "Yes";
+
+/* Cancel action */
+"createCrossword.alert.removeClue.cancelAction" = "Cancel";
+
+/* Continue action and delete the clue from the new game */
+"createCrossword.alert.removeClue.confirmAction" = "Delete";
+
+/* Asks the user if he wants to delete a clue from the new game. */
+"createCrossword.alert.removeClueMessage" = "Do you want to dele this word?";
+
+/* Continue the insertion of the new clue. */
+"createCrossword.btnPlayGame.alert.btnCancel" = "Continue adding new clue";
+
+/* Alert answer to go to game even if it will cancel the insertion of a new clue to the new game. */
+"createCrossword.btnPlayGame.alert.btnContinue" = "Play anyway";
+
+/* This is the alert message when the user is craeting a new game, click on Play button and there is a new clue to be added in the game. */
+"createCrossword.btnPlayGame.alert.message" = "The new clue will not be added in the game.";
+
+/* This is the alert title when the user is craeting a new game, click on Play button and there is a new clue to be added in the game. */
+"createCrossword.btnPlayGame.alert.title" = "You didn't finish adding the clue";
+
+/* Cancel the action of saving the new game */
+"createCrossword.btnSaveGame.alert.btnCancel" = "Cancel";
+
+/* Go to action and save the new game */
+"createCrossword.btnSaveGame.alert.btnSave" = "Save";
+
+/* Default text that will appear on the game name text field during alert popup when the user is saving a new game */
+"createCrossword.btnSaveGame.alert.placeholderToNewGameNameTxtField" = "Name of the game";
+
+/* Alert that appears when the user wants to save a new game and asks the user to give a name for this game. */
+"createCrossword.btnSaveGame.alert.title" = "Give a name for this game:";
+
+/* Button to cancel the action of returning. */
+"createCrossword.goBackPopup.button.cancel" = "Cancel";
+
+/* Button to continue the action of returning to home screen and cancel the creation of a new game. */
+"createCrossword.goBackPopup.button.continue" = "Go back";
+
