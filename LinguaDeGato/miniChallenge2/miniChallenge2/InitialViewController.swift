@@ -36,10 +36,19 @@ class InitialViewController: StatusBarViewController {
         //shows an alert in the first time app is open (false to use in test)
         if (UserDefaults.standard.value(forKey: "firstTime") as? Bool == true) {
             
-            let firstAlert = UIAlertController(title: "ATENÇÃO", message: "Todo conteúdo criado dentro da aplicação é de total responsabilidade de seus usuários.", preferredStyle: UIAlertControllerStyle.alert)
-            firstAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                self.performSegue(withIdentifier: "tutorial", sender: nil)
-            }))
+            let firstAlert = UIAlertController(
+                title: NSLocalizedString("InitialViewController.firstAlert.title", value: "ATENÇÃO", comment: "Title of an alert popup that appears when the user first use the app"),
+                message: NSLocalizedString("InitialViewController.firstAlert.message", value: "Todo conteúdo criado dentro da aplicação é de total responsabilidade de seus usuários.", comment: "Message informing that the content of the application is the responsibility of the user"),
+                preferredStyle: UIAlertControllerStyle.alert
+            )
+            
+            firstAlert.addAction(UIAlertAction(
+                title: NSLocalizedString("InitialViewController.firstAlert.okBtn", value:"OK", comment: "Ok button that close the alert"),
+                style: .default,
+                handler: { _ in
+                    self.performSegue(withIdentifier: "tutorial", sender: nil)
+                }
+            ))
             
             self.present(firstAlert, animated: true, completion: nil)
 
@@ -165,8 +174,17 @@ class InitialViewController: StatusBarViewController {
     //MARK: - ALERTS
     fileprivate func noWordsAlert() {
         
-        let alert = UIAlertController(title: "Ainda não há palavras salvas", message: "Crie jogos para salvar palavras", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        let alert = UIAlertController(
+            title: NSLocalizedString("InitialViewController.alert.title", value: "Ainda não há palavras salvas", comment: "Alert title informing the user that he cant click on play game button because there isnt any saved word yet."),
+            message: NSLocalizedString("InitialViewController.alert.title", value: "Crie jogos para salvar palavras", comment: "Alert message informing the user to create new game before play."),
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+        
+        alert.addAction(UIAlertAction(
+            title: NSLocalizedString("InitialViewController.firstAlert.okBtn", value:"OK", comment: "Ok button that close the alert"),
+            style: .default,
+            handler: nil
+        ))
         
         self.present(alert, animated: true, completion: nil)
     }
