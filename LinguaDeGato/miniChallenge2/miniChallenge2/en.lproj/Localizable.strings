@@ -1,3 +1,90 @@
+/* Title da collection view where are shown the saved words in 'saved games' view */
+"GalleryCollectionViewController.collectionTitle" = "Saved words";
+
+/* No button on alert popup that cancel the saving process. */
+"GalleryCollectionViewController.overwriteGameAlert.NoBtn" = "No";
+
+/* Yes button on alert popup that save the game and overwrite the other with the same name. */
+"GalleryCollectionViewController.overwriteGameAlert.YesBtn" = "yes";
+
+/* Alert message saying that there is game with the same name and asking if the user wants to overwrite it. */
+"GalleryCollectionViewController.overwriteGameAlert.message" = "You already have a game with this name. Do you want to overwrite it?";
+
+/* Alert title asking if the user wants to overwrite the game with the same name. */
+"GalleryCollectionViewController.overwriteGameAlert.title" = "Overwrite game?";
+
+/* Cancel action button on alert popup that asks if the user wants to save a new game. */
+"GalleryCollectionViewController.saveAlert.CancelBtn" = "No";
+
+/* Save button on alert popup that asks if the user wants to save a new game. */
+"GalleryCollectionViewController.saveAlert.SaveBtn" = "Save";
+
+/* Alert message when is saving a new game saying the user to give a name to this game */
+"GalleryCollectionViewController.saveAlert.message" = "Give a name for this game";
+
+/* TextField placeholder to the game name */
+"GalleryCollectionViewController.saveAlert.placeholder" = "Name of the game";
+
+/* Alert title asking if the user wants to save the new game */
+"GalleryCollectionViewController.saveAlert.title" = "Save this game?";
+
+/* Collection view title to saved words */
+"GalleryViewController.collectionTitle" = "Saved words";
+
+/* No button on alert popup that cancel the saving process. */
+"GalleryViewController.overwriteGameAlert.NoBtn" = "No";
+
+/* Yes button on alert popup that save the game and overwrite the other with the same name. */
+"GalleryViewController.overwriteGameAlert.YesBtn" = "Yes";
+
+/* Alert message saying that there is game with the same name and asking if the user wants to overwrite it. */
+"GalleryViewController.overwriteGameAlert.message" = "You already have a game with this name. Do you want to overwrite it?";
+
+/* Alert title asking if the user wants to overwrite the game with the same name. */
+"GalleryViewController.overwriteGameAlert.title" = "Overwrite game?";
+
+/* Cancel action button on alert popup that asks if the user wants to save a new game. */
+"GalleryViewController.saveAlert.CancelBtn" = "No";
+
+/* Save button on alert popup that asks if the user wants to save a new game. */
+"GalleryViewController.saveAlert.SaveBtn" = "Yes";
+
+/* Alert message when is saving a new game saying the user to give a name to this game */
+"GalleryViewController.saveAlert.message" = "Give a name for this new game";
+
+/* TextField placeholder to the game name */
+"GalleryViewController.saveAlert.placeholder" = "Name of the game";
+
+/* Alert title asking if the user wants to save the new game */
+"GalleryViewController.saveAlert.title" = "Save this game?";
+
+/* Message informing the user that if he returns, he will stop and cancel the game. */
+"GamePlayViewController.GoBackPopup.message" = "This game will be canceled.";
+
+/* Ask the user if he wants to go back and cancel the game. */
+"GamePlayViewController.GoBackPopup.title" = "Do you really want to exit?";
+
+/* Button to cancel the action of returning. */
+"GamePlayViewController.goBackPopup.button.cancel" = "Cancel";
+
+/* Button to continue the action of returning to home screen and cancel the game. */
+"GamePlayViewController.goBackPopup.button.continue" = "Exit";
+
+/* Alert message informing the user to create new game before play. */
+"InitialViewController.alert.message" = "Create a new game";
+
+/* Alert title informing the user that he cant click on play game button because there isnt any saved word yet. */
+"InitialViewController.alert.title" = "You don't have any saved words yet";
+
+/* Message informing that the content of the application is the responsibility of the user */
+"InitialViewController.firstAlert.message" = "All content created within this application is the entire responsibility of its users.";
+
+/* Ok button that close the alert */
+"InitialViewController.firstAlert.okBtn" = "Ok";
+
+/* Title of an alert popup that appears when the user first use the app */
+"InitialViewController.firstAlert.title" = "Attention!";
+
 /* Message informing the user that if he returns, he will lose the words added to this new game. */
 "createCrossword.GoBackPopup.message" = "The new words will be lost.";
 

@@ -176,7 +176,7 @@ class InitialViewController: StatusBarViewController {
         
         let alert = UIAlertController(
             title: NSLocalizedString("InitialViewController.alert.title", value: "Ainda não há palavras salvas", comment: "Alert title informing the user that he cant click on play game button because there isnt any saved word yet."),
-            message: NSLocalizedString("InitialViewController.alert.title", value: "Crie jogos para salvar palavras", comment: "Alert message informing the user to create new game before play."),
+            message: NSLocalizedString("InitialViewController.alert.message", value: "Crie jogos para salvar palavras", comment: "Alert message informing the user to create new game before play."),
             preferredStyle: UIAlertControllerStyle.alert
         )
         
