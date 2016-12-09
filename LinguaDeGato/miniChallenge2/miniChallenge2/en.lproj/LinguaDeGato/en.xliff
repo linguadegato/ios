@@ -160,7 +160,7 @@
     <body>
       <trans-unit id="CFBundleName">
         <source>$(PRODUCT_NAME)</source>
-        <target></target>
+        <target/>
       </trans-unit>
       <trans-unit id="CFBundleShortVersionString">
         <source>1</source>
@@ -295,9 +295,43 @@ Deseja sobreescrevê-lo?</source>
         <target>Exit</target>
         <note>Button to continue the action of returning to home screen and cancel the game.</note>
       </trans-unit>
+      <trans-unit id="InitialViewController.PrivacyPolicyViewContent">
+        <source>Política de Privacidade:
+
+Este aplicativo foi projetado para menores de 13 anos.
+Todo conteúdo criado através do aplicativo é de total responsabilidade de seus usuários.
+
+Coleta de dados:
+
+Coletamos fotos e utilizamos o microfone para gravação de áudio como objetivo cumprir a funcionalidade principal da aplicação.
+
+Segurança:
+
+Utilizamos os protocolos de segurança internos padrão para que suas informações pessoais não sejam acessadas ou alteradas.
+
+Controle do usuário:
+
+O aplicativo permite ao usuário acessar, alterar e/ou apagar seus dados.
+
+Localização:
+
+Nós não registramos ou compartilhamos a sua localização.
+
+Este aplicativo não possui:
+
+- Propaganda
+- Analytics
+
+Para mais informações, entre em contato conosco: contato@linguadegatoapp.com.br</source>
+        <note>Message of the privacy policy popup</note><target>Privacy Policy: 
+
+This application is designed for children under the age of 13.
+All content created through the application is the entirely responsibility of its users.  Data Collect:  We take photos and use the microphone only with the purpose of fulfilling the main functionality of the application.  Security:  We use standard internal security protocols to protect your personal information.  User control:  The application allows the user to access and delete his data.  Location:  We do not register or share your location.  This application does not have:   - Advertising - Analytics  For more information, contact us: contato@linguadegatoapp.com.br</target>
+      </trans-unit>
       <trans-unit id="InitialViewController.alert.message">
         <source>Crie jogos para salvar palavras</source>
-        <note>Alert message informing the user to create new game before play.</note><target>Create a new game</target>
+        <target>Create a new game</target>
+        <note>Alert message informing the user to create new game before play.</note>
       </trans-unit>
       <trans-unit id="InitialViewController.alert.title">
         <source>Ainda não há palavras salvas</source>
@@ -465,7 +499,7 @@ Deseja sobreescrevê-lo?</source>
     <body>
       <trans-unit id="CFBundleName">
         <source>$(PRODUCT_NAME)</source>
-        <target></target>
+        <target/>
       </trans-unit>
       <trans-unit id="CFBundleShortVersionString">
         <source>1.0</source>
