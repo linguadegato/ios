@@ -40,8 +40,8 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "aNw-FW-VCJ"; */
 "aNw-FW-VCJ.text" = "Label";
 
-/* Class = "UIButton"; normalTitle = "Ir para o jogo"; ObjectID = "bGG-Fq-BTM"; */
-"bGG-Fq-BTM.normalTitle" = "Play game";
+/* Class = "UIButton"; normalTitle = "Começar!"; ObjectID = "bBc-cW-UfV"; */
+"bBc-cW-UfV.normalTitle" = "Let's start!";
 
 /* Class = "UIButton"; normalTitle = "Salvar"; ObjectID = "bvD-Qe-Pt1"; */
 "bvD-Qe-Pt1.normalTitle" = "Save";
@@ -75,4 +75,7 @@
 
 /* Class = "UILabel"; text = "Criar jogo"; ObjectID = "t5f-RW-Unw"; */
 "t5f-RW-Unw.text" = "Create game";
+
+/* Class = "UIPageViewController"; title = "Tutorial"; ObjectID = "yN9-xc-QdE"; */
+"yN9-xc-QdE.title" = "Tutorial";
 

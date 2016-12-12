@@ -91,6 +91,18 @@ All content created through the application is the entirely responsibility of it
 /* Title of an alert popup that appears when the user first use the app */
 "InitialViewController.firstAlert.title" = "Attention!";
 
+/* Title that will appear on the first page of the tutorial */
+"TutorialCurrentPageVC.title1" = "Start creating a game...";
+
+/* Title that will appear on the second page of the tutorial */
+"TutorialCurrentPageVC.title2" = "And add new words";
+
+/* Title that will appear on the eighth page of the tutorial */
+"TutorialCurrentPageVC.title8" = "Have fun!";
+
+/* Tutorial language to set image internationalization */
+"TutorialCurrentPageVC.tutorialImagesLanguage" = "_EN";
+
 /* Message informing the user that if he returns, he will lose the words added to this new game. */
 "createCrossword.GoBackPopup.message" = "The new words will be lost.";
 

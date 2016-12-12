@@ -91,10 +91,10 @@
         <target>Label</target>
         <note>Class = "UILabel"; text = "Label"; ObjectID = "aNw-FW-VCJ";</note>
       </trans-unit>
-      <trans-unit id="bGG-Fq-BTM.normalTitle">
-        <source>Ir para o jogo</source>
-        <target>Play game</target>
-        <note>Class = "UIButton"; normalTitle = "Ir para o jogo"; ObjectID = "bGG-Fq-BTM";</note>
+      <trans-unit id="bBc-cW-UfV.normalTitle">
+        <source>Começar!</source>
+        <target>Let's start!</target>
+        <note>Class = "UIButton"; normalTitle = "Começar!"; ObjectID = "bBc-cW-UfV";</note>
       </trans-unit>
       <trans-unit id="bvD-Qe-Pt1.normalTitle">
         <source>Salvar</source>
@@ -150,6 +150,11 @@
         <source>Criar jogo</source>
         <target>Create game</target>
         <note>Class = "UILabel"; text = "Criar jogo"; ObjectID = "t5f-RW-Unw";</note>
+      </trans-unit>
+      <trans-unit id="yN9-xc-QdE.title">
+        <source>Tutorial</source>
+        <target>Tutorial</target>
+        <note>Class = "UIPageViewController"; title = "Tutorial"; ObjectID = "yN9-xc-QdE";</note>
       </trans-unit>
     </body>
   </file>
@@ -323,10 +328,11 @@ Este aplicativo não possui:
 - Analytics
 
 Para mais informações, entre em contato conosco: contato@linguadegatoapp.com.br</source>
-        <note>Message of the privacy policy popup</note><target>Privacy Policy: 
+        <target>Privacy Policy: 
 
 This application is designed for children under the age of 13.
 All content created through the application is the entirely responsibility of its users.  Data Collect:  We take photos and use the microphone only with the purpose of fulfilling the main functionality of the application.  Security:  We use standard internal security protocols to protect your personal information.  User control:  The application allows the user to access and delete his data.  Location:  We do not register or share your location.  This application does not have:   - Advertising - Analytics  For more information, contact us: contato@linguadegatoapp.com.br</target>
+        <note>Message of the privacy policy popup</note>
       </trans-unit>
       <trans-unit id="InitialViewController.alert.message">
         <source>Crie jogos para salvar palavras</source>
@@ -352,6 +358,25 @@ All content created through the application is the entirely responsibility of it
         <source>ATENÇÃO</source>
         <target>Attention!</target>
         <note>Title of an alert popup that appears when the user first use the app</note>
+      </trans-unit>
+      <trans-unit id="TutorialCurrentPageVC.title1">
+        <source>Comece criando um jogo...</source>
+        <target>Start creating a game...</target>
+        <note>Title that will appear on the first page of the tutorial</note>
+      </trans-unit>
+      <trans-unit id="TutorialCurrentPageVC.title2">
+        <source>E adicione novas palavras</source>
+        <target>And add new words</target>
+        <note>Title that will appear on the second page of the tutorial</note>
+      </trans-unit>
+      <trans-unit id="TutorialCurrentPageVC.title8">
+        <source>Divirta-se!</source>
+        <target>Have fun!</target>
+        <note>Title that will appear on the eighth page of the tutorial</note>
+      </trans-unit>
+      <trans-unit id="TutorialCurrentPageVC.tutorialImagesLanguage">
+        <source>_PT</source>
+        <note>Tutorial language to set image internationalization</note><target>_EN</target>
       </trans-unit>
       <trans-unit id="createCrossword.GoBackPopup.message">
         <source>As palavras criadas serão perdidas.</source>
