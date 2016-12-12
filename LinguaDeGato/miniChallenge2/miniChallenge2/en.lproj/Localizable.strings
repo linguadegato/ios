@@ -100,9 +100,6 @@ All content created through the application is the entirely responsibility of it
 /* Title that will appear on the eighth page of the tutorial */
 "TutorialCurrentPageVC.title8" = "Have fun!";
 
-/* Tutorial language to set image internationalization */
-"TutorialCurrentPageVC.tutorialImagesLanguage" = "_EN";
-
 /* Message informing the user that if he returns, he will lose the words added to this new game. */
 "createCrossword.GoBackPopup.message" = "The new words will be lost.";
 

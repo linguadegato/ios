@@ -60,10 +60,7 @@ class TutorialCurrentPageVC: UIViewController, UIPageViewControllerDataSource {
         
         let aViewController: TutorialContentViewController = self.storyboard?.instantiateViewController(withIdentifier: "TutorialContentViewController") as! TutorialContentViewController
         
-        let imageOriginalName = self.pageImages[index]as! String
-        let tutorialImagesLanguage = NSLocalizedString("TutorialCurrentPageVC.tutorialImagesLanguage", value: "_PT", comment: "Tutorial language to set image internationalization")
-        
-        aViewController.imageFile = imageOriginalName+tutorialImagesLanguage
+        aViewController.imageFile = self.pageImages[index]as! String
         aViewController.titleText = self.pageTitles[index]as! String
         aViewController.pageIndex = index
         

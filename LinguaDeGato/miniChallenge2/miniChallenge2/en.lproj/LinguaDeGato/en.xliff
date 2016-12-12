@@ -374,10 +374,6 @@ All content created through the application is the entirely responsibility of it
         <target>Have fun!</target>
         <note>Title that will appear on the eighth page of the tutorial</note>
       </trans-unit>
-      <trans-unit id="TutorialCurrentPageVC.tutorialImagesLanguage">
-        <source>_PT</source>
-        <note>Tutorial language to set image internationalization</note><target>_EN</target>
-      </trans-unit>
       <trans-unit id="createCrossword.GoBackPopup.message">
         <source>As palavras criadas serão perdidas.</source>
         <target>The new words will be lost.</target>
