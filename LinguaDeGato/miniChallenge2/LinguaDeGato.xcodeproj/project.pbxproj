@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F287C011DFEE6A20012CF27 /* GameEndPopup.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F287C031DFEE6A20012CF27 /* GameEndPopup.png */; };
 		2F7BB00C1DF9675E00161971 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F7BB00E1DF9675E00161971 /* InfoPlist.strings */; };
 		2F7BB0111DF9675F00161971 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F7BB0131DF9675F00161971 /* Localizable.strings */; };
 		2F7BB0161DF9676000161971 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F7BB0181DF9676000161971 /* InfoPlist.strings */; };
@@ -83,6 +84,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F287C021DFEE6A20012CF27 /* pt */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pt; path = pt.lproj/GameEndPopup.png; sourceTree = "<group>"; };
+		2F287C041DFEE6CB0012CF27 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/GameEndPopup.png; sourceTree = "<group>"; };
 		2F7BB00D1DF9675E00161971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2F7BB0121DF9675F00161971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2F7BB0171DF9676000161971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -172,6 +175,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F287BFE1DFEE5EE0012CF27 /* LocalizationImages */ = {
+			isa = PBXGroup;
+			children = (
+				2F287C031DFEE6A20012CF27 /* GameEndPopup.png */,
+			);
+			name = LocalizationImages;
+			sourceTree = "<group>";
+		};
 		77D94CB11C401B6700E28B84 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +351,7 @@
 				EFE6D07A1B85F45100CCC802 /* CrosswordGameplay */,
 				EFFB40C81C46A5530099BA6F /* Persistence */,
 				FA96DE961B29C0CE00149113 /* Supporting Files */,
+				2F287BFE1DFEE5EE0012CF27 /* LocalizationImages */,
 			);
 			name = LinguaDeGato;
 			path = miniChallenge2;
@@ -465,6 +477,7 @@
 			knownRegions = (
 				pt,
 				Base,
+				en,
 			);
 			mainGroup = FA96DE8A1B29C0CE00149113;
 			productRefGroup = FA96DE941B29C0CE00149113 /* Products */;
@@ -488,6 +501,7 @@
 				77D94CBD1C402CD600E28B84 /* finishGame.wav in Resources */,
 				FA96DEA21B29C0CE00149113 /* Main.storyboard in Resources */,
 				2F7BB0111DF9675F00161971 /* Localizable.strings in Resources */,
+				2F287C011DFEE6A20012CF27 /* GameEndPopup.png in Resources */,
 				77D94CB41C401B7100E28B84 /* correctSound.wav in Resources */,
 				2F7BB0161DF9676000161971 /* InfoPlist.strings in Resources */,
 				7786A6171C4573600011C32A /* backgroundMusic.wav in Resources */,
@@ -582,6 +596,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2F287C031DFEE6A20012CF27 /* GameEndPopup.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F287C021DFEE6A20012CF27 /* pt */,
+				2F287C041DFEE6CB0012CF27 /* en */,
+			);
+			name = GameEndPopup.png;
+			sourceTree = "<group>";
+		};
 		2F7BB00E1DF9675E00161971 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
