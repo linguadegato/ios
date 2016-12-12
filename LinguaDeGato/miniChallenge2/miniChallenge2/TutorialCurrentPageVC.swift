@@ -16,14 +16,18 @@ class TutorialCurrentPageVC: UIViewController, UIPageViewControllerDataSource {
     
     //MARK: BUTTONS
     
+    @IBAction func SkipTutorial(_ sender: Any) {
+        let _ = navigationController?.popToRootViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.pageTitles = NSArray(objects: "TUTORIAL: Criando palavras", "Entendendo as dicas", "Salvando o jogo", "Jogando")
-        self.pageImages = NSArray(objects: "tutorialPage1", "tutorialPage2", "tutorialPage3", "tutorialPage4")
+        self.pageTitles = NSArray(objects: "Comece criando um jogo...", "E adicione novas palavras", "", "", "", "", "", "Divirta-se!")
+        self.pageImages = NSArray(objects: "tutorialPage1", "tutorialPage2", "tutorialPage3", "tutorialPage4", "tutorialPage5", "tutorialPage6", "tutorialPage7", "tutorialPage8")
         
         
-        self.pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! UIPageViewController
+        self.pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "TutorialPageViewController") as! UIPageViewController
         
         self.pageViewController.dataSource = self
         
@@ -32,7 +36,7 @@ class TutorialCurrentPageVC: UIViewController, UIPageViewControllerDataSource {
         
         self.pageViewController.setViewControllers((viewControllers as! [UIViewController]), direction: .forward, animated: true, completion: nil)
         
-        self.pageViewController.view.frame = CGRect(x: 0, y: 30, width: self.view.frame.width, height: self.view.frame.size.height - 60)
+        self.pageViewController.view.frame = CGRect(x: 0, y: 30, width: self.view.frame.width, height: self.view.frame.size.height - 100)
         
         self.addChildViewController(self.pageViewController)
         self.view.addSubview(self.pageViewController.view)
@@ -43,15 +47,6 @@ class TutorialCurrentPageVC: UIViewController, UIPageViewControllerDataSource {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // button to go to first page of tutorial:
-//    @IBAction func restartAction(sender: AnyObject) {
-//        let startVC = self.viewControllerAtIndex(0) as TutorialContentViewController
-//        let viewControllers = NSArray(object: startVC)
-//        
-//        self.pageViewController.setViewControllers((viewControllers as! [UIViewController]), direction: .Forward, animated: true, completion: nil)
-//        
-//    }
     
     func viewControllerAtIndex(_ index: Int) -> TutorialContentViewController {
         if ((self.pageTitles.count == 0) || (index >= self.pageTitles.count)) {

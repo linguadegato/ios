@@ -25,10 +25,6 @@ class TutorialContentViewController: UIViewController {
         
     }
     
-    @IBAction func skipTutorial(_ sender: AnyObject) {
-        let _ = navigationController?.popToRootViewController(animated: true)
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
