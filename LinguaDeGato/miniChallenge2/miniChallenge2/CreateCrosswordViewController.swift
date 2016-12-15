@@ -123,6 +123,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         //used to limiting the number of characters
         newWordTxtField.delegate = self
+        newWordTxtField.autocorrectionType = .no
         
         // Disable the swipe to make sure you get your chance to save
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
@@ -670,15 +671,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         }
     }
     
-    //MARK: - TEXTFIELD PROPERTIES
-    
-    //limits the characters in newWordTxtField
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = newWordTxtField.text else { return true }
-        let newLength = text.characters.count + string.characters.count - range.length
-        return newLength <= limitLength
-    }
-    
     //MARK: - GESTURE RECOGNIZERS
     
     // MARK: GENERATORS
@@ -1063,6 +1055,21 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
 
     
     //MARK: UITextFieldDelegate
+    
+    //limits the characters in newWordTxtField
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = newWordTxtField.text else { return true }
+        //user presses backspace
+        if (string == ""){
+            textField.deleteBackward()
+        }
+        //insert captlized text if it's within limitLenght
+        let newLength = text.characters.count + string.characters.count - range.length
+        if (newLength <= limitLength) {
+            textField.insertText(string.capitalized)
+        }
+        return false
+    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let text = textField.text {
