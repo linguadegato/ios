@@ -123,6 +123,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         //used to limiting the number of characters
         newWordTxtField.delegate = self
+        newWordTxtField.autocorrectionType = .no
         
         // Disable the swipe to make sure you get your chance to save
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
