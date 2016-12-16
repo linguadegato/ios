@@ -436,7 +436,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             removeNewClueButton.isHidden = true
             dismissKeyboard()
             
-            
+
             if newWords.count >= 6 {
                 wordsLimitReached = true
                 takePhotoButton.isEnabled = false
@@ -1144,7 +1144,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             
             indicator.startAnimating()
             
-            // I dont know why cols and rows are interchanged... will not fix it right now
             let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: newWords)
             aGenerator.computeCrossword(3, spins: 6)
             
