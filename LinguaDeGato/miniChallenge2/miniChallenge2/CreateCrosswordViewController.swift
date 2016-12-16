@@ -581,8 +581,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     fileprivate func overwriteGame(_ aGame: Game) {
         
         let overwriteAlert = UIAlertController(
-            title: NSLocalizedString("createCrossword.alert.overwriteGame.title", value:"Sobreescrever jogo?", comment: "Short message asking the user if he wants to overwrite a game."),
-            message: NSLocalizedString("createCrossword.alert.overwriteGame.message", value:"Já existe um jogo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", comment: "Message informing the user that there is a game saved with the same name and asking if he whants to save the game anyway and overwrite the other game."),
+            title: NSLocalizedString("createCrossword.alert.overwriteGame.title", value:"Sobrescrever jogo?", comment: "Short message asking the user if he wants to overwrite a game."),
+            message: NSLocalizedString("createCrossword.alert.overwriteGame.message", value:"Já existe um jogo com o nome \(aGame.name).\nDeseja sobrescrevê-lo?", comment: "Message informing the user that there is a game saved with the same name and asking if he whants to save the game anyway and overwrite the other game."),
             preferredStyle: UIAlertControllerStyle.alert
         )
         

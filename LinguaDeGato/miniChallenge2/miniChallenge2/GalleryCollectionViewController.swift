@@ -270,9 +270,9 @@ class GalleryCollectionViewController : UICollectionViewController{
     
     fileprivate func overwriteGame(_ aGame: Game) {
         let overwriteAlert = UIAlertController(
-            title: NSLocalizedString("GalleryCollectionViewController.overwriteGameAlert.title", value: "Sobreescrever jogo?", comment: "Alert title asking if the user wants to overwrite the game with the same name."),
+            title: NSLocalizedString("GalleryCollectionViewController.overwriteGameAlert.title", value: "Sobrescrever jogo?", comment: "Alert title asking if the user wants to overwrite the game with the same name."),
             
-            message: NSLocalizedString("GalleryCollectionViewController.overwriteGameAlert.message", value: "Já existe um jogo salvo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", comment: "Alert message saying that there is game with the same name and asking if the user wants to overwrite it."),
+            message: NSLocalizedString("GalleryCollectionViewController.overwriteGameAlert.message", value: "Já existe um jogo salvo com o nome \(aGame.name).\nDeseja sobrescrevê-lo?", comment: "Alert message saying that there is game with the same name and asking if the user wants to overwrite it."),
             
             preferredStyle: UIAlertControllerStyle.alert
         )
