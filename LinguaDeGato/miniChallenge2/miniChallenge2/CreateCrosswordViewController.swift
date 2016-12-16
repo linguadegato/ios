@@ -409,11 +409,11 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         generateButton.isEnabled = true
 
-        //removing black spaces
+        //removing blank spaces
         let txtNewWord = newWordTxtField.text
         let trimmedNewWordTxtField = txtNewWord!.trimmingCharacters(in: CharacterSet.whitespaces)
         
-        if !(trimmedNewWordTxtField.characters.count > BoardView.maxSquaresInCol) {
+        if !(trimmedNewWordTxtField.characters.count > limitLength) {
             
             // Appending new word + clue to newwords array:
             let aClue = Clue(aImageID: imageID, anAudioPath: audioPath)
@@ -434,6 +434,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             self.newWordTxtField.text = ""
             hasWord = false
             removeNewClueButton.isHidden = true
+            dismissKeyboard()
             
             
             if newWords.count >= 6 {
@@ -1056,18 +1057,26 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     //MARK: UITextFieldDelegate
     
-    //limits the characters in newWordTxtField
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = newWordTxtField.text else { return true }
-        //user presses backspace
-        if (string == ""){
-            textField.deleteBackward()
+        
+        //limits the characters in newWordTxtField
+        if (textField === self.newWordTxtField) {
+            guard let text = textField.text else { return true }
+            
+            //if user presses backspace
+            if (string == ""){
+                textField.deleteBackward()
+            }
+            
+            //insert captlized text if it's within limitLenght
+            let newLength = text.characters.count + string.characters.count - range.length
+            if (newLength <= limitLength) {
+                textField.insertText(string.capitalized)
+            }
+            
+            hasWord = (text.characters.count > 0)
         }
-        //insert captlized text if it's within limitLenght
-        let newLength = text.characters.count + string.characters.count - range.length
-        if (newLength <= limitLength) {
-            textField.insertText(string.capitalized)
-        }
+        
         return false
     }
     
