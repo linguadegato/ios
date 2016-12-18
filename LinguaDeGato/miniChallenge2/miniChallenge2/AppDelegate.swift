@@ -93,9 +93,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(error)
         }
         
-        if !MusicSingleton.sharedMusic().isMusicMute {
-            MusicSingleton.sharedMusic().playBackgroundAudio(true)
-        }
+        //Background music: off
+//        if !MusicSingleton.sharedMusic().isMusicMute {
+//            MusicSingleton.sharedMusic().playBackgroundAudio(true)
+//        }
         
     }
 

@@ -19,8 +19,9 @@ class InitialViewController: StatusBarViewController {
     @IBOutlet weak var privacyPolicyView: UITextView!
     @IBOutlet weak var closePrivacyPolicyButton: UIButton!
 
-    fileprivate let muteMusicOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
-    fileprivate let muteMusicOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
+    //Background music: off
+//    fileprivate let muteMusicOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
+//    fileprivate let muteMusicOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
     
     fileprivate var aGenerator: LGCrosswordGenerator!
     
@@ -29,8 +30,9 @@ class InitialViewController: StatusBarViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //Background music: off
         // Starts the background music
-        MusicSingleton.sharedMusic().playBackgroundAudio(true)
+//        MusicSingleton.sharedMusic().playBackgroundAudio(true)
         
         // Set Privacy Policy popup message
         let privacyPolicyString = NSLocalizedString("InitialViewController.PrivacyPolicyViewContent", value:"Política de Privacidade:\n\nEste aplicativo foi projetado para menores de 13 anos.\nTodo conteúdo criado através do aplicativo é de total responsabilidade de seus usuários.\n\nColeta de dados:\n\nColetamos fotos e utilizamos o microfone para gravação de áudio com o objetivo cumprir a funcionalidade principal da aplicação.\n\nSegurança:\n\nUtilizamos os protocolos de segurança internos padrão para que suas informações pessoais não sejam acessadas ou alteradas.\n\nControle do usuário:\n\nO aplicativo permite ao usuário acessar, alterar e/ou apagar seus dados.\n\nLocalização:\n\nNós não registramos ou compartilhamos a sua localização.\n\nEste aplicativo não possui:\n\n- Propaganda\n- Analytics\n\nPara mais informações, entre em contato conosco: contato@linguadegatoapp.com.br", comment:"Message of the privacy policy popup")
@@ -67,14 +69,17 @@ class InitialViewController: StatusBarViewController {
         privacyPolicyView.contentOffset = CGPoint.zero
     }
     
+    //Background music: off
+    //set image of mute music button
+    /*
     override func viewWillAppear(_ animated: Bool) {
-        //set image of mute music button
         if MusicSingleton.sharedMusic().isMusicMute {
             muteMusicButton.setImage(muteMusicOnImage, for: UIControlState())
         } else {
             muteMusicButton.setImage(muteMusicOffImage, for: UIControlState())
         }
     }
+     */
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -149,8 +154,9 @@ class InitialViewController: StatusBarViewController {
         })
     }
     
+    //Background music: off
     // "mute music" button
-    @IBAction func muteMusicButton(_ sender: AnyObject) {
+    /*@IBAction func muteMusicButton(_ sender: AnyObject) {
         
         if MusicSingleton.sharedMusic().isMusicMute {
             // music will play
@@ -163,7 +169,7 @@ class InitialViewController: StatusBarViewController {
             MusicSingleton.sharedMusic().isMusicMute = true
             MusicSingleton.sharedMusic().playBackgroundAudio(false)
         }
-    }
+    }*/
     
     @IBAction func openPrivacyPolicy() {
         privacyPolicyView.isHidden = false

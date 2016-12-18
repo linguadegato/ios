@@ -386,16 +386,6 @@
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" id="WOX-OI-wWH">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kJl-t4-65j" userLabel="Mute Music Button">
-                                <rect key="frame" x="964" y="2" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="btnMuteMusicOffLightBlue"/>
-                                <connections>
-                                    <action selector="muteMusicButton:" destination="poN-pE-e0p" eventType="touchUpInside" id="xUo-9S-ftL"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="CB4-Gq-Y70" id="sRx-Ik-OLi"/>
@@ -404,7 +394,6 @@
                         <outlet property="cameraRollButton" destination="9xl-u6-9Xk" id="GYb-T5-dKk"/>
                         <outlet property="generateButton" destination="G7F-d6-yNo" id="4Mj-Bw-D4h"/>
                         <outlet property="lowerContainer" destination="07X-lJ-afV" id="A7z-i0-JaP"/>
-                        <outlet property="muteMusicButton" destination="kJl-t4-65j" id="SPc-XF-ZST"/>
                         <outlet property="newImageImgView" destination="HqU-dF-wwX" id="dLN-CQ-sCp"/>
                         <outlet property="newWordTxtField" destination="mQc-ZF-1gt" id="sGL-WN-o0H"/>
                         <outlet property="removeNewClueButton" destination="HNB-87-mME" id="ZNU-Je-Epv"/>
@@ -427,14 +416,14 @@
                         <viewControllerLayoutGuide type="bottom" id="B9L-XC-Vs3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PGi-CJ-GlE">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kN5-DI-xyd" userLabel="Activity Indicator">
-                                <rect key="frame" x="502" y="374" width="20" height="20"/>
+                                <rect key="frame" x="502" y="342" width="20" height="20"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="Lingua_de_Gato" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="1024" height="660"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-3h-t5z">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
@@ -487,35 +476,22 @@
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
-                        <rightBarButtonItems>
-                            <barButtonItem id="h5C-oq-K2b">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qiF-gD-ctR" userLabel="Mute Music Button">
-                                    <rect key="frame" x="964" y="2" width="40" height="40"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="btnMuteMusicOffLightBlue"/>
-                                    <connections>
-                                        <action selector="muteMusicButton:" destination="epj-fT-bue" eventType="touchUpInside" id="lmX-0o-iaE"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                            <barButtonItem id="bwa-h0-5ih">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NZz-lp-d3c">
-                                    <rect key="frame" x="916" y="2" width="40" height="40"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="btnMuteAudioOffLightBlue"/>
-                                    <connections>
-                                        <action selector="muteAudioButton:" destination="epj-fT-bue" eventType="touchUpInside" id="X6V-Oh-tay"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" id="bwa-h0-5ih">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NZz-lp-d3c">
+                                <rect key="frame" x="916" y="2" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btnMuteAudioOffLightBlue"/>
+                                <connections>
+                                    <action selector="muteAudioButton:" destination="epj-fT-bue" eventType="touchUpInside" id="X6V-Oh-tay"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="kN5-DI-xyd" id="Zcf-7r-e0w"/>
                         <outlet property="boardView" destination="nER-cG-Zd8" id="2Sj-Iv-b49"/>
                         <outlet property="muteAudioButton" destination="NZz-lp-d3c" id="GEW-H2-0iW"/>
-                        <outlet property="muteMusicButton" destination="qiF-gD-ctR" id="dht-8i-Dhf"/>
                         <segue destination="vK8-Qp-WDY" kind="presentation" identifier="GameEnded" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="uvu-z8-EXW"/>
                     </connections>
                 </viewController>
@@ -889,22 +865,10 @@
                             <constraint firstItem="xRa-ZF-3Ot" firstAttribute="top" secondItem="iTP-WE-60i" secondAttribute="bottom" id="zfa-2b-3BL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5AI-fL-QIF">
-                        <barButtonItem key="rightBarButtonItem" id="ygy-iG-ns7">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sA2-xq-6gI" userLabel="Mute Music Button">
-                                <rect key="frame" x="964" y="2" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="btnMuteMusicOffLightBlue"/>
-                                <connections>
-                                    <action selector="muteMusicButton:" destination="Yba-oo-O4l" eventType="touchUpInside" id="4ie-UI-lBN"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="5AI-fL-QIF"/>
                     <connections>
                         <outlet property="closePrivacyPolicyButton" destination="tuQ-r5-mwW" id="5Kv-PV-h34"/>
                         <outlet property="createCrosswordButton" destination="i1h-AD-wNb" id="Kvg-RR-uWk"/>
-                        <outlet property="muteMusicButton" destination="sA2-xq-6gI" id="ptV-3u-AjG"/>
                         <outlet property="playRandomGameButton" destination="zMZ-68-6Ji" id="roW-gk-W55"/>
                         <outlet property="privacyPolicyView" destination="27P-Na-rgE" id="RhC-d8-4la"/>
                         <segue destination="epj-fT-bue" kind="show" identifier="randomGame" id="jFj-O3-2OQ"/>
@@ -1006,21 +970,10 @@
                                 <action selector="indexChanged:" destination="Ztr-Cm-8Zd" eventType="valueChanged" id="uV9-5V-BVp"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" id="po5-v3-nIJ">
-                            <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZTl-oC-rd0" userLabel="Mute Music Button">
-                                <rect key="frame" x="964" y="2" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="btnMuteMusicOffLightBlue"/>
-                                <connections>
-                                    <action selector="muteMusicButton:" destination="Ztr-Cm-8Zd" eventType="touchUpInside" id="sxv-mP-fov"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="galleryView" destination="nT4-mE-MoB" id="UFZ-dx-Skd"/>
                         <outlet property="gamesView" destination="a6W-qE-AcA" id="nY2-Fm-ZAR"/>
-                        <outlet property="muteMusicButton" destination="ZTl-oC-rd0" id="nH9-s4-5jj"/>
                         <outlet property="segmentedControl" destination="Iim-Tv-S3O" id="4gP-qW-mV6"/>
                     </connections>
                 </viewController>
@@ -1392,7 +1345,6 @@
         <image name="btnDelete" width="136" height="136"/>
         <image name="btnGalleryGreen" width="267" height="257"/>
         <image name="btnMuteAudioOffLightBlue" width="351" height="351"/>
-        <image name="btnMuteMusicOffLightBlue" width="351" height="351"/>
         <image name="iconAddWord" width="70" height="70"/>
         <image name="iconBoxGreen" width="50" height="50"/>
         <image name="iconCatTransparent" width="699" height="669"/>
@@ -1405,6 +1357,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MqY-2r-mQO"/>
+        <segue reference="g5f-eM-EuM"/>
     </inferredMetricsTieBreakers>
 </document>
