@@ -176,7 +176,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="5RJ-GH-ISS" customClass="NewWordCollectionViewCell" customModule="Lingua_de_Gato" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="29.5" width="135" height="130"/>
+                                                <rect key="frame" x="0.0" y="30" width="135" height="130"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="135" height="130"/>
@@ -990,7 +990,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EWF-lc-t3Z" userLabel="Games Collection View">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="604"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="oRS-sT-3CC">
                                     <size key="itemSize" width="50" height="50"/>
@@ -1085,7 +1085,7 @@
                                                 <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromSelectedGame" id="g5f-eM-EuM"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="726-4P-fbr" userLabel="Delete Button">
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="726-4P-fbr" userLabel="Delete Button">
                                             <rect key="frame" x="896" y="10" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="726-4P-fbr" secondAttribute="height" multiplier="1:1" id="Qhj-Ti-uUi"/>
@@ -1123,6 +1123,25 @@
                                     <outlet property="delegate" destination="RHV-tO-T4t" id="QPH-Rt-CyP"/>
                                 </connections>
                             </collectionView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCN-pp-VyZ" userLabel="Bottom View">
+                                <rect key="frame" x="0.0" y="604" width="1024" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6W2-Y4-XXb" userLabel="Arrow Button">
+                                        <rect key="frame" x="492" y="30" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="6W2-Y4-XXb" secondAttribute="height" multiplier="1:1" id="6xV-Vm-hyw"/>
+                                            <constraint firstAttribute="width" constant="40" id="a1f-JY-B5b"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="arrowDownCompleteGreen"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="6W2-Y4-XXb" firstAttribute="centerY" secondItem="dCN-pp-VyZ" secondAttribute="centerY" id="OUc-iK-0cg"/>
+                                    <constraint firstAttribute="height" constant="100" id="jPC-Zg-9LD"/>
+                                    <constraint firstItem="6W2-Y4-XXb" firstAttribute="centerX" secondItem="dCN-pp-VyZ" secondAttribute="centerX" id="qBm-BY-Sr8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1131,8 +1150,11 @@
                             <constraint firstItem="8HJ-54-YFN" firstAttribute="centerX" secondItem="hUh-lp-5Y5" secondAttribute="centerX" id="JrO-wM-IyR"/>
                             <constraint firstItem="EWF-lc-t3Z" firstAttribute="top" secondItem="nwy-2M-Vpd" secondAttribute="bottom" id="Njj-pL-pdh"/>
                             <constraint firstItem="EWF-lc-t3Z" firstAttribute="width" secondItem="hUh-lp-5Y5" secondAttribute="width" id="XG6-wx-3h1"/>
-                            <constraint firstItem="EWF-lc-t3Z" firstAttribute="height" secondItem="hUh-lp-5Y5" secondAttribute="height" id="ahS-jS-ICo"/>
+                            <constraint firstItem="dCN-pp-VyZ" firstAttribute="centerX" secondItem="hUh-lp-5Y5" secondAttribute="centerX" id="Y3J-6P-eFq"/>
+                            <constraint firstItem="dCN-pp-VyZ" firstAttribute="top" secondItem="EWF-lc-t3Z" secondAttribute="bottom" id="dNy-V7-R8L"/>
+                            <constraint firstItem="dCN-pp-VyZ" firstAttribute="width" secondItem="hUh-lp-5Y5" secondAttribute="width" id="rLf-zp-y1A"/>
                             <constraint firstItem="EWF-lc-t3Z" firstAttribute="centerX" secondItem="hUh-lp-5Y5" secondAttribute="centerX" id="rpp-VA-kdj"/>
+                            <constraint firstItem="4fd-LE-eLv" firstAttribute="top" secondItem="dCN-pp-VyZ" secondAttribute="bottom" id="sjf-mW-dxD"/>
                             <constraint firstItem="8HJ-54-YFN" firstAttribute="centerY" secondItem="hUh-lp-5Y5" secondAttribute="centerY" id="tAj-qK-QlN"/>
                         </constraints>
                     </view>
@@ -1349,6 +1371,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wxU-Rh-3lg"/>
+        <segue reference="g5f-eM-EuM"/>
     </inferredMetricsTieBreakers>
 </document>
