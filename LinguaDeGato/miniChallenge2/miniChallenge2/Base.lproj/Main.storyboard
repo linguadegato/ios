@@ -409,14 +409,14 @@
                         <viewControllerLayoutGuide type="bottom" id="B9L-XC-Vs3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PGi-CJ-GlE">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kN5-DI-xyd" userLabel="Activity Indicator">
-                                <rect key="frame" x="502" y="374" width="20" height="20"/>
+                                <rect key="frame" x="502" y="342" width="20" height="20"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="Lingua_de_Gato" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="1024" height="660"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-3h-t5z">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
@@ -945,7 +945,7 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="51Z-MB-cws" userLabel="Back Button">
                                 <rect key="frame" x="20" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="arrowLeftGreen"/>
+                                <state key="normal" title="Button" image="arrowLeftBlue"/>
                                 <connections>
                                     <action selector="goBack:" destination="Ztr-Cm-8Zd" eventType="touchUpInside" id="UDK-yB-WmL"/>
                                 </connections>
@@ -1085,7 +1085,7 @@
                                                 <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromSelectedGame" id="g5f-eM-EuM"/>
                                             </connections>
                                         </button>
-                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="726-4P-fbr" userLabel="Delete Button">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="726-4P-fbr" userLabel="Delete Button">
                                             <rect key="frame" x="896" y="10" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="726-4P-fbr" secondAttribute="height" multiplier="1:1" id="Qhj-Ti-uUi"/>
@@ -1267,12 +1267,12 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPJ-Am-6C3" userLabel="Arrow Button">
-                                        <rect key="frame" x="477" y="15" width="70" height="70"/>
+                                        <rect key="frame" x="492" y="30" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="EXY-nn-rCb"/>
+                                            <constraint firstAttribute="height" constant="40" id="EXY-nn-rCb"/>
                                             <constraint firstAttribute="width" secondItem="KPJ-Am-6C3" secondAttribute="height" multiplier="1:1" id="ivz-NH-DR0"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="arrowDownOrange"/>
+                                        <state key="normal" title="Button" image="arrowDownCompleteGreen"/>
                                         <connections>
                                             <action selector="scrollButton:" destination="Nsy-js-WgB" eventType="touchUpInside" id="H5Y-29-dBR"/>
                                         </connections>
@@ -1329,9 +1329,8 @@
     <resources>
         <image name="GameEndPopup.png" width="2048" height="1489"/>
         <image name="IconPlayAudioGreenTransparent" width="132" height="132"/>
-        <image name="arrowDownOrange" width="78" height="78"/>
+        <image name="arrowDownCompleteGreen" width="78" height="78"/>
         <image name="arrowLeftBlue" width="78" height="78"/>
-        <image name="arrowLeftGreen" width="78" height="78"/>
         <image name="background" width="2002" height="1403"/>
         <image name="bntCameraPink" width="267" height="257"/>
         <image name="btnAudio" width="264" height="254"/>
@@ -1350,6 +1349,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MqY-2r-mQO"/>
+        <segue reference="wxU-Rh-3lg"/>
     </inferredMetricsTieBreakers>
 </document>
