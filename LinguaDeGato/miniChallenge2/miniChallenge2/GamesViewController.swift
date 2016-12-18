@@ -13,6 +13,7 @@ import Photos
 class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
 
     @IBOutlet weak var gamesCollectionView: UICollectionView!
+    @IBOutlet weak var bottomView: UIView!
     
     fileprivate var allGames = [Game]()
     fileprivate let reuseIdentifier = "ClueCell"
@@ -30,7 +31,10 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
             self.gamesCollectionView.reloadData()
             
             if (self.allGames.count > self.numberOfVisibleSections){
-                self.gamesCollectionView.flashScrollIndicators()
+//                self.gamesCollectionView.flashScrollIndicators()
+                self.bottomView.isHidden = false
+            }else{
+                self.bottomView.isHidden = true
             }
         })
         
@@ -140,6 +144,15 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
             
             indicator.removeFromSuperview()
         }
+        
+    }
+    
+    @IBAction func scrollArrowButton(_ sender: Any) {
+        
+        let visibleItens = self.gamesCollectionView.indexPathsForVisibleItems
+        let firstSectionVisible = visibleItens[self.numberOfVisibleSections]
+        let firstPosition = UICollectionViewScrollPosition.top
+        self.gamesCollectionView.scrollToItem(at: firstSectionVisible, at: firstPosition, animated: true)
         
     }
     

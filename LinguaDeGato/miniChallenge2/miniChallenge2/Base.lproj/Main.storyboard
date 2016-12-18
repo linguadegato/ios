@@ -1133,6 +1133,9 @@
                                             <constraint firstAttribute="width" constant="40" id="a1f-JY-B5b"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="arrowDownCompleteGreen"/>
+                                        <connections>
+                                            <action selector="scrollArrowButton:" destination="RHV-tO-T4t" eventType="touchUpInside" id="rYA-e6-WKL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1159,6 +1162,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomView" destination="dCN-pp-VyZ" id="okm-vW-VEM"/>
                         <outlet property="gamesCollectionView" destination="EWF-lc-t3Z" id="hDs-Ai-TND"/>
                     </connections>
                 </viewController>
