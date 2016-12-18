@@ -369,23 +369,16 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="xpP-l2-P9N">
-                        <leftBarButtonItems>
-                            <barButtonItem id="L1N-nk-cNJ" userLabel="Back Bar Button Item">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="S7D-Vq-8a9">
-                                    <rect key="frame" x="20" y="2" width="40" height="40"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Button" image="arrowLeftBlue"/>
-                                    <connections>
-                                        <action selector="goBackPopup:" destination="poN-pE-e0p" eventType="touchUpInside" id="RDc-YV-dCf"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                            <barButtonItem title="Voltar" id="KgB-fe-SdX" userLabel="Back Item">
+                        <barButtonItem key="leftBarButtonItem" id="L1N-nk-cNJ" userLabel="Back Bar Button Item">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="S7D-Vq-8a9">
+                                <rect key="frame" x="20" y="2" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="arrowLeftBlue"/>
                                 <connections>
-                                    <action selector="goBackPopup:" destination="poN-pE-e0p" id="pjs-nv-IxY"/>
+                                    <action selector="goBackPopup:" destination="poN-pE-e0p" eventType="touchUpInside" id="RDc-YV-dCf"/>
                                 </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="CB4-Gq-Y70" id="sRx-Ik-OLi"/>
@@ -416,14 +409,14 @@
                         <viewControllerLayoutGuide type="bottom" id="B9L-XC-Vs3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PGi-CJ-GlE">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kN5-DI-xyd" userLabel="Activity Indicator">
-                                <rect key="frame" x="502" y="342" width="20" height="20"/>
+                                <rect key="frame" x="502" y="374" width="20" height="20"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="Lingua_de_Gato" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
+                                <rect key="frame" x="0.0" y="64" width="1024" height="660"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-3h-t5z">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
@@ -1357,6 +1350,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="g5f-eM-EuM"/>
+        <segue reference="MqY-2r-mQO"/>
     </inferredMetricsTieBreakers>
 </document>
