@@ -28,6 +28,7 @@ class GamesCollectionViewController : UICollectionViewController{
             
             self.allGames = result
             self.gamesCollectionView.reloadData()
+            
         })
     }
     

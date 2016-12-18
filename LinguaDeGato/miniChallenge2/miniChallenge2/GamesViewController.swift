@@ -33,7 +33,8 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
             self.gamesCollectionView.reloadData()
             
             if (self.allGames.count > self.numberOfVisibleSections){
-                self.scrollArrowButton.isHidden = false
+//                self.scrollArrowButton.isHidden = false
+                self.gamesCollectionView.flashScrollIndicators()
             }
         })
         
