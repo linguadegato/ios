@@ -374,7 +374,7 @@
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="S7D-Vq-8a9">
                                     <rect key="frame" x="20" y="2" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Button" image="slideBlue"/>
+                                    <state key="normal" title="Button" image="arrowLeftBlue"/>
                                     <connections>
                                         <action selector="goBackPopup:" destination="poN-pE-e0p" eventType="touchUpInside" id="RDc-YV-dCf"/>
                                     </connections>
@@ -427,14 +427,14 @@
                         <viewControllerLayoutGuide type="bottom" id="B9L-XC-Vs3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PGi-CJ-GlE">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kN5-DI-xyd" userLabel="Activity Indicator">
-                                <rect key="frame" x="502" y="342" width="20" height="20"/>
+                                <rect key="frame" x="502" y="374" width="20" height="20"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="Lingua_de_Gato" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
+                                <rect key="frame" x="0.0" y="64" width="1024" height="660"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-3h-t5z">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
@@ -1044,7 +1044,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EWF-lc-t3Z" userLabel="Games Collection View">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="654"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="oRS-sT-3CC">
                                     <size key="itemSize" width="50" height="50"/>
@@ -1177,43 +1177,21 @@
                                     <outlet property="delegate" destination="RHV-tO-T4t" id="QPH-Rt-CyP"/>
                                 </connections>
                             </collectionView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RoH-Jl-Jj7" userLabel="Games Botton View">
-                                <rect key="frame" x="0.0" y="654" width="1024" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAh-Zn-das" userLabel="Arrow Button">
-                                        <rect key="frame" x="487" y="0.0" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="mAh-Zn-das" secondAttribute="height" multiplier="1:1" id="Fma-1B-F6i"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="arrowDownBlue"/>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Ubp-PK-hny"/>
-                                    <constraint firstItem="mAh-Zn-das" firstAttribute="centerY" secondItem="RoH-Jl-Jj7" secondAttribute="centerY" id="ccX-vG-exg"/>
-                                    <constraint firstItem="mAh-Zn-das" firstAttribute="centerX" secondItem="RoH-Jl-Jj7" secondAttribute="centerX" id="jl6-g7-NTj"/>
-                                    <constraint firstItem="mAh-Zn-das" firstAttribute="height" secondItem="RoH-Jl-Jj7" secondAttribute="height" id="yKL-6s-vGV"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8HJ-54-YFN" firstAttribute="width" secondItem="hUh-lp-5Y5" secondAttribute="width" id="2Jx-bh-Ikc"/>
                             <constraint firstItem="8HJ-54-YFN" firstAttribute="height" secondItem="hUh-lp-5Y5" secondAttribute="height" id="AnM-Sl-6hv"/>
-                            <constraint firstItem="RoH-Jl-Jj7" firstAttribute="top" secondItem="EWF-lc-t3Z" secondAttribute="bottom" id="EVm-AY-jXN"/>
                             <constraint firstItem="8HJ-54-YFN" firstAttribute="centerX" secondItem="hUh-lp-5Y5" secondAttribute="centerX" id="JrO-wM-IyR"/>
                             <constraint firstItem="EWF-lc-t3Z" firstAttribute="top" secondItem="nwy-2M-Vpd" secondAttribute="bottom" id="Njj-pL-pdh"/>
-                            <constraint firstItem="RoH-Jl-Jj7" firstAttribute="centerX" secondItem="hUh-lp-5Y5" secondAttribute="centerX" id="OQp-mi-CwW"/>
                             <constraint firstItem="EWF-lc-t3Z" firstAttribute="width" secondItem="hUh-lp-5Y5" secondAttribute="width" id="XG6-wx-3h1"/>
-                            <constraint firstItem="4fd-LE-eLv" firstAttribute="top" secondItem="RoH-Jl-Jj7" secondAttribute="bottom" id="ZMe-BX-FUl"/>
+                            <constraint firstItem="EWF-lc-t3Z" firstAttribute="height" secondItem="hUh-lp-5Y5" secondAttribute="height" id="ahS-jS-ICo"/>
                             <constraint firstItem="EWF-lc-t3Z" firstAttribute="centerX" secondItem="hUh-lp-5Y5" secondAttribute="centerX" id="rpp-VA-kdj"/>
                             <constraint firstItem="8HJ-54-YFN" firstAttribute="centerY" secondItem="hUh-lp-5Y5" secondAttribute="centerY" id="tAj-qK-QlN"/>
-                            <constraint firstItem="RoH-Jl-Jj7" firstAttribute="width" secondItem="hUh-lp-5Y5" secondAttribute="width" id="uxF-tw-wyk"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="gamesCollectionView" destination="EWF-lc-t3Z" id="hDs-Ai-TND"/>
-                        <outlet property="scrollArrowButton" destination="mAh-Zn-das" id="YCY-TL-SdR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyN-r6-F5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1405,7 +1383,6 @@
     <resources>
         <image name="GameEndPopup.png" width="2048" height="1489"/>
         <image name="IconPlayAudioGreenTransparent" width="132" height="132"/>
-        <image name="arrowDownBlue" width="78" height="78"/>
         <image name="arrowDownOrange" width="78" height="78"/>
         <image name="arrowLeftBlue" width="78" height="78"/>
         <image name="arrowLeftGreen" width="78" height="78"/>
@@ -1425,10 +1402,9 @@
         <image name="iconPlayOrangeWhite" width="50" height="50"/>
         <image name="iconTrashOrangeTransparent" width="150" height="150"/>
         <image name="imageDefault" width="683" height="499"/>
-        <image name="slideBlue" width="78" height="78"/>
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="g5f-eM-EuM"/>
+        <segue reference="MqY-2r-mQO"/>
     </inferredMetricsTieBreakers>
 </document>

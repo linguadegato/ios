@@ -13,7 +13,6 @@ import Photos
 class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
 
     @IBOutlet weak var gamesCollectionView: UICollectionView!
-    @IBOutlet weak var scrollArrowButton: UIButton!
     
     fileprivate var allGames = [Game]()
     fileprivate let reuseIdentifier = "ClueCell"
@@ -24,8 +23,6 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     //MARK: - LIFECYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.scrollArrowButton.isHidden = true
         self.gamesCollectionView.allowsMultipleSelection = false
         
         GameServices.retrieveAllGames({ result in
@@ -33,7 +30,6 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
             self.gamesCollectionView.reloadData()
             
             if (self.allGames.count > self.numberOfVisibleSections){
-//                self.scrollArrowButton.isHidden = false
                 self.gamesCollectionView.flashScrollIndicators()
             }
         })
