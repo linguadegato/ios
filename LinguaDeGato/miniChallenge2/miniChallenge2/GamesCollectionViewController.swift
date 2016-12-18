@@ -17,7 +17,6 @@ class GamesCollectionViewController : UICollectionViewController{
     var allGames = [Game]()
     
     fileprivate let reuseIdentifier = "ClueCell"
-    fileprivate var selectedSection : Int?
     
     static let onlyAudioImage = UIImage(named: "imageDefaultAudio")
         
@@ -77,48 +76,10 @@ class GamesCollectionViewController : UICollectionViewController{
         return cell
     }
     
-//    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-//        switch kind {
-//        case UICollectionElementKindSectionHeader:
-//            
-//            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "AllGamesHeader",forIndexPath: indexPath) as! GamesHeaderView
-//            headerView.title.text = allGames[indexPath.section].name
-//            headerView.playButton.setTitle("\(indexPath.section)", forState: UIControlState.Selected)
-//            return headerView
-//
-//        default:
-//            assert(false, "Unexpected element kind")
-//        }
-//    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         
         let cellSizeForGame = collectionView.bounds.size.width/6.8
         return CGSize(width: cellSizeForGame, height: cellSizeForGame)
-        
-    }
-    
-    //MARK: - NAVIGATION
-    @IBAction func playGame(_ sender: UIButton) {
-        let buttonTitle = sender.title(for: UIControlState.selected)
-        selectedSection = Int(buttonTitle!)
-
-        self.performSegue(withIdentifier: "CreateGameFromSelectedGame", sender: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //MARK: HARRY-TODO: ACTIVITY INDICATOR
-        if (selectedSection != nil){
-            let selectedGame = allGames[selectedSection!].wordsAndClueArray
-            
-            let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: selectedGame)
-            aGenerator.computeCrossword(2, spins: 4)
-            
-            if (segue.identifier == "CreateGameFromSelectedGame" ) {
-                (segue.destination as! GamePlayViewController).crosswordMatrix = aGenerator.grid
-                (segue.destination as! GamePlayViewController).words = aGenerator.currentWordlist
-            }
-        }
         
     }
     

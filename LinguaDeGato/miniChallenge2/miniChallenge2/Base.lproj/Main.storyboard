@@ -421,7 +421,7 @@
         <!--Game Play View Controller-->
         <scene sceneID="Fxu-H6-vaK">
             <objects>
-                <viewController restorationIdentifier="GamePlayViC" id="epj-fT-bue" customClass="GamePlayViewController" customModule="Lingua_de_Gato" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="GamePlayVC" storyboardIdentifier="GamePlayVC" id="epj-fT-bue" customClass="GamePlayViewController" customModule="Lingua_de_Gato" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b4d-cD-jcb"/>
                         <viewControllerLayoutGuide type="bottom" id="B9L-XC-Vs3"/>
@@ -1002,7 +1002,7 @@
                             </barButtonItem>
                         </leftBarButtonItems>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Iim-Tv-S3O">
-                            <rect key="frame" x="304.5" y="7.5" width="415" height="29"/>
+                            <rect key="frame" x="305" y="8" width="415" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Palavras "/>
@@ -1013,7 +1013,7 @@
                             </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" id="po5-v3-nIJ">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZTl-oC-rd0" userLabel="Mute Music Button">
+                            <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZTl-oC-rd0" userLabel="Mute Music Button">
                                 <rect key="frame" x="964" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="btnMuteMusicOffLightBlue"/>
@@ -1122,14 +1122,8 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pCQ-IB-V70" userLabel="Title View">
                                             <rect key="frame" x="0.0" y="0.0" width="1024" height="70"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconBoxGreen" translatesAutoresizingMaskIntoConstraints="NO" id="qs7-aa-hzQ" userLabel="Icon Image">
-                                                    <rect key="frame" x="13" y="10" width="50" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="qs7-aa-hzQ" secondAttribute="height" multiplier="1:1" id="fnw-hK-10x"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbO-5U-mMX" userLabel="Title Label">
-                                                    <rect key="frame" x="68" y="23" width="45" height="24"/>
+                                                    <rect key="frame" x="10" y="23" width="45" height="24"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.60392156860000001" green="0.75294117650000003" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1137,20 +1131,45 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="LbO-5U-mMX" firstAttribute="centerY" secondItem="pCQ-IB-V70" secondAttribute="centerY" id="IqZ-WS-z6X"/>
-                                                <constraint firstItem="qs7-aa-hzQ" firstAttribute="leading" secondItem="pCQ-IB-V70" secondAttribute="leadingMargin" constant="5" id="MJB-bN-W3Y"/>
-                                                <constraint firstItem="LbO-5U-mMX" firstAttribute="leading" secondItem="qs7-aa-hzQ" secondAttribute="trailing" constant="5" id="Rhh-nf-bmK"/>
-                                                <constraint firstItem="qs7-aa-hzQ" firstAttribute="centerY" secondItem="pCQ-IB-V70" secondAttribute="centerY" id="hqn-Kf-4fr"/>
-                                                <constraint firstItem="qs7-aa-hzQ" firstAttribute="height" secondItem="pCQ-IB-V70" secondAttribute="height" multiplier="1:1.4" id="xGf-oG-xro"/>
+                                                <constraint firstItem="LbO-5U-mMX" firstAttribute="leading" secondItem="pCQ-IB-V70" secondAttribute="leading" constant="10" id="Vq2-sO-ghE"/>
                                             </constraints>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1a-yD-1lA">
+                                            <rect key="frame" x="956" y="10" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="j1a-yD-1lA" secondAttribute="height" multiplier="1:1" id="3gd-0o-uRK"/>
+                                                <constraint firstAttribute="width" constant="50" id="gUP-vM-wmu"/>
+                                            </constraints>
+                                            <state key="normal" title="Play Button" image="iconPlayOrangeWhite"/>
+                                            <connections>
+                                                <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromSelectedGame" id="g5f-eM-EuM"/>
+                                            </connections>
+                                        </button>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="726-4P-fbr" userLabel="Delete Button">
+                                            <rect key="frame" x="896" y="10" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="726-4P-fbr" secondAttribute="height" multiplier="1:1" id="Qhj-Ti-uUi"/>
+                                            </constraints>
+                                            <state key="normal" title="Button" image="iconTrashOrangeTransparent"/>
+                                            <connections>
+                                                <action selector="deteleSelectedGame:" destination="EVE-6j-ZbM" eventType="touchUpInside" id="E20-os-60c"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="726-4P-fbr" firstAttribute="centerY" secondItem="EVE-6j-ZbM" secondAttribute="centerY" id="5b2-YL-2qp"/>
+                                        <constraint firstItem="j1a-yD-1lA" firstAttribute="leading" secondItem="726-4P-fbr" secondAttribute="trailing" constant="10" id="Nk4-Eb-tt3"/>
                                         <constraint firstItem="pCQ-IB-V70" firstAttribute="width" secondItem="EVE-6j-ZbM" secondAttribute="width" id="WMc-au-DBF"/>
+                                        <constraint firstItem="j1a-yD-1lA" firstAttribute="centerY" secondItem="EVE-6j-ZbM" secondAttribute="centerY" id="Y71-ca-bju"/>
                                         <constraint firstItem="pCQ-IB-V70" firstAttribute="height" secondItem="EVE-6j-ZbM" secondAttribute="height" id="enL-8u-euf"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="j1a-yD-1lA" secondAttribute="trailing" constant="10" id="kyM-cR-GCt"/>
+                                        <constraint firstItem="726-4P-fbr" firstAttribute="width" secondItem="j1a-yD-1lA" secondAttribute="width" id="lT1-r6-qpX"/>
                                         <constraint firstItem="pCQ-IB-V70" firstAttribute="centerX" secondItem="EVE-6j-ZbM" secondAttribute="centerX" id="tMD-N9-5xW"/>
                                         <constraint firstItem="pCQ-IB-V70" firstAttribute="centerY" secondItem="EVE-6j-ZbM" secondAttribute="centerY" id="zS2-KJ-zK9"/>
                                     </constraints>
                                     <connections>
+                                        <outlet property="deleteBtn" destination="726-4P-fbr" id="GvD-Sl-HD9"/>
+                                        <outlet property="playBtn" destination="j1a-yD-1lA" id="yEn-SS-qoV"/>
                                         <outlet property="title" destination="LbO-5U-mMX" id="soW-ka-VSN"/>
                                     </connections>
                                 </collectionReusableView>
@@ -1167,13 +1186,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RoH-Jl-Jj7" userLabel="Games Botton View">
                                 <rect key="frame" x="0.0" y="604" width="1024" height="100"/>
                                 <subviews>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gnx-6K-PFq" userLabel="Play Text Button">
-                                        <rect key="frame" x="863" y="32" width="51" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Jogar">
-                                            <color key="titleColor" red="0.96862745100000003" green="0.66274509800000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAh-Zn-das" userLabel="Arrow Button">
                                         <rect key="frame" x="477" y="15" width="70" height="70"/>
                                         <constraints>
@@ -1182,35 +1194,10 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="arrowDownOrange"/>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bL-aY-gwN" userLabel="Play Button">
-                                        <rect key="frame" x="934" y="15" width="70" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="W2r-Kt-njQ"/>
-                                            <constraint firstAttribute="width" secondItem="4bL-aY-gwN" secondAttribute="height" multiplier="1:1" id="efs-5u-L3Z"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="iconPlayOrangeWhite"/>
-                                        <connections>
-                                            <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromSelectedGame" id="SyW-KV-GTV"/>
-                                        </connections>
-                                    </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WQ-yU-uEL">
-                                        <rect key="frame" x="20" y="15" width="70" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="9WQ-yU-uEL" secondAttribute="height" multiplier="1:1" id="zsv-M6-QzC"/>
-                                        </constraints>
-                                        <state key="normal" title="Delete Button" image="iconTrashOrangeTransparent"/>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="9WQ-yU-uEL" firstAttribute="centerY" secondItem="RoH-Jl-Jj7" secondAttribute="centerY" id="0ps-If-zO0"/>
-                                    <constraint firstItem="4bL-aY-gwN" firstAttribute="centerY" secondItem="RoH-Jl-Jj7" secondAttribute="centerY" id="3AD-jg-OPd"/>
-                                    <constraint firstItem="4bL-aY-gwN" firstAttribute="leading" secondItem="Gnx-6K-PFq" secondAttribute="trailing" constant="20" id="8Xu-6G-bo6"/>
-                                    <constraint firstItem="Gnx-6K-PFq" firstAttribute="centerY" secondItem="RoH-Jl-Jj7" secondAttribute="centerY" id="RgC-i0-cQy"/>
                                     <constraint firstAttribute="height" constant="100" id="Ubp-PK-hny"/>
-                                    <constraint firstAttribute="trailing" secondItem="4bL-aY-gwN" secondAttribute="trailing" constant="20" id="Y8W-IV-zlG"/>
                                     <constraint firstItem="mAh-Zn-das" firstAttribute="centerY" secondItem="RoH-Jl-Jj7" secondAttribute="centerY" id="ccX-vG-exg"/>
-                                    <constraint firstItem="9WQ-yU-uEL" firstAttribute="width" secondItem="4bL-aY-gwN" secondAttribute="width" id="ebv-w6-Hdu"/>
-                                    <constraint firstItem="9WQ-yU-uEL" firstAttribute="leading" secondItem="RoH-Jl-Jj7" secondAttribute="leading" constant="20" id="fFx-za-wfd"/>
                                     <constraint firstItem="mAh-Zn-das" firstAttribute="centerX" secondItem="RoH-Jl-Jj7" secondAttribute="centerX" id="jl6-g7-NTj"/>
                                 </constraints>
                             </view>
@@ -1232,14 +1219,12 @@
                     </view>
                     <connections>
                         <outlet property="gamesCollectionView" destination="EWF-lc-t3Z" id="hDs-Ai-TND"/>
-                        <outlet property="playButton" destination="4bL-aY-gwN" id="Eo1-Ld-Qho"/>
-                        <outlet property="playTextButton" destination="Gnx-6K-PFq" id="XWW-dq-SOl"/>
                         <outlet property="scrollArrowButton" destination="mAh-Zn-das" id="YCY-TL-SdR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyN-r6-F5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1096" y="1445"/>
+            <point key="canvasLocation" x="-1096.2890625" y="1444.53125"/>
         </scene>
         <!--Gallery View Controller-->
         <scene sceneID="8dp-lI-cDT">
@@ -1447,6 +1432,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SyW-KV-GTV"/>
+        <segue reference="g5f-eM-EuM"/>
     </inferredMetricsTieBreakers>
 </document>
