@@ -12,14 +12,11 @@ class GamesHeaderView: UICollectionReusableView {
     @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var playBtn: UIButton!
     
-    
-    @IBAction func deteleSelectedGame(_ sender: UIButton) {
-        print("delete btn")
-    }
-    
     func setPlayBtnID(sectionNumber: Int){
         playBtn.tag = sectionNumber
     }
     
-    
+    func setDeleteBtnID(sectionNumber: Int){
+        deleteBtn.tag = sectionNumber
+    }
 }
