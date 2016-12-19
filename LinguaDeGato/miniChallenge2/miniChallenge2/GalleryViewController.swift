@@ -332,9 +332,45 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
     
     //MARK: - DELETE BUTTON
     
-    @IBAction func deleteSelectedWords(_ sender: UIButton) {
+    @IBAction func deleteWordsButton(_ sender: UIButton) {
+        
+        let deleteWordsAlert = UIAlertController(
+            title: NSLocalizedString("galleryViewController.deleteWordsAlert.title", value:"Deseja apagar estas palavras?", comment:"Ask the user if he wants to go delete words."),
+            message: NSLocalizedString("galleryViewController.deleteWordsAlert.message", value:"O jogo selecionado será deletado, mas as palavras permanecerão salvas.", comment:"Message informing the user that only the game will be deleted (not the words)."),
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+        
+        deleteWordsAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("galleryViewController.deleteWordsAlert.button.cancel", value:"Cancelar", comment:"Button to cancel the action of deleting game."),
+            style: UIAlertActionStyle.default,
+            handler:nil
+        ))
+        
+        deleteWordsAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("galleryViewController.deleteWordsAlert.button.continue", value:"Apagar", comment:"Button to continue the action and delete game."),
+            style: UIAlertActionStyle.cancel,
+            handler: {_ in
+                self.deleteWords()
+            }
+        ))
+        
+        self.present(deleteWordsAlert, animated: true, completion: {})
+
     }
     
+    //MARK: - DELETE FUNCTIONS
+    
+    fileprivate func deleteWords(){
+        print("deleteWords: \(selectedWords)")
+        
+        /*
+        >>>> DELETE WORDS FROM DATABASE
+        >>>> Percorrer os arrays de jogos e verificar se algum ficou vazio
+        */
+        
+        self.selectedWords = []
+        self.galleryCollectionView.reloadData()
+    }
     
     //MARK: - NAVIGATION
     
