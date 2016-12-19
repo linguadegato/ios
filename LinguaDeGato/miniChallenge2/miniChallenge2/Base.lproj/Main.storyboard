@@ -248,18 +248,18 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2Q-Kl-yp5" userLabel="buttonBox">
                                         <rect key="frame" x="886" y="8" width="130" height="189"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvD-Qe-Pt1">
-                                                <rect key="frame" x="40" y="15" width="70" height="70"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvD-Qe-Pt1" userLabel="Play Btn">
+                                                <rect key="frame" x="30" y="15" width="70" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="45" id="CAT-0m-zCv"/>
                                                     <constraint firstAttribute="height" constant="45" id="KiL-ht-tM5"/>
+                                                    <constraint firstAttribute="width" secondItem="bvD-Qe-Pt1" secondAttribute="height" multiplier="1:1" id="Teq-Yv-gX5"/>
                                                     <constraint firstAttribute="width" constant="43" id="Vak-5K-nQ9"/>
                                                     <constraint firstAttribute="width" secondItem="bvD-Qe-Pt1" secondAttribute="height" id="Wpm-2c-8jV"/>
                                                     <constraint firstAttribute="height" constant="30" id="YWF-Mq-9pW"/>
-                                                    <constraint firstAttribute="width" constant="70" id="nvP-XO-Rkc"/>
                                                     <constraint firstAttribute="height" constant="70" id="qzR-al-YoV"/>
                                                 </constraints>
-                                                <state key="normal" title="Salvar" image="iconPlayOrangeWhite"/>
+                                                <state key="normal" title="Play Btn" image="iconPlayOrangeWhite"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="CAT-0m-zCv"/>
@@ -273,14 +273,13 @@
                                                     <action selector="playGame:" destination="poN-pE-e0p" eventType="touchUpInside" id="Xz0-AU-fKe"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7F-d6-yNo" userLabel="Play">
-                                                <rect key="frame" x="40" y="105" width="70" height="70"/>
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7F-d6-yNo" userLabel="Save Btn">
+                                                <rect key="frame" x="30" y="105" width="70" height="70"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="70" id="8Hc-a5-44T"/>
                                                     <constraint firstAttribute="width" secondItem="G7F-d6-yNo" secondAttribute="height" id="Ebp-IN-2dN"/>
+                                                    <constraint firstAttribute="width" secondItem="G7F-d6-yNo" secondAttribute="height" multiplier="1:1" id="Tnv-k1-W01"/>
                                                     <constraint firstAttribute="height" constant="45" id="Zd7-Zb-pip"/>
                                                     <constraint firstAttribute="width" constant="45" id="dVT-V0-x5A"/>
-                                                    <constraint firstAttribute="width" constant="70" id="kJv-d4-2sz"/>
                                                 </constraints>
                                                 <state key="normal" image="iconBoxGreen"/>
                                                 <variation key="default">
@@ -297,28 +296,11 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="bvD-Qe-Pt1" firstAttribute="top" secondItem="z2Q-Kl-yp5" secondAttribute="top" constant="15" id="Iwn-LP-Uh5"/>
-                                            <constraint firstItem="bvD-Qe-Pt1" firstAttribute="centerX" secondItem="z2Q-Kl-yp5" secondAttribute="centerX" constant="10" id="JFS-rk-frG"/>
-                                            <constraint firstItem="bvD-Qe-Pt1" firstAttribute="leading" secondItem="z2Q-Kl-yp5" secondAttribute="leading" constant="12" id="Jqb-MC-uIH"/>
-                                            <constraint firstItem="bvD-Qe-Pt1" firstAttribute="top" secondItem="z2Q-Kl-yp5" secondAttribute="top" constant="3" id="TiK-0B-37z"/>
-                                            <constraint firstItem="G7F-d6-yNo" firstAttribute="width" secondItem="z2Q-Kl-yp5" secondAttribute="width" multiplier="0.7" constant="-3.2999999999999972" id="WWU-fk-SYM"/>
-                                            <constraint firstItem="G7F-d6-yNo" firstAttribute="centerX" secondItem="z2Q-Kl-yp5" secondAttribute="centerX" constant="-2" id="bFT-FP-CS7"/>
-                                            <constraint firstItem="bvD-Qe-Pt1" firstAttribute="centerX" secondItem="z2Q-Kl-yp5" secondAttribute="centerX" id="bcE-qZ-2vb"/>
-                                            <constraint firstItem="G7F-d6-yNo" firstAttribute="centerX" secondItem="z2Q-Kl-yp5" secondAttribute="centerX" constant="10.5" id="itR-aO-ZtS"/>
-                                            <constraint firstItem="bvD-Qe-Pt1" firstAttribute="top" secondItem="z2Q-Kl-yp5" secondAttribute="top" constant="9" id="tTS-6V-Jjp"/>
+                                            <constraint firstItem="G7F-d6-yNo" firstAttribute="height" secondItem="bvD-Qe-Pt1" secondAttribute="height" id="TgP-IN-X53"/>
+                                            <constraint firstItem="G7F-d6-yNo" firstAttribute="centerX" secondItem="z2Q-Kl-yp5" secondAttribute="centerX" id="rPx-Ra-hX9"/>
                                             <constraint firstItem="G7F-d6-yNo" firstAttribute="top" secondItem="bvD-Qe-Pt1" secondAttribute="bottom" constant="20" id="tUF-FR-FE2"/>
-                                            <constraint firstItem="G7F-d6-yNo" firstAttribute="centerY" secondItem="z2Q-Kl-yp5" secondAttribute="centerY" id="wUg-be-d8O"/>
+                                            <constraint firstItem="bvD-Qe-Pt1" firstAttribute="centerX" secondItem="z2Q-Kl-yp5" secondAttribute="centerX" id="ygB-Z0-i5s"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="Jqb-MC-uIH"/>
-                                                <exclude reference="TiK-0B-37z"/>
-                                                <exclude reference="bcE-qZ-2vb"/>
-                                                <exclude reference="tTS-6V-Jjp"/>
-                                                <exclude reference="WWU-fk-SYM"/>
-                                                <exclude reference="bFT-FP-CS7"/>
-                                                <exclude reference="wUg-be-d8O"/>
-                                            </mask>
-                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
@@ -667,7 +649,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="154" height="99"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMZ-68-6Ji" userLabel="Play Random Game Button">
-                                                                        <rect key="frame" x="38.5" y="0.0" width="77" height="77"/>
+                                                                        <rect key="frame" x="39" y="0.0" width="77" height="77"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" secondItem="zMZ-68-6Ji" secondAttribute="width" id="bpU-dp-zGC"/>
                                                                         </constraints>
@@ -698,10 +680,10 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NrP-aN-FwO" userLabel="Criar Jogo">
-                                                                <rect key="frame" x="154.5" y="0.0" width="154" height="99"/>
+                                                                <rect key="frame" x="154" y="0.0" width="154" height="99"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="i1h-AD-wNb" userLabel="Criar Jogo Button">
-                                                                        <rect key="frame" x="39" y="0.0" width="76.5" height="76.5"/>
+                                                                        <rect key="frame" x="39" y="0.0" width="77" height="77"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="i1h-AD-wNb" secondAttribute="height" multiplier="1:1" id="kOm-07-trk"/>
                                                                         </constraints>
@@ -716,7 +698,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Criar jogo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5f-RW-Unw" userLabel="Criar Jogo Label">
-                                                                        <rect key="frame" x="0.0" y="96.5" width="154" height="28"/>
+                                                                        <rect key="frame" x="0.0" y="97" width="154" height="28"/>
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                                                         <color key="textColor" red="0.88627450980392153" green="0.20784313725490197" blue="0.50980392156862742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -735,7 +717,7 @@
                                                                 <rect key="frame" x="308" y="0.0" width="154" height="99"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="wYF-ZM-4ZP" userLabel="Jogos Salvos Button">
-                                                                        <rect key="frame" x="38.5" y="0.0" width="77" height="77"/>
+                                                                        <rect key="frame" x="39" y="0.0" width="77" height="77"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="wYF-ZM-4ZP" secondAttribute="height" multiplier="1:1" id="b4d-Lg-Rat"/>
                                                                         </constraints>
@@ -1271,7 +1253,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXD-8S-a7r" userLabel="Botton View">
                                 <rect key="frame" x="0.0" y="604" width="1024" height="100"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEl-hi-gw4" userLabel="Play Button">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEl-hi-gw4" userLabel="Play Button">
                                         <rect key="frame" x="944" y="20" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="8hI-Vm-7bw"/>
@@ -1365,12 +1347,12 @@
         <image name="btnGalleryGreen" width="267" height="257"/>
         <image name="btnMuteAudioOffLightBlue" width="351" height="351"/>
         <image name="iconAddWord" width="70" height="70"/>
-        <image name="iconBoxGreen" width="50" height="50"/>
+        <image name="iconBoxGreen" width="150" height="150"/>
         <image name="iconCatTransparent" width="699" height="669"/>
         <image name="iconGamePinkWhite" width="50" height="50"/>
         <image name="iconPawGreen" width="284" height="285"/>
         <image name="iconPlayAudioBlackTransparent" width="134" height="134"/>
-        <image name="iconPlayOrangeWhite" width="50" height="50"/>
+        <image name="iconPlayOrangeWhite" width="150" height="150"/>
         <image name="iconTrashOrangeTransparent" width="150" height="150"/>
         <image name="imageDefault" width="683" height="499"/>
         <image name="textLinguaDeGato" width="3175" height="408"/>
