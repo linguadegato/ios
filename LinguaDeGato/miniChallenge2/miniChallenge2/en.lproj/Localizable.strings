@@ -181,3 +181,27 @@ All content created through the application is the entirely responsibility of it
 /* Button to continue the action of returning to home screen and cancel the creation of a new game. */
 "createCrossword.goBackPopup.button.continue" = "Go back";
 
+/* Button to cancel the action of deleting game. */
+"galleryViewController.deleteWordsAlert.button.cancel" = "Cancel";
+
+/* Button to continue the action and delete game. */
+"galleryViewController.deleteWordsAlert.button.continue" = "Delete";
+
+/* Message informing the user that only the game will be deleted (not the words). */
+"galleryViewController.deleteWordsAlert.message" = "The selected words will be deleted from your list and from your saved games.";
+
+/* Ask the user if he wants to go delete words. */
+"galleryViewController.deleteWordsAlert.title" = "Delete these words?";
+
+/* Button to cancel the action of deleting game. */
+"gamesViewController.deleteGameAlert.button.cancel" = "Cancel";
+
+/* Message informing the user that only the game will be deleted (not the words). */
+"gamesViewController.deleteGameAlert.message" = "The selected game will be deleted, but its words will remain in your list of words.";
+
+/* Ask the user if he wants to go remove the game. */
+"gamesViewController.deleteGameAlert.title" = "Delete this game?";
+
+/* Button to continue the action and delete game. */
+"gamesViewController.deleteGamelert.button.continue" = "Yes";
+

@@ -336,7 +336,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
         let deleteWordsAlert = UIAlertController(
             title: NSLocalizedString("galleryViewController.deleteWordsAlert.title", value:"Deseja apagar estas palavras?", comment:"Ask the user if he wants to go delete words."),
-            message: NSLocalizedString("galleryViewController.deleteWordsAlert.message", value:"O jogo selecionado será deletado, mas as palavras permanecerão salvas.", comment:"Message informing the user that only the game will be deleted (not the words)."),
+            message: NSLocalizedString("galleryViewController.deleteWordsAlert.message", value:"As palavras selecionadas serão apagadas da sua biblioteca de palavras e dos jogos.", comment:"Message informing the user that only the game will be deleted (not the words)."),
             preferredStyle: UIAlertControllerStyle.alert
         )
         

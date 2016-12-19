@@ -230,7 +230,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             
             let alert = UIAlertController(
                 title: NSLocalizedString("createCrossword.GoBackPopup.title", value:"Deseja realmente sair?", comment:"Ask the user if he wants to go back and cancel the creation of a new game."),
-                message: NSLocalizedString("createCrossword.GoBackPopup.message", value:"As palavras criadas serão perdidas.", comment:"Message informing the user that if he returns, he will lose the words added to this new game."),
+                message: NSLocalizedString("createCrossword.GoBackPopup.message", value:"As palavras que não foram salvas serão perdidas.", comment:"Message informing the user that if he returns, he will lose the words added to this new game."),
                 preferredStyle: UIAlertControllerStyle.alert
             )
             

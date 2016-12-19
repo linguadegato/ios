@@ -1,14 +1,8 @@
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "4bL-aY-gwN"; */
-"4bL-aY-gwN.normalTitle" = "Button";
-
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "51Z-MB-cws"; */
 "51Z-MB-cws.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Tutorial"; ObjectID = "CYD-nd-s1G"; */
 "CYD-nd-s1G.text" = "Tutorial";
-
-/* Class = "UIButton"; normalTitle = "Jogar"; ObjectID = "Gnx-6K-PFq"; */
-"Gnx-6K-PFq.normalTitle" = "Play";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "HNB-87-mME"; */
 "HNB-87-mME.normalTitle" = "Button";
@@ -25,9 +19,6 @@
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "KPJ-Am-6C3"; */
 "KPJ-Am-6C3.normalTitle" = "Button";
 
-/* Class = "UIBarButtonItem"; title = "Voltar"; ObjectID = "KgB-fe-SdX"; */
-"KgB-fe-SdX.title" = "Back";
-
 /* Class = "UILabel"; text = "Jogo"; ObjectID = "LbO-5U-mMX"; */
 "LbO-5U-mMX.text" = "Game";
 
@@ -43,23 +34,14 @@
 /* Class = "UIButton"; normalTitle = "Começar!"; ObjectID = "bBc-cW-UfV"; */
 "bBc-cW-UfV.normalTitle" = "Let's start!";
 
-/* Class = "UIButton"; normalTitle = "Salvar"; ObjectID = "bvD-Qe-Pt1"; */
+/* Class = "UIButton"; normalTitle = "Play Btn"; ObjectID = "bvD-Qe-Pt1"; */
 "bvD-Qe-Pt1.normalTitle" = "Save";
-
-/* Class = "UIButton"; normalTitle = "Jogar"; ObjectID = "byQ-VA-4IM"; */
-"byQ-VA-4IM.normalTitle" = "Play";
-
-/* Class = "UIBarButtonItem"; title = "Voltar"; ObjectID = "dWO-wH-Yks"; */
-"dWO-wH-Yks.title" = "Back";
 
 /* Class = "UILabel"; text = "Jogar"; ObjectID = "ga0-yN-LU7"; */
 "ga0-yN-LU7.text" = "Play";
 
 /* Class = "UIButton"; normalTitle = "Política de Privacidade"; ObjectID = "iRn-8z-HkB"; */
 "iRn-8z-HkB.normalTitle" = "Privacy Policy";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mAh-Zn-das"; */
-"mAh-Zn-das.normalTitle" = "Button";
 
 /* Class = "UITextField"; placeholder = "Digite a palavra..."; ObjectID = "mQc-ZF-1gt"; */
 "mQc-ZF-1gt.placeholder" = "Type a word...";
