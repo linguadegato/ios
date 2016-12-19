@@ -14,9 +14,9 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
     
     @IBOutlet weak var galleryCollectionView: UICollectionView!
     @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var playTextButton: UIButton!
-    
     @IBOutlet weak var scrollArrowButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     
     fileprivate var gallery = [WordAndClue]()
     fileprivate var selectedWords = [WordAndClue]()
@@ -105,8 +105,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
             cell.layer.borderColor = UIColor.greenPalete().cgColor
             cell.selectImage.isHidden = false
             
-            self.playButton.isHidden = false
-            self.playTextButton.isHidden = false
+            self.showButtons()
             
             galleryCollectionView.reloadInputViews()
         }
@@ -116,9 +115,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
             cell.selectImage.isHidden = true
             
             if (self.selectedWords.isEmpty){
-                self.playButton.isHidden = true
-                self.playTextButton.isHidden = true
-                
+                self.hideButtons()
                 galleryCollectionView.reloadInputViews()
             }
         }
@@ -165,8 +162,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         selectedCell.layer.borderColor = UIColor.greenPalete().cgColor
         selectedCell.selectImage.isHidden = false
         
-        self.playButton.isHidden = false
-        self.playTextButton.isHidden = false
+        self.showButtons()
         
         galleryCollectionView.reloadInputViews()
     }
@@ -180,9 +176,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         selectedCell.selectImage.isHidden = true
         
         if (selectedWords.isEmpty){
-            self.playButton.isHidden = true
-            self.playTextButton.isHidden = true
-            
+            hideButtons()
             galleryCollectionView.reloadInputViews()
         }
     }
@@ -221,6 +215,17 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
                 cell?.alpha = 1
             }
         }
+    }
+    
+    //MARK: - Show and hide delete/play buttons
+    fileprivate func hideButtons(){
+        self.playButton.isHidden = true
+        self.deleteButton.isHidden = true
+    }
+    
+    fileprivate func showButtons(){
+        self.playButton.isHidden = false
+        self.deleteButton.isHidden = false
     }
     
     //MARK: - CREATE GAME BUTTON
@@ -316,7 +321,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         self.present(overwriteAlert, animated: true, completion: nil)
     }
     
-    //MARK: - SCROLL BUTOON
+    //MARK: - SCROLL BUTTON
     
     @IBAction func scrollButton(_ sender: AnyObject) {
         let visibleItens = self.galleryCollectionView.indexPathsForVisibleItems
@@ -324,6 +329,12 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         let firstPosition = UICollectionViewScrollPosition.top
         self.galleryCollectionView.scrollToItem(at: firstCellVisible, at: firstPosition, animated: true)
     }
+    
+    //MARK: - DELETE BUTTON
+    
+    @IBAction func deleteSelectedWords(_ sender: UIButton) {
+    }
+    
     
     //MARK: - NAVIGATION
     

@@ -1271,7 +1271,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXD-8S-a7r" userLabel="Botton View">
                                 <rect key="frame" x="0.0" y="604" width="1024" height="100"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEl-hi-gw4" userLabel="Play Button">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEl-hi-gw4" userLabel="Play Button">
                                         <rect key="frame" x="934" y="15" width="70" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="8hI-Vm-7bw"/>
@@ -1282,14 +1282,14 @@
                                             <action selector="createNewGame:" destination="Nsy-js-WgB" eventType="touchUpInside" id="vHr-lx-ZE5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byQ-VA-4IM" userLabel="Play Text Button">
-                                        <rect key="frame" x="863" y="32" width="51" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Jogar">
-                                            <color key="titleColor" red="0.96862745100000003" green="0.66274509800000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mW9-RB-LVa" userLabel="Delete Button">
+                                        <rect key="frame" x="844" y="15" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="mW9-RB-LVa" secondAttribute="height" multiplier="1:1" id="jjY-Ys-FMU"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="iconTrashOrangeTransparent"/>
                                         <connections>
-                                            <action selector="createNewGame:" destination="Nsy-js-WgB" eventType="touchUpInside" id="kf3-NT-hGa"/>
+                                            <action selector="deleteSelectedWords:" destination="Nsy-js-WgB" eventType="touchUpInside" id="LZy-b1-3I6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPJ-Am-6C3" userLabel="Arrow Button">
@@ -1309,9 +1309,10 @@
                                     <constraint firstItem="KPJ-Am-6C3" firstAttribute="centerX" secondItem="yXD-8S-a7r" secondAttribute="centerX" id="5ZG-ud-toU"/>
                                     <constraint firstAttribute="height" constant="100" id="7fv-C2-BVx"/>
                                     <constraint firstAttribute="trailing" secondItem="UEl-hi-gw4" secondAttribute="trailing" constant="20" id="9VS-bo-KQq"/>
-                                    <constraint firstItem="UEl-hi-gw4" firstAttribute="leading" secondItem="byQ-VA-4IM" secondAttribute="trailing" constant="20" id="cvY-BX-fXv"/>
-                                    <constraint firstItem="byQ-VA-4IM" firstAttribute="centerY" secondItem="yXD-8S-a7r" secondAttribute="centerY" id="cwg-5E-oop"/>
+                                    <constraint firstItem="mW9-RB-LVa" firstAttribute="centerY" secondItem="yXD-8S-a7r" secondAttribute="centerY" id="T8g-4v-VRd"/>
                                     <constraint firstItem="KPJ-Am-6C3" firstAttribute="centerY" secondItem="yXD-8S-a7r" secondAttribute="centerY" id="dHZ-tC-FG3"/>
+                                    <constraint firstItem="UEl-hi-gw4" firstAttribute="leading" secondItem="mW9-RB-LVa" secondAttribute="trailing" constant="20" id="gZC-6n-Gkg"/>
+                                    <constraint firstItem="mW9-RB-LVa" firstAttribute="width" secondItem="UEl-hi-gw4" secondAttribute="width" id="hOv-GY-woL"/>
                                     <constraint firstItem="UEl-hi-gw4" firstAttribute="centerY" secondItem="yXD-8S-a7r" secondAttribute="centerY" id="pQ1-Q3-g33"/>
                                 </constraints>
                             </view>
@@ -1332,16 +1333,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="deleteButton" destination="mW9-RB-LVa" id="d4L-AV-jmE"/>
                         <outlet property="galleryCollectionView" destination="Epm-Oo-0ch" id="syB-lh-n3Z"/>
                         <outlet property="playButton" destination="UEl-hi-gw4" id="K4M-lT-UWH"/>
-                        <outlet property="playTextButton" destination="byQ-VA-4IM" id="Cod-fc-ZxG"/>
                         <outlet property="scrollArrowButton" destination="KPJ-Am-6C3" id="Gy3-mc-deq"/>
                         <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromGallery" id="wxU-Rh-3lg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBZ-f2-9nh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2540" y="2413"/>
+            <point key="canvasLocation" x="-2540.0390625" y="2412.5"/>
         </scene>
         <!--Tutorial-->
         <scene sceneID="nMn-gg-5qO">
@@ -1375,6 +1376,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="g5f-eM-EuM"/>
+        <segue reference="wxU-Rh-3lg"/>
     </inferredMetricsTieBreakers>
 </document>
