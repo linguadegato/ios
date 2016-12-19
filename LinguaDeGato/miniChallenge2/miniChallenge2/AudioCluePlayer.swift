@@ -31,12 +31,8 @@ class AudioCluePlayer {
         
         var audioPlayerTimer: Timer
         
-        //Background music: off
-//        MusicSingleton.sharedMusic().playBackgroundAudio(false)
-        
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
-            //try AVAudioSession.sharedInstance().setActive(true)
             
             audio = anAudio
             audio!.play()
@@ -63,10 +59,6 @@ class AudioCluePlayer {
                 //error handling
             }
             
-            //Background music: off
-//            if !MusicSingleton.sharedMusic().isMusicMute {
-//                MusicSingleton.sharedMusic().playBackgroundAudio(true)
-//            }
         }
     }
     

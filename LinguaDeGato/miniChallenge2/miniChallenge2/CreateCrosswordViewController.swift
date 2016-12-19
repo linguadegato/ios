@@ -207,14 +207,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     override func viewWillAppear(_ animated: Bool) {
         
-        //Background music: off
-        //set image of mute button
-//        if MusicSingleton.sharedMusic().isMusicMute {
-//            muteMusicButton.setImage(muteMusicOnImage, for: UIControlState())
-//        } else {
-//            muteMusicButton.setImage(muteMusicOffImage, for: UIControlState())
-//        }
-        
         // Keyboard:
         super.viewWillAppear(animated)
         let center: NotificationCenter = NotificationCenter.default
@@ -270,30 +262,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         // Don't forget to re-enable the interactive gesture
         self.navigationController?.interactivePopGestureRecognizer!.isEnabled = true
         
-        //Background music: off
-        // if the back button is pressed when a clue audio is recording or playing, the music status is stoped
-        // so we need to play when exit to another screen
-//        if !MusicSingleton.sharedMusic().isMusicMute {
-//            MusicSingleton.sharedMusic().playBackgroundAudio(true)
-//        }
     }
 
-    // MARK: SOUNDS OF THE APP
-    //Background music: off
-//    @IBAction func muteMusicButton(_ sender: AnyObject) {
-//        if MusicSingleton.sharedMusic().isMusicMute {
-//            // music will play
-//            muteMusicButton.setImage(muteMusicOffImage, for: UIControlState())
-//            MusicSingleton.sharedMusic().isMusicMute = false
-//            MusicSingleton.sharedMusic().playBackgroundAudio(true)
-//        } else {
-//            // music will stop
-//            muteMusicButton.setImage(muteMusicOnImage, for: UIControlState())
-//            MusicSingleton.sharedMusic().isMusicMute = true
-//            MusicSingleton.sharedMusic().playBackgroundAudio(false)
-//        }
-//    }
-    
     // MARK: NEW CLUE ELEMENTS
     
     @IBAction func useCamera(_ sender: AnyObject) {
@@ -352,16 +322,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     @IBAction func recordAudio(_ sender: AnyObject) {
         if audioRecorder == nil {
-            //Background music: off
-//            MusicSingleton.sharedMusic().playBackgroundAudio(false)
             startRecording()
         } else {
             finishRecording(true)
-            
-            //Background music: off
-//            if !MusicSingleton.sharedMusic().isMusicMute {
-//                MusicSingleton.sharedMusic().playBackgroundAudio(true)
-//            }
         }
         
         setAddButtonState()
@@ -713,9 +676,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             //error handling
         }
         
-        //Background music: off
-//        MusicSingleton.sharedMusic().playBackgroundAudio(false)
-        
         self.recordingAudio = true
         audioButton.setBackgroundImage(audioButtonRecordingImage, for: UIControlState())
         
@@ -784,11 +744,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 removeNewClueButton.isHidden = true
             }
         }
-        
-        //Background music: off
-//        if !MusicSingleton.sharedMusic().isMusicMute {
-//            MusicSingleton.sharedMusic().playBackgroundAudio(true)
-//        }
+
     }
     
     // MARK: RECORD AUDIO ANIMATION
