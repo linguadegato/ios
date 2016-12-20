@@ -236,13 +236,13 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             
             alert.addAction(UIAlertAction(
                 title: NSLocalizedString("createCrossword.goBackPopup.button.cancel", value:"Cancelar", comment:"Button to cancel the action of returning."),
-                style: UIAlertActionStyle.default,
+                style: UIAlertActionStyle.cancel,
                 handler:nil
             ))
             
             alert.addAction(UIAlertAction(
                 title: NSLocalizedString("createCrossword.goBackPopup.button.continue", value:"Sair", comment:"Button to continue the action of returning to home screen and cancel the creation of a new game."),
-                style: UIAlertActionStyle.cancel,
+                style: UIAlertActionStyle.default,
                 handler:
                 {(UIAlertAction)in
                     self.goBack()                }

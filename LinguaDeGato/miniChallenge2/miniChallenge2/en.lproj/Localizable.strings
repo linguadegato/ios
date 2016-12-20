@@ -74,7 +74,30 @@
 "InitialViewController.PrivacyPolicyViewContent" = "Privacy Policy: 
 
 This application is designed for children under the age of 13.
-All content created through the application is the entirely responsibility of its users.  Data Collect:  We take photos and use the microphone only with the purpose of fulfilling the main functionality of the application.  Security:  We use standard internal security protocols to protect your personal information.  User control:  The application allows the user to access and delete his data.  Location:  We do not register or share your location.  This application does not have:   - Advertising - Analytics  For more information, contact us: contato@linguadegatoapp.com.br";
+All content created through the application is the entirely responsibility of its users.
+
+Data Collect:
+
+We take photos and use the microphone only with the purpose of fulfilling the main functionality of the application.
+
+Security:
+
+We use standard internal security protocols to protect your personal information.
+
+User control:
+
+The application allows the user to access and delete his data.
+
+Location:
+
+We do not register or share your location.
+
+This application does not have: 
+
+- Advertising
+- Analytics
+
+For more information, contact us: contato@linguadegatoapp.com.br";
 
 /* Alert message informing the user to create new game before play. */
 "InitialViewController.alert.message" = "Create a new game";
@@ -149,7 +172,7 @@ All content created through the application is the entirely responsibility of it
 "createCrossword.alert.removeClue.confirmAction" = "Delete";
 
 /* Asks the user if he wants to delete a clue from the new game. */
-"createCrossword.alert.removeClueMessage" = "Do you want to dele this word?";
+"createCrossword.alert.removeClueMessage" = "Do you want to delete this word?";
 
 /* Continue the insertion of the new clue. */
 "createCrossword.btnPlayGame.alert.btnCancel" = "Continue adding new clue";
