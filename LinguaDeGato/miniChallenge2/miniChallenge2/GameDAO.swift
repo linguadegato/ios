@@ -33,6 +33,7 @@ class GameDAO {
         return newGame
     }
     
+    //need to be tested
     static func delete(_ game: LGCDGame) {
         DatabaseManager.sharedInstance.managedObjectContext?.delete(game)
         do {

@@ -78,6 +78,18 @@ class GameServices {
 
     }
     
+    static func deleteGame(game: Game) {
+        
+        if let toBeDeleted = GameDAO.retrieveGameByName(game.name) {
+            //before delete a game, it has to be removed from relationship with all words
+            let words = toBeDeleted.words
+            for word in words! {
+                (word as! LGCDWordAndClue).games!.remove(toBeDeleted)
+            }
+            GameDAO.delete(toBeDeleted)
+        }
+    }
+    
     static func retrieveAllGames(_ completion: @escaping (([Game]) -> Void)) {
         
         let operation = BlockOperation(block: {

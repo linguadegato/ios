@@ -10,6 +10,19 @@ import Foundation
 
 class WordAndClueServices {
     
+    static func saveWordAndClue(_ wordAndClue: WordAndClue) {
+        
+        let operation = BlockOperation(block: {
+            if WordAndClueDAO.retrieveWordAndClue(wordAndClue) == nil {
+                _ = WordAndClueDAO.insert(wordAndClue)
+            }
+        })
+        
+        //call DAO's method asyncronaly
+        DatabaseManager.sharedInstance.databaseQueue.addOperation(operation)
+        
+    }
+    
     static func retrieveWordAndClue(_ aWordAndClue: WordAndClue, completion: @escaping ((WordAndClue?) -> Void)) {
         
         let operation = BlockOperation(block: {
@@ -45,6 +58,22 @@ class WordAndClueServices {
 
     }
     
+    
+    static func deleteWordAndClue(wac: WordAndClue) {
+        if let toBeDeleted = WordAndClueDAO.retrieveWordAndClue(wac) {
+            
+            //before delete a word, it must be removed from all games
+            if let games = toBeDeleted.games {
+                for game in games {
+                    if let words = (game as! LGCDGame).words {
+                        words.remove(toBeDeleted)
+                    }
+                }
+            }
+        WordAndClueDAO.delete(toBeDeleted)
+        }
+    }
+
     static func retriveAllWordAndClues(_ completion: @escaping (([WordAndClue]) -> Void)) {
         
         
@@ -57,19 +86,6 @@ class WordAndClueServices {
             }
             
             completion(wordsList)
-        })
-        
-        //call DAO's method asyncronaly
-        DatabaseManager.sharedInstance.databaseQueue.addOperation(operation)
-
-    }
-    
-    static func saveWordAndClue(_ wordAndClue: WordAndClue) {
-        
-        let operation = BlockOperation(block: {
-            if WordAndClueDAO.retrieveWordAndClue(wordAndClue) == nil {
-                _ = WordAndClueDAO.insert(wordAndClue)
-            }
         })
         
         //call DAO's method asyncronaly

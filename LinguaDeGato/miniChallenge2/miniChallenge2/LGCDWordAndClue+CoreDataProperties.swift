@@ -17,6 +17,6 @@ extension LGCDWordAndClue {
     @NSManaged var audioPath: String?
     @NSManaged var imageID: String?
     @NSManaged var word: String?
-    @NSManaged var games: NSSet?
+    @NSManaged var games: NSMutableSet?
 
 }

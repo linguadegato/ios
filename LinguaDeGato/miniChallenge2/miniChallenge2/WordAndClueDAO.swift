@@ -31,6 +31,17 @@ class WordAndClueDAO {
         return aPersistedClue!
     }
     
+    //need to be tested
+    static func delete(_ wac: LGCDWordAndClue) {
+        DatabaseManager.sharedInstance.managedObjectContext?.delete(wac)
+        do {
+            try DatabaseManager.sharedInstance.managedObjectContext?.save()
+        }
+        catch {
+            print("error deleting word - delete(wac: LGCDWordAndClue)")
+        }
+    }
+    
     static func retrieveWordAndClue(_ aWordAndClue: WordAndClue) -> LGCDWordAndClue? {
         
         //create fetch request

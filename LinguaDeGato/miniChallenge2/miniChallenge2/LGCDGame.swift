@@ -25,7 +25,7 @@ class LGCDGame: NSManagedObject {
         
         //set properties and relationships
         self.name = newGameName
-        self.words = NSSet(array: newWordsAndClues)
+        self.words = NSMutableSet(array: newWordsAndClues)
     }
     
     override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {

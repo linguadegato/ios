@@ -15,6 +15,6 @@ import CoreData
 extension LGCDGame {
 
     @NSManaged var name: String?
-    @NSManaged var words: NSSet?
+    @NSManaged var words: NSMutableSet?
 
 }
