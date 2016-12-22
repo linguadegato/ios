@@ -13,22 +13,18 @@ import Photos
 class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
 
     @IBOutlet weak var gamesCollectionView: UICollectionView!
-    @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var playTextButton: UIButton!
-    @IBOutlet weak var scrollArrowButton: UIButton!
+    @IBOutlet weak var bottomView: UIView!
     
     fileprivate var allGames = [Game]()
     fileprivate let reuseIdentifier = "ClueCell"
-    fileprivate var selectedSection : Int?
     fileprivate let numberOfVisibleSections = 2
+    fileprivate var selectedSection : Int?
     
     static let onlyAudioImage = UIImage(named: "imageDefaultAudio")
     
     //MARK: - LIFECYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.scrollArrowButton.isHidden = true
         self.gamesCollectionView.allowsMultipleSelection = false
         
         GameServices.retrieveAllGames({ result in
@@ -36,7 +32,9 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
             self.gamesCollectionView.reloadData()
             
             if (self.allGames.count > self.numberOfVisibleSections){
-                self.scrollArrowButton.isHidden = false
+                self.bottomView.isHidden = false
+            }else{
+                self.bottomView.isHidden = true
             }
         })
         
@@ -91,7 +89,8 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
             cell.audioImage.isHidden = true
         }
         
-        // Selection design to the cell (green border or not)
+        
+        // Border color and width
         cell.layer.borderColor = UIColor.greenPalete().cgColor
         if (self.selectedSection != nil) && (indexPath.section == self.selectedSection){
             cell.layer.borderWidth = 3
@@ -109,6 +108,8 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
             
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AllGamesHeader",for: indexPath) as! GamesHeaderView
             headerView.title.text = allGames[indexPath.section].name
+            headerView.setPlayBtnID(sectionNumber: indexPath.section)
+            headerView.setDeleteBtnID(sectionNumber: indexPath.section)
             return headerView
             
         
@@ -132,50 +133,87 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if (self.selectedSection == nil) || (indexPath.section != self.selectedSection){
-            self.selectedSection = indexPath.section
-            self.gamesCollectionView.reloadData()
-        }else{
-            if (indexPath.section == self.selectedSection){
-                self.selectedSection =  nil
-                self.gamesCollectionView.reloadData()
-            }
-        }
-        
-        if (self.selectedSection != nil){
-            self.playButton.isHidden = false
-            self.playTextButton.isHidden = false
-        }else{
-            self.playButton.isHidden = true
-            self.playTextButton.isHidden = true
-        }
-        
-    }
-    
     //MARK: - NAVIGATION
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if (selectedSection != nil){
-            
+        if (segue.identifier == "CreateGameFromSelectedGame"){
+            let senderBtn = sender as! UIButton
+            let selectedGameID = senderBtn.tag
+            let selectedGame = allGames[selectedGameID].wordsAndClueArray
             let indicator = LGStandarts.standartLGActivityIndicator(self.view)
+            
             self.view.addSubview(indicator)
             indicator.startAnimating()
-            
-            let selectedGame = allGames[selectedSection!].wordsAndClueArray
             
             let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: selectedGame)
             aGenerator.computeCrossword(3, spins: 6)
             
-            if (segue.identifier == "CreateGameFromSelectedGame" ) {
-                (segue.destination as! GamePlayViewController).crosswordMatrix = aGenerator.grid
-                (segue.destination as! GamePlayViewController).words = aGenerator.currentWordlist
-            }
+            (segue.destination as! GamePlayViewController).crosswordMatrix = aGenerator.grid
+            (segue.destination as! GamePlayViewController).words = aGenerator.currentWordlist
             
             indicator.removeFromSuperview()
         }
         
+    }
+    
+    //MARK: - BTN ACTION
+    @IBAction func scrollArrowButton(_ sender: Any) {
+        
+        let visibleItens = self.gamesCollectionView.indexPathsForVisibleItems
+        let firstSectionVisible = visibleItens[self.numberOfVisibleSections]
+        let firstPosition = UICollectionViewScrollPosition.top
+        self.gamesCollectionView.scrollToItem(at: firstSectionVisible, at: firstPosition, animated: true)
+        
+    }
+    
+    @IBAction func deteleSelectedGame(_ sender: UIButton) {
+        
+        let gameID = sender.tag
+        selectGame(gameID)
+        
+        let deleteGameAlert = UIAlertController(
+            title: NSLocalizedString("gamesViewController.deleteGameAlert.title", value:"Deseja remover este jogo?", comment:"Ask the user if he wants to go remove the game."),
+            message: NSLocalizedString("gamesViewController.deleteGameAlert.message", value:"O jogo selecionado será deletado, mas as palavras permanecerão salvas.", comment:"Message informing the user that only the game will be deleted (not the words)."),
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+        
+        deleteGameAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("gamesViewController.deleteGameAlert.button.cancel", value:"Cancelar", comment:"Button to cancel the action of deleting game."),
+            style: UIAlertActionStyle.default,
+            handler:{_ in
+                self.deselectGame(gameID)
+            }
+        ))
+        
+        deleteGameAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("gamesViewController.deleteGamelert.button.continue", value:"Sim", comment:"Button to continue the action and delete game."),
+            style: UIAlertActionStyle.cancel,
+            handler: {_ in
+                self.deleteGame(gameID)
+            }
+        ))
+        
+        self.present(deleteGameAlert, animated: true, completion: {})
+    }
+    
+    //MARK: - Delete game functions
+    private func deleteGame(_ gameID: Int){
+        print("delete btn \(gameID)")
+        
+        //>>>DELETE GAME FROM DATABASE
+        
+        self.selectedSection = nil
+        gamesCollectionView.reloadData()
+    }
+    
+    private func selectGame(_ gameID: Int){
+        self.selectedSection = gameID
+        gamesCollectionView.reloadSections([gameID])
+    }
+    
+    private func deselectGame(_ gameID: Int){
+        self.selectedSection = nil
+        gamesCollectionView.reloadSections([gameID])
     }
     
 }

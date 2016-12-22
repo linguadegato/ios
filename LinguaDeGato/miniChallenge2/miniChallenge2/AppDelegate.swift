@@ -93,10 +93,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(error)
         }
         
-        if !MusicSingleton.sharedMusic().isMusicMute {
-            MusicSingleton.sharedMusic().playBackgroundAudio(true)
-        }
-        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

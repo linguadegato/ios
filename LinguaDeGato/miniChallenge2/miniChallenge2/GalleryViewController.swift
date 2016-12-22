@@ -14,9 +14,9 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
     
     @IBOutlet weak var galleryCollectionView: UICollectionView!
     @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var playTextButton: UIButton!
-    
     @IBOutlet weak var scrollArrowButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     
     fileprivate var gallery = [WordAndClue]()
     fileprivate var selectedWords = [WordAndClue]()
@@ -105,8 +105,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
             cell.layer.borderColor = UIColor.greenPalete().cgColor
             cell.selectImage.isHidden = false
             
-            self.playButton.isHidden = false
-            self.playTextButton.isHidden = false
+            self.showButtons()
             
             galleryCollectionView.reloadInputViews()
         }
@@ -116,9 +115,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
             cell.selectImage.isHidden = true
             
             if (self.selectedWords.isEmpty){
-                self.playButton.isHidden = true
-                self.playTextButton.isHidden = true
-                
+                self.hideButtons()
                 galleryCollectionView.reloadInputViews()
             }
         }
@@ -165,8 +162,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         selectedCell.layer.borderColor = UIColor.greenPalete().cgColor
         selectedCell.selectImage.isHidden = false
         
-        self.playButton.isHidden = false
-        self.playTextButton.isHidden = false
+        self.showButtons()
         
         galleryCollectionView.reloadInputViews()
     }
@@ -180,9 +176,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         selectedCell.selectImage.isHidden = true
         
         if (selectedWords.isEmpty){
-            self.playButton.isHidden = true
-            self.playTextButton.isHidden = true
-            
+            hideButtons()
             galleryCollectionView.reloadInputViews()
         }
     }
@@ -221,6 +215,17 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
                 cell?.alpha = 1
             }
         }
+    }
+    
+    //MARK: - Show and hide delete/play buttons
+    fileprivate func hideButtons(){
+        self.playButton.isHidden = true
+        self.deleteButton.isHidden = true
+    }
+    
+    fileprivate func showButtons(){
+        self.playButton.isHidden = false
+        self.deleteButton.isHidden = false
     }
     
     //MARK: - CREATE GAME BUTTON
@@ -281,9 +286,9 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
     fileprivate func overwriteGame(_ aGame: Game) {
         
         let overwriteAlert = UIAlertController(
-            title: NSLocalizedString("GalleryViewController.overwriteGameAlert.title", value: "Sobreescrever jogo?", comment: "Alert title asking if the user wants to overwrite the game with the same name."),
+            title: NSLocalizedString("GalleryViewController.overwriteGameAlert.title", value: "Sobrescrever jogo?", comment: "Alert title asking if the user wants to overwrite the game with the same name."),
             
-            message: NSLocalizedString("GalleryViewController.overwriteGameAlert.message", value: "Já existe um jogo salvo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", comment: "Alert message saying that there is game with the same name and asking if the user wants to overwrite it."),
+            message: NSLocalizedString("GalleryViewController.overwriteGameAlert.message", value: "Já existe um jogo salvo com o nome \(aGame.name).\nDeseja sobrescrevê-lo?", comment: "Alert message saying that there is game with the same name and asking if the user wants to overwrite it."),
             preferredStyle: UIAlertControllerStyle.alert
         )
         
@@ -316,13 +321,55 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         self.present(overwriteAlert, animated: true, completion: nil)
     }
     
-    //MARK: - SCROLL BUTOON
+    //MARK: - SCROLL BUTTON
     
     @IBAction func scrollButton(_ sender: AnyObject) {
         let visibleItens = self.galleryCollectionView.indexPathsForVisibleItems
         let firstCellVisible = visibleItens[self.numberOfVisibleColumns]
         let firstPosition = UICollectionViewScrollPosition.top
         self.galleryCollectionView.scrollToItem(at: firstCellVisible, at: firstPosition, animated: true)
+    }
+    
+    //MARK: - DELETE BUTTON
+    
+    @IBAction func deleteWordsButton(_ sender: UIButton) {
+        
+        let deleteWordsAlert = UIAlertController(
+            title: NSLocalizedString("galleryViewController.deleteWordsAlert.title", value:"Deseja apagar estas palavras?", comment:"Ask the user if he wants to go delete words."),
+            message: NSLocalizedString("galleryViewController.deleteWordsAlert.message", value:"As palavras selecionadas serão apagadas da sua biblioteca de palavras e dos jogos.", comment:"Message informing the user that only the game will be deleted (not the words)."),
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+        
+        deleteWordsAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("galleryViewController.deleteWordsAlert.button.cancel", value:"Cancelar", comment:"Button to cancel the action of deleting game."),
+            style: UIAlertActionStyle.default,
+            handler:nil
+        ))
+        
+        deleteWordsAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("galleryViewController.deleteWordsAlert.button.continue", value:"Apagar", comment:"Button to continue the action and delete game."),
+            style: UIAlertActionStyle.cancel,
+            handler: {_ in
+                self.deleteWords()
+            }
+        ))
+        
+        self.present(deleteWordsAlert, animated: true, completion: {})
+
+    }
+    
+    //MARK: - DELETE FUNCTIONS
+    
+    fileprivate func deleteWords(){
+        print("deleteWords: \(selectedWords)")
+        
+        /*
+        >>>> DELETE WORDS FROM DATABASE
+        >>>> Percorrer os arrays de jogos e verificar se algum ficou vazio
+        */
+        
+        self.selectedWords = []
+        self.galleryCollectionView.reloadData()
     }
     
     //MARK: - NAVIGATION

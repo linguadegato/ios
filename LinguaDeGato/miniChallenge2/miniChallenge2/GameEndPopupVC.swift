@@ -14,10 +14,7 @@ class GameEndPopupVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-        
+     
         self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
         self.view.layer.zPosition = 5
 

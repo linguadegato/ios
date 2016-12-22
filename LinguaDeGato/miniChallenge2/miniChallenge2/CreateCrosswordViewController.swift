@@ -63,8 +63,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     fileprivate let audioImageBorderRadius : CGFloat = 30.0
 
     //mute button images
-    fileprivate let muteMusicOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
-    fileprivate let muteMusicOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
+//    fileprivate let muteMusicOnImage = UIImage(named: "btnMuteMusicOnLightBlue")
+//    fileprivate let muteMusicOffImage = UIImage(named: "btnMuteMusicOffLightBlue")
     
     //MARK: Keyboard variable
     fileprivate var isKeyboardLifted: Bool = false
@@ -207,13 +207,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     override func viewWillAppear(_ animated: Bool) {
         
-        //set image of mute button
-        if MusicSingleton.sharedMusic().isMusicMute {
-            muteMusicButton.setImage(muteMusicOnImage, for: UIControlState())
-        } else {
-            muteMusicButton.setImage(muteMusicOffImage, for: UIControlState())
-        }
-        
         // Keyboard:
         super.viewWillAppear(animated)
         let center: NotificationCenter = NotificationCenter.default
@@ -237,19 +230,19 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             
             let alert = UIAlertController(
                 title: NSLocalizedString("createCrossword.GoBackPopup.title", value:"Deseja realmente sair?", comment:"Ask the user if he wants to go back and cancel the creation of a new game."),
-                message: NSLocalizedString("createCrossword.GoBackPopup.message", value:"As palavras criadas serão perdidas.", comment:"Message informing the user that if he returns, he will lose the words added to this new game."),
+                message: NSLocalizedString("createCrossword.GoBackPopup.message", value:"As palavras que não foram salvas serão perdidas.", comment:"Message informing the user that if he returns, he will lose the words added to this new game."),
                 preferredStyle: UIAlertControllerStyle.alert
             )
             
             alert.addAction(UIAlertAction(
                 title: NSLocalizedString("createCrossword.goBackPopup.button.cancel", value:"Cancelar", comment:"Button to cancel the action of returning."),
-                style: UIAlertActionStyle.default,
+                style: UIAlertActionStyle.cancel,
                 handler:nil
             ))
             
             alert.addAction(UIAlertAction(
                 title: NSLocalizedString("createCrossword.goBackPopup.button.continue", value:"Sair", comment:"Button to continue the action of returning to home screen and cancel the creation of a new game."),
-                style: UIAlertActionStyle.cancel,
+                style: UIAlertActionStyle.default,
                 handler:
                 {(UIAlertAction)in
                     self.goBack()                }
@@ -269,28 +262,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         // Don't forget to re-enable the interactive gesture
         self.navigationController?.interactivePopGestureRecognizer!.isEnabled = true
         
-        // if the back button is pressed when a clue audio is recording or playing, the music status is stoped
-        // so we need to play when exit to another screen
-        if !MusicSingleton.sharedMusic().isMusicMute {
-            MusicSingleton.sharedMusic().playBackgroundAudio(true)
-        }
     }
 
-    // MARK: SOUNDS OF THE APP
-    @IBAction func muteMusicButton(_ sender: AnyObject) {
-        if MusicSingleton.sharedMusic().isMusicMute {
-            // music will play
-            muteMusicButton.setImage(muteMusicOffImage, for: UIControlState())
-            MusicSingleton.sharedMusic().isMusicMute = false
-            MusicSingleton.sharedMusic().playBackgroundAudio(true)
-        } else {
-            // music will stop
-            muteMusicButton.setImage(muteMusicOnImage, for: UIControlState())
-            MusicSingleton.sharedMusic().isMusicMute = true
-            MusicSingleton.sharedMusic().playBackgroundAudio(false)
-        }
-    }
-    
     // MARK: NEW CLUE ELEMENTS
     
     @IBAction func useCamera(_ sender: AnyObject) {
@@ -349,13 +322,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     @IBAction func recordAudio(_ sender: AnyObject) {
         if audioRecorder == nil {
-            MusicSingleton.sharedMusic().playBackgroundAudio(false)
             startRecording()
         } else {
             finishRecording(true)
-            if !MusicSingleton.sharedMusic().isMusicMute {
-                MusicSingleton.sharedMusic().playBackgroundAudio(true)
-            }
         }
         
         setAddButtonState()
@@ -582,8 +551,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     fileprivate func overwriteGame(_ aGame: Game) {
         
         let overwriteAlert = UIAlertController(
-            title: NSLocalizedString("createCrossword.alert.overwriteGame.title", value:"Sobreescrever jogo?", comment: "Short message asking the user if he wants to overwrite a game."),
-            message: NSLocalizedString("createCrossword.alert.overwriteGame.message", value:"Já existe um jogo com o nome \(aGame.name).\nDeseja sobreescrevê-lo?", comment: "Message informing the user that there is a game saved with the same name and asking if he whants to save the game anyway and overwrite the other game."),
+            title: NSLocalizedString("createCrossword.alert.overwriteGame.title", value:"Sobrescrever jogo?", comment: "Short message asking the user if he wants to overwrite a game."),
+            message: NSLocalizedString("createCrossword.alert.overwriteGame.message", value:"Já existe um jogo com o nome \(aGame.name).\nDeseja sobrescrevê-lo?", comment: "Message informing the user that there is a game saved with the same name and asking if he whants to save the game anyway and overwrite the other game."),
             preferredStyle: UIAlertControllerStyle.alert
         )
         
@@ -697,22 +666,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         }
     }
     
-    func playMusicAfterPlayClue(){
-        
-        /*
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
-        }
-        catch {
-            //error handling
-        }
-        
-        if !MusicSingleton.sharedMusic().isMusicMute {
-            MusicSingleton.sharedMusic().playBackgroundAudio(true)
-        }
-        */
-    }
-    
     // MARK: - RECORD AUDIO METHODS
     fileprivate func startRecording() {
         
@@ -722,8 +675,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         catch{
             //error handling
         }
-        
-        MusicSingleton.sharedMusic().playBackgroundAudio(false)
         
         self.recordingAudio = true
         audioButton.setBackgroundImage(audioButtonRecordingImage, for: UIControlState())
@@ -793,10 +744,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 removeNewClueButton.isHidden = true
             }
         }
-        
-        if !MusicSingleton.sharedMusic().isMusicMute {
-            MusicSingleton.sharedMusic().playBackgroundAudio(true)
-        }
+
     }
     
     // MARK: RECORD AUDIO ANIMATION

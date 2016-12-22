@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
   <file original="miniChallenge2/Base.lproj/LaunchScreen.xib" source-language="pt" datatype="plaintext" target-language="en">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.1" build-num="8B62"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.2" build-num="8C38"/>
     </header>
     <body>
       <trans-unit id="8ie-xW-0ye.text">
@@ -18,28 +18,26 @@
   </file>
   <file original="miniChallenge2/Base.lproj/Main.storyboard" source-language="pt" datatype="plaintext" target-language="en">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.1" build-num="8B62"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.2" build-num="8C38"/>
     </header>
     <body>
-      <trans-unit id="4bL-aY-gwN.normalTitle">
+      <trans-unit id="6W2-Y4-XXb.normalTitle">
         <source>Button</source>
-        <target>Button</target>
-        <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "4bL-aY-gwN";</note>
+        <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "6W2-Y4-XXb";</note>
       </trans-unit>
       <trans-unit id="51Z-MB-cws.normalTitle">
         <source>Button</source>
         <target>Button</target>
         <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "51Z-MB-cws";</note>
       </trans-unit>
+      <trans-unit id="726-4P-fbr.normalTitle">
+        <source>Button</source>
+        <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "726-4P-fbr";</note>
+      </trans-unit>
       <trans-unit id="CYD-nd-s1G.text">
         <source>Tutorial</source>
         <target>Tutorial</target>
         <note>Class = "UILabel"; text = "Tutorial"; ObjectID = "CYD-nd-s1G";</note>
-      </trans-unit>
-      <trans-unit id="Gnx-6K-PFq.normalTitle">
-        <source>Jogar</source>
-        <target>Play</target>
-        <note>Class = "UIButton"; normalTitle = "Jogar"; ObjectID = "Gnx-6K-PFq";</note>
       </trans-unit>
       <trans-unit id="HNB-87-mME.normalTitle">
         <source>Button</source>
@@ -65,11 +63,6 @@
         <source>Button</source>
         <target>Button</target>
         <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "KPJ-Am-6C3";</note>
-      </trans-unit>
-      <trans-unit id="KgB-fe-SdX.title">
-        <source>Voltar</source>
-        <target>Back</target>
-        <note>Class = "UIBarButtonItem"; title = "Voltar"; ObjectID = "KgB-fe-SdX";</note>
       </trans-unit>
       <trans-unit id="LbO-5U-mMX.text">
         <source>Jogo</source>
@@ -97,19 +90,9 @@
         <note>Class = "UIButton"; normalTitle = "Começar!"; ObjectID = "bBc-cW-UfV";</note>
       </trans-unit>
       <trans-unit id="bvD-Qe-Pt1.normalTitle">
-        <source>Salvar</source>
+        <source>Play Btn</source>
         <target>Save</target>
-        <note>Class = "UIButton"; normalTitle = "Salvar"; ObjectID = "bvD-Qe-Pt1";</note>
-      </trans-unit>
-      <trans-unit id="byQ-VA-4IM.normalTitle">
-        <source>Jogar</source>
-        <target>Play</target>
-        <note>Class = "UIButton"; normalTitle = "Jogar"; ObjectID = "byQ-VA-4IM";</note>
-      </trans-unit>
-      <trans-unit id="dWO-wH-Yks.title">
-        <source>Voltar</source>
-        <target>Back</target>
-        <note>Class = "UIBarButtonItem"; title = "Voltar"; ObjectID = "dWO-wH-Yks";</note>
+        <note>Class = "UIButton"; normalTitle = "Play Btn"; ObjectID = "bvD-Qe-Pt1";</note>
       </trans-unit>
       <trans-unit id="ga0-yN-LU7.text">
         <source>Jogar</source>
@@ -121,15 +104,18 @@
         <target>Privacy Policy</target>
         <note>Class = "UIButton"; normalTitle = "Política de Privacidade"; ObjectID = "iRn-8z-HkB";</note>
       </trans-unit>
-      <trans-unit id="mAh-Zn-das.normalTitle">
-        <source>Button</source>
-        <target>Button</target>
-        <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "mAh-Zn-das";</note>
+      <trans-unit id="j1a-yD-1lA.normalTitle">
+        <source>Play Button</source>
+        <note>Class = "UIButton"; normalTitle = "Play Button"; ObjectID = "j1a-yD-1lA";</note>
       </trans-unit>
       <trans-unit id="mQc-ZF-1gt.placeholder">
         <source>Digite a palavra...</source>
         <target>Type a word...</target>
         <note>Class = "UITextField"; placeholder = "Digite a palavra..."; ObjectID = "mQc-ZF-1gt";</note>
+      </trans-unit>
+      <trans-unit id="mW9-RB-LVa.normalTitle">
+        <source>Button</source>
+        <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "mW9-RB-LVa";</note>
       </trans-unit>
       <trans-unit id="oXe-f9-4lT.text">
         <source>Salvos</source>
@@ -160,7 +146,7 @@
   </file>
   <file original="miniChallenge2/Info.plist" source-language="pt" datatype="plaintext" target-language="en">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.1" build-num="8B62"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.2" build-num="8C38"/>
     </header>
     <body>
       <trans-unit id="CFBundleName">
@@ -175,7 +161,7 @@
   </file>
   <file original="miniChallenge2/Localizable.strings" source-language="pt" datatype="plaintext" target-language="en">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.1" build-num="8B62"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.2" build-num="8C38"/>
     </header>
     <body>
       <trans-unit id="GalleryCollectionViewController.collectionTitle">
@@ -195,12 +181,12 @@
       </trans-unit>
       <trans-unit id="GalleryCollectionViewController.overwriteGameAlert.message">
         <source>Já existe um jogo salvo com o nome (aGame.name).
-Deseja sobreescrevê-lo?</source>
+Deseja sobrescrevê-lo?</source>
         <target>You already have a game with this name. Do you want to overwrite it?</target>
         <note>Alert message saying that there is game with the same name and asking if the user wants to overwrite it.</note>
       </trans-unit>
       <trans-unit id="GalleryCollectionViewController.overwriteGameAlert.title">
-        <source>Sobreescrever jogo?</source>
+        <source>Sobrescrever jogo?</source>
         <target>Overwrite game?</target>
         <note>Alert title asking if the user wants to overwrite the game with the same name.</note>
       </trans-unit>
@@ -246,12 +232,12 @@ Deseja sobreescrevê-lo?</source>
       </trans-unit>
       <trans-unit id="GalleryViewController.overwriteGameAlert.message">
         <source>Já existe um jogo salvo com o nome (aGame.name).
-Deseja sobreescrevê-lo?</source>
+Deseja sobrescrevê-lo?</source>
         <target>You already have a game with this name. Do you want to overwrite it?</target>
         <note>Alert message saying that there is game with the same name and asking if the user wants to overwrite it.</note>
       </trans-unit>
       <trans-unit id="GalleryViewController.overwriteGameAlert.title">
-        <source>Sobreescrever jogo?</source>
+        <source>Sobrescrever jogo?</source>
         <target>Overwrite game?</target>
         <note>Alert title asking if the user wants to overwrite the game with the same name.</note>
       </trans-unit>
@@ -308,7 +294,7 @@ Todo conteúdo criado através do aplicativo é de total responsabilidade de seu
 
 Coleta de dados:
 
-Coletamos fotos e utilizamos o microfone para gravação de áudio como objetivo cumprir a funcionalidade principal da aplicação.
+Coletamos fotos e utilizamos o microfone para gravação de áudio com o objetivo cumprir a funcionalidade principal da aplicação.
 
 Segurança:
 
@@ -375,7 +361,7 @@ All content created through the application is the entirely responsibility of it
         <note>Title that will appear on the eighth page of the tutorial</note>
       </trans-unit>
       <trans-unit id="createCrossword.GoBackPopup.message">
-        <source>As palavras criadas serão perdidas.</source>
+        <source>As palavras que não foram salvas serão perdidas.</source>
         <target>The new words will be lost.</target>
         <note>Message informing the user that if he returns, he will lose the words added to this new game.</note>
       </trans-unit>
@@ -427,7 +413,7 @@ Entre em contato conosco.</source>
       </trans-unit>
       <trans-unit id="createCrossword.alert.overwriteGame.message">
         <source>Já existe um jogo com o nome (aGame.name).
-Deseja sobreescrevê-lo?</source>
+Deseja sobrescrevê-lo?</source>
         <target>You already have a game with this name. Do you want to overwrite it?</target>
         <note>Message informing the user that there is a game saved with the same name and asking if he whants to save the game anyway and overwrite the other game.</note>
       </trans-unit>
@@ -437,7 +423,7 @@ Deseja sobreescrevê-lo?</source>
         <note>Responds negatively to the question whether the user wants to overwrite the game and cancel the action of saving the new game.</note>
       </trans-unit>
       <trans-unit id="createCrossword.alert.overwriteGame.title">
-        <source>Sobreescrever jogo?</source>
+        <source>Sobrescrever jogo?</source>
         <target>Overwrite game?</target>
         <note>Short message asking the user if he wants to overwrite a game.</note>
       </trans-unit>
@@ -511,11 +497,43 @@ Deseja sobreescrevê-lo?</source>
         <target>Go back</target>
         <note>Button to continue the action of returning to home screen and cancel the creation of a new game.</note>
       </trans-unit>
+      <trans-unit id="galleryViewController.deleteWordsAlert.button.cancel">
+        <source>Cancelar</source>
+        <note>Button to cancel the action of deleting game.</note><target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="galleryViewController.deleteWordsAlert.button.continue">
+        <source>Apagar</source>
+        <note>Button to continue the action and delete game.</note><target>Delete</target>
+      </trans-unit>
+      <trans-unit id="galleryViewController.deleteWordsAlert.message">
+        <source>As palavras selecionadas serão apagadas da sua biblioteca de palavras e dos jogos.</source>
+        <note>Message informing the user that only the game will be deleted (not the words).</note><target>The selected words will be deleted from your list and from your saved games.</target>
+      </trans-unit>
+      <trans-unit id="galleryViewController.deleteWordsAlert.title">
+        <source>Deseja apagar estas palavras?</source>
+        <note>Ask the user if he wants to go delete words.</note><target>Delete these words?</target>
+      </trans-unit>
+      <trans-unit id="gamesViewController.deleteGameAlert.button.cancel">
+        <source>Cancelar</source>
+        <note>Button to cancel the action of deleting game.</note><target>Cancel</target>
+      </trans-unit>
+      <trans-unit id="gamesViewController.deleteGameAlert.message">
+        <source>O jogo selecionado será deletado, mas as palavras permanecerão salvas.</source>
+        <note>Message informing the user that only the game will be deleted (not the words).</note><target>The selected game will be deleted, but its words will remain in your list of words.</target>
+      </trans-unit>
+      <trans-unit id="gamesViewController.deleteGameAlert.title">
+        <source>Deseja remover este jogo?</source>
+        <note>Ask the user if he wants to go remove the game.</note><target>Delete this game?</target>
+      </trans-unit>
+      <trans-unit id="gamesViewController.deleteGamelert.button.continue">
+        <source>Sim</source>
+        <note>Button to continue the action and delete game.</note><target>Yes</target>
+      </trans-unit>
     </body>
   </file>
   <file original="miniChallenge2Tests/Info.plist" source-language="pt" datatype="plaintext" target-language="en">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.1" build-num="8B62"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.2" build-num="8C38"/>
     </header>
     <body>
       <trans-unit id="CFBundleName">
