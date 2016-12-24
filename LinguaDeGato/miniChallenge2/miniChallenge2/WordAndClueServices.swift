@@ -67,6 +67,11 @@ class WordAndClueServices {
                 for game in games {
                     if let words = (game as! LGCDGame).words {
                         words.remove(toBeDeleted)
+                        
+                        //if a game ends without words, it's deleted
+                        if words.count == 0 {
+                            GameDAO.delete(game as! LGCDGame)
+                        }
                     }
                 }
             }

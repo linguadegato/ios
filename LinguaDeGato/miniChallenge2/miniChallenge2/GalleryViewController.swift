@@ -363,12 +363,14 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
     fileprivate func deleteWords(){
         print("deleteWords: \(selectedWords)")
         
-        /*
-        >>>> DELETE WORDS FROM DATABASE
-        >>>> Percorrer os arrays de jogos e verificar se algum ficou vazio
-        */
+        for word in selectedWords {
+            WordAndClueServices.deleteWordAndClue(wac: word)
+        }
         
         self.selectedWords = []
+        WordAndClueServices.retriveAllWordAndClues { (result) in
+            self.gallery = result
+        }
         self.galleryCollectionView.reloadData()
     }
     
