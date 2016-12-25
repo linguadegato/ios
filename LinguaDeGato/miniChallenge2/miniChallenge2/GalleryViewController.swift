@@ -48,6 +48,12 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        WordAndClueServices.retriveAllWordAndClues { (result) in
+            self.gallery = result
+        }
+    }
+    
     //MARK: - DATASOURCE
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -153,7 +159,150 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         }
     }
     
-    // MARK: - Behavior when select and deselect cells
+    //MARK: - BUTTON ACTIONS
+    @IBAction func createNewGame(_ sender: AnyObject) {
+        
+        let saveAlert = UIAlertController(
+            
+            title: NSLocalizedString("GalleryViewController.saveAlert.title", value: "Deseja salvar esse jogo?", comment: "Alert title asking if the user wants to save the new game"),
+            message: NSLocalizedString("GalleryViewController.saveAlert.message", value: "Dê um nome ao jogo para que possa ser salvo.", comment: "Alert message when is saving a new game saying the user to give a name to this game"),
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+        
+        saveAlert.addTextField(configurationHandler: { alertTextField in
+            alertTextField.placeholder = NSLocalizedString("GalleryViewController.saveAlert.placeholder", value: "Nome do jogo", comment: "TextField placeholder to the game name")
+        })
+        let alertTextField = saveAlert.textFields![0]
+        alertTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
+        
+        saveAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("GalleryViewController.saveAlert.SaveBtn", value: "Salvar", comment: "Save button on alert popup that asks if the user wants to save a new game."),
+            style: UIAlertActionStyle.cancel,
+            handler:{
+                _ in
+                if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
+                    let newGame = Game(gameName: alertTextField.text!, wordsAndClue: self.selectedWords)
+                    
+                    let indicator = LGStandarts.standartLGActivityIndicator(self.view)
+                    self.view.addSubview(indicator)
+                    indicator.startAnimating()
+                    
+                    GameServices.saveGame(newGame, completion: { success in
+                        OperationQueue.main.addOperation(BlockOperation(block: {
+                            indicator.removeFromSuperview()
+                            if success {
+                               self.performSegue(withIdentifier: "CreateGameFromGallery", sender: nil)
+                            }else{
+                                self.overwriteGame(newGame)
+                                
+                            }
+                        }))
+                    })
+                }else {
+                    print("empty text field!")
+                }
+            }
+            ))
+        
+        saveAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("GalleryViewController.saveAlert.CancelBtn", value: "Não", comment: "Cancel action button on alert popup that asks if the user wants to save a new game."),
+            style: UIAlertActionStyle.default,
+            handler: {_ in self.performSegue(withIdentifier: "CreateGameFromGallery", sender: nil)}
+            ))
+        
+        self.present(saveAlert, animated: true, completion: {
+        })
+    }
+    
+    @IBAction func scrollButton(_ sender: AnyObject) {
+        let visibleItens = self.galleryCollectionView.indexPathsForVisibleItems
+        let firstCellVisible = visibleItens[self.numberOfVisibleColumns]
+        let firstPosition = UICollectionViewScrollPosition.top
+        self.galleryCollectionView.scrollToItem(at: firstCellVisible, at: firstPosition, animated: true)
+    }
+    
+    @IBAction func deleteWordsButton(_ sender: UIButton) {
+        
+        let deleteWordsAlert = UIAlertController(
+            title: NSLocalizedString("galleryViewController.deleteWordsAlert.title", value:"Deseja apagar estas palavras?", comment:"Ask the user if he wants to go delete words."),
+            message: NSLocalizedString("galleryViewController.deleteWordsAlert.message", value:"As palavras selecionadas serão apagadas da sua biblioteca de palavras e dos jogos.", comment:"Message informing the user that only the game will be deleted (not the words)."),
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+        
+        deleteWordsAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("galleryViewController.deleteWordsAlert.button.cancel", value:"Cancelar", comment:"Button to cancel the action of deleting game."),
+            style: UIAlertActionStyle.default,
+            handler:nil
+        ))
+        
+        deleteWordsAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("galleryViewController.deleteWordsAlert.button.continue", value:"Apagar", comment:"Button to continue the action and delete game."),
+            style: UIAlertActionStyle.cancel,
+            handler: {_ in
+                self.deleteWords()
+            }
+        ))
+        
+        self.present(deleteWordsAlert, animated: true, completion: {})
+
+    }
+    
+    //MARK: - DATABASE RELATED METHODS
+    
+    fileprivate func overwriteGame(_ aGame: Game) {
+        
+        let overwriteAlert = UIAlertController(
+            title: NSLocalizedString("GalleryViewController.overwriteGameAlert.title", value: "Sobrescrever jogo?", comment: "Alert title asking if the user wants to overwrite the game with the same name."),
+            
+            message: NSLocalizedString("GalleryViewController.overwriteGameAlert.message", value: "Já existe um jogo salvo com o nome \(aGame.name).\nDeseja sobrescrevê-lo?", comment: "Alert message saying that there is game with the same name and asking if the user wants to overwrite it."),
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+        
+        overwriteAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("GalleryViewController.overwriteGameAlert.YesBtn", value: "Sim", comment: "Yes button on alert popup that save the game and overwrite the other with the same name."),
+            style: UIAlertActionStyle.default,
+            handler: {_ in
+                let indicator = LGStandarts.standartLGActivityIndicator(self.view)
+                self.view.addSubview(indicator)
+                indicator.startAnimating()
+                
+                GameServices.overwriteGame(aGame, completion: {
+                    OperationQueue.main.addOperation(BlockOperation(block: {
+                        indicator.removeFromSuperview()
+                    }))
+                    
+                })
+                self.performSegue(withIdentifier: "CreateGameFromGallery", sender: nil)
+        }
+        ))
+        
+        overwriteAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("GalleryViewController.overwriteGameAlert.NoBtn", value: "Não", comment: "No button on alert popup that cancel the saving process."),
+            style: UIAlertActionStyle.cancel,
+            handler: {_ in
+                self.createNewGame(self)
+        }
+        ))
+        
+        self.present(overwriteAlert, animated: true, completion: nil)
+    }
+    
+    fileprivate func deleteWords(){
+        for word in selectedWords {
+            WordAndClueServices.deleteWordAndClue(wac: word)
+        }
+        
+        self.selectedWords = []
+        WordAndClueServices.retriveAllWordAndClues { (result) in
+            self.gallery = result
+        }
+        self.galleryCollectionView.reloadData()
+        GalleryGlobalValues.gamesNeedToReload = true
+    }
+    
+    //MARK: - AUXILIAR PRIVATE METHODS
+    
+    // MARK: Behavior when select and deselect cells
     fileprivate func selectCell(_ indexPath: IndexPath){
         
         let selectedCell = galleryCollectionView.cellForItem(at: indexPath) as! GalleryCollectionViewCell
@@ -217,7 +366,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         }
     }
     
-    //MARK: - Show and hide delete/play buttons
+    //MARK: Show and hide delete/play buttons
     fileprivate func hideButtons(){
         self.playButton.isHidden = true
         self.deleteButton.isHidden = true
@@ -226,152 +375,6 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
     fileprivate func showButtons(){
         self.playButton.isHidden = false
         self.deleteButton.isHidden = false
-    }
-    
-    //MARK: - CREATE GAME BUTTON
-    @IBAction func createNewGame(_ sender: AnyObject) {
-        
-        let saveAlert = UIAlertController(
-            
-            title: NSLocalizedString("GalleryViewController.saveAlert.title", value: "Deseja salvar esse jogo?", comment: "Alert title asking if the user wants to save the new game"),
-            message: NSLocalizedString("GalleryViewController.saveAlert.message", value: "Dê um nome ao jogo para que possa ser salvo.", comment: "Alert message when is saving a new game saying the user to give a name to this game"),
-            preferredStyle: UIAlertControllerStyle.alert
-        )
-        
-        saveAlert.addTextField(configurationHandler: { alertTextField in
-            alertTextField.placeholder = NSLocalizedString("GalleryViewController.saveAlert.placeholder", value: "Nome do jogo", comment: "TextField placeholder to the game name")
-        })
-        let alertTextField = saveAlert.textFields![0]
-        alertTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
-        
-        saveAlert.addAction(UIAlertAction(
-            title: NSLocalizedString("GalleryViewController.saveAlert.SaveBtn", value: "Salvar", comment: "Save button on alert popup that asks if the user wants to save a new game."),
-            style: UIAlertActionStyle.cancel,
-            handler:{
-                _ in
-                if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
-                    let newGame = Game(gameName: alertTextField.text!, wordsAndClue: self.selectedWords)
-                    
-                    let indicator = LGStandarts.standartLGActivityIndicator(self.view)
-                    self.view.addSubview(indicator)
-                    indicator.startAnimating()
-                    
-                    GameServices.saveGame(newGame, completion: { success in
-                        OperationQueue.main.addOperation(BlockOperation(block: {
-                            indicator.removeFromSuperview()
-                            if success {
-                               self.performSegue(withIdentifier: "CreateGameFromGallery", sender: nil)
-                            }else{
-                                self.overwriteGame(newGame)
-                                
-                            }
-                        }))
-                    })
-                }else {
-                    print("empty text field!")
-                }
-            }
-            ))
-        
-        saveAlert.addAction(UIAlertAction(
-            title: NSLocalizedString("GalleryViewController.saveAlert.CancelBtn", value: "Não", comment: "Cancel action button on alert popup that asks if the user wants to save a new game."),
-            style: UIAlertActionStyle.default,
-            handler: {_ in self.performSegue(withIdentifier: "CreateGameFromGallery", sender: nil)}
-            ))
-        
-        self.present(saveAlert, animated: true, completion: {
-        })
-    }
-    
-    fileprivate func overwriteGame(_ aGame: Game) {
-        
-        let overwriteAlert = UIAlertController(
-            title: NSLocalizedString("GalleryViewController.overwriteGameAlert.title", value: "Sobrescrever jogo?", comment: "Alert title asking if the user wants to overwrite the game with the same name."),
-            
-            message: NSLocalizedString("GalleryViewController.overwriteGameAlert.message", value: "Já existe um jogo salvo com o nome \(aGame.name).\nDeseja sobrescrevê-lo?", comment: "Alert message saying that there is game with the same name and asking if the user wants to overwrite it."),
-            preferredStyle: UIAlertControllerStyle.alert
-        )
-        
-        overwriteAlert.addAction(UIAlertAction(
-            title: NSLocalizedString("GalleryViewController.overwriteGameAlert.YesBtn", value: "Sim", comment: "Yes button on alert popup that save the game and overwrite the other with the same name."),
-            style: UIAlertActionStyle.default,
-            handler: {_ in
-                let indicator = LGStandarts.standartLGActivityIndicator(self.view)
-                self.view.addSubview(indicator)
-                indicator.startAnimating()
-                
-                GameServices.overwriteGame(aGame, completion: {
-                    OperationQueue.main.addOperation(BlockOperation(block: {
-                        indicator.removeFromSuperview()
-                    }))
-                    
-                })
-            self.performSegue(withIdentifier: "CreateGameFromGallery", sender: nil)
-            }
-        ))
-        
-        overwriteAlert.addAction(UIAlertAction(
-            title: NSLocalizedString("GalleryViewController.overwriteGameAlert.NoBtn", value: "Não", comment: "No button on alert popup that cancel the saving process."),
-            style: UIAlertActionStyle.cancel,
-            handler: {_ in
-                self.createNewGame(self)
-            }
-        ))
-        
-        self.present(overwriteAlert, animated: true, completion: nil)
-    }
-    
-    //MARK: - SCROLL BUTTON
-    
-    @IBAction func scrollButton(_ sender: AnyObject) {
-        let visibleItens = self.galleryCollectionView.indexPathsForVisibleItems
-        let firstCellVisible = visibleItens[self.numberOfVisibleColumns]
-        let firstPosition = UICollectionViewScrollPosition.top
-        self.galleryCollectionView.scrollToItem(at: firstCellVisible, at: firstPosition, animated: true)
-    }
-    
-    //MARK: - DELETE BUTTON
-    
-    @IBAction func deleteWordsButton(_ sender: UIButton) {
-        
-        let deleteWordsAlert = UIAlertController(
-            title: NSLocalizedString("galleryViewController.deleteWordsAlert.title", value:"Deseja apagar estas palavras?", comment:"Ask the user if he wants to go delete words."),
-            message: NSLocalizedString("galleryViewController.deleteWordsAlert.message", value:"As palavras selecionadas serão apagadas da sua biblioteca de palavras e dos jogos.", comment:"Message informing the user that only the game will be deleted (not the words)."),
-            preferredStyle: UIAlertControllerStyle.alert
-        )
-        
-        deleteWordsAlert.addAction(UIAlertAction(
-            title: NSLocalizedString("galleryViewController.deleteWordsAlert.button.cancel", value:"Cancelar", comment:"Button to cancel the action of deleting game."),
-            style: UIAlertActionStyle.default,
-            handler:nil
-        ))
-        
-        deleteWordsAlert.addAction(UIAlertAction(
-            title: NSLocalizedString("galleryViewController.deleteWordsAlert.button.continue", value:"Apagar", comment:"Button to continue the action and delete game."),
-            style: UIAlertActionStyle.cancel,
-            handler: {_ in
-                self.deleteWords()
-            }
-        ))
-        
-        self.present(deleteWordsAlert, animated: true, completion: {})
-
-    }
-    
-    //MARK: - DELETE FUNCTIONS
-    
-    fileprivate func deleteWords(){
-        print("deleteWords: \(selectedWords)")
-        
-        for word in selectedWords {
-            WordAndClueServices.deleteWordAndClue(wac: word)
-        }
-        
-        self.selectedWords = []
-        WordAndClueServices.retriveAllWordAndClues { (result) in
-            self.gallery = result
-        }
-        self.galleryCollectionView.reloadData()
     }
     
     //MARK: - NAVIGATION

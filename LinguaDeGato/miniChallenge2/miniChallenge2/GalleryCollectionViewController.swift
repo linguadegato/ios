@@ -23,8 +23,7 @@ class GalleryCollectionViewController : UICollectionViewController{
     fileprivate let collectionTitle = NSLocalizedString("GalleryCollectionViewController.collectionTitle", value: "Palavras Salvas", comment: "Title da collection view where are shown the saved words in 'saved games' view")
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
+        super.viewDidLoad()        
         galleryCollectionView.allowsMultipleSelection = true
         WordAndClueServices.retriveAllWordAndClues({result in
             

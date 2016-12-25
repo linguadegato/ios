@@ -21,8 +21,9 @@ class GalleryCollectionViewCell: UICollectionViewCell {
     var delegate: CreateCrosswordViewController!
     var index: Int!
     
-    //    @IBAction func delete() {
-    //        delegate!.cellAlert(index!)
-    //    }
-    
+    /*
+    @IBAction func delete() {
+           delegate!.cellAlert(index!)
+    }
+    */
 }

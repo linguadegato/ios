@@ -40,6 +40,7 @@
 		EF5313D41C5272E500B2FEC3 /* LGCDWordAndClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5313D01C5272E500B2FEC3 /* LGCDWordAndClue.swift */; };
 		EF5313D51C5272E500B2FEC3 /* LGCDGame+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5313D11C5272E500B2FEC3 /* LGCDGame+CoreDataProperties.swift */; };
 		EF5313D61C5272E500B2FEC3 /* LGCDGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5313D21C5272E500B2FEC3 /* LGCDGame.swift */; };
+		EF986E511E1008BF0071205E /* GalleryGlobalValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF986E501E1008BF0071205E /* GalleryGlobalValues.swift */; };
 		EF995EE91BD1227C00C27479 /* CluePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF995EE81BD1227C00C27479 /* CluePopupView.swift */; };
 		EFA0932B1BCD3524008525F1 /* CrosswordElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0932A1BCD3524008525F1 /* CrosswordElement.swift */; };
 		EFA0932D1BCD35D5008525F1 /* CrosswordChar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA0932C1BCD35D5008525F1 /* CrosswordChar.swift */; };
@@ -136,6 +137,7 @@
 		EF5313D01C5272E500B2FEC3 /* LGCDWordAndClue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGCDWordAndClue.swift; sourceTree = "<group>"; };
 		EF5313D11C5272E500B2FEC3 /* LGCDGame+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LGCDGame+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EF5313D21C5272E500B2FEC3 /* LGCDGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGCDGame.swift; sourceTree = "<group>"; };
+		EF986E501E1008BF0071205E /* GalleryGlobalValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryGlobalValues.swift; sourceTree = "<group>"; };
 		EF995EE81BD1227C00C27479 /* CluePopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CluePopupView.swift; sourceTree = "<group>"; };
 		EFA0932A1BCD3524008525F1 /* CrosswordElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrosswordElement.swift; sourceTree = "<group>"; };
 		EFA0932C1BCD35D5008525F1 /* CrosswordChar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrosswordChar.swift; sourceTree = "<group>"; };
@@ -233,6 +235,19 @@
 			name = sounds;
 			sourceTree = "<group>";
 		};
+		EF986E4F1E1008530071205E /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				FA1E0EF51C495BB000596D44 /* GalleryCollectionViewController.swift */,
+				FAAB7EF61C3F19A9004561EF /* GamesCollectionViewController.swift */,
+				77BCE0481C5153FF004CA31B /* GalleryAndGamesViewController.swift */,
+				FAD50B961C5CE986002C8B37 /* GalleryViewController.swift */,
+				FA588A3A1C5E4C960014EE3B /* GamesViewController.swift */,
+				EF986E501E1008BF0071205E /* GalleryGlobalValues.swift */,
+			);
+			name = Gallery;
+			sourceTree = "<group>";
+		};
 		EF995EE11BD1163600C27479 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,16 +302,12 @@
 		EFE1C8991B390F1C002F68F9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EF986E4F1E1008530071205E /* Gallery */,
 				FAE1C8B11B385E1F00FFE77C /* InitialViewController.swift */,
 				FA06818F1B2B1491008A5C9F /* CreateCrosswordViewController.swift */,
 				FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */,
 				EFB828681BF65B2E0017CF35 /* UINavigationControllerExtension.swift */,
 				77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */,
-				FA1E0EF51C495BB000596D44 /* GalleryCollectionViewController.swift */,
-				FAAB7EF61C3F19A9004561EF /* GamesCollectionViewController.swift */,
-				77BCE0481C5153FF004CA31B /* GalleryAndGamesViewController.swift */,
-				FAD50B961C5CE986002C8B37 /* GalleryViewController.swift */,
-				FA588A3A1C5E4C960014EE3B /* GamesViewController.swift */,
 				7708F5101C64FCD500832989 /* TutorialContentViewController.swift */,
 				7708F5121C6504B900832989 /* TutorialCurrentPageVC.swift */,
 			);
@@ -591,6 +602,7 @@
 				FAFAB86C1C161DA100CBC16B /* UIColorExtension.swift in Sources */,
 				EF5313CE1C5271F900B2FEC3 /* GameDAO.swift in Sources */,
 				EFE393D11C60CDC30038333D /* LGStandarts.swift in Sources */,
+				EF986E511E1008BF0071205E /* GalleryGlobalValues.swift in Sources */,
 				FAC71AC11C49637100F67F8C /* GalleryCollectionViewCell.swift in Sources */,
 				EF5313D41C5272E500B2FEC3 /* LGCDWordAndClue.swift in Sources */,
 				EFCC8B691BF11DE600F6851F /* WordManager.swift in Sources */,

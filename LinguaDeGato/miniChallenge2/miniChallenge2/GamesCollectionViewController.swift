@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import Photos
 
-class GamesCollectionViewController : UICollectionViewController{
+class GamesCollectionViewController : UICollectionViewController {
     
     @IBOutlet var gamesCollectionView: UICollectionView!
     
@@ -25,10 +25,7 @@ class GamesCollectionViewController : UICollectionViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         GameServices.retrieveAllGames({ result in
-            
             self.allGames = result
-            self.gamesCollectionView.reloadData()
-            
         })
     }
     

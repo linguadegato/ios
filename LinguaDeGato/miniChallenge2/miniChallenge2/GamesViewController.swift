@@ -25,6 +25,8 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     //MARK: - LIFECYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
+        GalleryGlobalValues.gamesViewController = (self.gamesCollectionView.delegate! as! GamesViewController)
+        
         self.gamesCollectionView.allowsMultipleSelection = false
         
         GameServices.retrieveAllGames({ result in
@@ -37,8 +39,6 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
                 self.bottomView.isHidden = true
             }
         })
-        
-        
     }
     
     //MARK: - DATASOURCE
@@ -156,7 +156,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         
     }
     
-    //MARK: - BTN ACTION
+    //MARK: - BUTTON ACTION
     @IBAction func scrollArrowButton(_ sender: Any) {
         
         let visibleItens = self.gamesCollectionView.indexPathsForVisibleItems
@@ -166,7 +166,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         
     }
     
-    @IBAction func deteleSelectedGame(_ sender: UIButton) {
+    @IBAction func deleteSelectedGame(_ sender: UIButton) {
         
         let gameID = sender.tag
         selectGame(gameID)
@@ -216,4 +216,12 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         gamesCollectionView.reloadSections([gameID])
     }
     
+    
+    //MARK: - DATABASE AUXILIAR METHOD
+    
+    func loadFromDataBase() {
+        GameServices.retrieveAllGames { result in
+            self.allGames = result
+        }
+    }
 }
