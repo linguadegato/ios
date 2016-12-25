@@ -200,7 +200,10 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     private func deleteGame(_ gameID: Int){
         print("delete btn \(gameID)")
         
-        //>>>DELETE GAME FROM DATABASE
+        let toBeDeletedGame = allGames[gameID]
+        
+        GameServices.deleteGame(game: toBeDeletedGame)
+        self.loadFromDataBase()
         
         self.selectedSection = nil
         gamesCollectionView.reloadData()

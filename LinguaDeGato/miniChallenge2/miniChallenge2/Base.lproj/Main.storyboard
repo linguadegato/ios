@@ -18,7 +18,7 @@
         <scene sceneID="TSP-Ll-b0a">
             <objects>
                 <navigationController id="o8m-ff-fjo" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Snv-fP-CW1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Snv-fP-CW1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -176,7 +176,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="5RJ-GH-ISS" customClass="NewWordCollectionViewCell" customModule="Lingua_de_Gato" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="29.5" width="135" height="130"/>
+                                                <rect key="frame" x="0.0" y="30" width="135" height="130"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="135" height="130"/>
@@ -1074,7 +1074,7 @@
                                             </constraints>
                                             <state key="normal" title="Button" image="iconTrashOrangeTransparent"/>
                                             <connections>
-                                                <action selector="deteleSelectedGame:" destination="RHV-tO-T4t" eventType="touchUpInside" id="5GU-0y-cwA"/>
+                                                <action selector="deleteSelectedGame:" destination="RHV-tO-T4t" eventType="touchUpInside" id="nuC-Rw-pbZ"/>
                                             </connections>
                                         </button>
                                     </subviews>
