@@ -24,9 +24,9 @@ class TutorialCurrentPageVC: UIViewController, UIPageViewControllerDataSource {
         super.viewDidLoad()
         
         
-        let tutorialTitlePage1 = NSLocalizedString("TutorialCurrentPageVC.title1", value: "Comece criando um jogo...", comment: "Title that will appear on the first page of the tutorial")
-        let tutorialTitlePage2 = NSLocalizedString("TutorialCurrentPageVC.title2", value: "E adicione novas palavras", comment: "Title that will appear on the second page of the tutorial")
-        let tutorialTitlePage8 = NSLocalizedString("TutorialCurrentPageVC.title8", value: "Divirta-se!", comment: "Title that will appear on the eighth page of the tutorial")
+        let tutorialTitlePage1 = NSLocalizedString("TutorialCurrentPageVC.title1", value: "Start creating a game...", comment: "Title that will appear on the first page of the tutorial")
+        let tutorialTitlePage2 = NSLocalizedString("TutorialCurrentPageVC.title2", value: "And add new words", comment: "Title that will appear on the second page of the tutorial")
+        let tutorialTitlePage8 = NSLocalizedString("TutorialCurrentPageVC.title8", value: "Have fun!", comment: "Title that will appear on the eighth page of the tutorial")
         
         self.pageTitles = NSArray(objects: tutorialTitlePage1, tutorialTitlePage2, "", "", "", "", "", tutorialTitlePage8)
         self.pageImages = NSArray(objects: "tutorialPage1", "tutorialPage2", "tutorialPage3", "tutorialPage4", "tutorialPage5", "tutorialPage6", "tutorialPage7", "tutorialPage8")

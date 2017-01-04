@@ -172,13 +172,13 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         selectGame(gameID)
         
         let deleteGameAlert = UIAlertController(
-            title: NSLocalizedString("gamesViewController.deleteGameAlert.title", value:"Deseja remover este jogo?", comment:"Ask the user if he wants to go remove the game."),
-            message: NSLocalizedString("gamesViewController.deleteGameAlert.message", value:"O jogo selecionado será deletado, mas as palavras permanecerão salvas.", comment:"Message informing the user that only the game will be deleted (not the words)."),
+            title: NSLocalizedString("gamesViewController.deleteGameAlert.title", value:"Delete this game?", comment:"Ask the user if he wants to go remove the game."),
+            message: NSLocalizedString("gamesViewController.deleteGameAlert.message", value:"The selected game will be deleted, but its words will remain in your list of words.", comment:"Message informing the user that only the game will be deleted (not the words)."),
             preferredStyle: UIAlertControllerStyle.alert
         )
         
         deleteGameAlert.addAction(UIAlertAction(
-            title: NSLocalizedString("gamesViewController.deleteGameAlert.button.cancel", value:"Cancelar", comment:"Button to cancel the action of deleting game."),
+            title: NSLocalizedString("gamesViewController.deleteGameAlert.button.cancel", value:"Cancel", comment:"Button to cancel the action of deleting game."),
             style: UIAlertActionStyle.default,
             handler:{_ in
                 self.deselectGame(gameID)
@@ -186,7 +186,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         ))
         
         deleteGameAlert.addAction(UIAlertAction(
-            title: NSLocalizedString("gamesViewController.deleteGamelert.button.continue", value:"Sim", comment:"Button to continue the action and delete game."),
+            title: NSLocalizedString("gamesViewController.deleteGamelert.button.continue", value:"Yes", comment:"Button to continue the action and delete game."),
             style: UIAlertActionStyle.cancel,
             handler: {_ in
                 self.deleteGame(gameID)

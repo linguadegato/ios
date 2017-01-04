@@ -113,8 +113,8 @@
 		2F7BB00D1DF9675E00161971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2F7BB0121DF9675F00161971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2F7BB0171DF9676000161971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2FE1172D1DF87C9A0046CBD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		2FE1172E1DF87C9B0046CBD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		2FE58DC61E1D08DA0007DCF6 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
+		2FE58DC81E1D08F90007DCF6 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		7708F5101C64FCD500832989 /* TutorialContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialContentViewController.swift; sourceTree = "<group>"; };
 		7708F5121C6504B900832989 /* TutorialCurrentPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialCurrentPageVC.swift; sourceTree = "<group>"; };
 		7786A6161C4573600011C32A /* backgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundMusic.wav; sourceTree = "<group>"; };
@@ -302,7 +302,6 @@
 		EFE1C8991B390F1C002F68F9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				EF986E4F1E1008530071205E /* Gallery */,
 				FAE1C8B11B385E1F00FFE77C /* InitialViewController.swift */,
 				FA06818F1B2B1491008A5C9F /* CreateCrosswordViewController.swift */,
 				FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */,
@@ -310,6 +309,7 @@
 				77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */,
 				7708F5101C64FCD500832989 /* TutorialContentViewController.swift */,
 				7708F5121C6504B900832989 /* TutorialCurrentPageVC.swift */,
+				EF986E4F1E1008530071205E /* Gallery */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -410,6 +410,7 @@
 		FA96DE961B29C0CE00149113 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FA96DE971B29C0CE00149113 /* Info.plist */,
 				2F7BB0181DF9676000161971 /* InfoPlist.strings */,
 				2F7BB0131DF9675F00161971 /* Localizable.strings */,
 				FAFAB86B1C161DA100CBC16B /* UIColorExtension.swift */,
@@ -419,7 +420,6 @@
 				EF3D5E5D1C6BA08B00CF54C5 /* AudioCluePlayer.swift */,
 				7786A6211C46B4930011C32A /* MusicSingleton.swift */,
 				77D94CB11C401B6700E28B84 /* sounds */,
-				FA96DE971B29C0CE00149113 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -509,7 +509,7 @@
 				TargetAttributes = {
 					FA96DE921B29C0CE00149113 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 7KYC4PVA26;
+						DevelopmentTeam = X4P55MVJ74;
 						LastSwiftMigration = 0810;
 					};
 					FA96DEAB1B29C0CE00149113 = {
@@ -522,7 +522,7 @@
 			};
 			buildConfigurationList = FA96DE8E1B29C0CE00149113 /* Build configuration list for PBXProject "LinguaDeGato" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = Portuguese;
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				pt,
@@ -755,7 +755,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA96DEA11B29C0CE00149113 /* Base */,
-				2FE1172D1DF87C9A0046CBD6 /* en */,
+				2FE58DC61E1D08DA0007DCF6 /* pt */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -764,7 +764,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA96DEA61B29C0CE00149113 /* Base */,
-				2FE1172E1DF87C9B0046CBD6 /* en */,
+				2FE58DC81E1D08F90007DCF6 /* pt */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -871,7 +871,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7KYC4PVA26;
+				DEVELOPMENT_TEAM = X4P55MVJ74;
 				INFOPLIST_FILE = miniChallenge2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.linguadegatoapp;
@@ -890,7 +890,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7KYC4PVA26;
+				DEVELOPMENT_TEAM = X4P55MVJ74;
 				INFOPLIST_FILE = miniChallenge2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.linguadegatoapp;

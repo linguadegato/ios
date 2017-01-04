@@ -27,7 +27,7 @@ class InitialViewController: StatusBarViewController {
         // Do any additional setup after loading the view.
         
         // Set Privacy Policy popup message
-        let privacyPolicyString = NSLocalizedString("InitialViewController.PrivacyPolicyViewContent", value:"Política de Privacidade:\n\nEste aplicativo foi projetado para menores de 13 anos.\nTodo conteúdo criado através do aplicativo é de total responsabilidade de seus usuários.\n\nColeta de dados:\n\nColetamos fotos e utilizamos o microfone para gravação de áudio com o objetivo cumprir a funcionalidade principal da aplicação.\n\nSegurança:\n\nUtilizamos os protocolos de segurança internos padrão para que suas informações pessoais não sejam acessadas ou alteradas.\n\nControle do usuário:\n\nO aplicativo permite ao usuário acessar, alterar e/ou apagar seus dados.\n\nLocalização:\n\nNós não registramos ou compartilhamos a sua localização.\n\nEste aplicativo não possui:\n\n- Propaganda\n- Analytics\n\nPara mais informações, entre em contato conosco: contato@linguadegatoapp.com.br", comment:"Message of the privacy policy popup")
+        let privacyPolicyString = NSLocalizedString("InitialViewController.PrivacyPolicyViewContent", value:"Privacy Policy:\n\nThis application is designed for children under the age of 13.\n\nAll content created through the application is the entirely responsibility of its users.\n\nData Collect:\n\nWe take photos and use the microphone only with the purpose of fulfilling the main functionality of the application.\n\nSecurity:\n\nWe use standard internal security protocols to protect your personal information.\n\nUser control:\n\nThe application allows the user to access and delete his data.\n\nLocation:\n\nWe do not register or share your location.\n\nThis application does not have: \n\n- Advertising\n- Analytics\nFor more information, contact us: contato@linguadegatoapp.com.br", comment:"Message of the privacy policy popup")
         
         privacyPolicyView.font = UIFont.init(name: "Helvetica Neue", size: 17.0)
         privacyPolicyView.text = privacyPolicyString
@@ -36,8 +36,8 @@ class InitialViewController: StatusBarViewController {
         if (UserDefaults.standard.value(forKey: "firstTime") as? Bool == true) {
             
             let firstAlert = UIAlertController(
-                title: NSLocalizedString("InitialViewController.firstAlert.title", value: "ATENÇÃO", comment: "Title of an alert popup that appears when the user first use the app"),
-                message: NSLocalizedString("InitialViewController.firstAlert.message", value: "Todo conteúdo criado dentro da aplicação é de total responsabilidade de seus usuários.", comment: "Message informing that the content of the application is the responsibility of the user"),
+                title: NSLocalizedString("InitialViewController.firstAlert.title", value: "Attention!", comment: "Title of an alert popup that appears when the user first use the app"),
+                message: NSLocalizedString("InitialViewController.firstAlert.message", value: "All content created within this application is the entire responsibility of its users.", comment: "Message informing that the content of the application is the responsibility of the user"),
                 preferredStyle: UIAlertControllerStyle.alert
             )
             
@@ -149,13 +149,13 @@ class InitialViewController: StatusBarViewController {
     fileprivate func noWordsAlert() {
         
         let alert = UIAlertController(
-            title: NSLocalizedString("InitialViewController.alert.title", value: "Ainda não há palavras salvas", comment: "Alert title informing the user that he cant click on play game button because there isnt any saved word yet."),
-            message: NSLocalizedString("InitialViewController.alert.message", value: "Crie jogos para salvar palavras", comment: "Alert message informing the user to create new game before play."),
+            title: NSLocalizedString("InitialViewController.alert.title", value: "You don't have any saved words yet", comment: "Alert title informing the user that he cant click on play game button because there isnt any saved word yet."),
+            message: NSLocalizedString("InitialViewController.alert.message", value: "Create a new game", comment: "Alert message informing the user to create new game before play."),
             preferredStyle: UIAlertControllerStyle.alert
         )
         
         alert.addAction(UIAlertAction(
-            title: NSLocalizedString("InitialViewController.firstAlert.okBtn", value:"OK", comment: "Ok button that close the alert"),
+            title: NSLocalizedString("InitialViewController.firstAlert.okBtn", value:"Ok", comment: "Ok button that close the alert"),
             style: .default,
             handler: nil
         ))

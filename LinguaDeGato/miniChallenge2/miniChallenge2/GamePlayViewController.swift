@@ -89,19 +89,19 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     
     @IBAction func goHome(_ sender: AnyObject) {
         let alert = UIAlertController(
-            title: NSLocalizedString("GamePlayViewController.GoBackPopup.title", value:"Deseja realmente sair?", comment:"Ask the user if he wants to go back and cancel the game."),
-            message: NSLocalizedString("GamePlayViewController.GoBackPopup.message", value:"O jogo será interrompido.", comment:"Message informing the user that if he returns, he will stop and cancel the game."),
+            title: NSLocalizedString("GamePlayViewController.GoBackPopup.title", value:"Do you really want to exit?", comment:"Ask the user if he wants to go back and cancel the game."),
+            message: NSLocalizedString("GamePlayViewController.GoBackPopup.message", value:"This game will be canceled.", comment:"Message informing the user that if he returns, he will stop and cancel the game."),
             preferredStyle: UIAlertControllerStyle.alert
         )
         
         alert.addAction(UIAlertAction(
-            title: NSLocalizedString("GamePlayViewController.goBackPopup.button.cancel", value:"Cancelar", comment:"Button to cancel the action of returning."),
+            title: NSLocalizedString("GamePlayViewController.goBackPopup.button.cancel", value:"Cancel", comment:"Button to cancel the action of returning."),
             style: UIAlertActionStyle.cancel,
             handler:nil
         ))
         
         alert.addAction(UIAlertAction(
-            title: NSLocalizedString("GamePlayViewController.goBackPopup.button.continue", value:"Sair", comment:"Button to continue the action of returning to home screen and cancel the game."),
+            title: NSLocalizedString("GamePlayViewController.goBackPopup.button.continue", value:"Exit", comment:"Button to continue the action of returning to home screen and cancel the game."),
             style: UIAlertActionStyle.default,
             handler:{ (UIAlertAction)in
                 
