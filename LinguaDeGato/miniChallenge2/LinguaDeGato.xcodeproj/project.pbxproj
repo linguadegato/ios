@@ -113,6 +113,9 @@
 		2F7BB00D1DF9675E00161971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2F7BB0121DF9675F00161971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2F7BB0171DF9676000161971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2F8A51F61E1D540200B29B83 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2F8A51F71E1D540300B29B83 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2F8A51F81E1D540300B29B83 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2FE58DC61E1D08DA0007DCF6 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
 		2FE58DC81E1D08F90007DCF6 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		7708F5101C64FCD500832989 /* TutorialContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialContentViewController.swift; sourceTree = "<group>"; };
@@ -731,6 +734,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2F7BB00D1DF9675E00161971 /* en */,
+				2F8A51F61E1D540200B29B83 /* pt */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -739,6 +743,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2F7BB0121DF9675F00161971 /* en */,
+				2F8A51F71E1D540300B29B83 /* pt */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -747,6 +752,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2F7BB0171DF9676000161971 /* en */,
+				2F8A51F81E1D540300B29B83 /* pt */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

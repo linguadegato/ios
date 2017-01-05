@@ -1,0 +1,230 @@
+/* Title da collection view where are shown the saved words in 'saved games' view */
+"GalleryCollectionViewController.collectionTitle" = "Palavras salvas";
+
+/* No button on alert popup that cancel the saving process. */
+"GalleryCollectionViewController.overwriteGameAlert.NoBtn" = "Não";
+
+/* Yes button on alert popup that save the game and overwrite the other with the same name. */
+"GalleryCollectionViewController.overwriteGameAlert.YesBtn" = "Sim";
+
+/* Alert message saying that there is game with the same name and asking if the user wants to overwrite it. */
+"GalleryCollectionViewController.overwriteGameAlert.message" = "Você já tem um jogo salvo com este nome. Deseja sobrescrevê-lo?";
+
+/* Alert title asking if the user wants to overwrite the game with the same name. */
+"GalleryCollectionViewController.overwriteGameAlert.title" = "Sobrescrever jogo?";
+
+/* Cancel action button on alert popup that asks if the user wants to save a new game. */
+"GalleryCollectionViewController.saveAlert.CancelBtn" = "Não";
+
+/* Save button on alert popup that asks if the user wants to save a new game. */
+"GalleryCollectionViewController.saveAlert.SaveBtn" = "Salvar";
+
+/* Alert message when is saving a new game saying the user to give a name to this game */
+"GalleryCollectionViewController.saveAlert.message" = "Dê um nome para este jogo";
+
+/* TextField placeholder to the game name */
+"GalleryCollectionViewController.saveAlert.placeholder" = "Nome do jogo";
+
+/* Alert title asking if the user wants to save the new game */
+"GalleryCollectionViewController.saveAlert.title" = "Sacar este jogo?";
+
+/* Collection view title to saved words */
+"GalleryViewController.collectionTitle" = "Palavras salvas";
+
+/* No button on alert popup that cancel the saving process. */
+"GalleryViewController.overwriteGameAlert.NoBtn" = "Não";
+
+/* Yes button on alert popup that save the game and overwrite the other with the same name. */
+"GalleryViewController.overwriteGameAlert.YesBtn" = "Sim";
+
+/* Alert message saying that there is game with the same name and asking if the user wants to overwrite it. */
+"GalleryViewController.overwriteGameAlert.message" = "Você já tem um jogo salvo com este nome. Deseja sobrescrevê-lo?";
+
+/* Alert title asking if the user wants to overwrite the game with the same name. */
+"GalleryViewController.overwriteGameAlert.title" = "Sobrescrever jogo?";
+
+/* Cancel action button on alert popup that asks if the user wants to save a new game. */
+"GalleryViewController.saveAlert.CancelBtn" = "Não";
+
+/* Save button on alert popup that asks if the user wants to save a new game. */
+"GalleryViewController.saveAlert.SaveBtn" = "Sim";
+
+/* Alert message when is saving a new game saying the user to give a name to this game */
+"GalleryViewController.saveAlert.message" = "Dê um nome para este jogo";
+
+/* TextField placeholder to the game name */
+"GalleryViewController.saveAlert.placeholder" = "Nome do jogo";
+
+/* Alert title asking if the user wants to save the new game */
+"GalleryViewController.saveAlert.title" = "Salvar este jogo?";
+
+/* Message informing the user that if he returns, he will stop and cancel the game. */
+"GamePlayViewController.GoBackPopup.message" = "Este jogo será cancelado.";
+
+/* Ask the user if he wants to go back and cancel the game. */
+"GamePlayViewController.GoBackPopup.title" = "Você realmente deseja sair?";
+
+/* Button to cancel the action of returning. */
+"GamePlayViewController.goBackPopup.button.cancel" = "Cancelar";
+
+/* Button to continue the action of returning to home screen and cancel the game. */
+"GamePlayViewController.goBackPopup.button.continue" = "Sair";
+
+/* Message of the privacy policy popup */
+"InitialViewController.PrivacyPolicyViewContent" = "Política de Privacidade:
+
+Este aplicativo foi projetado para menores de 13 anos.
+Todo conteúdo criado através do aplicativo é de total responsabilidade de seus usuários.
+
+Coleta de dados:
+
+Coletamos fotos e utilizamos o microfone para gravação de áudio com o objetivo cumprir a funcionalidade principal da aplicação.
+
+Segurança:
+
+Utilizamos os protocolos de segurança internos padrão para que suas informações pessoais não sejam acessadas ou alteradas.
+
+Controle do usuário:
+
+O aplicativo permite ao usuário acessar, alterar e/ou apagar seus dados.
+
+Localização:
+
+Nós não registramos ou compartilhamos a sua localização.
+
+Este aplicativo não possui:
+
+- Propaganda
+- Analytics
+
+Para mais informações, entre em contato conosco: contato@linguadegatoapp.com.br";
+
+/* Alert message informing the user to create new game before play. */
+"InitialViewController.alert.message" = "Criar novo jogo";
+
+/* Alert title informing the user that he cant click on play game button because there isnt any saved word yet. */
+"InitialViewController.alert.title" = "Você ainda não tem palavras salvas";
+
+/* Message informing that the content of the application is the responsibility of the user */
+"InitialViewController.firstAlert.message" = "Todo o conteúdo criado neste aplicação é de inteira responsabilidade dos seus usuários.";
+
+/* Ok button that close the alert */
+"InitialViewController.firstAlert.okBtn" = "Ok";
+
+/* Title of an alert popup that appears when the user first use the app */
+"InitialViewController.firstAlert.title" = "Atenção!";
+
+/* Title that will appear on the first page of the tutorial */
+"TutorialCurrentPageVC.title1" = "Comece criando um jogo...";
+
+/* Title that will appear on the second page of the tutorial */
+"TutorialCurrentPageVC.title2" = "E adicione nova palavras";
+
+/* Title that will appear on the eighth page of the tutorial */
+"TutorialCurrentPageVC.title8" = "Divirta-se!";
+
+/* Message informing the user that if he returns, he will lose the words added to this new game. */
+"createCrossword.GoBackPopup.message" = "As palavras novas não salvas serão perdidas.";
+
+/* Ask the user if he wants to go back and cancel the creation of a new game. */
+"createCrossword.GoBackPopup.title" = "Você tem certeza que deseja voltar?";
+
+/* Asks if the user wants to delete new clue when he is creating a new game. */
+"createCrossword.alert.deleteNewClue" = "Apagar esta dica?";
+
+/* Respond negatively if the user wants to delete new clue. */
+"createCrossword.alert.deleteNewClue.Cancel" = "Não";
+
+/* Respond positively if the user wants to delete new clue. */
+"createCrossword.alert.deleteNewClue.Confirm" = "Sim";
+
+/* Button to close error message popup */
+"createCrossword.alert.errorSavingGame.bntOk" = "Ok";
+
+/* Messagem informing that there was a problem and saing the user to contact us */
+"createCrossword.alert.errorSavingGame.message" = "Desculpe, houve um erro. Entre em contato conosco.";
+
+/* Short messagem informing that there was a problem and the game was not saved */
+"createCrossword.alert.errorSavingGame.title" = "Jogo não salvo";
+
+/* Ok and close popup. */
+"createCrossword.alert.gameSaved.ok" = "Ok";
+
+/* Short message informing that the game was saved successfully. */
+"createCrossword.alert.gameSaved.title" = "Jogo salvo com sucesso";
+
+/* Message informing the user that there is a game saved with the same name and asking if he whants to save the game anyway and overwrite the other game. */
+"createCrossword.alert.overwriteGame.message" = "Você já tem um jogo salvo com este nome. Deseja sobrescrevê-lo?";
+
+/* Responds negatively to the question whether the user wants to overwrite the game and cancel the action of saving the new game. */
+"createCrossword.alert.overwriteGame.no" = "Não";
+
+/* Short message asking the user if he wants to overwrite a game. */
+"createCrossword.alert.overwriteGame.title" = "Sobrescrever jogo?";
+
+/* Responds positively to the question whether the user wants to overwrite the game that has the same name and continue the action of saving the new game. */
+"createCrossword.alert.overwriteGame.yes" = "Sim";
+
+/* Cancel action */
+"createCrossword.alert.removeClue.cancelAction" = "Cancelar";
+
+/* Continue action and delete the clue from the new game */
+"createCrossword.alert.removeClue.confirmAction" = "Apagar";
+
+/* Asks the user if he wants to delete a clue from the new game. */
+"createCrossword.alert.removeClueMessage" = "Você gostaria de apagar esta palavra?";
+
+/* Continue the insertion of the new clue. */
+"createCrossword.btnPlayGame.alert.btnCancel" = "Cancelar";
+
+/* Alert answer to go to game even if it will cancel the insertion of a new clue to the new game. */
+"createCrossword.btnPlayGame.alert.btnContinue" = "Jogar";
+
+/* This is the alert message when the user is craeting a new game, click on Play button and there is a new clue to be added in the game. */
+"createCrossword.btnPlayGame.alert.message" = "A nova dica não será adicionada ao jogo";
+
+/* This is the alert title when the user is craeting a new game, click on Play button and there is a new clue to be added in the game. */
+"createCrossword.btnPlayGame.alert.title" = "Você não terminou de adicionar a dica";
+
+/* Cancel the action of saving the new game */
+"createCrossword.btnSaveGame.alert.btnCancel" = "Cancelar";
+
+/* Go to action and save the new game */
+"createCrossword.btnSaveGame.alert.btnSave" = "Salvar";
+
+/* Default text that will appear on the game name text field during alert popup when the user is saving a new game */
+"createCrossword.btnSaveGame.alert.placeholderToNewGameNameTxtField" = "Nome do jogo";
+
+/* Alert that appears when the user wants to save a new game and asks the user to give a name for this game. */
+"createCrossword.btnSaveGame.alert.title" = "Dê um nome para este jogo:";
+
+/* Button to cancel the action of returning. */
+"createCrossword.goBackPopup.button.cancel" = "Cancelar";
+
+/* Button to continue the action of returning to home screen and cancel the creation of a new game. */
+"createCrossword.goBackPopup.button.continue" = "Voltar";
+
+/* Button to cancel the action of deleting game. */
+"galleryViewController.deleteWordsAlert.button.cancel" = "Cancelar";
+
+/* Button to continue the action and delete game. */
+"galleryViewController.deleteWordsAlert.button.continue" = "Apagar";
+
+/* Message informing the user that only the game will be deleted (not the words). */
+"galleryViewController.deleteWordsAlert.message" = "As palavras selecionadas serão apagadas da sua lista e dos jogos salvos";
+
+/* Ask the user if he wants to go delete words. */
+"galleryViewController.deleteWordsAlert.title" = "Apagar estas palavras?";
+
+/* Button to cancel the action of deleting game. */
+"gamesViewController.deleteGameAlert.button.cancel" = "Cancelar";
+
+/* Message informing the user that only the game will be deleted (not the words). */
+"gamesViewController.deleteGameAlert.message" = "O jogo será apagado, mas as palavras permanecerão na sua lista de palavras.";
+
+/* Ask the user if he wants to go remove the game. */
+"gamesViewController.deleteGameAlert.title" = "Apagar este jogo?";
+
+/* Button to continue the action and delete game. */
+"gamesViewController.deleteGamelert.button.continue" = "Sim";
+
