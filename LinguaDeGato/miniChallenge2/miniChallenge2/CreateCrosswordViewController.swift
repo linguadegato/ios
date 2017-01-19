@@ -434,18 +434,19 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             )
             
             alert.addAction(UIAlertAction(
-                title: NSLocalizedString("createCrossword.btnPlayGame.alert.btnContinue", value:"Play anyway", comment:"Alert answer to go to game even if it will cancel the insertion of a new clue to the new game."),
-                style: .default,
-                handler: { _ in
-                    self.performSegue(withIdentifier: "GenerateCrossword", sender: self)
-                }
-            ))
-            
-            alert.addAction(UIAlertAction(
                 title: NSLocalizedString("createCrossword.btnPlayGame.alert.btnCancel", value:"Cancel",comment:"Continue the insertion of the new clue."),
                 style: .cancel,
                 handler: nil
             ))
+            
+            alert.addAction(UIAlertAction(
+                title: NSLocalizedString("createCrossword.btnPlayGame.alert.btnContinue", value:"Play anyway", comment:"Alert answer to go to game even if it will cancel the insertion of a new clue to the new game."),
+                style: .default,
+                handler: { _ in
+                    self.performSegue(withIdentifier: "GenerateCrossword", sender: self)
+            }
+            ))
+
             
             self.present(alert, animated: true, completion: nil)
             
@@ -471,9 +472,10 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             let alertTextField = saveAlert.textFields![0]
             
             alertTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
+            
             saveAlert.addAction(UIAlertAction(
                 title: NSLocalizedString("createCrossword.btnSaveGame.alert.btnCancel", value:"Cancel", comment:"Cancel the action of saving the new game"),
-                style: UIAlertActionStyle.default,
+                style: UIAlertActionStyle.cancel,
                 handler:nil
             ))
             
@@ -601,13 +603,13 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         let cancelAction = UIAlertAction(
             title: NSLocalizedString("createCrossword.alert.removeClue.cancelAction", value: "Cancel", comment: "Cancel action"),
-            style: UIAlertActionStyle.cancel
+            style: UIAlertActionStyle.default
         ) { (action) in }
         
         
         let confirmAction = UIAlertAction(
             title: NSLocalizedString("createCrossword.alert.removeClue.confirmAction", value: "Delete", comment: "Continue action and delete the clue from the new game"),
-            style: UIAlertActionStyle.default
+            style: UIAlertActionStyle.destructive
         ) { (action) in
                 self.removeCell(index)
         }

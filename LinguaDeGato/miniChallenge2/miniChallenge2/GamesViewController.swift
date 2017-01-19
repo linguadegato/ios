@@ -186,8 +186,8 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         ))
         
         deleteGameAlert.addAction(UIAlertAction(
-            title: NSLocalizedString("gamesViewController.deleteGamelert.button.continue", value:"Yes", comment:"Button to continue the action and delete game."),
-            style: UIAlertActionStyle.cancel,
+            title: NSLocalizedString("gamesViewController.deleteGamelert.button.continue", value:"Delete", comment:"Button to continue the action and delete game."),
+            style: UIAlertActionStyle.destructive,
             handler: {_ in
                 self.deleteGame(gameID)
             }

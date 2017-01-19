@@ -237,7 +237,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
         deleteWordsAlert.addAction(UIAlertAction(
             title: NSLocalizedString("galleryViewController.deleteWordsAlert.button.continue", value:"Delete", comment:"Button to continue the action and delete game."),
-            style: UIAlertActionStyle.cancel,
+            style: UIAlertActionStyle.destructive,
             handler: {_ in
                 self.deleteWords()
             }

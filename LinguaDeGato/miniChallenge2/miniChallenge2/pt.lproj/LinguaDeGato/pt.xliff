@@ -2,7 +2,7 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
   <file original="miniChallenge2/Base.lproj/LaunchScreen.xib" source-language="en" datatype="plaintext" target-language="pt">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.2" build-num="8C38"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.2.1" build-num="8C1002"/>
     </header>
     <body>
       <trans-unit id="8ie-xW-0ye.text">
@@ -19,7 +19,7 @@
   </file>
   <file original="miniChallenge2/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="pt">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.2" build-num="8C38"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.2.1" build-num="8C1002"/>
     </header>
     <body>
       <trans-unit id="6W2-Y4-XXb.normalTitle">
@@ -146,7 +146,7 @@
   </file>
   <file original="miniChallenge2/Info.plist" source-language="en" datatype="plaintext" target-language="pt">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.2" build-num="8C38"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.2.1" build-num="8C1002"/>
     </header>
     <body>
       <trans-unit id="CFBundleName">
@@ -160,7 +160,7 @@
   </file>
   <file original="miniChallenge2/en.lproj/Localizable.strings" source-language="en" datatype="plaintext" target-language="pt">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.2" build-num="8C38"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.2.1" build-num="8C1002"/>
     </header>
     <body>
       <trans-unit id="GalleryCollectionViewController.collectionTitle">
@@ -559,7 +559,7 @@ Para mais informações, entre em contato conosco: contato@linguadegatoapp.com.b
   </file>
   <file original="miniChallenge2Tests/Info.plist" source-language="en" datatype="plaintext" target-language="pt">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.2" build-num="8C38"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.2.1" build-num="8C1002"/>
     </header>
     <body>
       <trans-unit id="CFBundleName">

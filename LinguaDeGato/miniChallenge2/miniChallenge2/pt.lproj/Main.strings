@@ -16,7 +16,7 @@
 /* Class = "UIBarButtonItem"; title = "Exit"; ObjectID = "IIZ-54-lW2"; */
 "IIZ-54-lW2.title" = "Sair";
 
-/* Class = "UISegmentedControl"; Iim-Tv-S3O.segmentTitles[0] = "Palavras "; ObjectID = "Iim-Tv-S3O"; */
+/* Class = "UISegmentedControl"; Iim-Tv-S3O.segmentTitles[0] = "Words "; ObjectID = "Iim-Tv-S3O"; */
 "Iim-Tv-S3O.segmentTitles[0]" = "Palavras ";
 
 /* Class = "UISegmentedControl"; Iim-Tv-S3O.segmentTitles[1] = "Games "; ObjectID = "Iim-Tv-S3O"; */
@@ -25,7 +25,7 @@
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "KPJ-Am-6C3"; */
 "KPJ-Am-6C3.normalTitle" = "Button";
 
-/* Class = "UILabel"; text = "Jogo"; ObjectID = "LbO-5U-mMX"; */
+/* Class = "UILabel"; text = "Name of the game"; ObjectID = "LbO-5U-mMX"; */
 "LbO-5U-mMX.text" = "Jogo";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "S7D-Vq-8a9"; */
@@ -49,7 +49,7 @@
 /* Class = "UIButton"; normalTitle = "Play Button"; ObjectID = "j1a-yD-1lA"; */
 "j1a-yD-1lA.normalTitle" = "Play Button";
 
-/* Class = "UITextField"; placeholder = "Digite a palavra..."; ObjectID = "mQc-ZF-1gt"; */
+/* Class = "UITextField"; placeholder = "Type the word..."; ObjectID = "mQc-ZF-1gt"; */
 "mQc-ZF-1gt.placeholder" = "Digite a palavra...";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mW9-RB-LVa"; */

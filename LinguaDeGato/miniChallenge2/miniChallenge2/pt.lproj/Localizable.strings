@@ -136,7 +136,7 @@ Para mais informações, entre em contato conosco: contato@linguadegatoapp.com.b
 "createCrossword.alert.deleteNewClue.Cancel" = "Não";
 
 /* Respond positively if the user wants to delete new clue. */
-"createCrossword.alert.deleteNewClue.Confirm" = "Sim";
+"createCrossword.alert.deleteNewClue.Confirm" = "Apagar";
 
 /* Button to close error message popup */
 "createCrossword.alert.errorSavingGame.bntOk" = "Ok";
@@ -226,5 +226,5 @@ Para mais informações, entre em contato conosco: contato@linguadegatoapp.com.b
 "gamesViewController.deleteGameAlert.title" = "Apagar este jogo?";
 
 /* Button to continue the action and delete game. */
-"gamesViewController.deleteGamelert.button.continue" = "Sim";
+"gamesViewController.deleteGamelert.button.continue" = "Apagar";
 
