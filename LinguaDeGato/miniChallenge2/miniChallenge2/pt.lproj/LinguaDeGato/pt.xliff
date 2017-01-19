@@ -402,7 +402,7 @@ Para mais informações, entre em contato conosco: contato@linguadegatoapp.com.b
       </trans-unit>
       <trans-unit id="createCrossword.alert.deleteNewClue.Confirm">
         <source>Yes</source>
-        <target>Sim</target>
+        <target>Apagar</target>
         <note>Respond positively if the user wants to delete new clue.</note>
       </trans-unit>
       <trans-unit id="createCrossword.alert.errorSavingGame.bntOk">
@@ -552,7 +552,7 @@ Para mais informações, entre em contato conosco: contato@linguadegatoapp.com.b
       </trans-unit>
       <trans-unit id="gamesViewController.deleteGamelert.button.continue">
         <source>Yes</source>
-        <target>Sim</target>
+        <target>Apagar</target>
         <note>Button to continue the action and delete game.</note>
       </trans-unit>
     </body>
