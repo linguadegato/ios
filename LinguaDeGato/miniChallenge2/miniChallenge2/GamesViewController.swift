@@ -10,7 +10,8 @@ import UIKit
 import AVFoundation
 import Photos
 
-class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
+class GamesViewController: UIViewController, UICollectionViewDelegate,
+    UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
 
     @IBOutlet weak var gamesCollectionView: UICollectionView!
     @IBOutlet weak var bottomView: UIView!
@@ -25,8 +26,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     //MARK: - LIFECYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
-        GalleryGlobalValues.gamesViewController = (self.gamesCollectionView.delegate! as! GamesViewController)
-        
+
         self.gamesCollectionView.allowsMultipleSelection = false
         
         GameServices.retrieveAllGames({ result in
@@ -43,7 +43,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     
     //MARK: - DATASOURCE
     
-    func numberOfSectionsInCollectionView(_ collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         
         return allGames.count
     }
@@ -52,7 +52,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         return allGames[section].wordsAndClueArray.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GameCollectionViewCell
         let clueWord = allGames[indexPath.section].wordsAndClueArray[indexPath.row].word
@@ -101,7 +101,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: IndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         switch kind {
         case UICollectionElementKindSectionHeader:

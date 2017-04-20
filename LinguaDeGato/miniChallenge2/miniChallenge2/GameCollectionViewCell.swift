@@ -18,5 +18,4 @@ class GameCollectionViewCell: UICollectionViewCell {
     var wordAndClue: WordAndClue!
     var delegate: CreateCrosswordViewController!
     var index: Int!
-    
 }

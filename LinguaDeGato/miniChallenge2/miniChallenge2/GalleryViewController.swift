@@ -10,17 +10,19 @@ import Foundation
 import UIKit
 import Photos
 
-class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayout{
+class GalleryViewController: UIViewController, UICollectionViewDelegate,
+    UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     @IBOutlet weak var galleryCollectionView: UICollectionView!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var scrollArrowButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
+    var galleryAndGamesVC: GalleryAndGamesViewController!
     
     fileprivate var gallery = [WordAndClue]()
     fileprivate var selectedWords = [WordAndClue]()
-    fileprivate let gameViewControler = GamePlayViewController()
+    
     fileprivate let maximumNumberOfWords = 6
     fileprivate let numberOfVisibleColumns = 4
     fileprivate let numberOfVisibleLines = 3
@@ -62,7 +64,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
     }
     
-    func numberOfSectionsInCollectionView(_ collectionView: UICollectionView) -> Int {
+    @objc(numberOfSectionsInCollectionView:) func numberOfSections(in: UICollectionView) -> Int {
         return 1
     }
     
@@ -70,7 +72,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         return gallery.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GalleryCollectionViewCell
         let clueWord = self.gallery[indexPath.row].word
@@ -297,7 +299,8 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
             self.gallery = result
         }
         self.galleryCollectionView.reloadData()
-        GalleryGlobalValues.gamesNeedToReload = true
+        self.galleryAndGamesVC.gamesVC.loadFromDataBase()
+        self.galleryAndGamesVC.gamesVC.gamesCollectionView.reloadData()
     }
     
     //MARK: - AUXILIAR PRIVATE METHODS

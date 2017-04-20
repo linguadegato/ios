@@ -760,7 +760,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         pulseAnimation.fromValue = 0
         pulseAnimation.toValue = 1
         pulseAnimation.autoreverses = true
-        pulseAnimation.repeatCount = FLT_MAX
+        pulseAnimation.repeatCount = Float.greatestFiniteMagnitude
         
         audioButton.layer.add(pulseAnimation, forKey: nil)
 
@@ -880,7 +880,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     fileprivate func rotateImage(_ image: UIImage, degrees: Float) -> UIImage {
         
-        let rads = Float(M_PI) * degrees / 180
+        let rads = Float(Double.pi) * degrees / 180
         let newSide = max(image.size.width, image.size.height)
         let size = CGSize(width: newSide, height: newSide)
         UIGraphicsBeginImageContext(size)

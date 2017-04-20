@@ -20,6 +20,8 @@ class GalleryAndGamesViewController: UIViewController {
     @IBOutlet weak var gamesView: UIView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    var gamesVC: GamesViewController!
+    
 
     override func viewWillAppear(_ animated: Bool) {
         self.indexChanged(self.segmentedControl)
@@ -49,8 +51,22 @@ class GalleryAndGamesViewController: UIViewController {
                 self.gamesView.alpha = 1
             })
         default:
-            break; 
+            break;
         }
     }
+    
+    //MARK: - NAVIGATION
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "GallerySegue") {
+            (segue.destination as! GalleryViewController).galleryAndGamesVC = self
+        }
+        
+        if (segue.identifier == "GamesSegue"){
+            self.gamesVC = segue.destination as! GamesViewController
+        }
+    }
+
     
 }
