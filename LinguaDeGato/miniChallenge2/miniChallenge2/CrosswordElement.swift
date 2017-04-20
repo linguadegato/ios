@@ -17,10 +17,8 @@ import UIKit
 
 //MARK TODO: Implement an "abstract class" mechanism
 //NOW IT SHOULD BE A PROTOCOL (or just implement a CrosswordViewsGenerator protocol)
-class CrosswordElement {
 
-    
-    func generateSquareView (_ squareSize: CGSize, elementCoordX: Int, elementCoordY: Int, board: BoardView) -> BoardCellView? {
-        return nil
-    }
+protocol CrosswordElement {
+
+    func generateSquareView (_ squareSize: CGSize, elementCoordX: Int, elementCoordY: Int, board: BoardView) -> BoardCellView?
 }

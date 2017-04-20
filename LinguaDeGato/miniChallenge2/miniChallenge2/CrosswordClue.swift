@@ -36,7 +36,7 @@ class CrosswordClue: CrosswordElement {
     }
     
     //create a 3x3 (in "squares") clue view, adjusting the rect with its offset
-    override func generateSquareView(_ squareSize: CGSize, elementCoordX: Int, elementCoordY: Int, board: BoardView) -> BoardCellView? {
+    func generateSquareView(_ squareSize: CGSize, elementCoordX: Int, elementCoordY: Int, board: BoardView) -> BoardCellView? {
         
         var originXoffset: CGFloat = 0
         var originYoffset: CGFloat = 0

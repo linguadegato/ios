@@ -1098,8 +1098,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             
             indicator.startAnimating()
             
-            let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: newWords)
-            aGenerator.computeCrossword(3, spins: 6)
+            let aGenerator = LGCrosswordGenerator(avaiableWords: newWords)
+            aGenerator.computeCrossword()
             
             //atribute it to GamePlayViewController
             (segue.destination as! GamePlayViewController).crosswordMatrix = aGenerator.grid

@@ -145,8 +145,8 @@ class GamesViewController: UIViewController, UICollectionViewDelegate,
             self.view.addSubview(indicator)
             indicator.startAnimating()
             
-            let aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: selectedGame)
-            aGenerator.computeCrossword(3, spins: 6)
+            let aGenerator = LGCrosswordGenerator(avaiableWords: selectedGame)
+            aGenerator.computeCrossword()
             
             (segue.destination as! GamePlayViewController).crosswordMatrix = aGenerator.grid
             (segue.destination as! GamePlayViewController).words = aGenerator.currentWordlist

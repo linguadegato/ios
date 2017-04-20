@@ -100,9 +100,8 @@ class InitialViewController: StatusBarViewController {
                     }
                     
                     //generate a crossword
-                    // I dont know why cols and rows are interchanged... will not fix it right now
-                    self.aGenerator = LGCrosswordGenerator(rows: BoardView.maxSquaresInCol, cols: BoardView.maxSquaresinRow, maxloops: 2000, avaiableWords: randomWords)
-                    self.aGenerator.computeCrossword(3, spins: 6)
+                    self.aGenerator = LGCrosswordGenerator(avaiableWords: randomWords)
+                    self.aGenerator.computeCrossword()
                     
                     self.performSegue(withIdentifier: "randomGame", sender: nil)
                 }

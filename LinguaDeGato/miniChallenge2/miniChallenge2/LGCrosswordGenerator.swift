@@ -15,10 +15,10 @@ class LGCrosswordGenerator {
     //MARK: Properties
     
     //size properties
-    let rows: Int
-    let cols: Int
+    let rows = BoardView.maxSquaresInCol
+    let cols = BoardView.maxSquaresinRow
     
-    let maxloops: Int
+    let maxloops = 2000
     
     var avaiableWords: [WordAndClue]
     var currentWordlist = [WordAndClue]()
@@ -28,19 +28,19 @@ class LGCrosswordGenerator {
     var copy: LGCrosswordGenerator?
     
     // MARK: Initializer
-    init(rows: Int, cols: Int, maxloops: Int, avaiableWords: [WordAndClue]) {
+    init(avaiableWords: [WordAndClue]) {
         
-        self.rows = rows
-        self.cols = cols
-        self.maxloops = maxloops
         self.avaiableWords = avaiableWords
         self.clearGrid()
     }
     
-    
     // MARK: Computional Methods
     
-    func computeCrossword(_ timePermitted: TimeInterval, spins: Int) {
+    func computeCrossword() {
+        
+        let timePermitted = TimeInterval(3)
+        
+        let spins = 6
         
         //flag to asure at least one spin to run completely
         var oneCompleteSpin = false
@@ -50,7 +50,7 @@ class LGCrosswordGenerator {
         //compute at least one crossword, and compute more while time is not over
         while (oneCompleteSpin == false && NSTimeIntervalSince1970 - start < timePermitted) {
             
-            self.copy = LGCrosswordGenerator(rows: self.rows, cols: self.cols, maxloops: self.maxloops, avaiableWords: self.avaiableWords)
+            self.copy = LGCrosswordGenerator(avaiableWords: self.avaiableWords)
             
             copy!.randomizeWordlist()
             var spinCount = 0

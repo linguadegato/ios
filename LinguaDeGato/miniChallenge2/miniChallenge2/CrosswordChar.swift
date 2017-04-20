@@ -22,7 +22,7 @@ class CrosswordChar: CrosswordElement, Equatable {
         self.theChar = aChar
     }
 
-    override func generateSquareView(_ squareSize: CGSize, elementCoordX: Int, elementCoordY: Int, board: BoardView) -> BoardCellView? {
+    func generateSquareView(_ squareSize: CGSize, elementCoordX: Int, elementCoordY: Int, board: BoardView) -> BoardCellView? {
         
         let originX = board.centerBoard!.frame.origin.x + (CGFloat(elementCoordX) * squareSize.width)
         let originY = board.centerBoard!.frame.origin.y + (CGFloat(elementCoordY) * squareSize.height)
