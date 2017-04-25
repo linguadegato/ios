@@ -18,7 +18,7 @@ class LGCrosswordGenerator {
     let rows = BoardView.maxSquaresInCol
     let cols = BoardView.maxSquaresinRow
     
-    let maxloops = 2000
+    //let maxloops = 2000
     
     var avaiableWords: [WordAndClue]
     var currentWordlist = [WordAndClue]()
@@ -34,27 +34,49 @@ class LGCrosswordGenerator {
         self.clearGrid()
     }
     
+    // MARK: Static generator
+    
+    public static func generateCrossword(words: [WordAndClue]) -> (wordsList: [WordAndClue], grid: [[CrosswordElement?]]) {
+        
+        let aGenerator = LGCrosswordGenerator(avaiableWords: words)
+        aGenerator.computeCrossword()
+        
+        let wordsList = aGenerator.avaiableWords
+        let grid = aGenerator.grid
+        
+        return(wordsList, grid!)
+    }
+    
     // MARK: Computional Methods
     
     func computeCrossword() {
         
+        //default settings
+        
         let timePermitted = TimeInterval(3)
-        
-        let spins = 6
-        
+        //since rearragedWordList() return all possible avaiableWords
+        //arranges, there's no need to spin more than twice, once
+        //forcing cross, then not forcing.
+        let spins = 2
         //flag to asure at least one spin to run completely
         var oneCompleteSpin = false
         
-        let start = NSTimeIntervalSince1970
+        //generate arranges, first the ones with the longest word first
+        let arranges = self.rearrangedWordLists()
+        var arrangeIndex = 0
         
-        //compute at least one crossword, and compute more while time is not over
-        while (oneCompleteSpin == false && NSTimeIntervalSince1970 - start < timePermitted) {
-            
-            self.copy = LGCrosswordGenerator(avaiableWords: self.avaiableWords)
-            
-            copy!.randomizeWordlist()
+        //compute at least one crossword, compute more while time is not over
+        
+        let start = NSDate().timeIntervalSinceReferenceDate
+        var time = NSDate().timeIntervalSinceReferenceDate
+        while (oneCompleteSpin == false ||
+            (time - start < timePermitted &&
+            arrangeIndex < arranges.count)) {
+                
+            self.copy = LGCrosswordGenerator(avaiableWords: arranges[arrangeIndex])
+                
+            //copy!.randomizeWordlist()
             var spinCount = 0
-            
             
             // fitAndAdd forces cross until a whole spin can't add a word
             var forceCross = true
@@ -77,6 +99,8 @@ class LGCrosswordGenerator {
                 self.grid = self.copy!.grid
             }
             oneCompleteSpin = true
+            arrangeIndex += 1
+            time = NSDate().timeIntervalSinceReferenceDate
         }
         clipGrid()
     }
@@ -366,8 +390,38 @@ class LGCrosswordGenerator {
     
     //MARK: Auxiliar computational methods
     
-    fileprivate func randomizeWordlist () {
+    fileprivate func rearrangedWordLists() -> [[WordAndClue]] {
+        self.avaiableWords = avaiableWords.sorted(by:
+            {return ($0.lenght > $1.lenght)})
+        return recursiveRearrenge(list: self.avaiableWords)
+    }
+    
+    fileprivate func recursiveRearrenge(list: [WordAndClue]) -> [[WordAndClue]] {
+        var output = [[WordAndClue]]()
         
+        if list.count > 1 {
+            for (i, word) in list.enumerated(){
+                //create a list with all words, except "word"
+                var recList = list
+                recList.remove(at: i)
+                
+                //insert "word" at the head of all arranges of recList
+                let arranges = recursiveRearrenge(list: recList)
+                for var arrange in arranges {
+                    arrange.insert(word, at: 0)
+                    output.append(arrange)
+                }
+            }
+        }
+        else {
+            output.append(list)
+        }
+        
+        return output
+    }
+    
+    /* NOT USING ANYMORE
+    fileprivate func randomizeWordlist () {
         //randomize avaiableWords
         var tempList = [WordAndClue]()
         let elements = avaiableWords.count
@@ -386,6 +440,7 @@ class LGCrosswordGenerator {
         //atribute the randomized and sorted list
         self.avaiableWords = tempList
     }
+    */
     
     //give each coordinate a score, then, in newCoordlist, randomize and sort
     fileprivate func sortCoordlist(_ word: WordAndClue, coordlist: [CrosswordCoordinate]) -> [CrosswordCoordinate] {
@@ -409,7 +464,6 @@ class LGCrosswordGenerator {
         
         //sort newCoordilist, bigger scores first
         newCoordlist.sort(by: {
-            //TODO: priorizes nearest to center
             //comparing non-crossing coordinates priorizes the nearest to matrix origin
             if $0.score == 1 && $1.score == 1 {
                 

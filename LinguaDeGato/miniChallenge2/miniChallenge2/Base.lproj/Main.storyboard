@@ -1063,7 +1063,7 @@
                                             </constraints>
                                             <state key="normal" title="Play Button" image="iconPlayOrangeWhite"/>
                                             <connections>
-                                                <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromSelectedGame" id="g5f-eM-EuM"/>
+                                                <action selector="playGame:" destination="RHV-tO-T4t" eventType="touchUpInside" id="kD9-0E-bke"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="726-4P-fbr" userLabel="Delete Button">
@@ -1145,6 +1145,7 @@
                     <connections>
                         <outlet property="bottomView" destination="dCN-pp-VyZ" id="okm-vW-VEM"/>
                         <outlet property="gamesCollectionView" destination="EWF-lc-t3Z" id="hDs-Ai-TND"/>
+                        <segue destination="epj-fT-bue" kind="show" identifier="CreateGameFromSelectedGame" id="u2t-zR-Buk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyN-r6-F5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1357,6 +1358,6 @@
         <image name="textLinguaDeGato" width="3175" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="g5f-eM-EuM"/>
+        <segue reference="u2t-zR-Buk"/>
     </inferredMetricsTieBreakers>
 </document>

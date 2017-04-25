@@ -16,6 +16,8 @@ class GamesViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var gamesCollectionView: UICollectionView!
     @IBOutlet weak var bottomView: UIView!
     
+    fileprivate var indicator: UIActivityIndicatorView?
+    
     fileprivate var allGames = [Game]()
     fileprivate let reuseIdentifier = "ClueCell"
     fileprivate let numberOfVisibleSections = 2
@@ -39,6 +41,55 @@ class GamesViewController: UIViewController, UICollectionViewDelegate,
                 self.bottomView.isHidden = true
             }
         })
+    }
+    
+    //MARK: - BUTTON ACTION
+    
+    @IBAction func playGame(_ sender: UIButton) {
+        self.indicator = LGStandarts.standartLGActivityIndicator(self.view)
+        self.view.addSubview(indicator!)
+        self.indicator!.startAnimating()
+        
+        performSegue(withIdentifier: "CreateGameFromSelectedGame", sender: sender)
+    }
+    
+    @IBAction func scrollArrowButton(_ sender: Any) {
+        
+        let visibleItens = self.gamesCollectionView.indexPathsForVisibleItems
+        let firstSectionVisible = visibleItens[self.numberOfVisibleSections]
+        let firstPosition = UICollectionViewScrollPosition.top
+        self.gamesCollectionView.scrollToItem(at: firstSectionVisible, at: firstPosition, animated: true)
+        
+    }
+    
+    @IBAction func deleteSelectedGame(_ sender: UIButton) {
+        
+        let gameID = sender.tag
+        selectGame(gameID)
+        
+        let deleteGameAlert = UIAlertController(
+            title: NSLocalizedString("gamesViewController.deleteGameAlert.title", value:"Delete this game?", comment:"Ask the user if he wants to go remove the game."),
+            message: NSLocalizedString("gamesViewController.deleteGameAlert.message", value:"The selected game will be deleted, but its words will remain in your list of words.", comment:"Message informing the user that only the game will be deleted (not the words)."),
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+        
+        deleteGameAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("gamesViewController.deleteGameAlert.button.cancel", value:"Cancel", comment:"Button to cancel the action of deleting game."),
+            style: UIAlertActionStyle.default,
+            handler:{_ in
+                self.deselectGame(gameID)
+        }
+        ))
+        
+        deleteGameAlert.addAction(UIAlertAction(
+            title: NSLocalizedString("gamesViewController.deleteGamelert.button.continue", value:"Delete", comment:"Button to continue the action and delete game."),
+            style: UIAlertActionStyle.destructive,
+            handler: {_ in
+                self.deleteGame(gameID)
+        }
+        ))
+        
+        self.present(deleteGameAlert, animated: true, completion: {})
     }
     
     //MARK: - DATASOURCE
@@ -133,70 +184,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegate,
         
     }
     
-    //MARK: - NAVIGATION
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if (segue.identifier == "CreateGameFromSelectedGame"){
-            let senderBtn = sender as! UIButton
-            let selectedGameID = senderBtn.tag
-            let selectedGame = allGames[selectedGameID].wordsAndClueArray
-            let indicator = LGStandarts.standartLGActivityIndicator(self.view)
-            
-            self.view.addSubview(indicator)
-            indicator.startAnimating()
-            
-            let aGenerator = LGCrosswordGenerator(avaiableWords: selectedGame)
-            aGenerator.computeCrossword()
-            
-            (segue.destination as! GamePlayViewController).crosswordMatrix = aGenerator.grid
-            (segue.destination as! GamePlayViewController).words = aGenerator.currentWordlist
-            
-            indicator.removeFromSuperview()
-        }
-        
-    }
-    
-    //MARK: - BUTTON ACTION
-    @IBAction func scrollArrowButton(_ sender: Any) {
-        
-        let visibleItens = self.gamesCollectionView.indexPathsForVisibleItems
-        let firstSectionVisible = visibleItens[self.numberOfVisibleSections]
-        let firstPosition = UICollectionViewScrollPosition.top
-        self.gamesCollectionView.scrollToItem(at: firstSectionVisible, at: firstPosition, animated: true)
-        
-    }
-    
-    @IBAction func deleteSelectedGame(_ sender: UIButton) {
-        
-        let gameID = sender.tag
-        selectGame(gameID)
-        
-        let deleteGameAlert = UIAlertController(
-            title: NSLocalizedString("gamesViewController.deleteGameAlert.title", value:"Delete this game?", comment:"Ask the user if he wants to go remove the game."),
-            message: NSLocalizedString("gamesViewController.deleteGameAlert.message", value:"The selected game will be deleted, but its words will remain in your list of words.", comment:"Message informing the user that only the game will be deleted (not the words)."),
-            preferredStyle: UIAlertControllerStyle.alert
-        )
-        
-        deleteGameAlert.addAction(UIAlertAction(
-            title: NSLocalizedString("gamesViewController.deleteGameAlert.button.cancel", value:"Cancel", comment:"Button to cancel the action of deleting game."),
-            style: UIAlertActionStyle.default,
-            handler:{_ in
-                self.deselectGame(gameID)
-            }
-        ))
-        
-        deleteGameAlert.addAction(UIAlertAction(
-            title: NSLocalizedString("gamesViewController.deleteGamelert.button.continue", value:"Delete", comment:"Button to continue the action and delete game."),
-            style: UIAlertActionStyle.destructive,
-            handler: {_ in
-                self.deleteGame(gameID)
-            }
-        ))
-        
-        self.present(deleteGameAlert, animated: true, completion: {})
-    }
-    
-    //MARK: - Delete game functions
+    //MARK: - GAMES MANAGEMENT METHODS
     private func deleteGame(_ gameID: Int){
         print("delete btn \(gameID)")
         
@@ -225,6 +213,23 @@ class GamesViewController: UIViewController, UICollectionViewDelegate,
     func loadFromDataBase() {
         GameServices.retrieveAllGames { result in
             self.allGames = result
+        }
+    }
+    
+    //MARK: - NAVIGATION
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "CreateGameFromSelectedGame"){
+            
+            let senderBtn = sender as! UIButton
+            let selectedGameID = senderBtn.tag
+            let selectedGame = allGames[selectedGameID].wordsAndClueArray
+            
+            let crossword = LGCrosswordGenerator.generateCrossword(words: selectedGame)
+            (segue.destination as! GamePlayViewController).crosswordMatrix = crossword.grid
+            (segue.destination as! GamePlayViewController).words = crossword.wordsList
+            
+            self.indicator!.stopAnimating()
         }
     }
 }

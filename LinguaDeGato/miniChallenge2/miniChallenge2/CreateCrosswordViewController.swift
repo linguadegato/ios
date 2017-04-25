@@ -1092,18 +1092,13 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         if (segue.identifier == "GenerateCrossword" && newWords.count > 0) {
             
             //Generate Crossword
-            
             let indicator = LGStandarts.standartLGActivityIndicator(self.view)
             self.view.addSubview(indicator)
-            
             indicator.startAnimating()
             
-            let aGenerator = LGCrosswordGenerator(avaiableWords: newWords)
-            aGenerator.computeCrossword()
-            
-            //atribute it to GamePlayViewController
-            (segue.destination as! GamePlayViewController).crosswordMatrix = aGenerator.grid
-            (segue.destination as! GamePlayViewController).words = aGenerator.currentWordlist
+            let crossword = LGCrosswordGenerator.generateCrossword(words: self.newWords)
+            (segue.destination as! GamePlayViewController).crosswordMatrix = crossword.grid
+            (segue.destination as! GamePlayViewController).words = crossword.wordsList
             
             indicator.removeFromSuperview()
         }

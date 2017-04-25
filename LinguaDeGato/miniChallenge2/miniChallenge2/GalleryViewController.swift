@@ -384,23 +384,22 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate,
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let indicator = LGStandarts.standartLGActivityIndicator(self.view)
-        self.view.addSubview(indicator)
-        indicator.startAnimating()
-        
-        let aGenerator = LGCrosswordGenerator(avaiableWords: selectedWords)
-        aGenerator.computeCrossword()
-        
         if (segue.identifier == "CreateGameFromGallery" ) {
             
-            (segue.destination as! GamePlayViewController).crosswordMatrix = aGenerator.grid
-            (segue.destination as! GamePlayViewController).words = aGenerator.currentWordlist
+            let indicator = LGStandarts.standartLGActivityIndicator(self.view)
+            self.view.addSubview(indicator)
+            indicator.startAnimating()
+            print("startAnimating")
+            
+            let crossword = LGCrosswordGenerator.generateCrossword(words: selectedWords)
+            (segue.destination as! GamePlayViewController).crosswordMatrix = crossword.grid
+            (segue.destination as! GamePlayViewController).words = crossword.wordsList
             
             deselectAllCells()
             selectedWords = []
+            
+            indicator.removeFromSuperview()
+            print("remove")
         }
-        
-        indicator.removeFromSuperview()
     }
-    
 }
