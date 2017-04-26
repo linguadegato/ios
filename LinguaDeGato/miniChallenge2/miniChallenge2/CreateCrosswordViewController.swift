@@ -536,6 +536,33 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         }
     }
     
+    
+    // MARK: - BUTTONS STATES
+    
+    // Disable addButton if there's no clue, or no word, or if there's already 6 words
+    fileprivate func setAddButtonState() {
+        if hasClue && hasWord && !wordsLimitReached && (recordingAudio == false){
+            addButton.backgroundColor = UIColor.greenPalete().withAlphaComponent(CGFloat(1))
+            addButton.isUserInteractionEnabled = true
+        } else {
+            addButton.backgroundColor = UIColor.greenPalete().withAlphaComponent(CGFloat(0.5))
+            addButton.isUserInteractionEnabled = false
+        }
+    }
+    
+    fileprivate func disableSaveButton(_ disable: Bool){
+        OperationQueue.main.addOperation {
+            if disable {
+                self.saveGameButton.alpha = 0.5
+                self.saveGameButton.isUserInteractionEnabled = false
+            } else {
+                self.saveGameButton.alpha = 1
+                self.saveGameButton.isUserInteractionEnabled = true
+            }
+        }
+    }
+    
+    
     // MARK: - ALERTS
     fileprivate func savedGameAlert(){
         let savedGame = UIAlertController(
@@ -621,31 +648,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
     }
     
-    
-    // MARK: - BUTTONS STATES
-    
-    // Disable addButton if there's no clue, or no word, or if there's already 6 words
-    fileprivate func setAddButtonState() {
-        if hasClue && hasWord && !wordsLimitReached && (recordingAudio == false){
-            addButton.backgroundColor = UIColor.greenPalete().withAlphaComponent(CGFloat(1))
-            addButton.isUserInteractionEnabled = true
-        } else {
-            addButton.backgroundColor = UIColor.greenPalete().withAlphaComponent(CGFloat(0.5))
-            addButton.isUserInteractionEnabled = false
-        }
-    }
-    
-    fileprivate func disableSaveButton(_ disable: Bool){
-        OperationQueue.main.addOperation {
-            if disable {
-                self.saveGameButton.alpha = 0.5
-                self.saveGameButton.isUserInteractionEnabled = false
-            } else {
-                self.saveGameButton.alpha = 1
-                self.saveGameButton.isUserInteractionEnabled = true
-            }
-        }
-    }
     
     //MARK: - GESTURE RECOGNIZERS
     
@@ -1090,7 +1092,9 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "GenerateCrossword" && newWords.count > 0) {
+            (segue.destination as! GamePlayViewController).words = self.newWords
             
+            /*
             //Generate Crossword
             let indicator = LGStandarts.standartLGActivityIndicator(self.view)
             self.view.addSubview(indicator)
@@ -1101,6 +1105,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             (segue.destination as! GamePlayViewController).words = crossword.wordsList
             
             indicator.removeFromSuperview()
+            */
         }
     
         //resets createCrosswordViewController

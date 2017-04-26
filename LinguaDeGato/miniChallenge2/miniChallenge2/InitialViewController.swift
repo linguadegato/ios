@@ -12,6 +12,8 @@ import MobileCoreServices
 
 class InitialViewController: StatusBarViewController {
     
+    //MARK: - PROPERTIES
+    
     @IBOutlet weak var createCrosswordButton: UIButton!
     @IBOutlet weak var playRandomGameButton: UIButton!
     @IBOutlet weak var muteMusicButton: UIButton!
@@ -20,8 +22,9 @@ class InitialViewController: StatusBarViewController {
     @IBOutlet weak var closePrivacyPolicyButton: UIButton!
 
     fileprivate var aGenerator: LGCrosswordGenerator!
+    fileprivate var randomGame: [WordAndClue]?
     
-    //Mark: - VIEWCONTROLLER LIFECYCLE METHODS
+    //MARK: - VIEWCONTROLLER LIFECYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -66,25 +69,20 @@ class InitialViewController: StatusBarViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK - BUTTON ACTIONS
+    // MARK: - BUTTON ACTIONS
 
     @IBAction func randomGame(_ sender: AnyObject) {
         
         let indicator = LGStandarts.standartLGActivityIndicator(self.view)
-        
         self.view.addSubview(indicator)
         indicator.startAnimating()
 
         WordAndClueServices.retriveAllWordAndClues( { words in
-            
             let operation = BlockOperation( block: {
                 var avaiableWords = words
                 var randomWords: [WordAndClue] = []
                 
                 //select 6 random words
-                avaiableWords = words
-                randomWords = []
-                
                 indicator.removeFromSuperview()
                 if avaiableWords.isEmpty {
                     self.noWordsAlert()
@@ -98,15 +96,11 @@ class InitialViewController: StatusBarViewController {
                         randomWords.append(avaiableWords[anIndex])
                         avaiableWords.remove(at: anIndex)
                     }
-                    
-                    //generate a crossword
-                    self.aGenerator = LGCrosswordGenerator(avaiableWords: randomWords)
-                    self.aGenerator.computeCrossword()
-                    
+                    //segue to game
+                    self.randomGame = randomWords
                     self.performSegue(withIdentifier: "randomGame", sender: nil)
                 }
             })
-            
             OperationQueue.main.addOperation(operation)
         })
     }
@@ -166,9 +160,7 @@ class InitialViewController: StatusBarViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "randomGame" {
-            
-            (segue.destination as! GamePlayViewController).crosswordMatrix = aGenerator.grid
-            (segue.destination as! GamePlayViewController).words = aGenerator.currentWordlist
+            (segue.destination as! GamePlayViewController).words = self.randomGame!
         }
     }
 }

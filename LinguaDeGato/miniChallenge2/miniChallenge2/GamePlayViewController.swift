@@ -15,14 +15,13 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     //will be used to change the background color in a new game
     static var backgroundColor = 0
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
     // MARK: - VIEWS
     @IBOutlet weak var boardView: BoardView!
     @IBOutlet weak var muteMusicButton: UIButton!
     @IBOutlet weak var muteAudioButton: UIButton!
-
-    // MARK: - NAVIGATION BUTTONS
+    
+    var indicator: UIActivityIndicatorView?
+    
     // navigation bar button
     var backButton : UIBarButtonItem!
     
@@ -38,34 +37,46 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        boardView.dataSource = self
-        boardView.delegate = self
         
         // Disable the swipe to make sure you get your chance to save
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
         let finishGame = URL(fileURLWithPath: Bundle.main.path(forResource: "finishGame", ofType: "wav")!)
-        
         do {
             try finishGamePlayAudio = AVAudioPlayer(contentsOf: finishGame)
         }
         catch _ {
             // Error handling
         }
-        
-        self.activityIndicator.stopAnimating()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.activityIndicator.startAnimating()
-        
         // set image of mute audio button
         if MusicSingleton.sharedMusic().isAudioMute {
             muteAudioButton.setImage(muteAudioOnImage, for: UIControlState())
         } else {
             muteAudioButton.setImage(muteAudioOffImage, for: UIControlState())
         }
+        
+        self.indicator = LGStandarts.standartLGActivityIndicator(self.view)
+        self.view.addSubview(indicator!)
+        indicator!.startAnimating()
+    }
+    
+    override func viewDidAppear(_ animated:Bool){
+        
+        boardView.dataSource = self
+        boardView.delegate = self
+        
+        let crossword = LGCrosswordGenerator.generateCrossword(words: self.words)
+        
+        self.words = crossword.wordsList
+        self.crosswordMatrix = crossword.grid
+        
+        //MARK: FIX-ME: GAMBIAAAARRA! Concerte o boardView
+        self.boardView.draw(self.boardView.frame)
+        
+        self.indicator!.stopAnimating()
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,19 +84,7 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - BOARDGAME DATASOURCE METHODS
-    
-    func getCrossWordMatrix() -> [[CrosswordElement?]]? {
-        
-        return crosswordMatrix
-    }
-    
-    func getCrossWordWords() -> [WordAndClue] {
-        return words
-    }
-    
-    // MARK - BUTTON ACTIONS
-    
+    // MARK: - BUTTON ACTIONS
     
     @IBAction func goHome(_ sender: AnyObject) {
         let alert = UIAlertController(
@@ -109,8 +108,8 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
                 // Don't forget to re-enable the interactive gesture
                 self.navigationController?.interactivePopGestureRecognizer!.isEnabled = true
                 
-            }
-            ))
+        }
+        ))
         
         self.present(alert, animated: true, completion: {})
     }
@@ -129,6 +128,16 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
         }
     }
     
+    //MARK: - BOARDGAME DATASOURCE METHODS
+    
+    func getCrossWordMatrix() -> [[CrosswordElement?]]? {
+        
+        return crosswordMatrix
+    }
+    
+    func getCrossWordWords() -> [WordAndClue] {
+        return words
+    }
     
     //MARK: - BOARDGAME DELEGATE METHODS
     
@@ -138,10 +147,8 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
             finishGamePlayAudio.volume = 0.2
             finishGamePlayAudio.play()
         }
-
         performSegue(withIdentifier: "GameEnded", sender: nil)
     }
-    
     
     // MARK: - TODO: NAVIGATION (porque voce tem que conseguir sair, neh?)
 

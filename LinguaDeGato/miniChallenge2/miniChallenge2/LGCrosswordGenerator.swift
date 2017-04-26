@@ -75,7 +75,7 @@ class LGCrosswordGenerator {
                 
             self.copy = LGCrosswordGenerator(avaiableWords: arranges[arrangeIndex])
                 
-            //copy!.randomizeWordlist()
+            //copy!.randomizeWordlist() //not used anymore
             var spinCount = 0
             
             // fitAndAdd forces cross until a whole spin can't add a word
@@ -99,9 +99,21 @@ class LGCrosswordGenerator {
                 self.grid = self.copy!.grid
             }
             oneCompleteSpin = true
-            arrangeIndex += 1
             time = NSDate().timeIntervalSinceReferenceDate
+                
+            /*TESTE DE PERFORMANCE
+            var list = [String]()
+            for word in arranges[arrangeIndex] {
+                list.append(word.word)
+            }
+            print("arrange: \(arrangeIndex+1)")
+            print(list, separator: ",", terminator: "\n\n")
+            ///////////////////////////////////////
+            */
+            
+            arrangeIndex += 1
         }
+        //print("tempo de processamento: \(NSDate().timeIntervalSinceReferenceDate - start)")
         clipGrid()
     }
     
@@ -165,7 +177,6 @@ class LGCrosswordGenerator {
     
     //return True if the word added has crossed (or the first); False if just fits
     fileprivate func fitAndAdd(_ word: WordAndClue, onlyAddInCross: Bool) -> Bool {
-        print("fit and Add: \(word.word), \(onlyAddInCross)")
         
         var fit = false
         var hasCrossed = false

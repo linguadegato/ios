@@ -393,9 +393,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kN5-DI-xyd" userLabel="Activity Indicator">
-                                <rect key="frame" x="502" y="342" width="20" height="20"/>
-                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nER-cG-Zd8" userLabel="GameBoard" customClass="BoardView" customModule="Lingua_de_Gato" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
                                 <subviews>
@@ -426,8 +423,6 @@
                             <constraint firstItem="nER-cG-Zd8" firstAttribute="top" secondItem="b4d-cD-jcb" secondAttribute="bottom" id="456-rK-g2u"/>
                             <constraint firstAttribute="trailing" secondItem="nER-cG-Zd8" secondAttribute="trailing" id="Gs7-SY-7MC"/>
                             <constraint firstItem="B9L-XC-Vs3" firstAttribute="top" secondItem="nER-cG-Zd8" secondAttribute="bottom" id="JGS-fD-ZAJ"/>
-                            <constraint firstItem="kN5-DI-xyd" firstAttribute="centerX" secondItem="PGi-CJ-GlE" secondAttribute="centerX" id="MIP-gK-J1O"/>
-                            <constraint firstItem="kN5-DI-xyd" firstAttribute="centerY" secondItem="PGi-CJ-GlE" secondAttribute="centerY" id="fgz-d6-YQz"/>
                             <constraint firstItem="nER-cG-Zd8" firstAttribute="leading" secondItem="PGi-CJ-GlE" secondAttribute="leading" id="ifi-vl-NW7"/>
                         </constraints>
                     </view>
@@ -463,7 +458,6 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="kN5-DI-xyd" id="Zcf-7r-e0w"/>
                         <outlet property="boardView" destination="nER-cG-Zd8" id="2Sj-Iv-b49"/>
                         <outlet property="muteAudioButton" destination="NZz-lp-d3c" id="GEW-H2-0iW"/>
                         <segue destination="vK8-Qp-WDY" kind="presentation" identifier="GameEnded" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="uvu-z8-EXW"/>

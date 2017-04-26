@@ -20,10 +20,11 @@ class LGStandarts {
         
         indicator.frame.size = CGSize(width: 60, height: 60)
         indicator.center = view.center
-        
         indicator.backgroundColor = UIColor.gray
         indicator.activityIndicatorViewStyle = .whiteLarge
         indicator.layer.cornerRadius = 6
+        indicator.layer.zPosition = 20
+        indicator.hidesWhenStopped = true
         
         return indicator
     }

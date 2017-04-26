@@ -16,8 +16,6 @@ class GamesViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var gamesCollectionView: UICollectionView!
     @IBOutlet weak var bottomView: UIView!
     
-    fileprivate var indicator: UIActivityIndicatorView?
-    
     fileprivate var allGames = [Game]()
     fileprivate let reuseIdentifier = "ClueCell"
     fileprivate let numberOfVisibleSections = 2
@@ -46,10 +44,6 @@ class GamesViewController: UIViewController, UICollectionViewDelegate,
     //MARK: - BUTTON ACTION
     
     @IBAction func playGame(_ sender: UIButton) {
-        self.indicator = LGStandarts.standartLGActivityIndicator(self.view)
-        self.view.addSubview(indicator!)
-        self.indicator!.startAnimating()
-        
         performSegue(withIdentifier: "CreateGameFromSelectedGame", sender: sender)
     }
     
@@ -220,16 +214,11 @@ class GamesViewController: UIViewController, UICollectionViewDelegate,
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "CreateGameFromSelectedGame"){
-            
             let senderBtn = sender as! UIButton
             let selectedGameID = senderBtn.tag
             let selectedGame = allGames[selectedGameID].wordsAndClueArray
             
-            let crossword = LGCrosswordGenerator.generateCrossword(words: selectedGame)
-            (segue.destination as! GamePlayViewController).crosswordMatrix = crossword.grid
-            (segue.destination as! GamePlayViewController).words = crossword.wordsList
-            
-            self.indicator!.stopAnimating()
+            (segue.destination as! GamePlayViewController).words = selectedGame
         }
     }
 }
