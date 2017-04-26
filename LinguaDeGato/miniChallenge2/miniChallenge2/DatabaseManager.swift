@@ -77,7 +77,7 @@ class DatabaseManager {
             return nil
         }
         
-        var managedObjectContext = NSManagedObjectContext()
+        var managedObjectContext = NSManagedObjectContext.init(concurrencyType: .privateQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         
         return managedObjectContext
