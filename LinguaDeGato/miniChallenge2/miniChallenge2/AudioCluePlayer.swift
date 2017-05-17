@@ -29,14 +29,12 @@ class AudioCluePlayer {
     
     class func playAudio(_ anAudio: AVAudioPlayer) {
         
-        var audioPlayerTimer: Timer
         
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
             
             audio = anAudio
             audio!.play()
-            audioPlayerTimer = Timer.scheduledTimer(timeInterval: audio!.duration, target: AudioCluePlayer.sharedPlayer(), selector: #selector(AudioCluePlayer.stopAudioAfterTimer(_:)), userInfo: nil, repeats: false)
             
         } catch {
             //MARK: TODO: [audio] error message
