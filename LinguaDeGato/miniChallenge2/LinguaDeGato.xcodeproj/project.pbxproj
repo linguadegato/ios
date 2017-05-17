@@ -16,6 +16,7 @@
 		2F287C261DFEF9B10012CF27 /* tutorialPage5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F287C281DFEF9B10012CF27 /* tutorialPage5.png */; };
 		2F287C2A1DFEF9E20012CF27 /* tutorialPage6.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F287C2C1DFEF9E20012CF27 /* tutorialPage6.png */; };
 		2F287C2E1DFEF9F30012CF27 /* tutorialPage7.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F287C301DFEF9F30012CF27 /* tutorialPage7.png */; };
+		2F494D061ECCCBC5004213DC /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F494D051ECCCBC5004213DC /* iPhone.storyboard */; };
 		2F7BB00C1DF9675E00161971 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F7BB00E1DF9675E00161971 /* InfoPlist.strings */; };
 		2F7BB0111DF9675F00161971 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F7BB0131DF9675F00161971 /* Localizable.strings */; };
 		2F7BB0161DF9676000161971 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F7BB0181DF9676000161971 /* InfoPlist.strings */; };
@@ -110,6 +111,7 @@
 		2F287C2D1DFEF9E70012CF27 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/tutorialPage6.png; sourceTree = "<group>"; };
 		2F287C2F1DFEF9F30012CF27 /* pt */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pt; path = pt.lproj/tutorialPage7.png; sourceTree = "<group>"; };
 		2F287C311DFEFA0F0012CF27 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/tutorialPage7.png; sourceTree = "<group>"; };
+		2F494D051ECCCBC5004213DC /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		2F7BB00D1DF9675E00161971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2F7BB0121DF9675F00161971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2F7BB0171DF9676000161971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				FA96DEA01B29C0CE00149113 /* Main.storyboard */,
+				2F494D051ECCCBC5004213DC /* iPhone.storyboard */,
 				FA96DEA51B29C0CE00149113 /* LaunchScreen.xib */,
 				FA96DEA31B29C0CE00149113 /* Images.xcassets */,
 				FAC71AC21C496D6F00F67F8C /* Games */,
@@ -558,6 +561,7 @@
 				77D94CBD1C402CD600E28B84 /* finishGame.wav in Resources */,
 				FA96DEA21B29C0CE00149113 /* Main.storyboard in Resources */,
 				2F7BB0111DF9675F00161971 /* Localizable.strings in Resources */,
+				2F494D061ECCCBC5004213DC /* iPhone.storyboard in Resources */,
 				2F287C011DFEE6A20012CF27 /* GameEndPopup.png in Resources */,
 				77D94CB41C401B7100E28B84 /* correctSound.wav in Resources */,
 				2F287C2A1DFEF9E20012CF27 /* tutorialPage6.png in Resources */,
@@ -886,7 +890,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -905,7 +909,7 @@
 				PRODUCT_NAME = "Lingua de Gato";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
