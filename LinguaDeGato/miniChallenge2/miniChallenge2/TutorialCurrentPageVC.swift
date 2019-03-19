@@ -32,7 +32,7 @@ class TutorialCurrentPageVC: UIViewController, UIPageViewControllerDataSource {
         self.pageImages = NSArray(objects: "tutorialPage1", "tutorialPage2", "tutorialPage3", "tutorialPage4", "tutorialPage5", "tutorialPage6", "tutorialPage7", "tutorialPage8")
         
         
-        self.pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "TutorialPageViewController") as! UIPageViewController
+        self.pageViewController = (self.storyboard?.instantiateViewController(withIdentifier: "TutorialPageViewController") as! UIPageViewController)
         
         self.pageViewController.dataSource = self
         
@@ -60,8 +60,8 @@ class TutorialCurrentPageVC: UIViewController, UIPageViewControllerDataSource {
         
         let aViewController: TutorialContentViewController = self.storyboard?.instantiateViewController(withIdentifier: "TutorialContentViewController") as! TutorialContentViewController
         
-        aViewController.imageFile = self.pageImages[index]as! String
-        aViewController.titleText = self.pageTitles[index]as! String
+        aViewController.imageFile = (self.pageImages[index]as! String)
+        aViewController.titleText = (self.pageTitles[index]as! String)
         aViewController.pageIndex = index
         
         return aViewController

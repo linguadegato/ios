@@ -232,7 +232,7 @@ class GalleryCollectionViewController : UICollectionViewController{
             style: UIAlertAction.Style.cancel,
             handler:{
                 _ in
-                if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
+                if alertTextField.text != nil && alertTextField.text!.count > 0 {
                     let newGame = Game(gameName: alertTextField.text!, wordsAndClue: self.selectedWords)
                     GameServices.saveGame(newGame, completion: {
                         success in

@@ -89,7 +89,7 @@ class LGCrosswordGenerator {
         //letterIndex starts at 1, since 0 would be the index of the clue
         var letterIndex = 1
         //iterate throught word letters
-        for letter in word.word.characters {
+        for letter in word.word {
             
             var rowIndex = 0
             //iterate trought grid rows
@@ -264,7 +264,7 @@ class LGCrosswordGenerator {
         }
         
         
-        for letter in word.word.characters {
+        for letter in word.word {
             let aCell = getCell(rowIndex, col: colIndex)
             
             var isCross = false
@@ -510,7 +510,7 @@ class LGCrosswordGenerator {
         }
         
         //set letters
-        for letter in word.word.characters{
+        for letter in word.word{
             
             if checkIfCellClear(row, col: col) {
                 let element = CrosswordChar(aChar: letter)

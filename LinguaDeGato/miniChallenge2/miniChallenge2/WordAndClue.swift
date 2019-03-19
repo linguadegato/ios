@@ -24,7 +24,7 @@ class WordAndClue: Equatable{
         word = aWord
         clue = aClue
         //length is incresead by 3 due the clue space in crossword
-        lenght = word.characters.count + 3
+        lenght = word.count + 3
     }
 }
 

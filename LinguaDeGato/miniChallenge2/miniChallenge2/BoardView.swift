@@ -19,8 +19,8 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
     //MARK: - PROPERTIES
     
     //MARK: Data
-    @IBInspectable var dataSource: BoardViewDataSource?
-    @IBInspectable var delegate: BoardViewDelegate?
+    var dataSource: BoardViewDataSource?
+    var delegate: BoardViewDelegate?
     
     var inputMatrix: [[CrosswordElement?]]!
     var crosswordMatrix: [[BoardCellView?]]!

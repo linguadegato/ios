@@ -386,7 +386,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         let txtNewWord = newWordTxtField.text
         let trimmedNewWordTxtField = txtNewWord!.trimmingCharacters(in: CharacterSet.whitespaces)
         
-        if !(trimmedNewWordTxtField.characters.count > limitLength) {
+        if !(trimmedNewWordTxtField.count > limitLength) {
             
             // Appending new word + clue to newwords array:
             let aClue = Clue(aImageID: imageID, anAudioPath: audioPath)
@@ -484,7 +484,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 style: UIAlertAction.Style.default,
                 handler:{ _ in
                 
-                    if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
+                    if alertTextField.text != nil && alertTextField.text!.count > 0 {
                         
                         self.savedGameName = alertTextField.text!
                         let newGame = Game(gameName: self.savedGameName, wordsAndClue: self.newWords)
@@ -760,7 +760,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         pulseAnimation.fromValue = 0
         pulseAnimation.toValue = 1
         pulseAnimation.autoreverses = true
-        pulseAnimation.repeatCount = FLT_MAX
+        pulseAnimation.repeatCount = Float.greatestFiniteMagnitude
         
         audioButton.layer.add(pulseAnimation, forKey: nil)
 
@@ -883,7 +883,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
     
     fileprivate func rotateImage(_ image: UIImage, degrees: Float) -> UIImage {
         
-        let rads = Float(M_PI) * degrees / 180
+        let rads = Float.pi * degrees / 180
         let newSide = max(image.size.width, image.size.height)
         let size = CGSize(width: newSide, height: newSide)
         UIGraphicsBeginImageContext(size)
@@ -1026,12 +1026,12 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             }
             
             //insert captlized text if it's within limitLenght
-            let newLength = text.characters.count + string.characters.count - range.length
+            let newLength = text.count + string.count - range.length
             if (newLength <= limitLength) {
                 textField.insertText(string.capitalized)
             }
             
-            hasWord = (text.characters.count > 0)
+            hasWord = (text.count > 0)
         }
         
         return false
@@ -1039,7 +1039,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let text = textField.text {
-            hasWord = (text.characters.count > 0)
+            hasWord = (text.count > 0)
         } else {
             hasWord = false
         }
