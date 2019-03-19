@@ -104,7 +104,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: IndexPath) -> UICollectionReusableView {
         
         switch kind {
-        case UICollectionElementKindSectionHeader:
+        case UICollectionView.elementKindSectionHeader:
             
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AllGamesHeader",for: indexPath) as! GamesHeaderView
             headerView.title.text = allGames[indexPath.section].name
@@ -113,7 +113,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
             return headerView
             
         
-        case UICollectionElementKindSectionFooter:
+        case UICollectionView.elementKindSectionFooter:
             
             let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "AllGamesFooter",for: indexPath) 
             return footerView
@@ -161,7 +161,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         
         let visibleItens = self.gamesCollectionView.indexPathsForVisibleItems
         let firstSectionVisible = visibleItens[self.numberOfVisibleSections]
-        let firstPosition = UICollectionViewScrollPosition.top
+        let firstPosition = UICollectionView.ScrollPosition.top
         self.gamesCollectionView.scrollToItem(at: firstSectionVisible, at: firstPosition, animated: true)
         
     }
@@ -174,12 +174,12 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         let deleteGameAlert = UIAlertController(
             title: NSLocalizedString("gamesViewController.deleteGameAlert.title", value:"Delete this game?", comment:"Ask the user if he wants to go remove the game."),
             message: NSLocalizedString("gamesViewController.deleteGameAlert.message", value:"The selected game will be deleted, but its words will remain in your list of words.", comment:"Message informing the user that only the game will be deleted (not the words)."),
-            preferredStyle: UIAlertControllerStyle.alert
+            preferredStyle: UIAlertController.Style.alert
         )
         
         deleteGameAlert.addAction(UIAlertAction(
             title: NSLocalizedString("gamesViewController.deleteGameAlert.button.cancel", value:"Cancel", comment:"Button to cancel the action of deleting game."),
-            style: UIAlertActionStyle.default,
+            style: UIAlertAction.Style.default,
             handler:{_ in
                 self.deselectGame(gameID)
             }
@@ -187,7 +187,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         
         deleteGameAlert.addAction(UIAlertAction(
             title: NSLocalizedString("gamesViewController.deleteGamelert.button.continue", value:"Delete", comment:"Button to continue the action and delete game."),
-            style: UIAlertActionStyle.destructive,
+            style: UIAlertAction.Style.destructive,
             handler: {_ in
                 self.deleteGame(gameID)
             }

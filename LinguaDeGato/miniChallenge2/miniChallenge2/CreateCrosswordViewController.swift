@@ -136,7 +136,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         newWordTxtField.layer.borderWidth = textFieldBorderWidth
         newWordTxtField.layer.cornerRadius = textFieldBorderRadius
         
-        audioButton.setBackgroundImage(audioButtonReadyToUseImage, for: UIControlState())
+        audioButton.setBackgroundImage(audioButtonReadyToUseImage, for: UIControl.State())
         audioButton.setBackgroundImage(audioButtonRecordingImage, for: .highlighted)
         
         newImageImgView.layer.borderColor = newImageBorderColor
@@ -144,8 +144,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         audioImageView.layer.cornerRadius = audioImageBorderRadius
 
-        addButton.setImage(addButtonImageOn, for: UIControlState())
-        addButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        addButton.setImage(addButtonImageOn, for: UIControl.State())
+        addButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
         setAddButtonState()
         
         removeNewClueButton.isHidden = true
@@ -210,15 +210,15 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         // Keyboard:
         super.viewWillAppear(animated)
         let center: NotificationCenter = NotificationCenter.default
-        center.addObserver(self, selector: #selector(CreateCrosswordViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        center.addObserver(self, selector: #selector(CreateCrosswordViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        center.addObserver(self, selector: #selector(CreateCrosswordViewController.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        center.addObserver(self, selector: #selector(CreateCrosswordViewController.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         let center = NotificationCenter.default
-        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        center.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        center.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     // MARK: - BUTTON ACTIONS
@@ -231,18 +231,18 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             let alert = UIAlertController(
                 title: NSLocalizedString("createCrossword.GoBackPopup.title", value:"Are you sure you want to go back?", comment:"Ask the user if he wants to go back and cancel the creation of a new game."),
                 message: NSLocalizedString("createCrossword.GoBackPopup.message", value:"The new words will be lost.", comment:"Message informing the user that if he returns, he will lose the words added to this new game."),
-                preferredStyle: UIAlertControllerStyle.alert
+                preferredStyle: UIAlertController.Style.alert
             )
             
             alert.addAction(UIAlertAction(
                 title: NSLocalizedString("createCrossword.goBackPopup.button.cancel", value:"Cancel", comment:"Button to cancel the action of returning."),
-                style: UIAlertActionStyle.cancel,
+                style: UIAlertAction.Style.cancel,
                 handler:nil
             ))
             
             alert.addAction(UIAlertAction(
                 title: NSLocalizedString("createCrossword.goBackPopup.button.continue", value:"Go back", comment:"Button to continue the action of returning to home screen and cancel the creation of a new game."),
-                style: UIAlertActionStyle.default,
+                style: UIAlertAction.Style.default,
                 handler:
                 {(UIAlertAction)in
                     self.goBack()                }
@@ -268,7 +268,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     @IBAction func useCamera(_ sender: AnyObject) {
         
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
             
             //add orientation observer
             //NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationChanged:", name: "UIDeviceOrientationDidChangeNotification", object: nil)
@@ -277,7 +277,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             let imagePicker = UIImagePickerController()
                 
             imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
             imagePicker.mediaTypes = [kUTTypeImage as String]
             imagePicker.allowsEditing = false
             
@@ -306,12 +306,12 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     
     @IBAction func useCameraRoll(_ sender: AnyObject) {
         
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.savedPhotosAlbum) {
             
             let imagePicker = UIImagePickerController()
             
             imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
             imagePicker.mediaTypes = [kUTTypeImage as String]
             imagePicker.allowsEditing = false
             
@@ -336,12 +336,12 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         let deleteNewClueAlert = UIAlertController(
             title: NSLocalizedString("createCrossword.alert.deleteNewClue", value:"Delete this clue?", comment:"Asks if the user wants to delete new clue when he is creating a new game."),
             message: "",
-            preferredStyle: UIAlertControllerStyle.alert
+            preferredStyle: UIAlertController.Style.alert
         )
         
         deleteNewClueAlert.addAction(UIAlertAction(
             title: NSLocalizedString("createCrossword.alert.deleteNewClue.Confirm", value:"Yes", comment:"Respond positively if the user wants to delete new clue."),
-            style: UIAlertActionStyle.default,
+            style: UIAlertAction.Style.default,
             handler: {_ in
                 self.clearNewClue()
             }
@@ -349,7 +349,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         deleteNewClueAlert.addAction(UIAlertAction(
             title: NSLocalizedString("createCrossword.alert.deleteNewClue.Cancel", value:"No", comment:"Respond negatively if the user wants to delete new clue."),
-            style: UIAlertActionStyle.cancel,
+            style: UIAlertAction.Style.cancel,
             handler: {_ in
             }
         ))
@@ -430,7 +430,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             let alert = UIAlertController(
                 title: NSLocalizedString("createCrossword.btnPlayGame.alert.title", value:"You didn't finish adding the clue", comment:"This is the alert title when the user is craeting a new game, click on Play button and there is a new clue to be added in the game."),
                 message: NSLocalizedString("createCrossword.btnPlayGame.alert.message", value:"The new clue will not be added in the game", comment:"This is the alert message when the user is craeting a new game, click on Play button and there is a new clue to be added in the game."),
-                preferredStyle: UIAlertControllerStyle.alert
+                preferredStyle: UIAlertController.Style.alert
             )
             
             alert.addAction(UIAlertAction(
@@ -462,7 +462,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             let saveAlert = UIAlertController(
                 title: NSLocalizedString("createCrossword.btnSaveGame.alert.title", value:"Give a name for this game:", comment: "Alert that appears when the user wants to save a new game and asks the user to give a name for this game."),
                 message: "",
-                preferredStyle: UIAlertControllerStyle.alert
+                preferredStyle: UIAlertController.Style.alert
             )
             
             saveAlert.addTextField(configurationHandler: { alertTextField in
@@ -475,13 +475,13 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             
             saveAlert.addAction(UIAlertAction(
                 title: NSLocalizedString("createCrossword.btnSaveGame.alert.btnCancel", value:"Cancel", comment:"Cancel the action of saving the new game"),
-                style: UIAlertActionStyle.cancel,
+                style: UIAlertAction.Style.cancel,
                 handler:nil
             ))
             
             saveAlert.addAction(UIAlertAction(
                 title: NSLocalizedString("createCrossword.btnSaveGame.alert.btnSave", value:"Save", comment:"Go to action and save the new game"),
-                style: UIAlertActionStyle.default,
+                style: UIAlertAction.Style.default,
                 handler:{ _ in
                 
                     if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
@@ -541,12 +541,12 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         let savedGame = UIAlertController(
             title: NSLocalizedString("createCrossword.alert.gameSaved.title", value: "Game saved successfully",  comment: "Short message informing that the game was saved successfully."),
             message: "",
-            preferredStyle: UIAlertControllerStyle.alert
+            preferredStyle: UIAlertController.Style.alert
         )
         
         savedGame.addAction(UIAlertAction(
             title: NSLocalizedString("createCrossword.alert.gameSaved.ok", value: "Ok",  comment: "Ok and close popup."),
-            style: UIAlertActionStyle.cancel,
+            style: UIAlertAction.Style.cancel,
             handler: nil)
         )
         
@@ -559,12 +559,12 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         let overwriteAlert = UIAlertController(
             title: NSLocalizedString("createCrossword.alert.overwriteGame.title", value:"Overwrite game?", comment: "Short message asking the user if he wants to overwrite a game."),
             message: NSLocalizedString("createCrossword.alert.overwriteGame.message", value:"You already have a game named \(aGame.name). Do you want to overwrite it?", comment: "Message informing the user that there is a game saved with the same name and asking if he whants to save the game anyway and overwrite the other game."),
-            preferredStyle: UIAlertControllerStyle.alert
+            preferredStyle: UIAlertController.Style.alert
         )
         
         overwriteAlert.addAction(UIAlertAction(
             title: NSLocalizedString("createCrossword.alert.overwriteGame.yes", value:"Yes", comment: "Responds positively to the question whether the user wants to overwrite the game that has the same name and continue the action of saving the new game."),
-            style: UIAlertActionStyle.default,
+            style: UIAlertAction.Style.default,
             handler: {_ in
                 let indicator = LGStandarts.standartLGActivityIndicator(self.view)
                 self.view.addSubview(indicator)
@@ -582,7 +582,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         overwriteAlert.addAction(UIAlertAction(
             title: NSLocalizedString("createCrossword.alert.overwriteGame.no", value:"No", comment: "Responds negatively to the question whether the user wants to overwrite the game and cancel the action of saving the new game."),
-            style: UIAlertActionStyle.cancel,
+            style: UIAlertAction.Style.cancel,
             handler: {_ in
 //                self.saveGame(self)
                 self.savedGameName = ""
@@ -603,13 +603,13 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         
         let cancelAction = UIAlertAction(
             title: NSLocalizedString("createCrossword.alert.removeClue.cancelAction", value: "Cancel", comment: "Cancel action"),
-            style: UIAlertActionStyle.default
+            style: UIAlertAction.Style.default
         ) { (action) in }
         
         
         let confirmAction = UIAlertAction(
             title: NSLocalizedString("createCrossword.alert.removeClue.confirmAction", value: "Delete", comment: "Continue action and delete the clue from the new game"),
-            style: UIAlertActionStyle.destructive
+            style: UIAlertAction.Style.destructive
         ) { (action) in
                 self.removeCell(index)
         }
@@ -657,7 +657,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     //MARK: ACTIONS
-    func tapAndPlayRecord(_ sender: UITapGestureRecognizer){
+    @objc func tapAndPlayRecord(_ sender: UITapGestureRecognizer){
         
         if self.audioPath != nil {
             do {
@@ -676,14 +676,14 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     fileprivate func startRecording() {
         
         do{
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, mode: .default, options: AVAudioSession.CategoryOptions.mixWithOthers)
         }
         catch{
             //error handling
         }
         
         self.recordingAudio = true
-        audioButton.setBackgroundImage(audioButtonRecordingImage, for: UIControlState())
+        audioButton.setBackgroundImage(audioButtonRecordingImage, for: UIControl.State())
         
         //MARK: this is a fragile line, and can cause bugs
         //user will never get to save the words "audio0" ,"audio1", "audio2", "audio3",
@@ -716,8 +716,8 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         self.audioRecorder.stop()
         
         do{
-            try AVAudioSession.sharedInstance().setActive(false, with: AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation)
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, with: .mixWithOthers)
+            try AVAudioSession.sharedInstance().setActive(false, options: AVAudioSession.SetActiveOptions.notifyOthersOnDeactivation)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient, mode: AVAudioSession.Mode.default, options: AVAudioSession.CategoryOptions.mixWithOthers)
             try AVAudioSession.sharedInstance().setActive(true)
         }
         catch{
@@ -727,7 +727,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         self.audioRecorder = nil
         self.recordingAudio = false
         
-        audioButton.setBackgroundImage(audioButtonReadyToUseImage, for: UIControlState())
+        audioButton.setBackgroundImage(audioButtonReadyToUseImage, for: UIControl.State())
         audioButton.layer.removeAllAnimations()
         audioImageView.layer.removeAllAnimations()
         
@@ -774,7 +774,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     //saves an image
     fileprivate func saveImage(_ image: UIImage, atPath: String) {
         
-        let imageData: Data = UIImagePNGRepresentation(image)!
+        let imageData: Data = image.pngData()!
         
         aFileManager.createFile(atPath: atPath, contents: imageData, attributes: nil)
     }
@@ -782,16 +782,19 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     // MARK: - DELEGATES AND DATASOURCES METHDOS
     
     // MARK: UIImagePickerControllerDelegate Methods
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         
-        let mediaType = info[UIImagePickerControllerMediaType] as! String
+        let mediaType = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.mediaType)] as! String
         
         self.dismiss(animated: true, completion: nil)
         
         //Image treatment
         if mediaType.isEqual(kUTTypeImage as String) {
             
-            var image = info[UIImagePickerControllerOriginalImage] as! UIImage
+            var image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as! UIImage
             
             let orientation = image.imageOrientation
             
@@ -844,7 +847,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 )
             }
             else {
-                let results = PHAsset.fetchAssets(withALAssetURLs: [info[UIImagePickerControllerReferenceURL] as! URL], options: nil)
+                let results = PHAsset.fetchAssets(withALAssetURLs: [info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.referenceURL)] as! URL], options: nil)
                 let asset = results.firstObject!
                 
                 imageID = asset.localIdentifier
@@ -859,7 +862,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             let alert = UIAlertController(
                 title: NSLocalizedString("createCrossword.alert.errorSavingGame.title", value:"Game not saved", comment: "Short messagem informing that there was a problem and the game was not saved"),
                 message: NSLocalizedString("createCrossword.alert.errorSavingGame.message", value:"Sorry, there as an error. Please, contact us.", comment: "Messagem informing that there was a problem and saing the user to contact us"),
-                preferredStyle: UIAlertControllerStyle.alert)
+                preferredStyle: UIAlertController.Style.alert)
         
             let cancelAction = UIAlertAction(
                 title: NSLocalizedString("createCrossword.alert.errorSavingGame.bntOk", value:"Ok", comment:"Button to close error message popup"),
@@ -1043,37 +1046,37 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
     }
     
     // Selector for keyboardWillShow
-    func keyboardWillShow(_ notification: Notification) {
+    @objc func keyboardWillShow(_ notification: Notification) {
         let info: NSDictionary = notification.userInfo! as NSDictionary
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        let keyboardSize = (info[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         let keyboardHeight: CGFloat = keyboardSize.height
         let collectionViewHeight = wordsAddedCollectionView.frame.height
         
         if (!isKeyboardLifted) {
             self.isKeyboardLifted = true
-            UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: { () -> Void in
                 self.view.frame = CGRect(x: 0, y: (self.view.frame.origin.y - keyboardHeight + collectionViewHeight), width: self.view.bounds.width, height: self.view.bounds.height)
                 }, completion: nil)
         }
     }
     
     // Selector for keyboardWillHide
-    func keyboardWillHide(_ notification: Notification) {
+    @objc func keyboardWillHide(_ notification: Notification) {
         let info: NSDictionary = notification.userInfo! as NSDictionary
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        let keyboardSize = (info[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         let keyboardHeight: CGFloat = keyboardSize.height
         let collectionViewHeight = wordsAddedCollectionView.frame.height
         
         if (isKeyboardLifted) {
             self.isKeyboardLifted = false
-            UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: { () -> Void in
                 self.view.frame = CGRect(x: 0, y: (self.view.frame.origin.y + keyboardHeight - collectionViewHeight), width: self.view.bounds.width, height: self.view.bounds.height)
                 }, completion: nil)
         }
     }
     
     // Selector for UIGesture
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         self.newWordTxtField.endEditing(true)
     }
     
@@ -1142,4 +1145,19 @@ extension UIImagePickerController
     open override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.landscape
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

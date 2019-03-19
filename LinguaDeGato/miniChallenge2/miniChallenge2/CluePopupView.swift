@@ -69,7 +69,7 @@ class CluePopupView: UIView {
         
         imageView = UIImageView(frame: imageViewRect)
         imageView.image = self.image
-        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
         
         frameView.addSubview(imageView)
         
@@ -91,7 +91,7 @@ class CluePopupView: UIView {
         frameView.addSubview(closeButton)
         
         //set closeButton appearance
-        closeButton.setImage(closeButtonImage, for: UIControlState())
+        closeButton.setImage(closeButtonImage, for: UIControl.State())
         closeButton.layer.cornerRadius = closeButton.bounds.height / 2
         
         //set closeButton Action
@@ -109,7 +109,7 @@ class CluePopupView: UIView {
             frameView.addSubview(replayButton)
             
             //set replayButton appearance
-            replayButton.setImage(replayButtonImage, for: UIControlState())
+            replayButton.setImage(replayButtonImage, for: UIControl.State())
             replayButton.layer.cornerRadius = replayButton.bounds.height / 2
             
             replayButton.addTarget(self, action: #selector(CluePopupView.playAudio), for: .touchUpInside)
@@ -139,7 +139,7 @@ class CluePopupView: UIView {
     }
     
     //MARK: - Gesture Handler
-    func tapped(_ sender: UITapGestureRecognizer){
+    @objc func tapped(_ sender: UITapGestureRecognizer){
         
         if imageView.point(inside: sender.location(ofTouch: 0, in: frameView), with: nil) {
             self.playAudio()
@@ -150,7 +150,7 @@ class CluePopupView: UIView {
     }
     
     //MARK: - Audio control
-    func playAudio() {
+    @objc func playAudio() {
         
         if self.audio != nil {
             AudioCluePlayer.playAudio(audio!)

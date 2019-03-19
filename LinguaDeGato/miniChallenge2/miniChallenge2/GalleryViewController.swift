@@ -166,7 +166,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
             
             title: NSLocalizedString("GalleryViewController.saveAlert.title", value: "Save this game?", comment: "Alert title asking if the user wants to save the new game"),
             message: NSLocalizedString("GalleryViewController.saveAlert.message", value: "Give a name for this new game", comment: "Alert message when is saving a new game saying the user to give a name to this game"),
-            preferredStyle: UIAlertControllerStyle.alert
+            preferredStyle: UIAlertController.Style.alert
         )
         
         saveAlert.addTextField(configurationHandler: { alertTextField in
@@ -177,7 +177,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
         saveAlert.addAction(UIAlertAction(
             title: NSLocalizedString("GalleryViewController.saveAlert.SaveBtn", value: "Save", comment: "Save button on alert popup that asks if the user wants to save a new game."),
-            style: UIAlertActionStyle.cancel,
+            style: UIAlertAction.Style.cancel,
             handler:{
                 _ in
                 if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
@@ -206,7 +206,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
         saveAlert.addAction(UIAlertAction(
             title: NSLocalizedString("GalleryViewController.saveAlert.CancelBtn", value: "No", comment: "Cancel action button on alert popup that asks if the user wants to save a new game."),
-            style: UIAlertActionStyle.default,
+            style: UIAlertAction.Style.default,
             handler: {_ in self.performSegue(withIdentifier: "CreateGameFromGallery", sender: nil)}
             ))
         
@@ -217,7 +217,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
     @IBAction func scrollButton(_ sender: AnyObject) {
         let visibleItens = self.galleryCollectionView.indexPathsForVisibleItems
         let firstCellVisible = visibleItens[self.numberOfVisibleColumns]
-        let firstPosition = UICollectionViewScrollPosition.top
+        let firstPosition = UICollectionView.ScrollPosition.top
         self.galleryCollectionView.scrollToItem(at: firstCellVisible, at: firstPosition, animated: true)
     }
     
@@ -226,18 +226,18 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         let deleteWordsAlert = UIAlertController(
             title: NSLocalizedString("galleryViewController.deleteWordsAlert.title", value:"Delete these words?", comment:"Ask the user if he wants to go delete words."),
             message: NSLocalizedString("galleryViewController.deleteWordsAlert.message", value:"The selected words will be deleted from your list and from your saved games.", comment:"Message informing the user that only the game will be deleted (not the words)."),
-            preferredStyle: UIAlertControllerStyle.alert
+            preferredStyle: UIAlertController.Style.alert
         )
         
         deleteWordsAlert.addAction(UIAlertAction(
             title: NSLocalizedString("galleryViewController.deleteWordsAlert.button.cancel", value:"Cancel", comment:"Button to cancel the action of deleting game."),
-            style: UIAlertActionStyle.default,
+            style: UIAlertAction.Style.default,
             handler:nil
         ))
         
         deleteWordsAlert.addAction(UIAlertAction(
             title: NSLocalizedString("galleryViewController.deleteWordsAlert.button.continue", value:"Delete", comment:"Button to continue the action and delete game."),
-            style: UIAlertActionStyle.destructive,
+            style: UIAlertAction.Style.destructive,
             handler: {_ in
                 self.deleteWords()
             }
@@ -255,12 +255,12 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
             title: NSLocalizedString("GalleryViewController.overwriteGameAlert.title", value: "Overwrite game?", comment: "Alert title asking if the user wants to overwrite the game with the same name."),
             
             message: NSLocalizedString("GalleryViewController.overwriteGameAlert.message", value: "You already have a game named \(aGame.name). Do you want to overwrite it?", comment: "Alert message saying that there is game with the same name and asking if the user wants to overwrite it."),
-            preferredStyle: UIAlertControllerStyle.alert
+            preferredStyle: UIAlertController.Style.alert
         )
         
         overwriteAlert.addAction(UIAlertAction(
             title: NSLocalizedString("GalleryViewController.overwriteGameAlert.YesBtn", value: "Yes", comment: "Yes button on alert popup that save the game and overwrite the other with the same name."),
-            style: UIAlertActionStyle.default,
+            style: UIAlertAction.Style.default,
             handler: {_ in
                 let indicator = LGStandarts.standartLGActivityIndicator(self.view)
                 self.view.addSubview(indicator)
@@ -278,7 +278,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
         overwriteAlert.addAction(UIAlertAction(
             title: NSLocalizedString("GalleryViewController.overwriteGameAlert.NoBtn", value: "No", comment: "No button on alert popup that cancel the saving process."),
-            style: UIAlertActionStyle.cancel,
+            style: UIAlertAction.Style.cancel,
             handler: {_ in
                 self.createNewGame(self)
         }

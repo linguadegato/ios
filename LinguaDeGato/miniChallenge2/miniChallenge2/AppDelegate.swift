@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         // NavigationBar can have dark colors and light colors
@@ -39,8 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let audioSession = AVAudioSession.sharedInstance()
         
+        
         do {
-            try audioSession.setCategory(AVAudioSessionCategoryAmbient, with: AVAudioSessionCategoryOptions.mixWithOthers)
+            try audioSession.setCategory(AVAudioSession.Category.ambient, mode: .default, options: AVAudioSession.CategoryOptions.mixWithOthers)
             try audioSession.setActive(true)
         }
         catch {
@@ -73,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AudioCluePlayer.stopAudio()
         do {
-            try AVAudioSession.sharedInstance().setActive(false, with: AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation)
+            try AVAudioSession.sharedInstance().setActive(false, options: AVAudioSession.SetActiveOptions.notifyOthersOnDeactivation)
         }
         catch {
             //error handling
@@ -86,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let audioSession = AVAudioSession.sharedInstance()
         
         do {
-            try audioSession.setCategory(AVAudioSessionCategoryAmbient, with: AVAudioSessionCategoryOptions.mixWithOthers)
+            try audioSession.setCategory(AVAudioSession.Category.ambient, mode: .default, options: AVAudioSession.CategoryOptions.mixWithOthers)
             try audioSession.setActive(true)
         }
         catch {
@@ -105,3 +106,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
+}

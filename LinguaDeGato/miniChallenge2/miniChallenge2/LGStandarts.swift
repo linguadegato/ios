@@ -22,7 +22,7 @@ class LGStandarts {
         indicator.center = view.center
         
         indicator.backgroundColor = UIColor.gray
-        indicator.activityIndicatorViewStyle = .whiteLarge
+        indicator.style = .whiteLarge
         indicator.layer.cornerRadius = 6
         
         return indicator

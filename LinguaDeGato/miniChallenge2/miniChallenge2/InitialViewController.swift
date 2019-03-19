@@ -38,7 +38,7 @@ class InitialViewController: StatusBarViewController {
             let firstAlert = UIAlertController(
                 title: NSLocalizedString("InitialViewController.firstAlert.title", value: "Attention!", comment: "Title of an alert popup that appears when the user first use the app"),
                 message: NSLocalizedString("InitialViewController.firstAlert.message", value: "All content created within this application is the entire responsibility of its users.", comment: "Message informing that the content of the application is the responsibility of the user"),
-                preferredStyle: UIAlertControllerStyle.alert
+                preferredStyle: UIAlertController.Style.alert
             )
             
             firstAlert.addAction(UIAlertAction(
@@ -151,7 +151,7 @@ class InitialViewController: StatusBarViewController {
         let alert = UIAlertController(
             title: NSLocalizedString("InitialViewController.alert.title", value: "You don't have any saved words yet", comment: "Alert title informing the user that he cant click on play game button because there isnt any saved word yet."),
             message: NSLocalizedString("InitialViewController.alert.message", value: "Create a new game", comment: "Alert message informing the user to create new game before play."),
-            preferredStyle: UIAlertControllerStyle.alert
+            preferredStyle: UIAlertController.Style.alert
         )
         
         alert.addAction(UIAlertAction(

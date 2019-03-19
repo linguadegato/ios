@@ -112,10 +112,10 @@ class TileView: UIView, UIGestureRecognizerDelegate {
         //tile not placed in any square
         if isCorrect == nil {
             textFontAttributes = [
-                NSFontAttributeName: UIFont.boldSystemFont(ofSize: fontSize),
-                NSForegroundColorAttributeName: tileTextColorDefault,
-                NSBaselineOffsetAttributeName: 0 as AnyObject,
-                NSParagraphStyleAttributeName: textStyle
+                convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.boldSystemFont(ofSize: fontSize),
+                convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): tileTextColorDefault,
+                convertFromNSAttributedStringKey(NSAttributedString.Key.baselineOffset): 0 as AnyObject,
+                convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): textStyle
             ]
         }
             
@@ -125,33 +125,33 @@ class TileView: UIView, UIGestureRecognizerDelegate {
             if isCorrect! {
                 if inCorrectWordsCounter == 0 {
                     textFontAttributes = [
-                        NSFontAttributeName: UIFont.boldSystemFont(ofSize: fontSize),
-                        NSForegroundColorAttributeName: tileTextColorRightLetter,
-                        NSBaselineOffsetAttributeName: 0 as AnyObject,
-                        NSParagraphStyleAttributeName: textStyle
+                        convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.boldSystemFont(ofSize: fontSize),
+                        convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): tileTextColorRightLetter,
+                        convertFromNSAttributedStringKey(NSAttributedString.Key.baselineOffset): 0 as AnyObject,
+                        convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): textStyle
                     ]
                 }
                 //if the whole word is correct
                 else {
                     textFontAttributes = [
-                        NSFontAttributeName: UIFont.boldSystemFont(ofSize: fontSize),
-                        NSForegroundColorAttributeName: tileTextColorFinishedWord,
-                        NSBaselineOffsetAttributeName: 0 as AnyObject,
-                        NSParagraphStyleAttributeName: textStyle
+                        convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.boldSystemFont(ofSize: fontSize),
+                        convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): tileTextColorFinishedWord,
+                        convertFromNSAttributedStringKey(NSAttributedString.Key.baselineOffset): 0 as AnyObject,
+                        convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): textStyle
                     ]
                 }
             }
             //if tile is placed in the wrong square
             else {
                 textFontAttributes = [
-                    NSFontAttributeName: UIFont.boldSystemFont(ofSize: fontSize),
-                    NSForegroundColorAttributeName: tileTextColorColorWrongLetter,
-                    NSBaselineOffsetAttributeName: 0 as AnyObject,
-                    NSParagraphStyleAttributeName: textStyle
+                    convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.boldSystemFont(ofSize: fontSize),
+                    convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): tileTextColorColorWrongLetter,
+                    convertFromNSAttributedStringKey(NSAttributedString.Key.baselineOffset): 0 as AnyObject,
+                    convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): textStyle
                 ]
             }
         }
-        text.draw(in: self.bounds, withAttributes: textFontAttributes)
+        text.draw(in: self.bounds, withAttributes: convertToOptionalNSAttributedStringKeyDictionary(textFontAttributes))
     }
     
     
@@ -248,9 +248,9 @@ class TileView: UIView, UIGestureRecognizerDelegate {
     
     //MARK: - GESTURE RECOGNIZER
     
-    func handlePanGesture(){
+    @objc func handlePanGesture(){
         delegate.tileMoved(self)
-        if(self.gestureRecognizer.state == UIGestureRecognizerState.ended){
+        if(self.gestureRecognizer.state == UIGestureRecognizer.State.ended){
             delegate.tileReleased(self)
         }
     }
@@ -274,4 +274,15 @@ protocol TileViewDelegate {
     
     func tileReleased(_ tile: TileView)
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

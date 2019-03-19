@@ -62,9 +62,9 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
         
         // set image of mute audio button
         if MusicSingleton.sharedMusic().isAudioMute {
-            muteAudioButton.setImage(muteAudioOnImage, for: UIControlState())
+            muteAudioButton.setImage(muteAudioOnImage, for: UIControl.State())
         } else {
-            muteAudioButton.setImage(muteAudioOffImage, for: UIControlState())
+            muteAudioButton.setImage(muteAudioOffImage, for: UIControl.State())
         }
     }
     
@@ -91,18 +91,18 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
         let alert = UIAlertController(
             title: NSLocalizedString("GamePlayViewController.GoBackPopup.title", value:"Do you really want to exit?", comment:"Ask the user if he wants to go back and cancel the game."),
             message: NSLocalizedString("GamePlayViewController.GoBackPopup.message", value:"This game will be canceled.", comment:"Message informing the user that if he returns, he will stop and cancel the game."),
-            preferredStyle: UIAlertControllerStyle.alert
+            preferredStyle: UIAlertController.Style.alert
         )
         
         alert.addAction(UIAlertAction(
             title: NSLocalizedString("GamePlayViewController.goBackPopup.button.cancel", value:"Cancel", comment:"Button to cancel the action of returning."),
-            style: UIAlertActionStyle.cancel,
+            style: UIAlertAction.Style.cancel,
             handler:nil
         ))
         
         alert.addAction(UIAlertAction(
             title: NSLocalizedString("GamePlayViewController.goBackPopup.button.continue", value:"Exit", comment:"Button to continue the action of returning to home screen and cancel the game."),
-            style: UIAlertActionStyle.default,
+            style: UIAlertAction.Style.default,
             handler:{ (UIAlertAction)in
                 
                 let _ = self.navigationController?.popToRootViewController(animated: true)
@@ -120,11 +120,11 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
         
         if MusicSingleton.sharedMusic().isAudioMute {
             // audio will play
-            muteAudioButton.setImage(muteAudioOffImage, for: UIControlState())
+            muteAudioButton.setImage(muteAudioOffImage, for: UIControl.State())
             MusicSingleton.sharedMusic().isAudioMute = false
         } else {
             // audio will stop
-            muteAudioButton.setImage(muteAudioOnImage, for: UIControlState())
+            muteAudioButton.setImage(muteAudioOnImage, for: UIControl.State())
             MusicSingleton.sharedMusic().isAudioMute = true
         }
     }

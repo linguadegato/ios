@@ -31,7 +31,7 @@ class ClueView: BoardCellView, UIGestureRecognizerDelegate {
     
     // MARK: visual properties
     let imageViewBackgroundColor = UIColor.white
-    let imageViewContentMode = UIViewContentMode.scaleAspectFit
+    let imageViewContentMode = UIView.ContentMode.scaleAspectFit
     let imageViewBorderColor = UIColor.greenWaterPalete()
     let imageViewBorderSize: CGFloat = 1.0
     
@@ -158,7 +158,7 @@ class ClueView: BoardCellView, UIGestureRecognizerDelegate {
     }
     
     //MARK: - GESTURE RECOGNIZER
-    func handleTapGesture(){
+    @objc func handleTapGesture(){
         delegate.handleClueTapGesture(self)
     }
 }

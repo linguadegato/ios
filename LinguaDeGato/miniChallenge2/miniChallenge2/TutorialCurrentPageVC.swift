@@ -43,9 +43,9 @@ class TutorialCurrentPageVC: UIViewController, UIPageViewControllerDataSource {
         
         self.pageViewController.view.frame = CGRect(x: 0, y: 30, width: self.view.frame.width, height: self.view.frame.size.height - 100)
         
-        self.addChildViewController(self.pageViewController)
+        self.addChild(self.pageViewController)
         self.view.addSubview(self.pageViewController.view)
-        self.pageViewController.didMove(toParentViewController: self)
+        self.pageViewController.didMove(toParent: self)
     }
 
     override func didReceiveMemoryWarning() {

@@ -219,7 +219,7 @@ class GalleryCollectionViewController : UICollectionViewController{
         let saveAlert = UIAlertController(
             title: NSLocalizedString("GalleryCollectionViewController.saveAlert.title", value: "Save this game?", comment: "Alert title asking if the user wants to save the new game"),
             message: NSLocalizedString("GalleryCollectionViewController.saveAlert.message", value: "Give a name for this game", comment: "Alert message when is saving a new game saying the user to give a name to this game"),
-            preferredStyle: UIAlertControllerStyle.alert
+            preferredStyle: UIAlertController.Style.alert
         )
         
         saveAlert.addTextField(configurationHandler: { alertTextField in
@@ -229,7 +229,7 @@ class GalleryCollectionViewController : UICollectionViewController{
         
         saveAlert.addAction(UIAlertAction(
             title: NSLocalizedString("GalleryCollectionViewController.saveAlert.SaveBtn", value: "Save", comment: "Save button on alert popup that asks if the user wants to save a new game."),
-            style: UIAlertActionStyle.cancel,
+            style: UIAlertAction.Style.cancel,
             handler:{
                 _ in
                 if alertTextField.text != nil && alertTextField.text!.characters.count > 0 {
@@ -256,7 +256,7 @@ class GalleryCollectionViewController : UICollectionViewController{
         saveAlert.addAction(UIAlertAction(
             title: NSLocalizedString("GalleryCollectionViewController.saveAlert.CancelBtn", value: "No", comment: "Cancel action button on alert popup that asks if the user wants to save a new game."),
             
-            style: UIAlertActionStyle.default,
+            style: UIAlertAction.Style.default,
             
             handler: {_ in self.performSegue(
                 withIdentifier: "CreateGameFromGallery", sender: nil
@@ -273,12 +273,12 @@ class GalleryCollectionViewController : UICollectionViewController{
             
             message: NSLocalizedString("GalleryCollectionViewController.overwriteGameAlert.message", value: "You already have a game named \(aGame.name). Do you want to overwrite it?", comment: "Alert message saying that there is game with the same name and asking if the user wants to overwrite it."),
             
-            preferredStyle: UIAlertControllerStyle.alert
+            preferredStyle: UIAlertController.Style.alert
         )
         
         overwriteAlert.addAction(UIAlertAction(
             title: NSLocalizedString("GalleryCollectionViewController.overwriteGameAlert.YesBtn", value: "Yes", comment: "Yes button on alert popup that save the game and overwrite the other with the same name."),
-            style: UIAlertActionStyle.default, handler: {_ in
+            style: UIAlertAction.Style.default, handler: {_ in
                 GameServices.overwriteGame(aGame, completion: {})
                 self.performSegue(withIdentifier: "GenerateCrossword", sender: nil)
             }
@@ -286,7 +286,7 @@ class GalleryCollectionViewController : UICollectionViewController{
         
         overwriteAlert.addAction(UIAlertAction(
             title: NSLocalizedString("GalleryCollectionViewController.overwriteGameAlert.NoBtn", value: "No", comment: "No button on alert popup that cancel the saving process."),
-            style: UIAlertActionStyle.cancel,
+            style: UIAlertAction.Style.cancel,
             handler: {_ in
                 self.createNewGame(self)
             }
