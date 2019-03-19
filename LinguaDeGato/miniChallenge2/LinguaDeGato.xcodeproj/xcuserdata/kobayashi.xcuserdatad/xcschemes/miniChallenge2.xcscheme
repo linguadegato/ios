@@ -52,6 +52,16 @@
                ReferencedContainer = "container:LinguaDeGato.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FA49938E224169DF007C7728"
+               BuildableName = "Lingua_de_GatoTests.xctest"
+               BlueprintName = "Lingua_de_GatoTests"
+               ReferencedContainer = "container:LinguaDeGato.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
