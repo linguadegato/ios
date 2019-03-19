@@ -26,7 +26,6 @@
 		7786A6221C46B4930011C32A /* MusicSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786A6211C46B4930011C32A /* MusicSingleton.swift */; };
 		77BCE0491C5153FF004CA31B /* GalleryAndGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BCE0481C5153FF004CA31B /* GalleryAndGamesViewController.swift */; };
 		77D725911C0F56CF00A687E8 /* StatusBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */; };
-		77D94C9B1C3ECE5900E28B84 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */; };
 		77D94CB41C401B7100E28B84 /* correctSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CB21C401B7100E28B84 /* correctSound.wav */; };
 		77D94CB91C401F5A00E28B84 /* wrongSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CB81C401F5A00E28B84 /* wrongSound.wav */; };
 		77D94CBD1C402CD600E28B84 /* finishGame.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77D94CBC1C402CD600E28B84 /* finishGame.wav */; };
@@ -74,6 +73,7 @@
 		FA96DEB31B29C0CE00149113 /* LinguaDeGatoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96DEB21B29C0CE00149113 /* LinguaDeGatoTests.swift */; };
 		FAAB7EF71C3F19A9004561EF /* GamesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAB7EF61C3F19A9004561EF /* GamesCollectionViewController.swift */; };
 		FAACFB371C5157A100344723 /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41DCB91BDAA584008D72CE /* Clue.swift */; };
+		FABD9250224132FA00230458 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABD924F2241327D00230458 /* AVFoundation.framework */; };
 		FAC71AC11C49637100F67F8C /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC71AC01C49637100F67F8C /* GalleryCollectionViewCell.swift */; };
 		FAD50B971C5CE986002C8B37 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD50B961C5CE986002C8B37 /* GalleryViewController.swift */; };
 		FAD621531B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */; };
@@ -126,7 +126,6 @@
 		7786A6211C46B4930011C32A /* MusicSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicSingleton.swift; sourceTree = "<group>"; };
 		77BCE0481C5153FF004CA31B /* GalleryAndGamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryAndGamesViewController.swift; sourceTree = "<group>"; };
 		77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarViewController.swift; sourceTree = "<group>"; };
-		77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		77D94CB21C401B7100E28B84 /* correctSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correctSound.wav; sourceTree = "<group>"; };
 		77D94CB81C401F5A00E28B84 /* wrongSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrongSound.wav; sourceTree = "<group>"; };
 		77D94CBC1C402CD600E28B84 /* finishGame.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = finishGame.wav; sourceTree = "<group>"; };
@@ -177,6 +176,7 @@
 		FA96DEB11B29C0CE00149113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA96DEB21B29C0CE00149113 /* LinguaDeGatoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinguaDeGatoTests.swift; sourceTree = "<group>"; };
 		FAAB7EF61C3F19A9004561EF /* GamesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesCollectionViewController.swift; sourceTree = "<group>"; };
+		FABD924F2241327D00230458 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		FAC71AC01C49637100F67F8C /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAD50B961C5CE986002C8B37 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWordCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77D94C9B1C3ECE5900E28B84 /* AVFoundation.framework in Frameworks */,
+				FABD9250224132FA00230458 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,10 +383,10 @@
 		FA96DE8A1B29C0CE00149113 = {
 			isa = PBXGroup;
 			children = (
-				77D94C9A1C3ECE5900E28B84 /* AVFoundation.framework */,
 				FA96DE951B29C0CE00149113 /* LinguaDeGato */,
 				FA96DEAF1B29C0CE00149113 /* LinguaDeGatoTests */,
 				FA96DE941B29C0CE00149113 /* Products */,
+				FABD924E2241326700230458 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -446,6 +446,14 @@
 				FA96DEB11B29C0CE00149113 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FABD924E2241326700230458 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FABD924F2241327D00230458 /* AVFoundation.framework */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		FAC71AC21C496D6F00F67F8C /* Games */ = {
