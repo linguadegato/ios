@@ -18,14 +18,15 @@ import AVFoundation
 class TileView: UIView, UIGestureRecognizerDelegate {
 
     //MARK: - PROPERTIES
-    
-    @IBInspectable var letter: Character = "x" {
+    #warning ("Make it @IBInspectable")
+    var letter: Character = "x" {
         didSet {
             self.setNeedsDisplay()
         }
     }
     
-    @IBInspectable var delegate: TileViewDelegate! = nil
+    #warning ("Make it @IBInspectable")
+    var delegate: TileViewDelegate! = nil
     
     var gestureRecognizer: UIPanGestureRecognizer! = nil
     var isCorrect: Bool?

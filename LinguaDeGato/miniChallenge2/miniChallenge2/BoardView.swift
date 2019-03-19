@@ -19,6 +19,7 @@ class BoardView: UIView, TileViewDelegate, ClueViewDelegate{
     //MARK: - PROPERTIES
     
     //MARK: Data
+    #warning ("Make it @IBInspectable")
     var dataSource: BoardViewDataSource?
     var delegate: BoardViewDelegate?
     
