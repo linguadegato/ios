@@ -19,15 +19,10 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     
     // MARK: - VIEWS
     @IBOutlet weak var boardView: BoardView!
-    @IBOutlet weak var muteMusicButton: UIButton!
-    @IBOutlet weak var muteAudioButton: UIButton!
 
     // MARK: - NAVIGATION BUTTONS
     // navigation bar button
     var backButton : UIBarButtonItem!
-    
-    fileprivate let muteAudioOnImage = UIImage(named: "btnMuteAudioOnLightBlue")
-    fileprivate let muteAudioOffImage = UIImage(named: "btnMuteAudioOffLightBlue")
     
     // MARK: - GAME PROPERTIES (words array, positions matrix, etc)
     var crosswordMatrix: [[CrosswordElement?]]?
@@ -59,13 +54,6 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
     
     override func viewWillAppear(_ animated: Bool) {
         self.activityIndicator.startAnimating()
-        
-        // set image of mute audio button
-        if MusicSingleton.sharedMusic().isAudioMute {
-            muteAudioButton.setImage(muteAudioOnImage, for: UIControl.State())
-        } else {
-            muteAudioButton.setImage(muteAudioOffImage, for: UIControl.State())
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -115,29 +103,13 @@ class GamePlayViewController: StatusBarViewController, BoardViewDelegate, BoardV
         self.present(alert, animated: true, completion: {})
     }
     
-    // "mute audio" button
-    @IBAction func muteAudioButton(_ sender: AnyObject) {
-        
-        if MusicSingleton.sharedMusic().isAudioMute {
-            // audio will play
-            muteAudioButton.setImage(muteAudioOffImage, for: UIControl.State())
-            MusicSingleton.sharedMusic().isAudioMute = false
-        } else {
-            // audio will stop
-            muteAudioButton.setImage(muteAudioOnImage, for: UIControl.State())
-            MusicSingleton.sharedMusic().isAudioMute = true
-        }
-    }
-    
     
     //MARK: - BOARDGAME DELEGATE METHODS
     
     func gameEnded() {
         
-        if !MusicSingleton.sharedMusic().isAudioMute {
-            finishGamePlayAudio.volume = 0.2
-            finishGamePlayAudio.play()
-        }
+        finishGamePlayAudio.volume = 0.2
+        finishGamePlayAudio.play()
 
         performSegue(withIdentifier: "GameEnded", sender: nil)
     }
