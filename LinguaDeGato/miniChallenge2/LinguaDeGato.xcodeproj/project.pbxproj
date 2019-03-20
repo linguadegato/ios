@@ -368,15 +368,13 @@
 		FA96DE951B29C0CE00149113 /* LinguaDeGato */ = {
 			isa = PBXGroup;
 			children = (
-				FA9CF2ED2242B90C00CBD883 /* Resources */,
-				FA9CF2F22242BA3C00CBD883 /* Storyboards */,
-				FA9CF2EC2242B84E00CBD883 /* Models */,
 				FA9CF2F32242BA6F00CBD883 /* Tutorial */,
+				FA9CF2ED2242B90C00CBD883 /* Resources */,
 				FA9CF2E92242B73700CBD883 /* Extensions */,
 				FA9CF2EA2242B7E500CBD883 /* ApplicationDelegate */,
-				FA9CF2EB2242B80C00CBD883 /* InitialView */,
-				FA9CF2E82242B6C800CBD883 /* CreateGame */,
-				FA9CF2EE2242B95D00CBD883 /* SavedGames */,
+				FA9CF2F22242BA3C00CBD883 /* Storyboards */,
+				FA9CF2EC2242B84E00CBD883 /* Models */,
+				FA9CF2F42242C0A800CBD883 /* ViewControllers */,
 				FA9CF2F12242BA2100CBD883 /* Storage */,
 				EFE6D07A1B85F45100CCC802 /* CrosswordGameplay */,
 				EFFB40C81C46A5530099BA6F /* Persistence */,
@@ -403,13 +401,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FA9CF2E82242B6C800CBD883 /* CreateGame */ = {
+		FA9CF2E82242B6C800CBD883 /* CreateGameViewController */ = {
 			isa = PBXGroup;
 			children = (
 				FA06818F1B2B1491008A5C9F /* CreateCrosswordViewController.swift */,
 				FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */,
 			);
-			path = CreateGame;
+			path = CreateGameViewController;
 			sourceTree = "<group>";
 		};
 		FA9CF2E92242B73700CBD883 /* Extensions */ = {
@@ -429,14 +427,14 @@
 			path = ApplicationDelegate;
 			sourceTree = "<group>";
 		};
-		FA9CF2EB2242B80C00CBD883 /* InitialView */ = {
+		FA9CF2EB2242B80C00CBD883 /* InitialViewController */ = {
 			isa = PBXGroup;
 			children = (
 				FAE1C8B11B385E1F00FFE77C /* InitialViewController.swift */,
 				77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */,
 				FAF3E2191C45932800BE8A8F /* GamesHeaderView.swift */,
 			);
-			path = InitialView;
+			path = InitialViewController;
 			sourceTree = "<group>";
 		};
 		FA9CF2EC2242B84E00CBD883 /* Models */ = {
@@ -457,35 +455,35 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		FA9CF2EE2242B95D00CBD883 /* SavedGames */ = {
+		FA9CF2EE2242B95D00CBD883 /* WordsAndGamesViewController */ = {
 			isa = PBXGroup;
 			children = (
 				EF986E501E1008BF0071205E /* GalleryGlobalValues.swift */,
 				77BCE0481C5153FF004CA31B /* GalleryAndGamesViewController.swift */,
-				FA9CF2F02242B9DE00CBD883 /* Words */,
-				FA9CF2EF2242B99800CBD883 /* Games */,
+				FA9CF2F02242B9DE00CBD883 /* WordsViewController */,
+				FA9CF2EF2242B99800CBD883 /* GamesViewController */,
 			);
-			path = SavedGames;
+			path = WordsAndGamesViewController;
 			sourceTree = "<group>";
 		};
-		FA9CF2EF2242B99800CBD883 /* Games */ = {
+		FA9CF2EF2242B99800CBD883 /* GamesViewController */ = {
 			isa = PBXGroup;
 			children = (
 				FA588A3A1C5E4C960014EE3B /* GamesViewController.swift */,
 				FAAB7EF61C3F19A9004561EF /* GamesCollectionViewController.swift */,
 				FA8D2D921C3F2F2B004F0375 /* GameCollectionViewCell.swift */,
 			);
-			path = Games;
+			path = GamesViewController;
 			sourceTree = "<group>";
 		};
-		FA9CF2F02242B9DE00CBD883 /* Words */ = {
+		FA9CF2F02242B9DE00CBD883 /* WordsViewController */ = {
 			isa = PBXGroup;
 			children = (
 				FAD50B961C5CE986002C8B37 /* GalleryViewController.swift */,
 				FA1E0EF51C495BB000596D44 /* GalleryCollectionViewController.swift */,
 				FAC71AC01C49637100F67F8C /* GalleryCollectionViewCell.swift */,
 			);
-			path = Words;
+			path = WordsViewController;
 			sourceTree = "<group>";
 		};
 		FA9CF2F12242BA2100CBD883 /* Storage */ = {
@@ -512,6 +510,16 @@
 				7708F5121C6504B900832989 /* TutorialCurrentPageVC.swift */,
 			);
 			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		FA9CF2F42242C0A800CBD883 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA9CF2EB2242B80C00CBD883 /* InitialViewController */,
+				FA9CF2E82242B6C800CBD883 /* CreateGameViewController */,
+				FA9CF2EE2242B95D00CBD883 /* WordsAndGamesViewController */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		FABD924E2241326700230458 /* Frameworks */ = {
