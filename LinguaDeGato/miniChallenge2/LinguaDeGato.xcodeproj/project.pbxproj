@@ -368,7 +368,6 @@
 		FA96DE951B29C0CE00149113 /* LinguaDeGato */ = {
 			isa = PBXGroup;
 			children = (
-				FA9CF2F32242BA6F00CBD883 /* Tutorial */,
 				FA9CF2ED2242B90C00CBD883 /* Resources */,
 				FA9CF2E92242B73700CBD883 /* Extensions */,
 				FA9CF2EA2242B7E500CBD883 /* ApplicationDelegate */,
@@ -503,18 +502,19 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		FA9CF2F32242BA6F00CBD883 /* Tutorial */ = {
+		FA9CF2F32242BA6F00CBD883 /* TutorialViewController */ = {
 			isa = PBXGroup;
 			children = (
 				7708F5101C64FCD500832989 /* TutorialContentViewController.swift */,
 				7708F5121C6504B900832989 /* TutorialCurrentPageVC.swift */,
 			);
-			path = Tutorial;
+			path = TutorialViewController;
 			sourceTree = "<group>";
 		};
 		FA9CF2F42242C0A800CBD883 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA9CF2F32242BA6F00CBD883 /* TutorialViewController */,
 				FA9CF2EB2242B80C00CBD883 /* InitialViewController */,
 				FA9CF2E82242B6C800CBD883 /* CreateGameViewController */,
 				FA9CF2EE2242B95D00CBD883 /* WordsAndGamesViewController */,

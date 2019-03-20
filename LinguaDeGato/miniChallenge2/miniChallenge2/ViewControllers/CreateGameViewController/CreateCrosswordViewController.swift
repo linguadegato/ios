@@ -176,16 +176,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
         audioButton.isEnabled = false
         
         recordingSession = AVAudioSession.sharedInstance()
-        /*
-        do {
-            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try recordingSession.setActive(true)
-
-        } catch {
-            //MARK: TODO: [audio] error message
-            // failed to record!
-        }
-        */
+        
         recordingSession.requestRecordPermission() { [unowned self] (allowed: Bool) -> Void in
             DispatchQueue.main.async {
                 if allowed {
@@ -280,23 +271,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             imagePicker.sourceType = UIImagePickerController.SourceType.camera
             imagePicker.mediaTypes = [kUTTypeImage as String]
             imagePicker.allowsEditing = false
-            
-            //MARK: TODO: Add orientation's observer
-            
-            //create a frame where the photo will be cropped
-            //MARK: TODO: treat orientations changes
-            /*
-            let xPosition = ((imagePicker.view.frame.width  - imagePicker.toolbar!.frame.width) - imagePicker.view.frame.height) / 2
-            
-            let aRect = CGRect(x: xPosition, y: 0, width: imagePicker.view.frame.height, height: imagePicker.view.frame.height)
-
-            let aView = UIView(frame: aRect)
-            aView.backgroundColor = nil
-            aView.layer.borderColor = UIColor.greenColor().CGColor
-            aView.layer.borderWidth = 0.5
-            
-            imagePicker.view.addSubview(aView)
-            */
             
             self.present(imagePicker, animated: true, completion: nil)
             
@@ -584,7 +558,6 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             title: NSLocalizedString("createCrossword.alert.overwriteGame.no", value:"No", comment: "Responds negatively to the question whether the user wants to overwrite the game and cancel the action of saving the new game."),
             style: UIAlertAction.Style.cancel,
             handler: {_ in
-//                self.saveGame(self)
                 self.savedGameName = ""
                 self.disableSaveButton(false)
             }
