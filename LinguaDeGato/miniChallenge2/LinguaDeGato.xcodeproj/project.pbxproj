@@ -240,25 +240,9 @@
 			name = sounds;
 			sourceTree = "<group>";
 		};
-		EF986E4F1E1008530071205E /* Gallery */ = {
-			isa = PBXGroup;
-			children = (
-				FA1E0EF51C495BB000596D44 /* GalleryCollectionViewController.swift */,
-				FAAB7EF61C3F19A9004561EF /* GamesCollectionViewController.swift */,
-				77BCE0481C5153FF004CA31B /* GalleryAndGamesViewController.swift */,
-				FAD50B961C5CE986002C8B37 /* GalleryViewController.swift */,
-				FA588A3A1C5E4C960014EE3B /* GamesViewController.swift */,
-				EF986E501E1008BF0071205E /* GalleryGlobalValues.swift */,
-			);
-			name = Gallery;
-			sourceTree = "<group>";
-		};
 		EF995EE11BD1163600C27479 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EF41DCB71BDAA50A008D72CE /* WordAndClue.swift */,
-				EF41DCB91BDAA584008D72CE /* Clue.swift */,
-				FAE14DBA1C49139100E245CA /* Game.swift */,
 				EFCC8B681BF11DE600F6851F /* WordManager.swift */,
 				EFB0BE4B1BECD331000981C1 /* LGCrosswordGenerator.swift */,
 				EFA0932A1BCD3524008525F1 /* CrosswordElement.swift */,
@@ -288,34 +272,6 @@
 			children = (
 				EFE6D07B1B85F4B700CCC802 /* GamePlayViewController.swift */,
 				EFC1DAC01C5FBE5F004D4E11 /* GameEndPopupVC.swift */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
-		EFE1C8981B390E75002F68F9 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				FA96DEA01B29C0CE00149113 /* Main.storyboard */,
-				2F494D051ECCCBC5004213DC /* iPhone.storyboard */,
-				FA96DEA51B29C0CE00149113 /* LaunchScreen.xib */,
-				FA96DEA31B29C0CE00149113 /* Images.xcassets */,
-				FAC71AC21C496D6F00F67F8C /* Games */,
-				FAC71AC31C496D8300F67F8C /* Gallery */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		EFE1C8991B390F1C002F68F9 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				FAE1C8B11B385E1F00FFE77C /* InitialViewController.swift */,
-				FA06818F1B2B1491008A5C9F /* CreateCrosswordViewController.swift */,
-				FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */,
-				EFB828681BF65B2E0017CF35 /* UINavigationControllerExtension.swift */,
-				77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */,
-				7708F5101C64FCD500832989 /* TutorialContentViewController.swift */,
-				7708F5121C6504B900832989 /* TutorialCurrentPageVC.swift */,
-				EF986E4F1E1008530071205E /* Gallery */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -357,15 +313,6 @@
 				EF995EE11BD1163600C27479 /* Model */,
 			);
 			name = CrosswordGameplay;
-			sourceTree = "<group>";
-		};
-		EFF0BD0C1BDA458F00027024 /* Non-playable Screens */ = {
-			isa = PBXGroup;
-			children = (
-				EFE1C8981B390E75002F68F9 /* View */,
-				EFE1C8991B390F1C002F68F9 /* Controller */,
-			);
-			name = "Non-playable Screens";
 			sourceTree = "<group>";
 		};
 		EFFB40C81C46A5530099BA6F /* Persistence */ = {
@@ -421,8 +368,16 @@
 		FA96DE951B29C0CE00149113 /* LinguaDeGato */ = {
 			isa = PBXGroup;
 			children = (
-				FA96DE981B29C0CE00149113 /* AppDelegate.swift */,
-				EFF0BD0C1BDA458F00027024 /* Non-playable Screens */,
+				FA9CF2ED2242B90C00CBD883 /* Resources */,
+				FA9CF2F22242BA3C00CBD883 /* Storyboards */,
+				FA9CF2EC2242B84E00CBD883 /* Models */,
+				FA9CF2F32242BA6F00CBD883 /* Tutorial */,
+				FA9CF2E92242B73700CBD883 /* Extensions */,
+				FA9CF2EA2242B7E500CBD883 /* ApplicationDelegate */,
+				FA9CF2EB2242B80C00CBD883 /* InitialView */,
+				FA9CF2E82242B6C800CBD883 /* CreateGame */,
+				FA9CF2EE2242B95D00CBD883 /* SavedGames */,
+				FA9CF2F12242BA2100CBD883 /* Storage */,
 				EFE6D07A1B85F45100CCC802 /* CrosswordGameplay */,
 				EFFB40C81C46A5530099BA6F /* Persistence */,
 				FA96DE961B29C0CE00149113 /* Supporting Files */,
@@ -438,7 +393,6 @@
 				FA96DE971B29C0CE00149113 /* Info.plist */,
 				2F7BB0181DF9676000161971 /* InfoPlist.strings */,
 				2F7BB0131DF9675F00161971 /* Localizable.strings */,
-				FAFAB86B1C161DA100CBC16B /* UIColorExtension.swift */,
 				EFE420541C56961D00E4B1CE /* AppImages.swift */,
 				EFE393D01C60CDC30038333D /* LGStandarts.swift */,
 				EFAB039F1C63A48200336D1D /* AudioFilesManager.swift */,
@@ -449,29 +403,123 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FA9CF2E82242B6C800CBD883 /* CreateGame */ = {
+			isa = PBXGroup;
+			children = (
+				FA06818F1B2B1491008A5C9F /* CreateCrosswordViewController.swift */,
+				FAD621521B2F03AF00B1AC4A /* NewWordCollectionViewCell.swift */,
+			);
+			path = CreateGame;
+			sourceTree = "<group>";
+		};
+		FA9CF2E92242B73700CBD883 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FAFAB86B1C161DA100CBC16B /* UIColorExtension.swift */,
+				EFB828681BF65B2E0017CF35 /* UINavigationControllerExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FA9CF2EA2242B7E500CBD883 /* ApplicationDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FA96DE981B29C0CE00149113 /* AppDelegate.swift */,
+			);
+			path = ApplicationDelegate;
+			sourceTree = "<group>";
+		};
+		FA9CF2EB2242B80C00CBD883 /* InitialView */ = {
+			isa = PBXGroup;
+			children = (
+				FAE1C8B11B385E1F00FFE77C /* InitialViewController.swift */,
+				77D725901C0F56CF00A687E8 /* StatusBarViewController.swift */,
+				FAF3E2191C45932800BE8A8F /* GamesHeaderView.swift */,
+			);
+			path = InitialView;
+			sourceTree = "<group>";
+		};
+		FA9CF2EC2242B84E00CBD883 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EF41DCB71BDAA50A008D72CE /* WordAndClue.swift */,
+				EF41DCB91BDAA584008D72CE /* Clue.swift */,
+				FAE14DBA1C49139100E245CA /* Game.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FA9CF2ED2242B90C00CBD883 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA96DEA31B29C0CE00149113 /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FA9CF2EE2242B95D00CBD883 /* SavedGames */ = {
+			isa = PBXGroup;
+			children = (
+				EF986E501E1008BF0071205E /* GalleryGlobalValues.swift */,
+				77BCE0481C5153FF004CA31B /* GalleryAndGamesViewController.swift */,
+				FA9CF2F02242B9DE00CBD883 /* Words */,
+				FA9CF2EF2242B99800CBD883 /* Games */,
+			);
+			path = SavedGames;
+			sourceTree = "<group>";
+		};
+		FA9CF2EF2242B99800CBD883 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				FA588A3A1C5E4C960014EE3B /* GamesViewController.swift */,
+				FAAB7EF61C3F19A9004561EF /* GamesCollectionViewController.swift */,
+				FA8D2D921C3F2F2B004F0375 /* GameCollectionViewCell.swift */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		FA9CF2F02242B9DE00CBD883 /* Words */ = {
+			isa = PBXGroup;
+			children = (
+				FAD50B961C5CE986002C8B37 /* GalleryViewController.swift */,
+				FA1E0EF51C495BB000596D44 /* GalleryCollectionViewController.swift */,
+				FAC71AC01C49637100F67F8C /* GalleryCollectionViewCell.swift */,
+			);
+			path = Words;
+			sourceTree = "<group>";
+		};
+		FA9CF2F12242BA2100CBD883 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		FA9CF2F22242BA3C00CBD883 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FA96DEA01B29C0CE00149113 /* Main.storyboard */,
+				2F494D051ECCCBC5004213DC /* iPhone.storyboard */,
+				FA96DEA51B29C0CE00149113 /* LaunchScreen.xib */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FA9CF2F32242BA6F00CBD883 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				7708F5101C64FCD500832989 /* TutorialContentViewController.swift */,
+				7708F5121C6504B900832989 /* TutorialCurrentPageVC.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
 		FABD924E2241326700230458 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				FABD924F2241327D00230458 /* AVFoundation.framework */,
 			);
 			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		FAC71AC21C496D6F00F67F8C /* Games */ = {
-			isa = PBXGroup;
-			children = (
-				FAF3E2191C45932800BE8A8F /* GamesHeaderView.swift */,
-				FA8D2D921C3F2F2B004F0375 /* GameCollectionViewCell.swift */,
-			);
-			name = Games;
-			sourceTree = "<group>";
-		};
-		FAC71AC31C496D8300F67F8C /* Gallery */ = {
-			isa = PBXGroup;
-			children = (
-				FAC71AC01C49637100F67F8C /* GalleryCollectionViewCell.swift */,
-			);
-			name = Gallery;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
