@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Photos
 
-class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayout{
+class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
     @IBOutlet weak var galleryCollectionView: UICollectionView!
     @IBOutlet weak var playButton: UIButton!
@@ -37,7 +37,10 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
         WordAndClueServices.retriveAllWordAndClues({result in
             self.gallery = result
-            self.galleryCollectionView.reloadData()
+            
+            DispatchQueue.main.async {
+                self.galleryCollectionView.reloadData()
+            }
             
             let numberOfVisibleCells = self.numberOfVisibleColumns * self.numberOfVisibleLines
             if (self.gallery.count > numberOfVisibleCells){
@@ -62,7 +65,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
     }
     
-    func numberOfSectionsInCollectionView(_ collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
@@ -70,7 +73,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
         return gallery.count
     }
     
-    @nonobjc func collectionView(_ collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GalleryCollectionViewCell
         let clueWord = self.gallery[indexPath.row].word

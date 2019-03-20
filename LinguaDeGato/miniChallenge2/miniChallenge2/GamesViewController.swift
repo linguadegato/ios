@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import Photos
 
-class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
+class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
 
     @IBOutlet weak var gamesCollectionView: UICollectionView!
     @IBOutlet weak var bottomView: UIView!
@@ -31,20 +31,20 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         
         GameServices.retrieveAllGames({ result in
             self.allGames = result
-            self.gamesCollectionView.reloadData()
-            
-            if (self.allGames.count > self.numberOfVisibleSections){
-                self.bottomView.isHidden = false
-            }else{
-                self.bottomView.isHidden = true
+            DispatchQueue.main.async {
+                self.gamesCollectionView.reloadData()
+                if (self.allGames.count > self.numberOfVisibleSections){
+                    self.bottomView.isHidden = false
+                }else{
+                    self.bottomView.isHidden = true
+                }
             }
         })
     }
     
     //MARK: - DATASOURCE
     
-    func numberOfSectionsInCollectionView(_ collectionView: UICollectionView) -> Int {
-        
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return allGames.count
     }
     
@@ -52,8 +52,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         return allGames[section].wordsAndClueArray.count
     }
     
-    @nonobjc func collectionView(_ collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
-        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GameCollectionViewCell
         let clueWord = allGames[indexPath.section].wordsAndClueArray[indexPath.row].word
         let imageID = allGames[indexPath.section].wordsAndClueArray[indexPath.row].clue.imageID
@@ -101,7 +100,7 @@ class GamesViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: IndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         switch kind {
         case UICollectionView.elementKindSectionHeader:
