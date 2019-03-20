@@ -468,7 +468,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                         self.view.addSubview(indicator)
                         indicator.startAnimating()
                         
-                        GameServices.saveGame(newGame, completion: {success in
+                        GameServices.saveGame(newGame, completionHandler: {success in
                             
                             OperationQueue.main.addOperation(BlockOperation(block: {
                                 indicator.removeFromSuperview()
@@ -500,7 +500,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
             self.view.addSubview(indicator)
             
             indicator.startAnimating()
-            GameServices.overwriteGame(newGame, completion: {
+            GameServices.overwriteGame(newGame, completionHandler: {
                 OperationQueue.main.addOperation(BlockOperation(block: {
                     indicator.removeFromSuperview()
                     self.savedGameAlert()
@@ -544,7 +544,7 @@ class CreateCrosswordViewController: StatusBarViewController, UITextFieldDelegat
                 self.view.addSubview(indicator)
                 
                 indicator.startAnimating()
-                GameServices.overwriteGame(aGame, completion: {
+                GameServices.overwriteGame(aGame, completionHandler: {
                     OperationQueue.main.addOperation(BlockOperation{
                         indicator.removeFromSuperview()
                         self.savedGameAlert()

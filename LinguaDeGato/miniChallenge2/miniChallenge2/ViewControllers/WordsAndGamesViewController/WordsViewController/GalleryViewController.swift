@@ -190,7 +190,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
                     self.view.addSubview(indicator)
                     indicator.startAnimating()
                     
-                    GameServices.saveGame(newGame, completion: { success in
+                    GameServices.saveGame(newGame, completionHandler: { success in
                         OperationQueue.main.addOperation(BlockOperation(block: {
                             indicator.removeFromSuperview()
                             if success {
@@ -269,7 +269,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegateFlowLayou
                 self.view.addSubview(indicator)
                 indicator.startAnimating()
                 
-                GameServices.overwriteGame(aGame, completion: {
+                GameServices.overwriteGame(aGame, completionHandler: {
                     OperationQueue.main.addOperation(BlockOperation(block: {
                         indicator.removeFromSuperview()
                     }))

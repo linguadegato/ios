@@ -13,7 +13,7 @@ class GameServices {
     
     //creates a LGCDGame from Game and save it
     //return true if game was saved, false if there's already a game with that name
-    static func saveGame(_ game: Game, completion: @escaping (Bool) -> Void) {
+    static func saveGame(_ game: Game, completionHandler: @escaping (Bool) -> Void) {
         
         let operation = BlockOperation(block: {
             
@@ -31,11 +31,11 @@ class GameServices {
             let savedGame = GameDAO.retrieveGameByName(game.name)
             if savedGame == nil {
                 let _ = GameDAO.insert(game)
-                completion(true)
+                completionHandler(true)
             }
             else {
                 print(savedGame!.name!)
-                completion(false)
+                completionHandler(false)
             }
         })
         
@@ -45,14 +45,14 @@ class GameServices {
     
     //if there's already a game with it's name, this function remove from DB, than
     //creates a LGCDGame and save it (calling saveGame)
-    static func overwriteGame(_ newGame: Game, completion: @escaping () -> Void) {
+    static func overwriteGame(_ newGame: Game, completionHandler: @escaping () -> Void) {
         
         let operation = BlockOperation(block: {
             if let oldGame = GameDAO.retrieveGameByName(newGame.name) {
                 GameDAO.delete(oldGame)
             }
             let _ = GameDAO.insert(newGame)
-            completion()
+            completionHandler()
         })
         
         //call DAO's method asyncronaly
@@ -60,16 +60,16 @@ class GameServices {
         
     }
     
-    static func retrieveGameByName(_ aName: String, completion: @escaping (Game?) -> Void) {
+    static func retrieveGameByName(_ aName: String, completionHandler: @escaping (Game?) -> Void) {
         
         let operation = BlockOperation(block: {
             let aPersistedGame = GameDAO.retrieveGameByName(aName)
             
             if aPersistedGame != nil {
-                completion(gameFromDataBase(aPersistedGame!))
+                completionHandler(gameFromDataBase(aPersistedGame!))
             }
             else {
-                completion(nil)
+                completionHandler(nil)
             }
         })
         
@@ -90,7 +90,7 @@ class GameServices {
         }
     }
     
-    static func retrieveAllGames(_ completion: @escaping (([Game]) -> Void)) {
+    static func retrieveAllGames(_ completionHandler: @escaping (([Game]) -> Void)) {
         
         let operation = BlockOperation(block: {
             var games: [Game] = []
@@ -99,7 +99,7 @@ class GameServices {
             for game in dbGames {
                 games.append(GameServices.gameFromDataBase(game))
             }
-            completion(games)
+            completionHandler(games)
         })
         
         //call DAO's method asyncronaly

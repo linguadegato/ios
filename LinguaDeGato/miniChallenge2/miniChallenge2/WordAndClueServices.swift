@@ -23,16 +23,16 @@ class WordAndClueServices {
         
     }
     
-    static func retrieveWordAndClue(_ aWordAndClue: WordAndClue, completion: @escaping ((WordAndClue?) -> Void)) {
+    static func retrieveWordAndClue(_ aWordAndClue: WordAndClue, completionHandler: @escaping ((WordAndClue?) -> Void)) {
         
         let operation = BlockOperation(block: {
             let aWord = WordAndClueDAO.retrieveWordAndClue(aWordAndClue)
             
             if aWord != nil {
-                completion(WordAndClueServices.wordAndClueFromDataBase(aWord!))
+                completionHandler(WordAndClueServices.wordAndClueFromDataBase(aWord!))
             }
             else {
-                completion(nil)
+                completionHandler(nil)
             }
         })
     
@@ -40,7 +40,7 @@ class WordAndClueServices {
         DatabaseManager.sharedInstance.databaseQueue.addOperation(operation)
     }
     
-    static func retriveWordAndCluesWithWord(_ word: String, completion:@escaping (([WordAndClue]) -> Void)) {
+    static func retriveWordAndCluesWithWord(_ word: String, completionHandler:@escaping (([WordAndClue]) -> Void)) {
         
         let operation = BlockOperation(block: {
                 var wordsList: [WordAndClue] = []
@@ -50,7 +50,7 @@ class WordAndClueServices {
                 for word in persistedWords {
                     wordsList.append(WordAndClueServices.wordAndClueFromDataBase(word))
                 }
-            completion(wordsList)
+            completionHandler(wordsList)
         })
         
         //call DAO's method asyncronaly
@@ -79,7 +79,7 @@ class WordAndClueServices {
         }
     }
 
-    static func retriveAllWordAndClues(_ completion: @escaping (([WordAndClue]) -> Void)) {
+    static func retriveAllWordAndClues(_ completionHandler: @escaping (([WordAndClue]) -> Void)) {
         
         
         let operation = BlockOperation(block: {
@@ -90,7 +90,7 @@ class WordAndClueServices {
                 wordsList.append(WordAndClueServices.wordAndClueFromDataBase(word))
             }
             
-            completion(wordsList)
+            completionHandler(wordsList)
         })
         
         //call DAO's method asyncronaly

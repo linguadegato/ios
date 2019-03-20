@@ -234,7 +234,7 @@ class GalleryCollectionViewController : UICollectionViewController{
                 _ in
                 if alertTextField.text != nil && alertTextField.text!.count > 0 {
                     let newGame = Game(gameName: alertTextField.text!, wordsAndClue: self.selectedWords)
-                    GameServices.saveGame(newGame, completion: {
+                    GameServices.saveGame(newGame, completionHandler: {
                         success in
                         if success {
                             let operation = BlockOperation(block: {
@@ -279,7 +279,7 @@ class GalleryCollectionViewController : UICollectionViewController{
         overwriteAlert.addAction(UIAlertAction(
             title: NSLocalizedString("GalleryCollectionViewController.overwriteGameAlert.YesBtn", value: "Yes", comment: "Yes button on alert popup that save the game and overwrite the other with the same name."),
             style: UIAlertAction.Style.default, handler: {_ in
-                GameServices.overwriteGame(aGame, completion: {})
+                GameServices.overwriteGame(aGame, completionHandler: {})
                 self.performSegue(withIdentifier: "GenerateCrossword", sender: nil)
             }
         ))
