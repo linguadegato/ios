@@ -141,7 +141,6 @@ class LGCrosswordGenerator {
     
     //return True if the word added has crossed (or the first); False if just fits
     fileprivate func fitAndAdd(_ word: WordAndClue, onlyAddInCross: Bool) -> Bool {
-        print("fit and Add: \(word.word), \(onlyAddInCross)")
         
         var fit = false
         var hasCrossed = false
