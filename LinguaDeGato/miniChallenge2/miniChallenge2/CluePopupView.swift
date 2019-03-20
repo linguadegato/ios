@@ -1,6 +1,6 @@
 //
 //  CluePopupView.swift
-//  miniChallenge2
+//  LinguaDeGato
 //
 //  This class is a View that renders and manage the gesture 
 //  recognition and medias of a Crossword BoardView Popup clue

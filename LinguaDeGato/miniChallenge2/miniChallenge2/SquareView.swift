@@ -1,6 +1,6 @@
 //
 //  SquareView.swift
-//  miniChallenge2
+//  LinguaDeGato
 //
 //  This class is a View that renders and manages
 //  a Crossword BoardView Square

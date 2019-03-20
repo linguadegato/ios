@@ -1,6 +1,6 @@
 //
 //  UINavigationControllerExtension.swift
-//  miniChallenge2
+//  LinguaDeGato
 //
 //  Created by Andre Scherma Soleo on 13/11/15.
 //  Copyright © 2015 Kobayashi. All rights reserved.

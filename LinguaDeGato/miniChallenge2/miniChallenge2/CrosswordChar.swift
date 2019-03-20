@@ -1,6 +1,6 @@
 //
 //  CrosswordChar.swift
-//  miniChallenge2
+//  LinguaDeGato
 //
 //
 //  This class store the characters data for a Crossword BoardView

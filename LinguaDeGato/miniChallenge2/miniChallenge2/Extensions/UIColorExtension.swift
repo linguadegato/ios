@@ -1,6 +1,6 @@
 //
 //  UIColorExtension.swift
-//  miniChallenge2
+//  LinguaDeGato
 //
 //  Created by Kobayashi on 12/7/15.
 //  Copyright © 2015 Kobayashi. All rights reserved.

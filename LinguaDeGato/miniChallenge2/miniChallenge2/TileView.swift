@@ -1,6 +1,6 @@
 //
 //  TileView.swift
-//  miniChallenge2
+//  LinguaDeGato
 //
 //  This class is a View that renders and manage the
 //  gesture recognition of a Crossword BoardView tile.

@@ -1,6 +1,6 @@
 //
 //  GamePlayViewController.swift
-//  miniChallenge2
+//  LinguaDeGato
 //
 //  Created by Andre Scherma Soleo on 20/08/15.
 //  Copyright (c) 2015 Kobayashi. All rights reserved.

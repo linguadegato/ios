@@ -1,6 +1,6 @@
 //
 //  CrosswordElement.swift
-//  miniChallenge2
+//  LinguaDeGato
 //
 //  This (for now, maybe forever, empty) class encapsulates the
 //  the objects used by a BoardViewDatasource to generate a

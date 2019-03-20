@@ -1,6 +1,6 @@
 //
 //  StatusBarViewController.swift
-//  miniChallenge2
+//  LinguaDeGato
 //
 //  Created by Jheniffer Jordao Leonardi on 12/2/15.
 //  Copyright © 2015 Kobayashi. All rights reserved.

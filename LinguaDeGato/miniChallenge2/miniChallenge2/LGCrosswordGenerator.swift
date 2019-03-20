@@ -1,6 +1,6 @@
 //
 //  LGCrosswordGenerator.swift
-//  miniChallenge2
+//  LinguaDeGato
 //
 //  Created by Andre Scherma Soleo on 06/11/15.
 //  Copyright © 2015 Kobayashi. All rights reserved.

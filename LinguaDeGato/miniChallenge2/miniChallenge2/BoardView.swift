@@ -1,6 +1,6 @@
 //
 //  BoardView.swift
-//  miniChallenge2
+//  LinguaDeGato
 //
 //  This class is a UIView that generates a crossword game (empty squares,
 //  clues and character tiles) and manages their movement.

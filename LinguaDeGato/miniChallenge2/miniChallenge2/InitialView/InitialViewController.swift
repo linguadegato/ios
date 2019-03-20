@@ -1,6 +1,6 @@
 //
 //  InitialViewController.swift
-//  miniChallenge2
+//  LinguaDeGato
 //
 //  Created by Kobayashi on 6/22/15.
 //  Copyright (c) 2015 Kobayashi. All rights reserved.

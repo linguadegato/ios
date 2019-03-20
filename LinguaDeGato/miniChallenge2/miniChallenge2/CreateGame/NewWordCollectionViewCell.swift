@@ -1,6 +1,6 @@
 //
 //  NewWordCollectionViewCell.swift
-//  miniChallenge2
+//  LinguaDeGato
 //
 //  Created by Kobayashi on 6/15/15.
 //  Copyright (c) 2015 Kobayashi. All rights reserved.

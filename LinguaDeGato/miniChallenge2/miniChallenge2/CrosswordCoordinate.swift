@@ -1,6 +1,6 @@
 //
 //  CrosswordCoordinate.swift
-//  miniChallenge2
+//  LinguaDeGato
 //
 //  Created by Andre Scherma Soleo on 27/10/15.
 //  Copyright © 2015 Kobayashi. All rights reserved.

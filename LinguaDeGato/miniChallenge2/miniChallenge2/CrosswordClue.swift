@@ -1,6 +1,6 @@
 //
 //  CrosswordClue.swift
-//  miniChallenge2
+//  LinguaDeGato
 //
 //  This class store the clue data for a Crossword BoardView
 //
